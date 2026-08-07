@@ -4,7 +4,7 @@ import { projects } from "@/lib/data";
 
 export function Projects() {
   return (
-    <Section id="build" title="Build">
+    <Section id="build" kicker="02 · Build" title="Build">
       <div>
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
