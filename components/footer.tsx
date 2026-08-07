@@ -14,7 +14,7 @@ export function Footer() {
   const lang = useLang();
   return (
     <footer className="py-12">
-      <div className="mx-auto flex max-w-[800px] flex-col gap-2 px-6 font-mono text-xs text-foreground-muted md:flex-row md:items-center md:justify-between md:px-16">
+      <div className="mx-auto flex max-w-[1080px] flex-col gap-2 px-6 font-mono text-xs text-foreground-muted md:flex-row md:items-center md:justify-between md:px-16">
         <p>
           © {year} {profile.nameEn}
         </p>

@@ -8,7 +8,7 @@ export function Hero() {
   const lang = useLang();
   return (
     <section id="top" className="scroll-mt-20 border-b border-border py-20 md:py-28">
-      <div className="mx-auto max-w-[800px] px-6 md:px-16">
+      <div className="mx-auto max-w-[1080px] px-6 md:px-16">
         <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
           {profile.nameEn}{" "}
           <span className="font-normal text-foreground-muted">· {profile.nameKr}</span>

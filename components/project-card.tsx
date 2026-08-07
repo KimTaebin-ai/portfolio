@@ -60,6 +60,17 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
 
+      {project.challenge ? (
+        <div className="mt-5 border-l-2 border-accent pl-4">
+          <p className="text-xs font-semibold text-accent md:text-sm">
+            {project.challenge.label[lang]}
+          </p>
+          <p className="mt-1.5 text-sm text-foreground-muted md:text-base">
+            {project.challenge.body[lang]}
+          </p>
+        </div>
+      ) : null}
+
       {project.keyResults ? (
         <div className="mt-5">
           <CardHeading lang={lang}>{HEADINGS.results[lang]}</CardHeading>

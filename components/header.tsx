@@ -10,7 +10,7 @@ export function Header() {
   const lang = useLang();
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur">
-      <div className="mx-auto flex max-w-[800px] items-center justify-between px-6 py-4 md:px-16">
+      <div className="mx-auto flex max-w-[1080px] items-center justify-between px-6 py-4 md:px-16">
         <Link href="#top" className="text-sm font-semibold tracking-tight text-foreground no-underline">
           {profile.nameEn} <span className="text-foreground-muted">· {profile.nameKr}</span>
         </Link>

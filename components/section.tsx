@@ -13,7 +13,7 @@ export function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-20 border-b border-border py-16 last:border-b-0 md:py-24">
-      <div className="mx-auto max-w-[800px] px-6 md:px-16">
+      <div className="mx-auto max-w-[1080px] px-6 md:px-16">
         {kicker ? (
           <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent">
             {kicker}

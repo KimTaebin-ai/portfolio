@@ -14,33 +14,47 @@ type DiagramNode = {
   variant: "past" | "loop" | "future";
 };
 
+const TOP_Y = 26;
+const LOOP_Y = 146;
+const NODE_H = 56;
+
 const NODES: DiagramNode[] = [
   {
-    id: "A",
+    id: "Z",
     x: 20,
-    y: 26,
-    w: 250,
-    h: 56,
+    y: TOP_Y,
+    w: 220,
+    h: NODE_H,
+    title: { ko: "마이스터고 · 산업 경력", en: "Trade school · industry" },
+    sub: { ko: "2018–2024 · 4개 조직", en: "2018–2024 · 4 orgs" },
+    variant: "past",
+  },
+  {
+    id: "A",
+    x: 287,
+    y: TOP_Y,
+    w: 220,
+    h: NODE_H,
     title: { ko: "42 Gyeongsan · 2024–", en: "42 Gyeongsan · 2024–" },
     sub: { ko: "밑바닥부터 CS — C, UNIX, 네트워크", en: "CS from scratch — C, UNIX, networks" },
     variant: "past",
   },
   {
     id: "B",
-    x: 325,
-    y: 26,
-    w: 250,
-    h: 56,
+    x: 554,
+    y: TOP_Y,
+    w: 230,
+    h: NODE_H,
     title: { ko: "WTIA × UW CoMotion", en: "WTIA × UW CoMotion" },
     sub: { ko: "Seattle 2026 — ML 엔지니어링", en: "Seattle 2026 — ML engineering" },
     variant: "past",
   },
   {
     id: "F",
-    x: 630,
-    y: 26,
-    w: 250,
-    h: 56,
+    x: 831,
+    y: TOP_Y,
+    w: 209,
+    h: NODE_H,
     title: { ko: "대규모 ML 시스템", en: "ML systems at scale" },
     sub: { ko: "GPU · 분산 학습", en: "GPU · distributed training" },
     variant: "future",
@@ -48,29 +62,29 @@ const NODES: DiagramNode[] = [
   {
     id: "C",
     x: 20,
-    y: 132,
-    w: 250,
-    h: 56,
+    y: LOOP_Y,
+    w: 300,
+    h: NODE_H,
     title: { ko: "기본 원리부터 시작", en: "Start from first principles" },
     sub: { ko: "프레임워크보다 수학 먼저", en: "math before frameworks" },
     variant: "loop",
   },
   {
     id: "D",
-    x: 325,
-    y: 132,
-    w: 250,
-    h: 56,
+    x: 360,
+    y: LOOP_Y,
+    w: 300,
+    h: NODE_H,
     title: { ko: "바닥부터 직접 만들기", en: "Build it from scratch" },
     sub: { ko: "셸 · 레이트레이서 · RAG · 로봇", en: "shell · raytracer · RAG · robot" },
     variant: "loop",
   },
   {
     id: "E",
-    x: 630,
-    y: 132,
-    w: 250,
-    h: 56,
+    x: 700,
+    y: LOOP_Y,
+    w: 300,
+    h: NODE_H,
     title: { ko: "측정하고 검증하기", en: "Measure & verify" },
     sub: { ko: "그리드서치 · 평가 · 동료 평가", en: "grid search · evals · peer review" },
     variant: "loop",
@@ -80,10 +94,10 @@ const NODES: DiagramNode[] = [
 /* Touring ball: an ambient dot walks the main path (the road so far, plus the
    loop I repeat); every 3rd lap it branches toward the goal node in amber.
    Coordinates are the authored viewBox values, so no CTM math is needed. */
-const MAIN = ["A", "B", "C", "D", "E"];
-const ALT = ["A", "B", "F"];
-const SPEED = 115; // viewBox units / second
-const PAUSE = 0.26; // seconds resting at each node
+const MAIN = ["Z", "A", "B", "C", "D", "E"];
+const ALT = ["Z", "A", "B", "F"];
+const SPEED = 130; // viewBox units / second
+const PAUSE = 0.24; // seconds resting at each node
 const FADE = 0.22; // seconds fading out/in between laps
 
 function center(id: string) {
@@ -92,8 +106,8 @@ function center(id: string) {
 }
 
 const ARIA_LABEL = {
-  ko: "커리어 경로: 2024년부터 42 Gyeongsan에서 컴퓨터 사이언스를 밑바닥부터, 지금은 2026년 Seattle의 WTIA × UW CoMotion에서, 대규모 ML 시스템을 향해 — 반복되는 루프로 움직입니다: 기본 원리부터 시작, 바닥부터 직접 만들기, 측정하고 검증하기.",
-  en: "Career path: computer science from scratch at 42 Gyeongsan since 2024, now at WTIA × UW CoMotion in Seattle 2026, headed toward ML systems at scale — driven by a repeating loop: start from first principles, build it from scratch, measure and verify.",
+  ko: "커리어 경로: 2018년 마이스터고와 4년의 산업 경력에서 시작해, 2024년부터 42 Gyeongsan에서 컴퓨터 사이언스를 밑바닥부터, 지금은 2026년 Seattle의 WTIA × UW CoMotion에서, 대규모 ML 시스템을 향해 — 반복되는 루프로 움직입니다: 기본 원리부터 시작, 바닥부터 직접 만들기, 측정하고 검증하기.",
+  en: "Career path: starting in 2018 with trade school and 4 years across industry, then computer science from scratch at 42 Gyeongsan since 2024, now at WTIA × UW CoMotion in Seattle 2026, headed toward ML systems at scale — driven by a repeating loop: start from first principles, build it from scratch, measure and verify.",
 };
 
 const LOOP_CAPTION = {
@@ -219,10 +233,10 @@ export function CareerPath() {
     <div className="overflow-x-auto">
       <svg
         ref={svgRef}
-        viewBox="0 0 900 240"
+        viewBox="0 0 1060 260"
         role="img"
         aria-label={ARIA_LABEL[lang]}
-        className="min-w-[640px]"
+        className="min-w-[760px]"
         style={{ width: "100%" }}
       >
         <defs>
@@ -254,7 +268,7 @@ export function CareerPath() {
         </text>
         <text
           x="20"
-          y="122"
+          y="136"
           style={{
             fontFamily: "var(--font-geist-mono)",
             fontSize: 10,
@@ -266,10 +280,11 @@ export function CareerPath() {
           THE LOOP
         </text>
 
-        {/* edges */}
-        <path d="M 270 54 L 317 54" stroke="var(--accent)" strokeWidth="1.8" fill="none" markerEnd="url(#cp-arrow)" />
+        {/* top-row edges: Z → A → B ⇢ F (goal) */}
+        <path d="M 240 54 L 279 54" stroke="var(--accent)" strokeWidth="1.8" fill="none" markerEnd="url(#cp-arrow)" />
+        <path d="M 507 54 L 546 54" stroke="var(--accent)" strokeWidth="1.8" fill="none" markerEnd="url(#cp-arrow)" />
         <path
-          d="M 575 54 L 622 54"
+          d="M 784 54 L 823 54"
           stroke="var(--accent)"
           strokeWidth="1.8"
           fill="none"
@@ -277,17 +292,23 @@ export function CareerPath() {
           opacity="0.75"
           markerEnd="url(#cp-arrow)"
         />
+
+        {/* elbow: B (current) drops into the loop */}
         <path
-          d="M 450 82 L 450 98 Q 450 106 442 106 L 153 106 Q 145 106 145 114 L 145 128"
+          d="M 669 82 L 669 98 Q 669 106 661 106 L 178 106 Q 170 106 170 114 L 170 142"
           stroke="var(--accent)"
           strokeWidth="1.8"
           fill="none"
           markerEnd="url(#cp-arrow)"
         />
-        <path d="M 270 160 L 317 160" stroke="var(--accent)" strokeWidth="1.8" fill="none" markerEnd="url(#cp-arrow)" />
-        <path d="M 575 160 L 622 160" stroke="var(--accent)" strokeWidth="1.8" fill="none" markerEnd="url(#cp-arrow)" />
+
+        {/* loop-row edges: C → D → E */}
+        <path d="M 320 174 L 352 174" stroke="var(--accent)" strokeWidth="1.8" fill="none" markerEnd="url(#cp-arrow)" />
+        <path d="M 660 174 L 692 174" stroke="var(--accent)" strokeWidth="1.8" fill="none" markerEnd="url(#cp-arrow)" />
+
+        {/* loop-back: E returns to C */}
         <path
-          d="M 755 188 L 755 204 Q 755 212 747 212 L 153 212 Q 145 212 145 204 L 145 192"
+          d="M 850 202 L 850 218 Q 850 226 842 226 L 178 226 Q 170 226 170 218 L 170 206"
           stroke="var(--accent)"
           strokeWidth="1.8"
           fill="none"
@@ -296,8 +317,8 @@ export function CareerPath() {
           markerEnd="url(#cp-arrow)"
         />
         <text
-          x="450"
-          y="230"
+          x="530"
+          y="246"
           textAnchor="middle"
           style={{ fontFamily: "var(--font-geist-mono)", fontSize: 10.5, fill: "var(--foreground-muted)" }}
         >
