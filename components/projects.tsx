@@ -11,7 +11,7 @@ export function Projects() {
   const lang = useLang();
   return (
     <Section id="build" kicker="02 · Build" title={TITLE[lang]}>
-      <div>
+      <div className="space-y-6">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

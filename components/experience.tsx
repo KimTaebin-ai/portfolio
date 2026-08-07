@@ -13,13 +13,9 @@ export function Experience() {
   const lang = useLang();
   return (
     <Section id="experience" kicker="04 · Experience" title={TITLES.experience[lang]}>
-      <div className="space-y-10 border-l border-border pl-6">
+      <div className="grid gap-4 sm:grid-cols-2">
         {experience.map((item) => (
-          <div key={item.org.ko} className="relative">
-            <span
-              className="absolute top-1.5 -left-[31px] h-2.5 w-2.5 rounded-full border-2 border-background bg-accent"
-              aria-hidden
-            />
+          <div key={item.org.ko} className="rounded-xl border border-border p-5 md:p-6">
             <h3 className="text-lg font-semibold md:text-xl">{item.org[lang]}</h3>
             <p className="mt-1 font-mono text-xs text-foreground-muted md:text-[13px]">
               {item.period[lang]}
@@ -39,13 +35,9 @@ export function Experience() {
       <h2 className="mb-6 text-2xl font-semibold tracking-tight md:text-3xl">
         {TITLES.education[lang]}
       </h2>
-      <div className="space-y-10 border-l border-border pl-6">
+      <div className="grid gap-4 sm:grid-cols-2">
         {education.map((item) => (
-          <div key={item.org.ko} className="relative">
-            <span
-              className="absolute top-1.5 -left-[31px] h-2.5 w-2.5 rounded-full border-2 border-background bg-accent"
-              aria-hidden
-            />
+          <div key={item.org.ko} className="rounded-xl border border-border p-5 md:p-6">
             <h3 className="text-lg font-semibold md:text-xl">{item.org[lang]}</h3>
             <p className="mt-1 font-mono text-xs text-foreground-muted md:text-[13px]">
               {item.period[lang]}

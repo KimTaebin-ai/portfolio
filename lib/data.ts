@@ -4,11 +4,11 @@ export type L<T> = { ko: T; en: T };
 export const profile = {
   nameEn: "Taebin Kim",
   nameKr: "김태빈",
-  roles: "ML Systems Engineer · Full-Stack Developer · 42 Gyeongsan",
+  roles: "ML Systems Engineer · Full-Stack Developer · École 42",
   tagline: "Systems from first principles",
   intro: {
-    ko: "컴퓨터 사이언스를 밑바닥부터 — 42 Gyeongsan에서 C로 셸과 레이트레이서를 프레임워크 없이 직접 만들며 배웁니다. 수학도 같은 방식입니다 — 수학의정석부터 해석학·리군까지, 강의 없이 책을 직접 풀며 쌓는 중입니다. 지금은 Seattle의 WTIA × UW CoMotion에서 ML 엔지니어링으로 그 기반을 넓히고 있습니다. 도메인이 바뀌어도 질문은 하나입니다 — 이건 밑에서 어떻게 동작하는가.",
-    en: "Computer science from the ground up — at 42 Gyeongsan I build shells and ray tracers in C with no framework to hide behind. Math gets the same treatment: I rebuilt my foundations working through two classic Korean problem books twice each, and I'm now climbing through analysis, Lie groups, and beyond — book by book, no lectures. Right now I'm extending that foundation in ML engineering at WTIA × UW CoMotion in Seattle. The domain changes; the question doesn't: how does this actually work, underneath?",
+    ko: "컴퓨터 사이언스를 밑바닥부터 — École 42에서 C로 셸과 레이트레이서를 프레임워크 없이 직접 만들며 배웁니다. 수학도 같은 방식입니다 — 수학의정석부터 해석학·리군까지, 강의 없이 책을 직접 풀며 쌓는 중입니다. 지금은 Seattle의 WTIA × UW CoMotion에서 ML 엔지니어링으로 그 기반을 넓히고 있습니다. 도메인이 바뀌어도 질문은 하나입니다 — 이건 밑에서 어떻게 동작하는가.",
+    en: "Computer science from the ground up — at École 42 I build shells and ray tracers in C with no framework to hide behind. Math gets the same treatment: I rebuilt my foundations working through two classic Korean problem books twice each, and I'm now climbing through analysis, Lie groups, and beyond — book by book, no lectures. Right now I'm extending that foundation in ML engineering at WTIA × UW CoMotion in Seattle. The domain changes; the question doesn't: how does this actually work, underneath?",
   } satisfies L<string>,
   techChips: ["C/C++", "Python", "Mathematics", "Systems Programming", "ML Infrastructure"],
   currentLine: {
@@ -46,7 +46,7 @@ export const current: { org: L<string>; period: L<string>; body: L<string[]> }[]
     },
   },
   {
-    org: { ko: "42 Gyeongsan — Outer Circle", en: "42 Gyeongsan — Outer Circle" },
+    org: { ko: "École 42 — Outer Circle", en: "École 42 — Outer Circle" },
     period: { ko: "2024 – 현재", en: "2024 – present" },
     body: {
       ko: [
@@ -62,7 +62,7 @@ export const current: { org: L<string>; period: L<string>; body: L<string[]> }[]
     period: { ko: "2024 – 현재", en: "2024 – present" },
     body: {
       ko: [
-        "42에서 CS의 바닥에 수학이 있다는 걸 깨닫고, 수학의정석 2권을 두 번씩 풀어 기초를 다시 세웠습니다. 지금은 미적분·선형대수·확률론·최적화이론·해석학, 리군과 강체변환, 이산수학·조합론, 그리고 TAOCP를 — 강의 없이 책으로, 어려운 문제를 직접 풀며 올라가는 중입니다.",
+        "École 42에서 CS의 바닥에 수학이 있다는 걸 깨닫고, 수학의정석 2권을 두 번씩 풀어 기초를 다시 세웠습니다. 지금은 미적분·선형대수·확률론·최적화이론·해석학, 리군과 강체변환, 이산수학·조합론, 그리고 TAOCP를 — 강의 없이 책으로, 어려운 문제를 직접 풀며 올라가는 중입니다.",
       ],
       en: [
         "Realized at 42 that math sits underneath all of CS, so I rebuilt my foundations — working through two volumes of a classic Korean problem book twice each. Now I'm climbing through calculus, linear algebra, probability, optimization theory, real analysis, Lie groups and rigid-body transforms, discrete math and combinatorics, and TAOCP — no lectures, just books and hard problems, solved by hand.",
@@ -109,54 +109,59 @@ export const projects: Project[] = [
       en: "Graded 45 retrieval configurations in an overnight automated grid search — recall 0.909 on a blind holdout, instructor score 9/10, 1st place among participants.",
     },
     flow: [
-      { label: { ko: "§조항 경계로 청킹", en: "Chunk by § boundary" }, sub: { ko: "coverage 0.41→0.86", en: "coverage 0.41→0.86" } },
-      { label: { ko: "45개 설정 그리드서치", en: "Grid search 45 configs" } },
-      { label: { ko: "single-shot vs agentic 비교", en: "Compare single-shot vs agentic" } },
-      { label: { ko: "§ citation 응답", en: "Answer with § citation" } },
+      { label: { ko: "PDF 정제 + §청킹", en: "Clean PDF + § chunking" }, sub: { ko: "0.39→0.80 유사도", en: "0.39→0.80 similarity" } },
+      { label: { ko: "쿼리 재작성 + 게이트", en: "Rewrite + gate query" } },
+      { label: { ko: "검색: gate·rerank·확장", en: "Retrieve: gate·rerank·expand" } },
+      { label: { ko: "one-shot / agentic 생성", en: "One-shot / agentic generation" } },
+      { label: { ko: "인용 재번호 + 스트리밍", en: "Renumber citations + stream" } },
     ],
     howItWorks: {
       ko: [
-        "법조문을 §조항 경계로 청킹 — 고정 청킹 대비 coverage 0.41 → 0.86",
-        "embedding model × chunk size × top-k × 검색 방식, 45개 설정 야간 자동 그리드서치",
-        "single-shot(저비용) vs agentic loop(고정확)를 측정으로 비교 — 품질이 같으면 싼 쪽을 채택",
-        "모든 답변에 원본 조항(§) citation을 붙여 검증 가능하게",
+        "PDF 추출 노이즈(줄바꿈 하이픈, 헤더, docket 인용)를 제거하고 §조항 경계로 청킹 — 답을 담은 청크의 유사도가 0.39 → 0.80으로 뛰었다",
+        "질문 앞에 두 개의 관문: 후속 질문은 재작성으로 독립형 검색어로 바꾸고, 모호한 질문은 되묻고(CLARIFY), 도메인 밖 질문은 유사도 게이트가 걸러낸다",
+        "검색 파이프라인: 최고 유사도 0.45 미만이면 0토큰으로 거절(answer gate) → 20개 후보 중 실제 필요한 것만 고르는 적응형 rerank → 인접 청크·교차참조(§ X.Y) 확장 → 중복 제거",
+        "one-shot(저비용, 매번 새 컨텍스트)과 agentic 툴 루프(최대 3회 재검색, 프롬프트 캐싱 적용) 두 경로를 나란히 비교",
+        "LLM이 건너뛴 인용 번호를 [1][2][3]으로 재정렬하고, SSE로 토큰 단위 스트리밍",
       ],
       en: [
-        "Chunk the statute along § clause boundaries — coverage 0.41 → 0.86 versus fixed-size chunking",
-        "Overnight automated grid search across 45 configs: embedding model × chunk size × top-k × retrieval method",
-        "Measured single-shot (cheap) against an agentic loop (more accurate) — at equal quality, took the cheaper one",
-        "Every answer carries a citation back to the original § clause, so it's verifiable",
+        "Strip PDF extraction noise (line-break hyphenation, headers, docket citations) and chunk on § clause boundaries — similarity for the chunk that actually answers a question jumped from 0.39 to 0.80",
+        "Two gates before the question reaches retrieval: rewrite resolves follow-ups into standalone queries, ambiguous questions get a clarifying question back (CLARIFY), and out-of-domain questions are caught by a similarity gate",
+        "Retrieval pipeline: below 0.45 top similarity, reject for 0 tokens (answer gate) → adaptive rerank picks only what's actually needed from 20 candidates → expand with neighboring chunks and cross-references (§ X.Y) → dedupe",
+        "Two generation paths side by side: one-shot (cheap, fresh context each time) vs. an agentic tool loop (up to 3 re-searches, with prompt caching)",
+        "Renumbers any citations the model skipped into a clean [1][2][3], and streams the answer token-by-token over SSE",
       ],
     },
     challenge: {
-      label: { ko: "유사도 ≠ 관련성", en: "Similarity ≠ relevance" },
+      label: { ko: "유사도 ≠ 관련성, 그리고 비용", en: "Similarity ≠ relevance — and cost" },
       body: {
-        ko: "고정 페이지 청킹에서는 §61.109 조항(비행시간 요건에 대한 정확한 답)이 유사도 0.39, 순위 2600위 밖으로 묻혔습니다 — 청크가 앞 조항의 꼬리와 다음 조항의 머리, 헤더·문서번호 같은 PDF 노이즈까지 뒤섞여 있었기 때문입니다. §조항 경계로 청킹하고 상투구를 제거하자 같은 조항이 유사도 0.80, 1위로 올라왔습니다.",
-        en: "With naive page-by-page chunking, the passage that directly answers 'what flight hours are required' (§61.109) embedded at only 0.39 similarity — rank ~2600 — because each chunk blended the tail of one section with the head of the next, plus header and docket noise. Chunking on section boundaries and stripping that boilerplate lifted the same passage to 0.80 similarity, rank #1.",
+        ko: "고정 페이지 청킹에서는 §61.109 조항(비행시간 요건에 대한 정확한 답)이 유사도 0.39, 순위 2600위 밖으로 묻혔습니다. §조항 경계로 청킹하고 PDF 노이즈를 제거하자 같은 조항이 유사도 0.80, 1위로 올라왔습니다. 넓은 열거형 질문에서는 agentic 루프가 입력 토큰을 15k~55k까지 썼는데, 최악은 검색만 하다 답을 못 찾아 강제로 답하는 경로가 증거 pool 전체를 캐시 없이 재전송하는 경우였습니다(한 호출 12,157 토큰). pool 상한과 스니펫 축약, 그리고 forced-answer가 이미 캐시된 대화를 이어가도록 바꾸자 그 호출은 46 uncached 토큰으로, 전체적으로는 최대 86%까지 줄었습니다.",
+        en: "With naive page-by-page chunking, the passage that directly answers 'what flight hours are required' (§61.109) embedded at only 0.39 similarity, rank ~2600. Chunking on section boundaries and stripping PDF noise lifted the same passage to 0.80 similarity, rank #1. Separately, broad enumerative questions pushed the agentic loop to 15k–55k input tokens — worst case was the forced-answer path (the loop runs out of search budget and has to answer anyway) re-sending the entire evidence pool with no cache, one call costing 12,157 tokens. Capping the pool, shortening tool-output snippets, and having forced-answer continue the already-cached conversation instead dropped that call to 46 uncached tokens — up to 86% overall.",
       },
     },
     keyResults: {
       ko: [
         "Recall 0.909 (blind holdout)",
-        "동일 품질 기준 토큰 38% 절감",
+        "Agentic 검색 루프 입력 토큰 최대 86% 절감 — 'drugs and alcohol' 질문 14,019 → 1,908",
+        "무관한 질문은 answer gate가 0토큰으로 거절",
         "모든 답변에 § citation — 검증 가능한 답만 출력",
       ],
       en: [
         "Recall 0.909 (blind holdout)",
-        "38% fewer tokens at equal quality",
+        "Up to 86% fewer input tokens on the agentic search loop — e.g. the 'drugs and alcohol' question: 14,019 → 1,908",
+        "Answer gate rejects off-corpus questions for 0 tokens",
         "Every answer cites its § source — only verifiable answers ship",
       ],
     },
     whatILearned: {
       ko: [
         "RAG 성능 차이는 대부분 검색 단계에서 갈린다 — 모델 교체보다 청크 크기·top-k 조정이 점수를 훨씬 크게 움직였다",
-        "감이 아니라 측정: 밤새 돌린 채점표가 어떤 직감보다 정확했다",
+        "프롬프트 캐싱은 컨텍스트가 매 턴 자라는 구조에서만 값어치가 있다 — forced-answer를 캐시된 대화 이어가기로 바꾸자 한 호출이 12,157 → 46 uncached 토큰으로 줄었다",
         "비용도 성능이다 — 같은 품질이면 싼 구성이 이긴 구성이다",
         "한계도 하나 남았다: 채점 정답셋을 제가 직접 만들며 테스트했다 — 문제를 낸 사람이 채점까지 하면 점수는 관대해지기 쉽다. 다음엔 정답셋 제작과 평가를 분리하려 한다",
       ],
       en: [
         "Most of the RAG performance gap comes from retrieval, not generation — tuning chunk size and top-k moved the score far more than swapping models",
-        "Measurement over intuition: the grading sheet I ran overnight was more accurate than any gut call",
+        "Prompt caching only pays off when the context grows turn over turn — switching forced-answer to continue the already-cached conversation dropped one call from 12,157 to 46 uncached tokens",
         "Cost is a performance metric too — at equal quality, the cheaper configuration wins",
         "One limitation remains: I built and ran the answer key myself — when the person who writes the questions also grades them, scores tend to run generous. Next time I'd separate answer-key creation from evaluation.",
       ],
@@ -727,17 +732,17 @@ export const experience: { org: L<string>; period: L<string>; bullets: L<string[
       ko: [
         "ML Engineering · ML Infrastructure 인턴십을 목표로 참여",
         "Poma AI 캡스톤 프로젝트 주도",
-        "42 Gyeongsan 관계자·VC를 잇는 생태계 구축",
+        "École 42 관계자·VC를 잇는 생태계 구축",
       ],
       en: [
         "Aiming for an ML Engineering / ML Infrastructure internship",
         "Leading the Poma AI capstone project",
-        "Building connections between 42 Gyeongsan contacts and VCs",
+        "Building connections between École 42 contacts and VCs",
       ],
     },
   },
   {
-    org: { ko: "42 Gyeongsan", en: "42 Gyeongsan" },
+    org: { ko: "École 42", en: "École 42" },
     period: { ko: "2024 – 현재", en: "2024 – present" },
     bullets: {
       ko: [
@@ -815,7 +820,10 @@ export const experience: { org: L<string>; period: L<string>; bullets: L<string[
 
 export const education: { org: L<string>; period: L<string>; body: L<string[]> }[] = [
   {
-    org: { ko: "42 Gyeongsan — 컴퓨터 사이언스 기초", en: "42 Gyeongsan — Computer Science Fundamentals" },
+    org: {
+      ko: "École 42 (Gyeongsan) — 컴퓨터 사이언스 기초",
+      en: "École 42 (Gyeongsan) — Computer Science Fundamentals",
+    },
     period: { ko: "2024 – 현재", en: "2024 – present" },
     body: {
       ko: [

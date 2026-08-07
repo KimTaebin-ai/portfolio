@@ -28,7 +28,7 @@ function CardHeading({ children, lang }: { children: string; lang: "ko" | "en" }
 export function ProjectCard({ project }: { project: Project }) {
   const lang = useLang();
   return (
-    <article className="border-b border-border py-10 first:pt-0 last:border-b-0 last:pb-0">
+    <article className="rounded-xl border border-border p-5 md:p-8">
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
         <h3 className="text-lg font-semibold md:text-xl">{project.name}</h3>
         <StatusPill status={project.status} label={project.statusLabel[lang]} />

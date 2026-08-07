@@ -10,9 +10,9 @@ export function Current() {
   const lang = useLang();
   return (
     <Section id="current" kicker="01 · Now" title={TITLE[lang]}>
-      <div className="space-y-10">
+      <div className="grid gap-4 sm:grid-cols-2">
         {current.map((item, idx) => (
-          <div key={item.org.ko}>
+          <div key={item.org.ko} className="rounded-xl border border-border p-5 md:p-6">
             <h3 className="flex items-center gap-2 text-lg font-semibold md:text-xl">
               {idx === 0 ? (
                 <span className="h-2 w-2 animate-pulse rounded-full bg-success" aria-hidden />

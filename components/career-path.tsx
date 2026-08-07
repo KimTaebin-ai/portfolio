@@ -26,7 +26,7 @@ const NODES: DiagramNode[] = [
     w: 220,
     h: NODE_H,
     title: { ko: "마이스터고 · 산업 경력", en: "Trade school · industry" },
-    sub: { ko: "2018–2024 · 4개 조직", en: "2018–2024 · 4 orgs" },
+    sub: { ko: "2018–2024 · Ubase 팀장 외", en: "2018–2024 · incl. team lead" },
     variant: "past",
   },
   {
@@ -35,7 +35,7 @@ const NODES: DiagramNode[] = [
     y: TOP_Y,
     w: 220,
     h: NODE_H,
-    title: { ko: "42 Gyeongsan · 2024–", en: "42 Gyeongsan · 2024–" },
+    title: { ko: "École 42 · 2024–", en: "École 42 · 2024–" },
     sub: { ko: "밑바닥부터 CS — C, UNIX, 네트워크", en: "CS from scratch — C, UNIX, networks" },
     variant: "past",
   },
@@ -106,8 +106,8 @@ function center(id: string) {
 }
 
 const ARIA_LABEL = {
-  ko: "커리어 경로: 2018년 마이스터고와 4년의 산업 경력에서 시작해, 2024년부터 42 Gyeongsan에서 컴퓨터 사이언스를 밑바닥부터, 지금은 2026년 Seattle의 WTIA × UW CoMotion에서, 대규모 ML 시스템을 향해 — 반복되는 루프로 움직입니다: 기본 원리부터 시작, 바닥부터 직접 만들기, 측정하고 검증하기.",
-  en: "Career path: starting in 2018 with trade school and 4 years across industry, then computer science from scratch at 42 Gyeongsan since 2024, now at WTIA × UW CoMotion in Seattle 2026, headed toward ML systems at scale — driven by a repeating loop: start from first principles, build it from scratch, measure and verify.",
+  ko: "커리어 경로: 2018년 마이스터고와 4년의 산업 경력(Ubase 프로젝트 팀장 포함)에서 시작해, 2024년부터 École 42에서 컴퓨터 사이언스를 밑바닥부터, 지금은 2026년 Seattle의 WTIA × UW CoMotion에서, 대규모 ML 시스템을 향해 — 반복되는 루프로 움직입니다: 기본 원리부터 시작, 바닥부터 직접 만들기, 측정하고 검증하기.",
+  en: "Career path: starting in 2018 with trade school and 4 years across industry (including a stint as project team lead at Ubase), then computer science from scratch at École 42 since 2024, now at WTIA × UW CoMotion in Seattle 2026, headed toward ML systems at scale — driven by a repeating loop: start from first principles, build it from scratch, measure and verify.",
 };
 
 const LOOP_CAPTION = {
