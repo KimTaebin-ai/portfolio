@@ -76,3 +76,20 @@ button:focus-visible {
   outline-offset: 2px;
   border-radius: 2px;
 }
+
+.flow-dash {
+  stroke-dasharray: 3 3;
+  animation: flow-move 0.7s linear infinite;
+}
+
+@keyframes flow-move {
+  to {
+    stroke-dashoffset: -6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-dash {
+    animation: none;
+  }
+}

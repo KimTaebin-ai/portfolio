@@ -29,6 +29,17 @@ const themeInitScript = `
 })();
 `;
 
+const langInitScript = `
+(function () {
+  try {
+    var stored = localStorage.getItem("lang");
+    var nav = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
+    var lang = stored === "en" || stored === "ko" ? stored : (/^ko/i.test(nav) ? "ko" : "en");
+    document.documentElement.lang = lang;
+  } catch (e) {}
+})();
+`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -38,6 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: langInitScript }} />
       </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         {children}

@@ -1,7 +1,11 @@
+"use client";
+
 import { profile } from "@/lib/data";
+import { useLang } from "@/lib/lang";
 import { Chip } from "@/components/chip";
 
 export function Hero() {
+  const lang = useLang();
   return (
     <section id="top" className="scroll-mt-20 border-b border-border py-20 md:py-28">
       <div className="mx-auto max-w-[800px] px-6 md:px-16">
@@ -15,7 +19,7 @@ export function Hero() {
         </p>
 
         <p className="mt-7 max-w-[600px] text-sm leading-relaxed text-foreground-muted md:text-base">
-          {profile.intro}
+          {profile.intro[lang]}
         </p>
 
         <div className="mt-7 flex flex-wrap gap-2">
@@ -26,7 +30,7 @@ export function Hero() {
 
         <p className="mt-6 flex items-center gap-2 text-sm text-foreground-muted md:text-base">
           <span className="h-2 w-2 animate-pulse rounded-full bg-success" aria-hidden />
-          {profile.currentLine}
+          {profile.currentLine[lang]}
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">

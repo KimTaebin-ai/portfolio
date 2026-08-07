@@ -1,12 +1,20 @@
+export type Lang = "ko" | "en";
+export type L<T> = { ko: T; en: T };
+
 export const profile = {
   nameEn: "Taebin Kim",
   nameKr: "김태빈",
   roles: "ML Systems Engineer · Full-Stack Developer · 42 Gyeongsan",
   tagline: "Systems from first principles",
-  intro:
-    "컴퓨터 사이언스를 밑바닥부터 — 42 Gyeongsan에서 C로 셸과 레이트레이서를 프레임워크 없이 직접 만들며 배웁니다. 지금은 Seattle의 WTIA × UW CoMotion에서 ML 엔지니어링으로 그 기반을 넓히는 중입니다. 도메인이 바뀌어도 질문은 하나입니다 — 이건 밑에서 어떻게 동작하는가.",
-  techChips: ["C/C++", "Python", "Systems Programming", "ML Infrastructure"],
-  currentLine: "currently at WTIA × UW CoMotion (Seattle, Jun–Aug 2026)",
+  intro: {
+    ko: "컴퓨터 사이언스를 밑바닥부터 — 42 Gyeongsan에서 C로 셸과 레이트레이서를 프레임워크 없이 직접 만들며 배웁니다. 수학도 같은 방식입니다 — 수학의정석부터 해석학·리군까지, 강의 없이 책을 직접 풀며 쌓는 중입니다. 지금은 Seattle의 WTIA × UW CoMotion에서 ML 엔지니어링으로 그 기반을 넓히고 있습니다. 도메인이 바뀌어도 질문은 하나입니다 — 이건 밑에서 어떻게 동작하는가.",
+    en: "Computer science from the ground up — at 42 Gyeongsan I build shells and ray tracers in C with no framework to hide behind. Math gets the same treatment: I rebuilt my foundations working through two classic Korean problem books twice each, and I'm now climbing through analysis, Lie groups, and beyond — book by book, no lectures. Right now I'm extending that foundation in ML engineering at WTIA × UW CoMotion in Seattle. The domain changes; the question doesn't: how does this actually work, underneath?",
+  } satisfies L<string>,
+  techChips: ["C/C++", "Python", "Mathematics", "Systems Programming", "ML Infrastructure"],
+  currentLine: {
+    ko: "WTIA × UW CoMotion에서 활동 중 (Seattle, 2026.6–8)",
+    en: "currently at WTIA × UW CoMotion (Seattle, Jun–Aug 2026)",
+  } satisfies L<string>,
   socials: {
     github: "https://github.com/KimTaebin-ai",
     linkedin: "https://www.linkedin.com/in/tbkim02/",
@@ -14,29 +22,56 @@ export const profile = {
   },
 };
 
-export const nav = [
-  { href: "#current", label: "Current" },
-  { href: "#build", label: "Build" },
-  { href: "#stack", label: "Stack" },
-  { href: "#experience", label: "Experience" },
+export const nav: { href: string; label: L<string> }[] = [
+  { href: "#current", label: { ko: "현재", en: "Current" } },
+  { href: "#build", label: { ko: "빌드", en: "Build" } },
+  { href: "#stack", label: { ko: "스택", en: "Stack" } },
+  { href: "#experience", label: { ko: "경력", en: "Experience" } },
 ];
 
-export const current = [
+export const current: { org: L<string>; period: L<string>; body: L<string[]> }[] = [
   {
-    org: "WTIA × UW CoMotion Global Startup Program",
-    period: "2026.6 – 8 (진행중) · Seattle",
-    body: [
-      "ML 엔지니어링·인프라 인턴십을 목표로 Seattle에서 여름을 보내고 있습니다. Poma AI 캡스톤 프로젝트를 주도하며, ML systems performance · GPU optimization · distributed training을 파고드는 중입니다.",
-    ],
+    org: {
+      ko: "WTIA × UW CoMotion Global Startup Program",
+      en: "WTIA × UW CoMotion Global Startup Program",
+    },
+    period: { ko: "2026.6 – 8 (진행중) · Seattle", en: "Jun – Aug 2026 (ongoing) · Seattle" },
+    body: {
+      ko: [
+        "ML 엔지니어링·인프라 인턴십을 목표로 Seattle에서 여름을 보내고 있습니다. Poma AI 캡스톤 프로젝트를 주도하며, ML systems performance · GPU optimization · distributed training을 파고드는 중입니다.",
+      ],
+      en: [
+        "Spending the summer in Seattle aiming for an ML engineering / infrastructure internship. Leading the Poma AI capstone project and digging into ML systems performance, GPU optimization, and distributed training.",
+      ],
+    },
   },
   {
-    org: "42 Gyeongsan",
-    period: "2024 – 현재",
-    body: [
-      "교수도 강의도 없이, 프로젝트와 동료 평가만으로 컴퓨터 사이언스를 쌓고 있습니다. C로 셸을 재구현하고, 레이트레이서로 선형대수를 확인하고, 최근엔 회귀와 행렬 연산을 NumPy로 바닥부터 구현했습니다.",
-    ],
+    org: { ko: "42 Gyeongsan — Outer Circle", en: "42 Gyeongsan — Outer Circle" },
+    period: { ko: "2024 – 현재", en: "2024 – present" },
+    body: {
+      ko: [
+        "교수도 강의도 없이, 프로젝트와 동료 평가만으로 컴퓨터 사이언스를 쌓고 있습니다. Inner Circle을 마치고 Transcendence · WebServ를 통과해 Outer Circle에 진입했습니다. C로 셸을 재구현하고, 레이트레이서로 선형대수를 확인하고, 회귀와 행렬 연산을 Rust로 바닥부터 다시 구현했습니다.",
+      ],
+      en: [
+        "No professors, no lectures — just projects and peer evaluation, building computer science from scratch. Finished the Inner Circle, passed Transcendence and WebServ, and I'm now in the Outer Circle. Reimplemented a shell in C, verified linear algebra with a ray tracer, and rebuilt regression and matrix operations from scratch in Rust.",
+      ],
+    },
+  },
+  {
+    org: { ko: "Mathematics — 독학", en: "Mathematics — Self-Taught" },
+    period: { ko: "2024 – 현재", en: "2024 – present" },
+    body: {
+      ko: [
+        "42에서 CS의 바닥에 수학이 있다는 걸 깨닫고, 수학의정석 2권을 두 번씩 풀어 기초를 다시 세웠습니다. 지금은 미적분·선형대수·확률론·최적화이론·해석학, 리군과 강체변환, 이산수학·조합론, 그리고 TAOCP를 — 강의 없이 책으로, 어려운 문제를 직접 풀며 올라가는 중입니다.",
+      ],
+      en: [
+        "Realized at 42 that math sits underneath all of CS, so I rebuilt my foundations — working through two volumes of a classic Korean problem book twice each. Now I'm climbing through calculus, linear algebra, probability, optimization theory, real analysis, Lie groups and rigid-body transforms, discrete math and combinatorics, and TAOCP — no lectures, just books and hard problems, solved by hand.",
+      ],
+    },
   },
 ];
+
+export type FlowStep = { label: L<string>; sub?: L<string> };
 
 export type Project = {
   id: string;
@@ -44,13 +79,14 @@ export type Project = {
   stack: string;
   period: string;
   status: "complete" | "in-progress";
-  statusLabel: string;
-  badge?: string;
-  why: string;
-  solution: string;
-  howItWorks: string[];
-  keyResults?: string[];
-  whatILearned: string[];
+  statusLabel: L<string>;
+  badge?: L<string>;
+  why: L<string>;
+  solution: L<string>;
+  flow: FlowStep[];
+  howItWorks: L<string[]>;
+  keyResults?: L<string[]>;
+  whatILearned: L<string[]>;
   links: { label: string; href: string }[];
 };
 
@@ -61,28 +97,159 @@ export const projects: Project[] = [
     stack: "Python · Claude API · LangChain · Grid Search · NumPy",
     period: "2026.6",
     status: "complete",
-    statusLabel: "Complete",
-    badge: "🏆 1st Place — WTIA LLM Competition",
-    why: "1,297쪽 미국 연방 항공법(14 CFR)에서 정확한 조항(§)을 찾아 인용하는 일은 사람에게도 어렵습니다. '그럴듯한 답'과 '검증 가능한 답'의 간격을 감이 아니라 데이터로 메우고 싶었습니다.",
-    solution:
-      "45개 검색 설정을 밤새 자동 그리드서치로 채점 — blind holdout에서 recall 0.909, 강사 평가 9/10, 참가자 중 1등.",
-    howItWorks: [
-      "법조문을 §조항 경계로 청킹 — 고정 청킹 대비 coverage 0.41 → 0.86",
-      "embedding model × chunk size × top-k × 검색 방식, 45개 설정 야간 자동 그리드서치",
-      "single-shot(저비용) vs agentic loop(고정확)를 측정으로 비교 — 품질이 같으면 싼 쪽을 채택",
-      "모든 답변에 원본 조항(§) citation을 붙여 검증 가능하게",
+    statusLabel: { ko: "완료", en: "Complete" },
+    badge: { ko: "🏆 1위 — WTIA LLM Competition", en: "🏆 1st Place — WTIA LLM Competition" },
+    why: {
+      ko: "1,297쪽 미국 연방 항공법(14 CFR)에서 정확한 조항(§)을 찾아 인용하는 일은 사람에게도 어렵습니다. '그럴듯한 답'과 '검증 가능한 답'의 간격을 감이 아니라 데이터로 메우고 싶었습니다.",
+      en: "Finding and citing the exact clause (§) in 1,297 pages of U.S. federal aviation law (14 CFR) is hard even for a person. I wanted to close the gap between a ‘plausible answer’ and a ‘verifiable answer’ with data, not intuition.",
+    },
+    solution: {
+      ko: "45개 검색 설정을 밤새 자동 그리드서치로 채점 — blind holdout에서 recall 0.909, 강사 평가 9/10, 참가자 중 1등.",
+      en: "Graded 45 retrieval configurations in an overnight automated grid search — recall 0.909 on a blind holdout, instructor score 9/10, 1st place among participants.",
+    },
+    flow: [
+      { label: { ko: "§조항 경계로 청킹", en: "Chunk by § boundary" }, sub: { ko: "coverage 0.41→0.86", en: "coverage 0.41→0.86" } },
+      { label: { ko: "45개 설정 그리드서치", en: "Grid search 45 configs" } },
+      { label: { ko: "single-shot vs agentic 비교", en: "Compare single-shot vs agentic" } },
+      { label: { ko: "§ citation 응답", en: "Answer with § citation" } },
     ],
-    keyResults: [
-      "Recall 0.909 (blind holdout)",
-      "동일 품질 기준 토큰 38% 절감",
-      "모든 답변에 § citation — 검증 가능한 답만 출력",
-    ],
-    whatILearned: [
-      "RAG 성능 차이는 대부분 검색 단계에서 갈린다 — 모델 교체보다 청크 크기·top-k 조정이 점수를 훨씬 크게 움직였다",
-      "감이 아니라 측정: 밤새 돌린 채점표가 어떤 직감보다 정확했다",
-      "비용도 성능이다 — 같은 품질이면 싼 구성이 이긴 구성이다",
-    ],
+    howItWorks: {
+      ko: [
+        "법조문을 §조항 경계로 청킹 — 고정 청킹 대비 coverage 0.41 → 0.86",
+        "embedding model × chunk size × top-k × 검색 방식, 45개 설정 야간 자동 그리드서치",
+        "single-shot(저비용) vs agentic loop(고정확)를 측정으로 비교 — 품질이 같으면 싼 쪽을 채택",
+        "모든 답변에 원본 조항(§) citation을 붙여 검증 가능하게",
+      ],
+      en: [
+        "Chunk the statute along § clause boundaries — coverage 0.41 → 0.86 versus fixed-size chunking",
+        "Overnight automated grid search across 45 configs: embedding model × chunk size × top-k × retrieval method",
+        "Measured single-shot (cheap) against an agentic loop (more accurate) — at equal quality, took the cheaper one",
+        "Every answer carries a citation back to the original § clause, so it's verifiable",
+      ],
+    },
+    keyResults: {
+      ko: [
+        "Recall 0.909 (blind holdout)",
+        "동일 품질 기준 토큰 38% 절감",
+        "모든 답변에 § citation — 검증 가능한 답만 출력",
+      ],
+      en: [
+        "Recall 0.909 (blind holdout)",
+        "38% fewer tokens at equal quality",
+        "Every answer cites its § source — only verifiable answers ship",
+      ],
+    },
+    whatILearned: {
+      ko: [
+        "RAG 성능 차이는 대부분 검색 단계에서 갈린다 — 모델 교체보다 청크 크기·top-k 조정이 점수를 훨씬 크게 움직였다",
+        "감이 아니라 측정: 밤새 돌린 채점표가 어떤 직감보다 정확했다",
+        "비용도 성능이다 — 같은 품질이면 싼 구성이 이긴 구성이다",
+        "한계도 하나 남았다: 채점 정답셋을 제가 직접 만들며 테스트했다 — 문제를 낸 사람이 채점까지 하면 점수는 관대해지기 쉽다. 다음엔 정답셋 제작과 평가를 분리하려 한다",
+      ],
+      en: [
+        "Most of the RAG performance gap comes from retrieval, not generation — tuning chunk size and top-k moved the score far more than swapping models",
+        "Measurement over intuition: the grading sheet I ran overnight was more accurate than any gut call",
+        "Cost is a performance metric too — at equal quality, the cheaper configuration wins",
+        "One limitation remains: I built and ran the answer key myself — when the person who writes the questions also grades them, scores tend to run generous. Next time I'd separate answer-key creation from evaluation.",
+      ],
+    },
     links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai/rag-starter" }],
+  },
+  {
+    id: "transcendence",
+    name: "Transcendence — Real-time PvP Pong",
+    stack: "Node.js · Socket.io · OAuth 2.0 · 2FA",
+    period: "2026",
+    status: "complete",
+    statusLabel: { ko: "완료", en: "Complete" },
+    badge: { ko: "42 Outer Circle · 팀장, 4인 팀", en: "42 Outer Circle · Team Lead, team of 4" },
+    why: {
+      ko: "42 Inner Circle을 마치고 처음 마주하는 대형 팀 프로젝트입니다. 실시간 통신과 인증을, 프레임워크 뒤에 숨지 않고 4명이 함께 설계·구현해야 했습니다.",
+      en: "The first large team project after finishing 42's Inner Circle. Real-time communication and authentication had to be designed and built by the four of us directly — no framework to hide behind.",
+    },
+    solution: {
+      ko: "WebSocket 기반 실시간 대전 Pong을 만들고, 커스텀 매치메이킹과 OAuth 2.0 + 2FA 인증까지 팀을 이끌며 구현했습니다.",
+      en: "Built real-time competitive Pong over WebSockets, leading the team through custom matchmaking and OAuth 2.0 + 2FA authentication.",
+    },
+    flow: [
+      { label: { ko: "OAuth 2.0 + 2FA 로그인", en: "OAuth 2.0 + 2FA login" } },
+      { label: { ko: "매치메이킹(셔플)", en: "Matchmaking shuffle" } },
+      { label: { ko: "Socket.io 실시간 대전", en: "Real-time match (Socket.io)" } },
+      { label: { ko: "양쪽 상태 동기화", en: "Sync state to both players" } },
+    ],
+    howItWorks: {
+      ko: [
+        "Socket.io로 실시간 게임 룸과 상태 동기화 구현",
+        "커스텀 매치메이킹(셔플) 알고리즘으로 대전 상대 배정",
+        "OAuth 2.0 + 2FA로 인증 계층 구성",
+        "4인 팀의 리더로 스프린트·아키텍처·작업 분배 조율",
+      ],
+      en: [
+        "Real-time game rooms and state sync via Socket.io",
+        "Custom matchmaking (shuffle) algorithm to pair opponents",
+        "Authentication layer: OAuth 2.0 + 2FA",
+        "Led the 4-person team through sprints, architecture, and task allocation",
+      ],
+    },
+    whatILearned: {
+      ko: [
+        "실시간 시스템에서 프론트엔드-백엔드 상태 동기화가 가장 까다로운 지점이었다",
+        "팀 리딩은 코드보다 작업을 쪼개고 순서를 정하는 일이 더 컸다",
+        "인증(OAuth 2.0 · 2FA)을 처음부터 설계해보니 보안은 나중에 붙이는 기능이 아니라는 걸 체감했다",
+      ],
+      en: [
+        "Frontend–backend state sync was the hardest part of the real-time system",
+        "Leading a team was less about code and more about breaking work into the right pieces and sequence",
+        "Designing auth (OAuth 2.0, 2FA) from scratch made it clear security isn't a feature you bolt on later",
+      ],
+    },
+    links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai" }],
+  },
+  {
+    id: "webserv",
+    name: "WebServ — HTTP Server in C++",
+    stack: "C++ · HTTP/1.1 · Non-blocking I/O",
+    period: "2026",
+    status: "complete",
+    statusLabel: { ko: "완료", en: "Complete" },
+    badge: { ko: "42 Outer Circle", en: "42 Outer Circle" },
+    why: {
+      ko: "브라우저가 서버에 요청을 보내면 무슨 일이 일어나는가 — nginx 뒤에 숨겨진 HTTP 서버를 C++로 직접 구현해 확인하고 싶었습니다.",
+      en: "What actually happens when a browser sends a request to a server? I wanted to implement the HTTP server hiding behind nginx myself, in C++, to find out.",
+    },
+    solution: {
+      ko: "nginx와 유사한 설정 파일로 여러 가상 서버를 구성하고, non-blocking I/O로 다중 연결을 처리하는 HTTP/1.1 서버를 구현했습니다.",
+      en: "Built an HTTP/1.1 server that configures multiple virtual servers from an nginx-style config file and handles concurrent connections with non-blocking I/O.",
+    },
+    flow: [
+      { label: { ko: "설정 파일 파싱", en: "Parse config file" } },
+      { label: { ko: "연결 수락", en: "Accept connections" }, sub: { ko: "non-blocking I/O", en: "non-blocking I/O" } },
+      { label: { ko: "요청 라우팅", en: "Route request" }, sub: { ko: "GET·POST·DELETE·CGI", en: "GET·POST·DELETE·CGI" } },
+      { label: { ko: "응답 반환", en: "Return response" } },
+    ],
+    howItWorks: {
+      ko: [
+        "설정 파일 파서로 서버 블록·라우트를 구성",
+        "select/poll/epoll 기반 non-blocking I/O로 다중 클라이언트 동시 처리",
+        "GET · POST · DELETE 메서드와 CGI 실행 지원",
+      ],
+      en: [
+        "Config-file parser builds server blocks and routes",
+        "Non-blocking I/O (select/poll/epoll) handles many clients concurrently",
+        "Supports GET, POST, DELETE, and CGI execution",
+      ],
+    },
+    whatILearned: {
+      ko: [
+        "HTTP는 텍스트 프로토콜이지만, 이를 안정적으로 파싱하는 일은 전혀 다른 난이도였다",
+        "non-blocking I/O로 다중 연결을 처리하며 이벤트 루프의 설계를 몸으로 이해했다",
+      ],
+      en: [
+        "HTTP is a text protocol, but parsing it reliably is a completely different level of difficulty",
+        "Handling concurrent connections with non-blocking I/O made the design of an event loop click, hands-on",
+      ],
+    },
+    links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai" }],
   },
   {
     id: "turtlebot3",
@@ -90,21 +257,49 @@ export const projects: Project[] = [
     stack: "ROS2 · YOLOv8 · LiDAR · Vision · SLAM · Kalman Filter",
     period: "2026",
     status: "complete",
-    statusLabel: "Complete",
-    why: "카메라와 LiDAR, 각각은 불완전한 센서입니다. 둘을 합치면 로봇이 사람을 알아보고 스스로 따라다닐 수 있을까 — 직접 확인하고 싶었습니다.",
-    solution:
-      "YOLOv8 비전과 LiDAR 깊이 정보를 융합해, 로봇이 사람을 추적하며 장애물을 피해 따라갑니다 — 발표·시연 영상으로 기록.",
-    howItWorks: [
-      "비전: YOLOv8로 프레임에서 사람 중심 좌표 감지",
-      "깊이: LiDAR point cloud로 거리·충돌 영역 계산",
-      "융합: vision + depth 신호를 합쳐 steering command 생성",
-      "지도: SLAM으로 실시간 환경 지도화",
+    statusLabel: { ko: "완료", en: "Complete" },
+    why: {
+      ko: "카메라와 LiDAR, 각각은 불완전한 센서입니다. 둘을 합치면 로봇이 사람을 알아보고 스스로 따라다닐 수 있을까 — 직접 확인하고 싶었습니다.",
+      en: "Camera and LiDAR are each an imperfect sensor on their own. I wanted to find out, hands-on, whether fusing them could let a robot recognize a person and follow them on its own.",
+    },
+    solution: {
+      ko: "YOLOv8 비전과 LiDAR 깊이 정보를 융합해, 로봇이 사람을 추적하며 장애물을 피해 따라갑니다 — 발표·시연 영상으로 기록.",
+      en: "Fused YOLOv8 vision with LiDAR depth so the robot tracks a person and avoids obstacles while following — captured on video in a talk and a demo.",
+    },
+    flow: [
+      { label: { ko: "YOLOv8 사람 감지", en: "YOLOv8 detects person" } },
+      { label: { ko: "LiDAR 깊이 스캔", en: "LiDAR depth scan" } },
+      { label: { ko: "비전 + 깊이 융합", en: "Fuse vision + depth" } },
+      { label: { ko: "조향 명령 생성", en: "Steering command" } },
     ],
-    whatILearned: [
-      "센서 융합의 어려움은 알고리즘보다 sync · latency · confidence 관리에 있었다",
-      "ROS2 topic/service 구조 덕에 비전·깊이·제어를 독립 모듈로 갈아끼울 수 있었다",
-      "실시간 시스템에선 정확도를 조금 내주는 결정이 전체 반응성을 살린다",
-    ],
+    howItWorks: {
+      ko: [
+        "비전: YOLOv8로 프레임에서 사람 중심 좌표 감지",
+        "깊이: LiDAR point cloud로 거리·충돌 영역 계산",
+        "융합: vision + depth 신호를 합쳐 steering command 생성",
+        "지도: SLAM으로 실시간 환경 지도화",
+      ],
+      en: [
+        "Vision: YOLOv8 detects the person's center coordinates per frame",
+        "Depth: LiDAR point cloud computes distance and collision zones",
+        "Fusion: combine vision + depth signals into a steering command",
+        "Mapping: SLAM builds the environment map in real time",
+      ],
+    },
+    whatILearned: {
+      ko: [
+        "가장 큰 변수는 알고리즘이 아니라 햇빛이었다 — 직사광 노이즈에 객체 인식이 흔들려, 조명 조건에서의 인식 안정화에 가장 많은 시간을 썼다",
+        "센서 융합의 어려움은 sync · latency · confidence 관리에 있었다",
+        "ROS2 topic/service 구조 덕에 비전·깊이·제어를 독립 모듈로 갈아끼울 수 있었다",
+        "실시간 시스템에선 정확도를 조금 내주는 결정이 전체 반응성을 살린다",
+      ],
+      en: [
+        "The biggest variable wasn't the algorithm — it was sunlight. Direct-light noise threw off object detection, so most of my time went into stabilizing recognition across lighting conditions",
+        "The hard part of sensor fusion was managing sync, latency, and confidence",
+        "ROS2's topic/service architecture let me swap vision, depth, and control in and out as independent modules",
+        "In real-time systems, trading a little accuracy is often what keeps the whole thing responsive",
+      ],
+    },
     links: [
       { label: "YouTube: Presentation", href: "https://youtu.be/2eOp8Bp0UdI" },
       { label: "YouTube: Demo", href: "https://youtu.be/oBLanfJ3GZw" },
@@ -112,23 +307,99 @@ export const projects: Project[] = [
   },
   {
     id: "linear-regression-matrix",
-    name: "Linear Regression & Matrix Implementations",
-    stack: "Python · NumPy · scikit-learn",
+    name: "Linear Regression & Matrix — in Rust",
+    stack: "Rust · No external math libraries",
     period: "2026",
     status: "complete",
-    statusLabel: "Complete",
-    why: "라이브러리를 부르면 한 줄인 것들 — 그 한 줄 밑에서 무슨 일이 벌어지는지 모른 채 ML을 하고 싶지 않았습니다.",
-    solution:
-      "최소제곱법부터 SVD까지 NumPy로 바닥부터 구현하고, 손계산과 대조해 수학적으로 검증했습니다.",
-    howItWorks: [
-      "Linear Regression: 정규방정식(행렬 역행렬) → 최소제곱법 → Ridge/Lasso 정규화",
-      "Matrix: transpose · multiplication · inverse → eigendecomposition → SVD",
-      "구현마다 손계산 결과와 코드 출력을 대조해 검증",
+    statusLabel: { ko: "완료", en: "Complete" },
+    why: {
+      ko: "라이브러리를 부르면 한 줄인 것들 — 그 한 줄 밑에서 무슨 일이 벌어지는지 모른 채 ML을 하고 싶지 않았습니다. 프레임워크 없이, Rust로 다시 짜기로 했습니다. 책으로 쌓아온 수학이 코드로 검증되는 프로젝트이기도 합니다.",
+      en: "Things that are one line when you call a library — I didn't want to do ML without knowing what happens underneath that line. So I rewrote it in Rust, with no framework. It's also where the math I've been building from books gets checked against code.",
+    },
+    solution: {
+      ko: "최소제곱법부터 SVD까지, 외부 수치 라이브러리 없이 순수 Rust로 구현하고 손계산과 대조해 검증했습니다.",
+      en: "Implemented everything from least squares to SVD in pure Rust with no external numerical libraries, and checked it against hand calculations.",
+    },
+    flow: [
+      { label: { ko: "정규방정식", en: "Normal equation" } },
+      { label: { ko: "최소제곱 + 정규화", en: "Least squares + regularization" } },
+      { label: { ko: "고유분해 · SVD", en: "Eigendecomposition · SVD" } },
+      { label: { ko: "손계산으로 검증", en: "Verify by hand" } },
     ],
-    whatILearned: [
-      "행렬 연산을 공식이 아니라 기하학적 그림으로 이해하게 됐다",
-      "SVD를 직접 짜보니 PCA와 데이터 압축이 같은 원리의 응용임이 보였다",
+    howItWorks: {
+      ko: [
+        "Linear Regression(ftlr): 정규방정식(행렬 역행렬) → 최소제곱법 → Ridge/Lasso 정규화, 전부 Rust로 직접 구현",
+        "Matrix(Enter-the-Matrix): transpose · multiplication · inverse → eigendecomposition → SVD",
+        "구현마다 손계산 결과와 코드 출력을 대조해 검증",
+      ],
+      en: [
+        "Linear Regression (ftlr): normal equations (matrix inverse) → least squares → Ridge/Lasso regularization, all hand-built in Rust",
+        "Matrix (Enter-the-Matrix): transpose · multiplication · inverse → eigendecomposition → SVD",
+        "Checked every implementation's output against hand-calculated results",
+      ],
+    },
+    whatILearned: {
+      ko: [
+        "행렬 연산을 공식이 아니라 기하학적 그림으로 이해하게 됐다",
+        "SVD를 직접 짜보니 PCA와 데이터 압축이 같은 원리의 응용임이 보였다",
+        "Rust의 ownership/borrowing이 수치 연산 코드에서 버그를 컴파일 타임에 먼저 잡아준다는 걸 체감했다",
+      ],
+      en: [
+        "Started seeing matrix operations as geometry, not just formulas",
+        "Writing SVD by hand made it obvious that PCA and data compression are the same idea applied twice",
+        "Felt firsthand how Rust's ownership/borrowing catches numerical bugs at compile time before they become runtime bugs",
+      ],
+    },
+    links: [
+      { label: "GitHub: ftlr", href: "https://github.com/KimTaebin-ai/ftlr" },
+      { label: "GitHub: Enter-the-Matrix", href: "https://github.com/KimTaebin-ai/Enter-the-Matrix" },
     ],
+  },
+  {
+    id: "kaggle-dacon",
+    name: "Kaggle & Dacon Competitions",
+    stack: "Python · pandas · scikit-learn · XGBoost · LightGBM",
+    period: "2025 – 2026",
+    status: "in-progress",
+    statusLabel: { ko: "진행중 · 상위 10%", en: "Ongoing · Top 10%" },
+    why: {
+      ko: "정형 데이터와 시계열 문제에 개인으로 참가해, 배운 것을 실제 리더보드로 검증하고 있습니다.",
+      en: "Competing solo on tabular and time-series problems, checking what I've learned against a real leaderboard.",
+    },
+    solution: {
+      ko: "정형 분류·회귀, 시계열 예측 대회에 참가해 꾸준히 상위 10% 안에 들었습니다.",
+      en: "Entered tabular classification/regression and time-series forecasting competitions, consistently finishing in the top 10%.",
+    },
+    flow: [
+      { label: { ko: "EDA", en: "EDA" } },
+      { label: { ko: "피처 엔지니어링 + CV", en: "Feature engineering + CV" } },
+      { label: { ko: "그래디언트 부스팅", en: "Gradient boosting" } },
+      { label: { ko: "제출 및 순위", en: "Submit & rank" } },
+    ],
+    howItWorks: {
+      ko: [
+        "pandas · matplotlib · seaborn으로 탐색적 데이터 분석(EDA)",
+        "피처 엔지니어링과 교차검증(cross-validation)으로 과적합 관리",
+        "XGBoost · LightGBM · scikit-learn 기반 그래디언트 부스팅 모델",
+        "전처리 → 학습 → 평가로 이어지는 파이프라인을 대회마다 재사용",
+      ],
+      en: [
+        "Exploratory data analysis (EDA) with pandas, matplotlib, seaborn",
+        "Feature engineering and cross-validation to manage overfitting",
+        "Gradient boosting models via XGBoost, LightGBM, scikit-learn",
+        "Reused a preprocess → train → evaluate pipeline across competitions",
+      ],
+    },
+    whatILearned: {
+      ko: [
+        "리더보드는 감을 배신한다 — 교차검증 없이 낸 제출은 대부분 순위가 떨어졌다",
+        "모델보다 피처가 점수를 더 많이 움직인 대회가 많았다",
+      ],
+      en: [
+        "The leaderboard betrays intuition — submissions without cross-validation mostly dropped in rank",
+        "In most competitions, features moved the score more than the model choice did",
+      ],
+    },
     links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai" }],
   },
   {
@@ -136,20 +407,44 @@ export const projects: Project[] = [
     name: "miniRT — 3D Ray Tracer in C",
     stack: "C · Raytracing · Linear Algebra · Graphics",
     period: "2026",
-    status: "in-progress",
-    statusLabel: "In Progress",
-    why: "화면의 픽셀 하나가 색을 갖기까지 무슨 일이 일어나는가 — 그래픽스를 GPU도 라이브러리도 없이, C와 수학만으로 재현해보고 싶었습니다.",
-    solution:
-      ".rt 씬 파일을 파싱해 광선을 쏘고, 교점을 풀고, 조명과 그림자를 계산해 3D 장면을 렌더링합니다.",
-    howItWorks: [
-      ".rt 파서로 카메라·조명·물체를 씬으로 구성",
-      "픽셀마다 광선을 쏘아 구·평면과의 교점을 방정식으로 계산",
-      "조명 모델과 그림자 처리 — 다음 목표: 반사·굴절·텍스처 매핑",
+    status: "complete",
+    statusLabel: { ko: "완료", en: "Complete" },
+    why: {
+      ko: "화면의 픽셀 하나가 색을 갖기까지 무슨 일이 일어나는가 — 그래픽스를 GPU도 라이브러리도 없이, C와 수학만으로 재현해보고 싶었습니다.",
+      en: "What happens before a single pixel on screen gets its color? I wanted to reproduce graphics with no GPU and no library — just C and math.",
+    },
+    solution: {
+      ko: ".rt 씬 파일을 파싱해 광선을 쏘고, 교점을 풀고, 조명과 그림자를 계산해 3D 장면을 렌더링합니다.",
+      en: "Parse an .rt scene file, fire rays, solve intersections, and compute lighting and shadows to render a 3D scene.",
+    },
+    flow: [
+      { label: { ko: ".rt 씬 파싱", en: "Parse .rt scene" } },
+      { label: { ko: "광선-물체 교점", en: "Ray-object intersection" } },
+      { label: { ko: "조명 · 그림자", en: "Lighting & shadows" } },
+      { label: { ko: "픽셀 렌더링", en: "Render pixel" } },
     ],
-    whatILearned: [
-      "벡터 내적·외적이 3D 공간에서 실제로 무엇을 뜻하는지 손으로 확인했다",
-      "광선-물체 교점은 결국 방정식 풀이 — 그래픽스는 수학을 픽셀로 번역하는 일이었다",
-    ],
+    howItWorks: {
+      ko: [
+        ".rt 파서로 카메라·조명·물체를 씬으로 구성",
+        "픽셀마다 광선을 쏘아 구·평면과의 교점을 방정식으로 계산",
+        "조명 모델과 그림자 처리",
+      ],
+      en: [
+        "An .rt parser assembles the camera, lights, and objects into a scene",
+        "Fire a ray per pixel and solve its intersection with spheres and planes algebraically",
+        "Lighting model and shadow handling",
+      ],
+    },
+    whatILearned: {
+      ko: [
+        "벡터 내적·외적이 3D 공간에서 실제로 무엇을 뜻하는지 손으로 확인했다",
+        "광선-물체 교점은 결국 방정식 풀이 — 그래픽스는 수학을 픽셀로 번역하는 일이었다",
+      ],
+      en: [
+        "Confirmed by hand what dot and cross products actually mean in 3D space",
+        "Ray-object intersection is just solving an equation — graphics turned out to be math translated into pixels",
+      ],
+    },
     links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai" }],
   },
   {
@@ -158,21 +453,46 @@ export const projects: Project[] = [
     stack: "C++ · Network Programming · Protocols",
     period: "2026",
     status: "in-progress",
-    statusLabel: "In Progress",
-    why: "서버 없이 파일이 오간다는 건 어떻게 가능한가 — 프로토콜 명세만 들고 P2P 네트워크를 바닥부터 구현해보고 싶었습니다.",
-    solution:
-      ".torrent 메타파일 파싱부터 tracker 통신, peer 발견, 블록 병렬 다운로드까지 C++로 구현 중입니다.",
-    howItWorks: [
-      "bencode 포맷의 .torrent 메타파일 파싱",
-      "tracker와 통신해 peer 목록 확보",
-      "DHT로 peer discovery",
-      "peer들과 블록 단위 병렬 다운로드",
+    statusLabel: { ko: "진행중", en: "In Progress" },
+    why: {
+      ko: "42 과제가 아니라, 궁금해서 시작한 개인 프로젝트입니다. 서버 없이 파일이 오간다는 건 어떻게 가능한가 — 프로토콜 명세만 들고 P2P 네트워크를 바닥부터 구현하고 있습니다.",
+      en: "Not a 42 assignment — a personal project I started out of curiosity. How can files move between people with no server at all? I'm implementing a P2P network from just the protocol spec, from scratch.",
+    },
+    solution: {
+      ko: ".torrent 메타파일 파싱부터 tracker 통신, peer 발견, 블록 병렬 다운로드까지 C++로 구현 중입니다.",
+      en: "Building parsing for .torrent metafiles, tracker communication, peer discovery, and parallel block downloads in C++.",
+    },
+    flow: [
+      { label: { ko: ".torrent 파싱", en: "Parse .torrent" }, sub: { ko: "bencode", en: "bencode" } },
+      { label: { ko: "tracker 통신", en: "Contact tracker" } },
+      { label: { ko: "DHT peer 탐색", en: "DHT peer discovery" } },
+      { label: { ko: "블록 병렬 다운로드", en: "Parallel block download" } },
     ],
-    whatILearned: [
-      "네트워크 프로토콜을 명세 그대로 구현하며 RFC 읽는 법을 익히는 중",
-      "조각 상태를 비트마스크로 관리하는 설계 — 상태 관리가 프로토콜 구현의 절반이다",
-    ],
-    links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai" }],
+    howItWorks: {
+      ko: [
+        "bencode 포맷의 .torrent 메타파일 파싱",
+        "tracker와 통신해 peer 목록 확보",
+        "DHT로 peer discovery",
+        "peer들과 블록 단위 병렬 다운로드",
+      ],
+      en: [
+        "Parse .torrent metafiles in bencode format",
+        "Talk to the tracker to get a peer list",
+        "Peer discovery via DHT",
+        "Download blocks from peers in parallel",
+      ],
+    },
+    whatILearned: {
+      ko: [
+        "네트워크 프로토콜을 명세 그대로 구현하며 RFC 읽는 법을 익히는 중",
+        "조각 상태를 비트마스크로 관리하는 설계 — 상태 관리가 프로토콜 구현의 절반이다",
+      ],
+      en: [
+        "Learning to read RFCs properly by implementing a network protocol straight from spec",
+        "Managing piece state with bitmasks — state management turns out to be half of implementing a protocol",
+      ],
+    },
+    links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai/baby-torrent" }],
   },
   {
     id: "inception",
@@ -180,20 +500,45 @@ export const projects: Project[] = [
     stack: "Docker · Docker Compose · NGINX · WordPress · MariaDB",
     period: "2024",
     status: "complete",
-    statusLabel: "Complete",
-    why: "docker run 한 줄이 감추고 있는 것들 — 이미지 레이어, 네트워크, 볼륨 — 을 직접 조립해봐야 컨테이너를 이해했다고 말할 수 있다고 생각했습니다.",
-    solution:
-      ".env 설정과 docker-compose up 한 번으로 NGINX + WordPress + MariaDB 스택이 TLS까지 걸고 올라옵니다.",
-    howItWorks: [
-      "NGINX reverse proxy + TLS 종단",
-      "WordPress(PHP-FPM) 애플리케이션 컨테이너",
-      "MariaDB + persistent volume으로 데이터 영속성",
-      "컨테이너 간 통신은 docker network로 격리",
+    statusLabel: { ko: "완료", en: "Complete" },
+    why: {
+      ko: "docker run 한 줄이 감추고 있는 것들 — 이미지 레이어, 네트워크, 볼륨 — 을 직접 조립해봐야 컨테이너를 이해했다고 말할 수 있다고 생각했습니다.",
+      en: "The things a single `docker run` hides — image layers, networking, volumes — I don't think you can say you understand containers until you've assembled them yourself.",
+    },
+    solution: {
+      ko: ".env 설정과 docker-compose up 한 번으로 NGINX + WordPress + MariaDB 스택이 TLS까지 걸고 올라옵니다.",
+      en: "One `.env` config and a single `docker-compose up` bring up NGINX + WordPress + MariaDB, TLS included.",
+    },
+    flow: [
+      { label: { ko: "NGINX + TLS", en: "NGINX + TLS" } },
+      { label: { ko: "WordPress (PHP-FPM)", en: "WordPress (PHP-FPM)" } },
+      { label: { ko: "MariaDB + 볼륨", en: "MariaDB + volume" } },
+      { label: { ko: "격리된 docker network", en: "Isolated docker network" } },
     ],
-    whatILearned: [
-      "Docker 레이어 캐시를 이해하니 빌드 시간과 이미지 크기가 함께 줄었다",
-      "환경변수·시크릿 분리는 귀찮음이 아니라 프로덕션의 최소 조건이다",
-    ],
+    howItWorks: {
+      ko: [
+        "NGINX reverse proxy + TLS 종단",
+        "WordPress(PHP-FPM) 애플리케이션 컨테이너",
+        "MariaDB + persistent volume으로 데이터 영속성",
+        "컨테이너 간 통신은 docker network로 격리",
+      ],
+      en: [
+        "NGINX reverse proxy with TLS termination",
+        "WordPress (PHP-FPM) application container",
+        "MariaDB with a persistent volume for data durability",
+        "Container-to-container traffic isolated on a docker network",
+      ],
+    },
+    whatILearned: {
+      ko: [
+        "Docker 레이어 캐시를 이해하니 빌드 시간과 이미지 크기가 함께 줄었다",
+        "환경변수·시크릿 분리는 귀찮음이 아니라 프로덕션의 최소 조건이다",
+      ],
+      en: [
+        "Understanding Docker's layer cache cut both build time and image size",
+        "Separating env vars and secrets isn't busywork — it's the minimum bar for production",
+      ],
+    },
     links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai" }],
   },
   {
@@ -202,73 +547,269 @@ export const projects: Project[] = [
     stack: "C · POSIX · Signals · Processes",
     period: "2024",
     status: "complete",
-    statusLabel: "Complete",
-    why: "매일 쓰는 셸 — 터미널에 친 한 줄이 프로세스가 되기까지의 전 과정을 직접 만들어 확인하고 싶었습니다.",
-    solution:
-      "파싱 → fork/execve → 파이프·리다이렉션 → 시그널 처리까지, bash의 핵심 동작을 C로 재구현했습니다.",
-    howItWorks: [
-      "파서: 따옴표·환경변수 확장을 처리하고 pipes·redirections 해석",
-      "실행: fork/execve로 외부 명령, cd·export·unset 등은 빌트인으로",
-      "파일 디스크립터 조작으로 파이프라인과 리다이렉션 구현",
-      "SIGINT·SIGQUIT을 bash와 동일한 동작으로 처리",
+    statusLabel: { ko: "완료", en: "Complete" },
+    why: {
+      ko: "매일 쓰는 셸 — 터미널에 친 한 줄이 프로세스가 되기까지의 전 과정을 직접 만들어 확인하고 싶었습니다.",
+      en: "The shell I use every day — I wanted to build the whole path myself, from a line typed into a terminal to it becoming a process, to actually see it.",
+    },
+    solution: {
+      ko: "파싱 → fork/execve → 파이프·리다이렉션 → 시그널 처리까지, bash의 핵심 동작을 C로 재구현했습니다.",
+      en: "Reimplemented bash's core behavior in C — parsing, fork/execve, pipes and redirection, and signal handling.",
+    },
+    flow: [
+      { label: { ko: "파싱", en: "Parse" }, sub: { ko: "따옴표 · 변수", en: "quotes · vars" } },
+      { label: { ko: "fork / execve", en: "fork / execve" } },
+      { label: { ko: "파이프 · 리다이렉션", en: "Pipes · redirects" } },
+      { label: { ko: "시그널 처리", en: "Signal handling" } },
     ],
-    whatILearned: [
-      "UNIX 프로세스 모델 — fork가 왜 그렇게 설계됐는지 몸으로 이해했다",
-      "파일 디스크립터가 보이기 시작하면 셸의 거의 모든 동작이 설명된다",
-      "시그널은 예외 처리가 아니라 설계의 일부여야 한다",
-    ],
+    howItWorks: {
+      ko: [
+        "파서: 따옴표·환경변수 확장을 처리하고 pipes·redirections 해석",
+        "실행: fork/execve로 외부 명령, cd·export·unset 등은 빌트인으로",
+        "파일 디스크립터 조작으로 파이프라인과 리다이렉션 구현",
+        "SIGINT·SIGQUIT을 bash와 동일한 동작으로 처리",
+      ],
+      en: [
+        "Parser: handles quote and environment-variable expansion, resolves pipes and redirections",
+        "Execution: external commands via fork/execve; cd, export, unset, etc. as builtins",
+        "File-descriptor manipulation implements pipelines and redirection",
+        "SIGINT/SIGQUIT handled to match bash's exact behavior",
+      ],
+    },
+    whatILearned: {
+      ko: [
+        "UNIX 프로세스 모델 — fork가 왜 그렇게 설계됐는지 몸으로 이해했다",
+        "파일 디스크립터가 보이기 시작하면 셸의 거의 모든 동작이 설명된다",
+        "시그널은 예외 처리가 아니라 설계의 일부여야 한다",
+      ],
+      en: [
+        "The UNIX process model — understood hands-on why fork is designed the way it is",
+        "Once file descriptors become visible, almost everything a shell does explains itself",
+        "Signals need to be part of the design, not an exception handler bolted on after",
+      ],
+    },
     links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai" }],
   },
 ];
 
-export const techStack = [
+export const techStack: { title: string; items: L<string>[] }[] = [
+  {
+    title: "Mathematics",
+    items: [
+      { ko: "Linear Algebra", en: "Linear Algebra" },
+      { ko: "Calculus · Analysis", en: "Calculus · Analysis" },
+      { ko: "Probability", en: "Probability" },
+      { ko: "Optimization", en: "Optimization" },
+      { ko: "Lie Groups · Rigid-Body Transforms", en: "Lie Groups · Rigid-Body Transforms" },
+      { ko: "Discrete Math · Combinatorics", en: "Discrete Math · Combinatorics" },
+    ],
+  },
   {
     title: "Languages & Systems",
-    items: ["Python", "C", "C++", "Rust (exploring)", "JavaScript/TypeScript", "SQL"],
+    items: [
+      { ko: "Python", en: "Python" },
+      { ko: "C", en: "C" },
+      { ko: "C++", en: "C++" },
+      { ko: "Rust (탐색 중)", en: "Rust (exploring)" },
+      { ko: "JavaScript/TypeScript", en: "JavaScript/TypeScript" },
+      { ko: "SQL", en: "SQL" },
+    ],
   },
   {
     title: "ML & AI",
-    items: ["PyTorch", "FastAPI", "Claude API", "RAG", "LangChain (exploring)"],
+    items: [
+      { ko: "PyTorch", en: "PyTorch" },
+      { ko: "FastAPI", en: "FastAPI" },
+      { ko: "Claude API", en: "Claude API" },
+      { ko: "RAG", en: "RAG" },
+      { ko: "LangChain (탐색 중)", en: "LangChain (exploring)" },
+      { ko: "XGBoost", en: "XGBoost" },
+      { ko: "LightGBM", en: "LightGBM" },
+      { ko: "pandas", en: "pandas" },
+    ],
+  },
+  {
+    title: "Web & Backend",
+    items: [
+      { ko: "Node.js", en: "Node.js" },
+      { ko: "Socket.io", en: "Socket.io" },
+      { ko: "Spring Boot", en: "Spring Boot" },
+      { ko: "Angular.js", en: "Angular.js" },
+      { ko: "REST APIs", en: "REST APIs" },
+      { ko: "OAuth 2.0", en: "OAuth 2.0" },
+      { ko: "MySQL", en: "MySQL" },
+    ],
   },
   {
     title: "Robotics & Systems",
-    items: ["ROS2", "YOLOv8", "LiDAR/Vision", "SLAM", "Kalman Filters"],
+    items: [
+      { ko: "ROS2", en: "ROS2" },
+      { ko: "YOLOv8", en: "YOLOv8" },
+      { ko: "LiDAR/Vision", en: "LiDAR/Vision" },
+      { ko: "SLAM", en: "SLAM" },
+      { ko: "Kalman Filters", en: "Kalman Filters" },
+    ],
   },
   {
     title: "DevOps & Cloud",
-    items: ["Docker", "Git", "AWS/GCP (탐색 중)"],
+    items: [
+      { ko: "Docker", en: "Docker" },
+      { ko: "Git", en: "Git" },
+      { ko: "AWS/GCP (탐색 중)", en: "AWS/GCP (exploring)" },
+    ],
   },
   {
     title: "Tools & Frameworks",
-    items: ["Linux", "Git", "VS Code", "42 cursus projects (peer evaluation)"],
-  },
-];
-
-export const experience = [
-  {
-    org: "WTIA × UW CoMotion Global Startup Program",
-    period: "2026.6 – 8 (진행중) · Seattle",
-    bullets: [
-      "ML Engineering · ML Infrastructure 인턴십을 목표로 참여",
-      "Poma AI 캡스톤 프로젝트 주도",
-      "42 Gyeongsan 관계자·VC를 잇는 생태계 구축",
-    ],
-  },
-  {
-    org: "42 Gyeongsan",
-    period: "2024 – 현재",
-    bullets: [
-      "시스템 프로그래밍부터 풀스택까지 — C/C++/Rust",
-      "강의 없이 프로젝트와 동료 평가(peer evaluation)로만 진행되는 커리큘럼",
+    items: [
+      { ko: "Linux", en: "Linux" },
+      { ko: "Git", en: "Git" },
+      { ko: "VS Code", en: "VS Code" },
+      { ko: "42 cursus projects (peer evaluation)", en: "42 cursus projects (peer evaluation)" },
     ],
   },
 ];
 
-export const education = {
-  org: "42 Gyeongsan — Computer Science Fundamentals",
-  period: "2024 – present",
-  body: [
-    "École 42는 파리에서 시작된 무상 컴퓨터공학 교육 기관입니다. 교수도 강의도 교재도 없이, 프로젝트를 만들어 동료 앞에서 방어해야 통과합니다.",
-    "C로 셸을 재구현하고(minishell), Docker 스택을 바닥부터 조립하고(Inception), 레이트레이서로 선형대수를 확인하는(miniRT) — 이 사이트의 Build 섹션 대부분이 이 과정에서 나왔습니다.",
-  ],
-};
+export const experience: { org: L<string>; period: L<string>; bullets: L<string[]> }[] = [
+  {
+    org: { ko: "WTIA × UW CoMotion Global Startup Program", en: "WTIA × UW CoMotion Global Startup Program" },
+    period: { ko: "2026.6 – 8 (진행중) · Seattle", en: "Jun – Aug 2026 (ongoing) · Seattle" },
+    bullets: {
+      ko: [
+        "ML Engineering · ML Infrastructure 인턴십을 목표로 참여",
+        "Poma AI 캡스톤 프로젝트 주도",
+        "42 Gyeongsan 관계자·VC를 잇는 생태계 구축",
+      ],
+      en: [
+        "Aiming for an ML Engineering / ML Infrastructure internship",
+        "Leading the Poma AI capstone project",
+        "Building connections between 42 Gyeongsan contacts and VCs",
+      ],
+    },
+  },
+  {
+    org: { ko: "42 Gyeongsan", en: "42 Gyeongsan" },
+    period: { ko: "2024 – 현재", en: "2024 – present" },
+    bullets: {
+      ko: [
+        "시스템 프로그래밍부터 풀스택까지 — C/C++/Rust",
+        "강의 없이 프로젝트와 동료 평가(peer evaluation)로만 진행되는 커리큘럼",
+      ],
+      en: [
+        "Systems programming through full-stack — C/C++/Rust",
+        "No lectures — a curriculum run entirely on projects and peer evaluation",
+      ],
+    },
+  },
+  {
+    org: { ko: "Ubase — 프로젝트 팀장", en: "Ubase — Project Team Leader" },
+    period: { ko: "2023.8 – 2024.8 · Seoul", en: "Aug 2023 – Aug 2024 · Seoul" },
+    bullets: {
+      ko: [
+        "입사 3개월 만에 프로젝트 리더로 승진, 팀 관리 체계를 새로 구축",
+        "운영 개선으로 센터 전체 QA 점수 10% 향상",
+        "42 École의 기초 기술 교육에 끌려 팀을 떠나 심화 기술 학습으로 전환",
+      ],
+      en: [
+        "Promoted to project leader within 3 months; built a new team management framework",
+        "Improved center-wide QA scores by 10% through operational improvements",
+        "Left to pursue deep technical foundations at École 42",
+      ],
+    },
+  },
+  {
+    org: { ko: "Softnet — 풀스택 엔지니어", en: "Softnet — Full Stack Engineer" },
+    period: { ko: "2021.1 – 2022.1 · Seoul", en: "Jan 2021 – Jan 2022 · Seoul" },
+    bullets: {
+      ko: [
+        "서울대병원·고려대안암병원·충남대병원 3개 대학병원의 이종 환자 데이터를 통합하는 관계형 스키마·ETL 파이프라인 설계",
+        "Spring Boot REST API + Angular.js SPA로 통합 개인건강기록(PHR) 플랫폼 구축",
+        "시계열 임상 데이터의 서버 사이드 집계·필터링·페이지네이션 구현",
+        "민감한 건강 데이터를 위한 역할 기반 접근 제어(RBAC)와 반응형 대시보드",
+      ],
+      en: [
+        "Designed relational schemas and ETL pipelines unifying heterogeneous patient data from 3 university hospitals (SNUH, KU Anam, CNUH)",
+        "Built an integrated Personal Health Record (PHR) platform: Spring Boot REST APIs + Angular.js SPA",
+        "Implemented server-side aggregation, filtering, and pagination for time-series clinical data",
+        "Role-based access control (RBAC) for sensitive health data, with responsive dashboards",
+      ],
+    },
+  },
+  {
+    org: { ko: "HiikTalk — 소프트웨어 엔지니어 (인턴)", en: "HiikTalk — Software Engineer (Intern)" },
+    period: { ko: "2020.1 · Sejong", en: "Jan 2020 · Sejong" },
+    bullets: {
+      ko: [
+        "암호화폐 거래 시스템 백엔드 구축 — 주문·시세·계정 관리",
+        "React Native 기반 거래 인터페이스 구현",
+        "Selenium 기반 실시간 시세 크롤러 구축, 재시도 처리 포함",
+      ],
+      en: [
+        "Built the backend for a cryptocurrency trading system — order flow, market data, account management",
+        "Implemented a React Native trading interface",
+        "Built a Selenium-based real-time market-data crawler with retry handling",
+      ],
+    },
+  },
+  {
+    org: {
+      ko: "개인 사업 — 상해 화장품 판매 · 네이버 스마트스토어",
+      en: "Personal Business — Shanghai Cosmetics Sales · Naver Smart Store",
+    },
+    period: { ko: "2019 – 2021", en: "2019 – 2021" },
+    bullets: {
+      ko: ["중국 상해에서 화장품을 수입·판매", "네이버 스마트스토어 운영"],
+      en: ["Imported and sold cosmetics in Shanghai, China", "Operated a Naver Smart Store"],
+    },
+  },
+];
+
+export const education: { org: L<string>; period: L<string>; body: L<string[]> }[] = [
+  {
+    org: { ko: "42 Gyeongsan — 컴퓨터 사이언스 기초", en: "42 Gyeongsan — Computer Science Fundamentals" },
+    period: { ko: "2024 – 현재", en: "2024 – present" },
+    body: {
+      ko: [
+        "École 42는 파리에서 시작된 무상 컴퓨터공학 교육 기관입니다. 교수도 강의도 교재도 없이, 프로젝트를 만들어 동료 앞에서 방어해야 통과합니다. Inner Circle을 마치고 Transcendence · WebServ를 통과해 Outer Circle에 있습니다.",
+        "정규 수업보다 실전으로 배우는 방식은 처음이 아닙니다 — 고등학교 때도 기능반 훈련으로 같은 방식을 거쳤습니다. 수학도 같은 길이었습니다: 수학의정석 2권을 두 번씩 풀어 기초를 세우고, 지금은 해석학과 리군, TAOCP까지 책으로 직접 올라가고 있습니다.",
+        "C로 셸을 재구현하고(minishell), Docker 스택을 바닥부터 조립하고(Inception), 레이트레이서로 선형대수를 확인하는(miniRT) — 이 사이트의 Build 섹션 대부분이 이 과정에서 나왔습니다.",
+      ],
+      en: [
+        "École 42 is a tuition-free computer science school founded in Paris. No professors, no lectures, no textbooks — you build projects and defend them in front of peers to pass. I finished the Inner Circle, passed Transcendence and WebServ, and I'm now in the Outer Circle.",
+        "Learning by building rather than by lecture isn't new to me — high school ran the same way through skills-competition training. Math followed the same path: I rebuilt my foundations working through two volumes of a classic Korean problem book twice each, and I'm now climbing through analysis, Lie groups, and TAOCP straight from the books.",
+        "Reimplementing a shell in C (minishell), assembling a Docker stack from scratch (Inception), verifying linear algebra with a ray tracer (miniRT) — most of this site's Build section came out of this program.",
+      ],
+    },
+  },
+  {
+    org: { ko: "UC Berkeley SCET Intensive Program", en: "UC Berkeley SCET Intensive Program" },
+    period: { ko: "2024.12.2 – 12.6", en: "Dec 2 – 6, 2024" },
+    body: {
+      ko: [
+        "🏆 1위 — 짧은 시간 안에 스타트업이 목표를 달성해가는 과정을 비디오로 제작하는 캡스톤 프로젝트에서 1등을 했습니다.",
+      ],
+      en: [
+        "🏆 1st Place — won a capstone project centered on producing, in a short window, a video depicting a startup's path to achieving its goals.",
+      ],
+    },
+  },
+  {
+    org: { ko: "고려사이버대학교 — 경영학과", en: "The Cyber University of Korea — B.B.A., Business Administration" },
+    period: { ko: "2021 – 현재 · 4학년", en: "2021 – present · Senior" },
+    body: { ko: [], en: [] },
+  },
+  {
+    org: {
+      ko: "대구소프트웨어마이스터고등학교 — 소프트웨어개발과",
+      en: "Daegu Software Meister High School — Software Development",
+    },
+    period: { ko: "2018.3 – 2021.2", en: "Mar 2018 – Feb 2021" },
+    body: {
+      ko: [
+        "1학년 2학기부터 기능반 훈련에 집중하며 정규 수업보다 실전 대회 준비에 시간을 썼습니다. Daegu Skills 웹 디자인·개발 부문에서 3위(2019)·2위(2020)를 했고, WorldSkills 국가대표 후보 훈련까지 받았습니다.",
+      ],
+      en: [
+        "From the second semester of freshman year, I focused on skills-competition training, spending more time preparing for contests than attending regular classes. Placed 3rd (2019) and 2nd (2020) in Web Design & Development at Daegu Skills, and trained as a WorldSkills national-team candidate.",
+      ],
+    },
+  },
+];

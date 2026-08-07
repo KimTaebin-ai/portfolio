@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useLang } from "@/lib/lang";
 
 type DiagramNode = {
   id: string;
@@ -8,18 +9,72 @@ type DiagramNode = {
   y: number;
   w: number;
   h: number;
-  title: string;
-  sub: string;
+  title: { ko: string; en: string };
+  sub: { ko: string; en: string };
   variant: "past" | "loop" | "future";
 };
 
 const NODES: DiagramNode[] = [
-  { id: "A", x: 20, y: 26, w: 250, h: 56, title: "42 Gyeongsan · 2024–", sub: "CS from scratch — C, UNIX, networks", variant: "past" },
-  { id: "B", x: 325, y: 26, w: 250, h: 56, title: "WTIA × UW CoMotion", sub: "Seattle 2026 — ML engineering", variant: "past" },
-  { id: "F", x: 630, y: 26, w: 250, h: 56, title: "ML systems at scale", sub: "GPU · distributed training", variant: "future" },
-  { id: "C", x: 20, y: 132, w: 250, h: 56, title: "Start from first principles", sub: "math before frameworks", variant: "loop" },
-  { id: "D", x: 325, y: 132, w: 250, h: 56, title: "Build it from scratch", sub: "shell · raytracer · RAG · robot", variant: "loop" },
-  { id: "E", x: 630, y: 132, w: 250, h: 56, title: "Measure & verify", sub: "grid search · evals · peer review", variant: "loop" },
+  {
+    id: "A",
+    x: 20,
+    y: 26,
+    w: 250,
+    h: 56,
+    title: { ko: "42 Gyeongsan · 2024–", en: "42 Gyeongsan · 2024–" },
+    sub: { ko: "밑바닥부터 CS — C, UNIX, 네트워크", en: "CS from scratch — C, UNIX, networks" },
+    variant: "past",
+  },
+  {
+    id: "B",
+    x: 325,
+    y: 26,
+    w: 250,
+    h: 56,
+    title: { ko: "WTIA × UW CoMotion", en: "WTIA × UW CoMotion" },
+    sub: { ko: "Seattle 2026 — ML 엔지니어링", en: "Seattle 2026 — ML engineering" },
+    variant: "past",
+  },
+  {
+    id: "F",
+    x: 630,
+    y: 26,
+    w: 250,
+    h: 56,
+    title: { ko: "대규모 ML 시스템", en: "ML systems at scale" },
+    sub: { ko: "GPU · 분산 학습", en: "GPU · distributed training" },
+    variant: "future",
+  },
+  {
+    id: "C",
+    x: 20,
+    y: 132,
+    w: 250,
+    h: 56,
+    title: { ko: "기본 원리부터 시작", en: "Start from first principles" },
+    sub: { ko: "프레임워크보다 수학 먼저", en: "math before frameworks" },
+    variant: "loop",
+  },
+  {
+    id: "D",
+    x: 325,
+    y: 132,
+    w: 250,
+    h: 56,
+    title: { ko: "바닥부터 직접 만들기", en: "Build it from scratch" },
+    sub: { ko: "셸 · 레이트레이서 · RAG · 로봇", en: "shell · raytracer · RAG · robot" },
+    variant: "loop",
+  },
+  {
+    id: "E",
+    x: 630,
+    y: 132,
+    w: 250,
+    h: 56,
+    title: { ko: "측정하고 검증하기", en: "Measure & verify" },
+    sub: { ko: "그리드서치 · 평가 · 동료 평가", en: "grid search · evals · peer review" },
+    variant: "loop",
+  },
 ];
 
 /* Touring ball: an ambient dot walks the main path (the road so far, plus the
@@ -36,7 +91,18 @@ function center(id: string) {
   return { x: n.x + n.w / 2, y: n.y + n.h / 2 };
 }
 
+const ARIA_LABEL = {
+  ko: "커리어 경로: 2024년부터 42 Gyeongsan에서 컴퓨터 사이언스를 밑바닥부터, 지금은 2026년 Seattle의 WTIA × UW CoMotion에서, 대규모 ML 시스템을 향해 — 반복되는 루프로 움직입니다: 기본 원리부터 시작, 바닥부터 직접 만들기, 측정하고 검증하기.",
+  en: "Career path: computer science from scratch at 42 Gyeongsan since 2024, now at WTIA × UW CoMotion in Seattle 2026, headed toward ML systems at scale — driven by a repeating loop: start from first principles, build it from scratch, measure and verify.",
+};
+
+const LOOP_CAPTION = {
+  ko: "만들 때마다 다음 빈틈이 보인다",
+  en: "every build reveals the next gap",
+};
+
 export function CareerPath() {
+  const lang = useLang();
   const svgRef = useRef<SVGSVGElement>(null);
   const dotRef = useRef<SVGCircleElement>(null);
 
@@ -155,7 +221,7 @@ export function CareerPath() {
         ref={svgRef}
         viewBox="0 0 900 240"
         role="img"
-        aria-label="Career path: computer science from scratch at 42 Gyeongsan since 2024, now at WTIA × UW CoMotion in Seattle 2026, headed toward ML systems at scale — driven by a repeating loop: start from first principles, build it from scratch, measure and verify."
+        aria-label={ARIA_LABEL[lang]}
         className="min-w-[640px]"
         style={{ width: "100%" }}
       >
@@ -235,7 +301,7 @@ export function CareerPath() {
           textAnchor="middle"
           style={{ fontFamily: "var(--font-geist-mono)", fontSize: 10.5, fill: "var(--foreground-muted)" }}
         >
-          every build reveals the next gap
+          {LOOP_CAPTION[lang]}
         </text>
 
         {/* nodes */}
@@ -258,7 +324,7 @@ export function CareerPath() {
               textAnchor="middle"
               style={{ fontSize: 13.5, fontWeight: 600, fill: "var(--foreground)" }}
             >
-              {n.title}
+              {n.title[lang]}
             </text>
             <text
               x={n.x + n.w / 2}
@@ -266,7 +332,7 @@ export function CareerPath() {
               textAnchor="middle"
               style={{ fontSize: 11.5, fill: "var(--foreground-muted)" }}
             >
-              {n.sub}
+              {n.sub[lang]}
             </text>
           </g>
         ))}
