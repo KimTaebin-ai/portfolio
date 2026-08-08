@@ -583,7 +583,9 @@ export const projects: Project[] = [
         "Ray-object intersection is just solving an equation — graphics turned out to be math translated into pixels",
       ],
     },
-    links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai" }],
+    links: [
+      { label: "GitHub", href: "https://github.com/KimTaebin-ai/miniRT" },
+    ],
   },
   {
     id: "bittorrent",
