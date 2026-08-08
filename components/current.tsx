@@ -27,6 +27,15 @@ export function Current() {
                 <p key={i}>{line}</p>
               ))}
             </div>
+            {item.links ? (
+              <div className="mt-3 flex flex-wrap gap-4 text-sm font-medium">
+                {item.links.map((link) => (
+                  <a key={link.href} href={link.href} target="_blank" rel="noreferrer noopener">
+                    {link.label[lang]} ↗
+                  </a>
+                ))}
+              </div>
+            ) : null}
           </div>
         ))}
       </div>

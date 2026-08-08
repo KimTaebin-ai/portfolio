@@ -29,7 +29,12 @@ export const nav: { href: string; label: L<string> }[] = [
   { href: "#experience", label: { ko: "경력", en: "Experience" } },
 ];
 
-export const current: { org: L<string>; period: L<string>; body: L<string[]> }[] = [
+export const current: {
+  org: L<string>;
+  period: L<string>;
+  body: L<string[]>;
+  links?: { label: L<string>; href: string }[];
+}[] = [
   {
     org: {
       ko: "WTIA × UW CoMotion Global Startup Program",
@@ -38,22 +43,30 @@ export const current: { org: L<string>; period: L<string>; body: L<string[]> }[]
     period: { ko: "2026.6 – 8 (진행중) · Seattle", en: "Jun – Aug 2026 (ongoing) · Seattle" },
     body: {
       ko: [
-        "ML 엔지니어링·인프라 인턴십을 목표로 Seattle에서 여름을 보내고 있습니다. Poma AI 캡스톤 프로젝트를 주도하며, ML systems performance · GPU optimization · distributed training을 파고드는 중입니다.",
+        "42경산·42서울 교육생 30명 중 경쟁을 뚫고 선발되어, 과기정통부 지원 실전형 AI·SW 창업 교육 프로그램으로 Seattle에서 여름을 보내며 창업의 전 과정을 직접 밟고 있습니다.",
+        "AI 맞춤형 정보 탐색 실습에서 우수한 성과를 거둬 전자신문에 소개됐고, 맞춤형 피트니스 코칭 스타트업 'Poma AI'를 기획·주도하는 중입니다.",
       ],
       en: [
-        "Spending the summer in Seattle aiming for an ML engineering / infrastructure internship. Leading the Poma AI capstone project and digging into ML systems performance, GPU optimization, and distributed training.",
+        "Selected through competition among 30 trainees from École 42 Gyeongsan and Seoul, spending the summer in Seattle in a hands-on AI/SW startup education program backed by Korea's Ministry of Science and ICT — working through the full startup process firsthand.",
+        "Featured in etnews (전자신문) for excellent results in an AI personalized-information-search exercise, and currently planning and leading 'Poma AI', a personalized fitness-coaching startup.",
       ],
     },
+    links: [
+      {
+        label: { ko: "전자신문 기사", en: "etnews coverage" },
+        href: "https://www.etnews.com/20260724000305",
+      },
+    ],
   },
   {
     org: { ko: "École 42 — Outer Circle", en: "École 42 — Outer Circle" },
     period: { ko: "2024 – 현재", en: "2024 – present" },
     body: {
       ko: [
-        "교수도 강의도 없이, 프로젝트와 동료 평가만으로 컴퓨터 사이언스를 쌓고 있습니다. Inner Circle을 마치고 Transcendence · WebServ를 통과해 Outer Circle에 진입했습니다. C로 셸을 재구현하고, 레이트레이서로 선형대수를 확인하고, 회귀와 행렬 연산을 Rust로 바닥부터 다시 구현했습니다.",
+        "교수도 강의도 없이, 프로젝트와 동료 평가만으로 컴퓨터 사이언스를 쌓고 있습니다. Transcendence · WebServ를 포함한 Inner Circle을 마치고 지금은 Outer Circle에 있습니다. C로 셸을 재구현하고, 레이트레이서로 선형대수를 확인하고, 회귀와 행렬 연산을 Rust로 바닥부터 다시 구현했습니다.",
       ],
       en: [
-        "No professors, no lectures — just projects and peer evaluation, building computer science from scratch. Finished the Inner Circle, passed Transcendence and WebServ, and I'm now in the Outer Circle. Reimplemented a shell in C, verified linear algebra with a ray tracer, and rebuilt regression and matrix operations from scratch in Rust.",
+        "No professors, no lectures — just projects and peer evaluation, building computer science from scratch. Finished the Inner Circle, including Transcendence and WebServ, and I'm now in the Outer Circle. Reimplemented a shell in C, verified linear algebra with a ray tracer, and rebuilt regression and matrix operations from scratch in Rust.",
       ],
     },
   },
@@ -175,10 +188,10 @@ export const projects: Project[] = [
     period: "2026",
     status: "complete",
     statusLabel: { ko: "완료", en: "Complete" },
-    badge: { ko: "42 Outer Circle · 팀장, 4인 팀", en: "42 Outer Circle · Team Lead, team of 4" },
+    badge: { ko: "École 42 Inner Circle · 팀장, 4인 팀", en: "École 42 Inner Circle · Team Lead, team of 4" },
     why: {
-      ko: "42 Inner Circle을 마치고 처음 마주하는 대형 팀 프로젝트입니다. 실시간 통신과 인증을, 프레임워크 뒤에 숨지 않고 4명이 함께 설계·구현해야 했습니다.",
-      en: "The first large team project after finishing 42's Inner Circle. Real-time communication and authentication had to be designed and built by the four of us directly — no framework to hide behind.",
+      ko: "École 42 Inner Circle 후반부에 처음 마주하는 대형 팀 프로젝트입니다. 실시간 통신과 인증을, 프레임워크 뒤에 숨지 않고 4명이 함께 설계·구현해야 했습니다.",
+      en: "The first large team project in the latter half of École 42's Inner Circle. Real-time communication and authentication had to be designed and built by the four of us directly — no framework to hide behind.",
     },
     solution: {
       ko: "WebSocket 기반 실시간 대전 Pong을 만들고, 커스텀 매치메이킹과 OAuth 2.0 + 2FA 인증까지 팀을 이끌며 구현했습니다.",
@@ -232,7 +245,7 @@ export const projects: Project[] = [
     period: "2026",
     status: "complete",
     statusLabel: { ko: "완료", en: "Complete" },
-    badge: { ko: "42 Outer Circle", en: "42 Outer Circle" },
+    badge: { ko: "École 42 Inner Circle", en: "École 42 Inner Circle" },
     why: {
       ko: "브라우저가 서버에 요청을 보내면 무슨 일이 일어나는가 — nginx 뒤에 숨겨진 HTTP 서버를 C++로 직접 구현해 확인하고 싶었습니다.",
       en: "What actually happens when a browser sends a request to a server? I wanted to implement the HTTP server hiding behind nginx myself, in C++, to find out.",
@@ -730,14 +743,14 @@ export const experience: { org: L<string>; period: L<string>; bullets: L<string[
     period: { ko: "2026.6 – 8 (진행중) · Seattle", en: "Jun – Aug 2026 (ongoing) · Seattle" },
     bullets: {
       ko: [
-        "ML Engineering · ML Infrastructure 인턴십을 목표로 참여",
-        "Poma AI 캡스톤 프로젝트 주도",
-        "École 42 관계자·VC를 잇는 생태계 구축",
+        "42경산·42서울 교육생 30명 중 경쟁을 뚫고 선발 — 과기정통부 지원 실전형 AI·SW 창업 교육 프로그램",
+        "AI 맞춤형 정보 탐색 실습에서 우수한 성과로 전자신문에 소개",
+        "맞춤형 피트니스 코칭 스타트업 'Poma AI' 기획·주도",
       ],
       en: [
-        "Aiming for an ML Engineering / ML Infrastructure internship",
-        "Leading the Poma AI capstone project",
-        "Building connections between École 42 contacts and VCs",
+        "Selected through competition among 30 trainees from École 42 Gyeongsan and Seoul — a hands-on AI/SW startup education program backed by Korea's Ministry of Science and ICT",
+        "Featured in etnews (전자신문) for excellent results in an AI personalized-information-search exercise",
+        "Planning and leading 'Poma AI', a personalized fitness-coaching startup",
       ],
     },
   },
@@ -827,12 +840,16 @@ export const education: { org: L<string>; period: L<string>; body: L<string[]> }
     period: { ko: "2024 – 현재", en: "2024 – present" },
     body: {
       ko: [
-        "École 42는 파리에서 시작된 무상 컴퓨터공학 교육 기관입니다. 교수도 강의도 교재도 없이, 프로젝트를 만들어 동료 앞에서 방어해야 통과합니다. Inner Circle을 마치고 Transcendence · WebServ를 통과해 Outer Circle에 있습니다.",
+        "École 42는 2013년 파리에서 Xavier Niel이 설립한 무상 컴퓨터공학 교육기관으로, 현재 30여 개국 50개 이상 캠퍼스를 가진 세계 최대의 무료 개발자 교육 네트워크입니다. 교수도 강의도 교재도 없이, 프로젝트를 만들어 동료 앞에서 방어해야 통과하며, 캠퍼스는 24시간 열려 있고 정해진 시간표가 없습니다.",
+        "입학은 한 달간 C로만 진행되는 전일제 몰입 과정 '라피신(La Piscine)'을 통과해야 하고, 초반 과제부터 '노름(the Norm)'이라는 코딩 규칙(함수 25줄 제한, for·switch 금지)을 지켜야 자동 검증을 통과해 비로소 사람이 리뷰합니다. 프랑스 국가직업자격체계 RNCP 7단계 — 석사(bac+5)에 준하는 등급으로 등록되어 있습니다.",
+        "Transcendence · WebServ를 포함한 Inner Circle을 마치고 지금은 Outer Circle에 있습니다.",
         "정규 수업보다 실전으로 배우는 방식은 처음이 아닙니다 — 고등학교 때도 기능반 훈련으로 같은 방식을 거쳤습니다. 수학도 같은 길이었습니다: 수학의정석 2권을 두 번씩 풀어 기초를 세우고, 지금은 해석학과 리군, TAOCP까지 책으로 직접 올라가고 있습니다.",
         "C로 셸을 재구현하고(minishell), Docker 스택을 바닥부터 조립하고(Inception), 레이트레이서로 선형대수를 확인하는(miniRT) — 이 사이트의 Build 섹션 대부분이 이 과정에서 나왔습니다.",
       ],
       en: [
-        "École 42 is a tuition-free computer science school founded in Paris. No professors, no lectures, no textbooks — you build projects and defend them in front of peers to pass. I finished the Inner Circle, passed Transcendence and WebServ, and I'm now in the Outer Circle.",
+        "École 42 is a tuition-free computer science school founded in Paris in 2013 by Xavier Niel — now the world's largest free developer-education network, with 50+ campuses across 30+ countries. No professors, lectures, or textbooks: you build projects and defend them in front of peers to pass, and campuses are open 24/7 with no fixed schedule.",
+        "Admission requires passing La Piscine, a month-long full-time immersion in C, and even the earliest projects must follow the Norm — a coding style (25-line function limit, no for-loops or switch statements) checked automatically before any human reviews it. The credential is registered at RNCP level 7 in the French national qualifications framework, roughly equivalent to a Master's (bac+5).",
+        "Finished the Inner Circle, including Transcendence and WebServ, and I'm now in the Outer Circle.",
         "Learning by building rather than by lecture isn't new to me — high school ran the same way through skills-competition training. Math followed the same path: I rebuilt my foundations working through two volumes of a classic Korean problem book twice each, and I'm now climbing through analysis, Lie groups, and TAOCP straight from the books.",
         "Reimplementing a shell in C (minishell), assembling a Docker stack from scratch (Inception), verifying linear algebra with a ray tracer (miniRT) — most of this site's Build section came out of this program.",
       ],
