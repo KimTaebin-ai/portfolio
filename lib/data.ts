@@ -10,7 +10,13 @@ export const profile = {
     ko: "한때는 빠른 구현이 실력의 전부라고 믿었습니다. 기능반과 팀 리드 자리에서, 정해진 시간 안에 요구사항을 결과물로 만들어내는 속도로 실력을 증명했고 — 대회 입상과 국가대표 후보 훈련까지 받았습니다. 하지만 코드를 빠르게 짜는 일이 점점 도구의 몫이 되어가면서, 정작 중요한 건 그 밑에서 무슨 일이 일어나는지 아는 능력이라는 걸 깨달았습니다. 그래서 컴퓨터 사이언스와 수학을 밑바닥부터 다시 시작했습니다 — École 42에서 셸과 레이트레이서를 C로, 선형대수를 Rust로 프레임워크 없이 직접 만들고, 수학은 강의 없이 책을 풀며 해석학·선형대수를 쌓았습니다. 속도를 버린 건 아닙니다. LLM과 에이전트를 다루는 개발은 오히려 더 강해졌습니다 — 근본을 이해하는 사람이 도구를 다룰 때, 속도는 깊이를 배신하지 않습니다.",
     en: "I used to believe speed was the whole of skill. In skills-competition training and as a team lead, I proved that skill by shipping requirements into results inside a fixed window — competition placements and WorldSkills national-team candidate training followed. But as writing code fast increasingly became the tool's job, I realized what actually mattered was understanding what happens underneath. So I restarted computer science and math from scratch: at École 42, building a shell and a ray tracer in C and a linear-algebra library in Rust with no framework to hide behind, and working through analysis and linear algebra from books with no lectures. I haven't given up speed — if anything, building with LLMs and agents got stronger. When someone who understands the fundamentals picks up the tools, speed stops betraying depth.",
   } satisfies L<string>,
-  techChips: ["C/C++", "Python", "Mathematics", "Systems Programming", "ML Infrastructure"],
+  techChips: [
+    "C/C++",
+    "Python",
+    "Mathematics",
+    "Systems Programming",
+    "ML Infrastructure",
+  ],
   currentLine: {
     ko: "WTIA × UW CoMotion에서 활동 중 (Seattle, 2026.6–8)",
     en: "currently at WTIA × UW CoMotion (Seattle, Jun–Aug 2026)",
@@ -40,7 +46,10 @@ export const current: {
       ko: "WTIA × UW CoMotion Global Startup Program",
       en: "WTIA × UW CoMotion Global Startup Program",
     },
-    period: { ko: "2026.6 – 8 (진행중) · Seattle", en: "Jun – Aug 2026 (ongoing) · Seattle" },
+    period: {
+      ko: "2026.6 – 8 (진행중) · Seattle",
+      en: "Jun – Aug 2026 (ongoing) · Seattle",
+    },
     body: {
       ko: [
         "42경산·42서울 교육생 30명 중 경쟁을 뚫고 선발되어, 과기정통부 지원 실전형 AI·SW 창업 교육 프로그램으로 Seattle에서 여름을 보내며 창업의 전 과정을 직접 밟고 있습니다.",
@@ -112,7 +121,10 @@ export const projects: Project[] = [
     period: "2026.6",
     status: "complete",
     statusLabel: { ko: "완료", en: "Complete" },
-    badge: { ko: "🏆 1위 — WTIA LLM Competition", en: "🏆 1st Place — WTIA LLM Competition" },
+    badge: {
+      ko: "🏆 1위 — WTIA LLM Competition",
+      en: "🏆 1st Place — WTIA LLM Competition",
+    },
     why: {
       ko: "1,297쪽 미국 연방 항공법(14 CFR)에서 정확한 조항(§)을 찾아 인용하는 일은 사람에게도 어렵습니다. '그럴듯한 답'과 '검증 가능한 답'의 간격을 감이 아니라 데이터로 메우고 싶었습니다.",
       en: "Finding and citing the exact clause (§) in 1,297 pages of U.S. federal aviation law (14 CFR) is hard even for a person. I wanted to close the gap between a ‘plausible answer’ and a ‘verifiable answer’ with data, not intuition.",
@@ -122,11 +134,29 @@ export const projects: Project[] = [
       en: "Graded 45 retrieval configurations in an overnight automated grid search — recall 0.909 on a blind holdout, instructor score 9/10, 1st place among participants.",
     },
     flow: [
-      { label: { ko: "PDF 정제 + §청킹", en: "Clean PDF + § chunking" }, sub: { ko: "0.39→0.80 유사도", en: "0.39→0.80 similarity" } },
+      {
+        label: { ko: "PDF 정제 + §청킹", en: "Clean PDF + § chunking" },
+        sub: { ko: "0.39→0.80 유사도", en: "0.39→0.80 similarity" },
+      },
       { label: { ko: "쿼리 재작성 + 게이트", en: "Rewrite + gate query" } },
-      { label: { ko: "검색: gate·rerank·확장", en: "Retrieve: gate·rerank·expand" } },
-      { label: { ko: "one-shot / agentic 생성", en: "One-shot / agentic generation" } },
-      { label: { ko: "인용 재번호 + 스트리밍", en: "Renumber citations + stream" } },
+      {
+        label: {
+          ko: "검색: gate·rerank·확장",
+          en: "Retrieve: gate·rerank·expand",
+        },
+      },
+      {
+        label: {
+          ko: "one-shot / agentic 생성",
+          en: "One-shot / agentic generation",
+        },
+      },
+      {
+        label: {
+          ko: "인용 재번호 + 스트리밍",
+          en: "Renumber citations + stream",
+        },
+      },
     ],
     howItWorks: {
       ko: [
@@ -145,7 +175,10 @@ export const projects: Project[] = [
       ],
     },
     challenge: {
-      label: { ko: "유사도 ≠ 관련성, 그리고 비용", en: "Similarity ≠ relevance — and cost" },
+      label: {
+        ko: "유사도 ≠ 관련성, 그리고 비용",
+        en: "Similarity ≠ relevance — and cost",
+      },
       body: {
         ko: "고정 페이지 청킹에서는 §61.109 조항(비행시간 요건에 대한 정확한 답)이 유사도 0.39, 순위 2600위 밖으로 묻혔습니다. §조항 경계로 청킹하고 PDF 노이즈를 제거하자 같은 조항이 유사도 0.80, 1위로 올라왔습니다. 넓은 열거형 질문에서는 agentic 루프가 입력 토큰을 15k~55k까지 썼는데, 최악은 검색만 하다 답을 못 찾아 강제로 답하는 경로가 증거 pool 전체를 캐시 없이 재전송하는 경우였습니다(한 호출 12,157 토큰). pool 상한과 스니펫 축약, 그리고 forced-answer가 이미 캐시된 대화를 이어가도록 바꾸자 그 호출은 46 uncached 토큰으로, 전체적으로는 최대 86%까지 줄었습니다.",
         en: "With naive page-by-page chunking, the passage that directly answers 'what flight hours are required' (§61.109) embedded at only 0.39 similarity, rank ~2600. Chunking on section boundaries and stripping PDF noise lifted the same passage to 0.80 similarity, rank #1. Separately, broad enumerative questions pushed the agentic loop to 15k–55k input tokens — worst case was the forced-answer path (the loop runs out of search budget and has to answer anyway) re-sending the entire evidence pool with no cache, one call costing 12,157 tokens. Capping the pool, shortening tool-output snippets, and having forced-answer continue the already-cached conversation instead dropped that call to 46 uncached tokens — up to 86% overall.",
@@ -179,7 +212,9 @@ export const projects: Project[] = [
         "One limitation remains: I built and ran the answer key myself — when the person who writes the questions also grades them, scores tend to run generous. Next time I'd separate answer-key creation from evaluation.",
       ],
     },
-    links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai/rag-starter" }],
+    links: [
+      { label: "GitHub", href: "https://github.com/KimTaebin-ai/rag-starter" },
+    ],
   },
   {
     id: "transcendence",
@@ -188,7 +223,10 @@ export const projects: Project[] = [
     period: "2026",
     status: "complete",
     statusLabel: { ko: "완료", en: "Complete" },
-    badge: { ko: "École 42 Inner Circle · 팀장, 4인 팀", en: "École 42 Inner Circle · Team Lead, team of 4" },
+    badge: {
+      ko: "École 42 Inner Circle · 팀장, 4인 팀",
+      en: "École 42 Inner Circle · Team Lead, team of 4",
+    },
     why: {
       ko: "École 42 Inner Circle 후반부에 처음 마주하는 대형 팀 프로젝트입니다. 실시간 통신과 인증을, 프레임워크 뒤에 숨지 않고 4명이 함께 설계·구현해야 했습니다.",
       en: "The first large team project in the latter half of École 42's Inner Circle. Real-time communication and authentication had to be designed and built by the four of us directly — no framework to hide behind.",
@@ -200,7 +238,12 @@ export const projects: Project[] = [
     flow: [
       { label: { ko: "OAuth 2.0 + 2FA 로그인", en: "OAuth 2.0 + 2FA login" } },
       { label: { ko: "매치메이킹(셔플)", en: "Matchmaking shuffle" } },
-      { label: { ko: "Socket.io 실시간 대전", en: "Real-time match (Socket.io)" } },
+      {
+        label: {
+          ko: "Socket.io 실시간 대전",
+          en: "Real-time match (Socket.io)",
+        },
+      },
       { label: { ko: "양쪽 상태 동기화", en: "Sync state to both players" } },
     ],
     howItWorks: {
@@ -218,7 +261,10 @@ export const projects: Project[] = [
       ],
     },
     challenge: {
-      label: { ko: "프론트·백·배포를 3개 레포로", en: "Splitting front, back, and deploy" },
+      label: {
+        ko: "프론트·백·배포를 3개 레포로",
+        en: "Splitting front, back, and deploy",
+      },
       body: {
         ko: "팀 4명이 동시에 작업하려면 프론트(React/Vite), 백엔드, 배포 설정을 분리해야 했습니다. 레포를 tsen-front · tsen-back · deployment로 나누고, 실시간 게임 상태는 프론트-백 양쪽에서 동시에 신뢰할 수 있게 Socket.io 이벤트로만 동기화했습니다.",
         en: "With 4 people working in parallel, the frontend (React/Vite), backend, and deployment config had to be separated. We split the work into tsen-front, tsen-back, and deployment repos, and kept real-time game state trustworthy on both ends by synchronizing it exclusively through Socket.io events.",
@@ -236,7 +282,12 @@ export const projects: Project[] = [
         "Designing auth (OAuth 2.0, 2FA) from scratch made it clear security isn't a feature you bolt on later",
       ],
     },
-    links: [{ label: "GitHub: tsen-immida", href: "https://github.com/orgs/tsen-immida/repositories" }],
+    links: [
+      {
+        label: "GitHub: tsen-immida",
+        href: "https://github.com/orgs/tsen-immida/repositories",
+      },
+    ],
   },
   {
     id: "webserv",
@@ -256,8 +307,14 @@ export const projects: Project[] = [
     },
     flow: [
       { label: { ko: "설정 파일 파싱", en: "Parse config file" } },
-      { label: { ko: "연결 수락", en: "Accept connections" }, sub: { ko: "non-blocking I/O", en: "non-blocking I/O" } },
-      { label: { ko: "요청 라우팅", en: "Route request" }, sub: { ko: "GET·POST·DELETE·CGI", en: "GET·POST·DELETE·CGI" } },
+      {
+        label: { ko: "연결 수락", en: "Accept connections" },
+        sub: { ko: "non-blocking I/O", en: "non-blocking I/O" },
+      },
+      {
+        label: { ko: "요청 라우팅", en: "Route request" },
+        sub: { ko: "GET·POST·DELETE·CGI", en: "GET·POST·DELETE·CGI" },
+      },
       { label: { ko: "응답 반환", en: "Return response" } },
     ],
     howItWorks: {
@@ -320,7 +377,10 @@ export const projects: Project[] = [
       ],
     },
     challenge: {
-      label: { ko: "진짜 변수는 알고리즘이 아니었다", en: "The real variable wasn't the algorithm" },
+      label: {
+        ko: "진짜 변수는 알고리즘이 아니었다",
+        en: "The real variable wasn't the algorithm",
+      },
       body: {
         ko: "센서 융합 로직보다 조명이 더 큰 문제였습니다 — 직사광이 들어오면 YOLOv8 인식이 흔들리고 추적이 끊겼습니다. 결국 가장 많은 시간을 쓴 건 융합 알고리즘이 아니라, 다양한 조명 조건에서 인식이 안정적으로 유지되도록 다듬는 일이었습니다.",
         en: "Lighting turned out to be a bigger problem than the fusion logic itself — direct sunlight threw off YOLOv8 detection and broke tracking. Most of the engineering time went into stabilizing recognition across lighting conditions, not into the fusion algorithm.",
@@ -362,7 +422,12 @@ export const projects: Project[] = [
     },
     flow: [
       { label: { ko: "정규방정식", en: "Normal equation" } },
-      { label: { ko: "최소제곱 + 정규화", en: "Least squares + regularization" } },
+      {
+        label: {
+          ko: "최소제곱 + 정규화",
+          en: "Least squares + regularization",
+        },
+      },
       { label: { ko: "고유분해 · SVD", en: "Eigendecomposition · SVD" } },
       { label: { ko: "손계산으로 검증", en: "Verify by hand" } },
     ],
@@ -379,7 +444,10 @@ export const projects: Project[] = [
       ],
     },
     challenge: {
-      label: { ko: "정규화 없인 수렴하지 않는다", en: "Nothing converges without normalization" },
+      label: {
+        ko: "정규화 없인 수렴하지 않는다",
+        en: "Nothing converges without normalization",
+      },
       body: {
         ko: "원본 스케일(주행거리 km, 가격)로 그대로 경사하강을 돌리면 손실 표면의 조건수가 극단적으로 나쁩니다 — 이 데이터셋에서 Hessian 최대 고유값이 약 1.3×10¹⁰까지 나와, 발산을 피하려면 학습률을 1e-10까지 낮춰야 하고 그래도 수렴이 느립니다. x·y를 각각 min-max 정규화하고 나서야 학습률 0.1로 빠르게 수렴했고, θ는 이후 원래 스케일로 역정규화했습니다. Matrix 쪽에서는 row-echelon·determinant·inverse·rank 네 연산을 Gauss-Jordan 엔진 하나로 통일하고, f32와 Complex 스칼라 차이는 Operations 트레잇 뒤로 감췄습니다.",
         en: "Running gradient descent directly on the raw (km, price) scale leaves a badly ill-conditioned loss surface — on this dataset the Hessian's max eigenvalue comes out to roughly 1.3×10¹⁰, so the learning rate would have to drop to ~1e-10 to avoid diverging, and even then converge slowly. Min-max normalizing x and y independently let a plain α = 0.1 converge quickly; θ is denormalized back to the original scale afterward. On the Matrix side, a single Gauss-Jordan engine powers row-echelon, determinant, inverse, and rank, with the f32/Complex scalar difference pushed behind an Operations trait.",
@@ -399,7 +467,10 @@ export const projects: Project[] = [
     },
     links: [
       { label: "GitHub: ftlr", href: "https://github.com/KimTaebin-ai/ftlr" },
-      { label: "GitHub: Enter-the-Matrix", href: "https://github.com/KimTaebin-ai/Enter-the-Matrix" },
+      {
+        label: "GitHub: Enter-the-Matrix",
+        href: "https://github.com/KimTaebin-ai/Enter-the-Matrix",
+      },
     ],
   },
   {
@@ -438,7 +509,10 @@ export const projects: Project[] = [
       ],
     },
     challenge: {
-      label: { ko: "리더보드는 지름길을 봐준다", en: "The leaderboard punishes shortcuts" },
+      label: {
+        ko: "리더보드는 지름길을 봐준다",
+        en: "The leaderboard punishes shortcuts",
+      },
       body: {
         ko: "교차검증 없이 낸 제출은 로컬 점수가 좋아 보여도 실제 리더보드에서는 대부분 순위가 떨어졌습니다 — 단일 train/test split에 대한 확신은 실전에서 버티지 못했습니다. 이후 모든 대회에 K-fold 교차검증을 기본값으로 넣고 나서야 로컬 점수와 리더보드 점수가 맞아떨어지기 시작했습니다.",
         en: "Submissions made without cross-validation looked fine locally but mostly dropped in rank once the real leaderboard settled — confidence from a single train/test split didn't hold up. Making K-fold cross-validation the default for every competition is what finally made local scores track the leaderboard.",
@@ -490,7 +564,10 @@ export const projects: Project[] = [
       ],
     },
     challenge: {
-      label: { ko: "정밀도를 잃지 않고 빠르게", en: "Speed without losing precision" },
+      label: {
+        ko: "정밀도를 잃지 않고 빠르게",
+        en: "Speed without losing precision",
+      },
       body: {
         ko: "물체 타입마다 분기하는 코드는 초당 수백만 번 도는 렌더링 핫루프에서 느립니다 — 교차 계산 함수를 타입별 함수 포인터 배열로 바꿔, 분기 대신 인덱싱 호출 하나로 처리했습니다. 모든 광선은 sqrt를 부르기 전에 제곱거리로 먼저 걸러내고요. 그림자 레이가 자기 표면과 다시 교차해 생기는 shadow acne는, 레이 시작점을 법선 방향으로 0.01만큼 띄워서 없앴습니다.",
         en: "Branching per object type in a rendering hot loop that runs millions of times a second is slow, so intersection routines are dispatched through a function-pointer table indexed by type — one indexed call instead of a chain of ifs. Every ray is rejected on squared distance before any sqrt is called. Shadow rays re-intersecting their own surface (shadow acne) was fixed by offsetting the ray origin 0.01 along the normal.",
@@ -524,7 +601,10 @@ export const projects: Project[] = [
       en: "Building parsing for .torrent metafiles, tracker communication, peer discovery, and parallel block downloads in C++.",
     },
     flow: [
-      { label: { ko: ".torrent 파싱", en: "Parse .torrent" }, sub: { ko: "bencode", en: "bencode" } },
+      {
+        label: { ko: ".torrent 파싱", en: "Parse .torrent" },
+        sub: { ko: "bencode", en: "bencode" },
+      },
       { label: { ko: "tracker 통신", en: "Contact tracker" } },
       { label: { ko: "DHT peer 탐색", en: "DHT peer discovery" } },
       { label: { ko: "블록 병렬 다운로드", en: "Parallel block download" } },
@@ -544,7 +624,10 @@ export const projects: Project[] = [
       ],
     },
     challenge: {
-      label: { ko: "정확히 한 번, 크래시 없이", en: "Exactly once, never a crash" },
+      label: {
+        ko: "정확히 한 번, 크래시 없이",
+        en: "Exactly once, never a crash",
+      },
       body: {
         ko: "피어마다 워커 스레드 하나로 병렬 다운로드하다 보니, 작업 큐·완료 수·파일 쓰기 같은 공유 상태를 뮤텍스로 지켜야 했습니다. 연결이 끊기거나 타임아웃이 나거나 해시가 안 맞으면 그 피어를 크래시 없이 버리고 piece를 큐에 다시 넣어, 모든 piece가 정확히 한 번 완료되도록 만들었습니다. 한 라운드의 피어가 전부 소진되면 트래커에 재announce해 새 피어를 받고, 여러 라운드 동안 진행이 없으면 안전하게 중단합니다.",
         en: "With one worker thread per peer downloading in parallel, shared state — the work queue, completed count, file writes — has to be protected by a mutex. A dropped connection, timeout, or hash mismatch discards that peer without crashing and requeues the piece, so every piece completes exactly once. Once a round's peers are exhausted, the client re-announces to the tracker for new ones, and safely aborts if several rounds pass with no progress.",
@@ -560,7 +643,9 @@ export const projects: Project[] = [
         "Managing piece state with bitmasks — state management turns out to be half of implementing a protocol",
       ],
     },
-    links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai/baby-torrent" }],
+    links: [
+      { label: "GitHub", href: "https://github.com/KimTaebin-ai/baby-torrent" },
+    ],
   },
   {
     id: "inception",
@@ -625,7 +710,10 @@ export const projects: Project[] = [
       en: "Reimplemented bash's core behavior in C — parsing, fork/execve, pipes and redirection, and signal handling.",
     },
     flow: [
-      { label: { ko: "파싱", en: "Parse" }, sub: { ko: "따옴표 · 변수", en: "quotes · vars" } },
+      {
+        label: { ko: "파싱", en: "Parse" },
+        sub: { ko: "따옴표 · 변수", en: "quotes · vars" },
+      },
       { label: { ko: "fork / execve", en: "fork / execve" } },
       { label: { ko: "파이프 · 리다이렉션", en: "Pipes · redirects" } },
       { label: { ko: "시그널 처리", en: "Signal handling" } },
@@ -668,8 +756,14 @@ export const techStack: { title: string; items: L<string>[] }[] = [
       { ko: "Calculus · Analysis", en: "Calculus · Analysis" },
       { ko: "Probability", en: "Probability" },
       { ko: "Optimization", en: "Optimization" },
-      { ko: "Lie Groups · Rigid-Body Transforms", en: "Lie Groups · Rigid-Body Transforms" },
-      { ko: "Discrete Math · Combinatorics", en: "Discrete Math · Combinatorics" },
+      {
+        ko: "Lie Groups · Rigid-Body Transforms",
+        en: "Lie Groups · Rigid-Body Transforms",
+      },
+      {
+        ko: "Discrete Math · Combinatorics",
+        en: "Discrete Math · Combinatorics",
+      },
     ],
   },
   {
@@ -732,15 +826,28 @@ export const techStack: { title: string; items: L<string>[] }[] = [
       { ko: "Linux", en: "Linux" },
       { ko: "Git", en: "Git" },
       { ko: "VS Code", en: "VS Code" },
-      { ko: "42 cursus projects (peer evaluation)", en: "42 cursus projects (peer evaluation)" },
+      {
+        ko: "42 cursus projects (peer evaluation)",
+        en: "42 cursus projects (peer evaluation)",
+      },
     ],
   },
 ];
 
-export const experience: { org: L<string>; period: L<string>; bullets: L<string[]> }[] = [
+export const experience: {
+  org: L<string>;
+  period: L<string>;
+  bullets: L<string[]>;
+}[] = [
   {
-    org: { ko: "WTIA × UW CoMotion Global Startup Program", en: "WTIA × UW CoMotion Global Startup Program" },
-    period: { ko: "2026.6 – 8 (진행중) · Seattle", en: "Jun – Aug 2026 (ongoing) · Seattle" },
+    org: {
+      ko: "WTIA × UW CoMotion Global Startup Program",
+      en: "WTIA × UW CoMotion Global Startup Program",
+    },
+    period: {
+      ko: "2026.6 – 8 (진행중) · Seattle",
+      en: "Jun – Aug 2026 (ongoing) · Seattle",
+    },
     bullets: {
       ko: [
         "42경산·42서울 교육생 30명 중 경쟁을 뚫고 선발 — 과기정통부 지원 실전형 AI·SW 창업 교육 프로그램",
@@ -770,7 +877,10 @@ export const experience: { org: L<string>; period: L<string>; bullets: L<string[
   },
   {
     org: { ko: "Ubase — 프로젝트 팀장", en: "Ubase — Project Team Leader" },
-    period: { ko: "2023.8 – 2024.8 · Seoul", en: "Aug 2023 – Aug 2024 · Seoul" },
+    period: {
+      ko: "2023.8 – 2024.8 · Seoul",
+      en: "Aug 2023 – Aug 2024 · Seoul",
+    },
     bullets: {
       ko: [
         "입사 3개월 만에 프로젝트 리더로 승진, 팀 관리 체계를 새로 구축",
@@ -785,8 +895,14 @@ export const experience: { org: L<string>; period: L<string>; bullets: L<string[
     },
   },
   {
-    org: { ko: "Softnet — 풀스택 엔지니어", en: "Softnet — Full Stack Engineer" },
-    period: { ko: "2021.1 – 2022.1 · Seoul", en: "Jan 2021 – Jan 2022 · Seoul" },
+    org: {
+      ko: "Softnet — 풀스택 엔지니어",
+      en: "Softnet — Full Stack Engineer",
+    },
+    period: {
+      ko: "2021.1 – 2022.1 · Seoul",
+      en: "Jan 2021 – Jan 2022 · Seoul",
+    },
     bullets: {
       ko: [
         "서울대병원·고려대안암병원·충남대병원 3개 대학병원의 이종 환자 데이터를 통합하는 관계형 스키마·ETL 파이프라인 설계",
@@ -803,7 +919,10 @@ export const experience: { org: L<string>; period: L<string>; bullets: L<string[
     },
   },
   {
-    org: { ko: "HiikTalk — 소프트웨어 엔지니어 (인턴)", en: "HiikTalk — Software Engineer (Intern)" },
+    org: {
+      ko: "HiikTalk — 소프트웨어 엔지니어 (인턴)",
+      en: "HiikTalk — Software Engineer (Intern)",
+    },
     period: { ko: "2020.1 · Sejong", en: "Jan 2020 · Sejong" },
     bullets: {
       ko: [
@@ -826,12 +945,19 @@ export const experience: { org: L<string>; period: L<string>; bullets: L<string[
     period: { ko: "2019 – 2021", en: "2019 – 2021" },
     bullets: {
       ko: ["중국 상해에서 화장품을 수입·판매", "네이버 스마트스토어 운영"],
-      en: ["Imported and sold cosmetics in Shanghai, China", "Operated a Naver Smart Store"],
+      en: [
+        "Imported and sold cosmetics in Shanghai, China",
+        "Operated a Naver Smart Store",
+      ],
     },
   },
 ];
 
-export const education: { org: L<string>; period: L<string>; body: L<string[]> }[] = [
+export const education: {
+  org: L<string>;
+  period: L<string>;
+  body: L<string[]>;
+}[] = [
   {
     org: {
       ko: "École 42 (Gyeongsan) — 컴퓨터 사이언스 기초",
@@ -856,19 +982,10 @@ export const education: { org: L<string>; period: L<string>; body: L<string[]> }
     },
   },
   {
-    org: { ko: "UC Berkeley SCET Intensive Program", en: "UC Berkeley SCET Intensive Program" },
-    period: { ko: "2024.12.2 – 12.6", en: "Dec 2 – 6, 2024" },
-    body: {
-      ko: [
-        "🏆 1위 — 짧은 시간 안에 스타트업이 목표를 달성해가는 과정을 비디오로 제작하는 캡스톤 프로젝트에서 1등을 했습니다.",
-      ],
-      en: [
-        "🏆 1st Place — won a capstone project centered on producing, in a short window, a video depicting a startup's path to achieving its goals.",
-      ],
+    org: {
+      ko: "고려사이버대학교 — 경영학과",
+      en: "The Cyber University of Korea — B.B.A., Business Administration",
     },
-  },
-  {
-    org: { ko: "고려사이버대학교 — 경영학과", en: "The Cyber University of Korea — B.B.A., Business Administration" },
     period: { ko: "2021 – 현재 · 4학년", en: "2021 – present · Senior" },
     body: { ko: [], en: [] },
   },

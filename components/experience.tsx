@@ -35,7 +35,7 @@ export function Experience() {
       <h2 className="mb-6 text-2xl font-semibold tracking-tight md:text-3xl">
         {TITLES.education[lang]}
       </h2>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-4">
         {education.map((item) => (
           <div key={item.org.ko} className="rounded-xl border border-border p-5 md:p-6">
             <h3 className="text-lg font-semibold md:text-xl">{item.org[lang]}</h3>
