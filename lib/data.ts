@@ -52,12 +52,12 @@ export const current: {
     },
     body: {
       ko: [
-        "42경산·42서울 교육생 30명 중 경쟁을 뚫고 선발되어, 과기정통부 지원 실전형 AI·SW 창업 교육 프로그램으로 Seattle에서 여름을 보내며 창업의 전 과정을 직접 밟고 있습니다.",
-        "AI 맞춤형 정보 탐색 실습에서 우수한 성과를 거둬 전자신문에 소개됐고, 맞춤형 피트니스 코칭 스타트업 'Poma AI'를 기획·주도하는 중입니다.",
+        "수 많은 경쟁을 뚫고 42경산·42서울 교육생 30명으로 최종 선발되어, 과기정통부 지원 실전형 AI·SW 창업 교육 프로그램으로 Seattle에서 여름을 보내며 창업의 전 과정을 직접 밟고 있습니다.",
+        "AI 맞춤형 정보 탐색 실습에서 우수한 성과를 거둬 전자신문에 소개됐고, 로펌에게 잠재 수임 신호를 잡아 파트너 변호사에게 알려주는 구독형 SaaS 스타트업 'Poma AI'를 기획·주도하는 중입니다.",
       ],
       en: [
-        "Selected through competition among 30 trainees from École 42 Gyeongsan and Seoul, spending the summer in Seattle in a hands-on AI/SW startup education program backed by Korea's Ministry of Science and ICT — working through the full startup process firsthand.",
-        "Featured in etnews (전자신문) for excellent results in an AI personalized-information-search exercise, and currently planning and leading 'Poma AI', a personalized fitness-coaching startup.",
+        "Selected as one of the final 30 trainees from École 42 Gyeongsan and Seoul out of intense competition, spending the summer in Seattle in a hands-on AI/SW startup education program backed by Korea's Ministry of Science and ICT — working through the full startup process firsthand.",
+        "Featured in etnews (전자신문) for excellent results in an AI personalized-information-search exercise, and currently planning and leading 'Poma AI', a subscription SaaS that catches early signals of potential legal cases and alerts partner attorneys at law firms.",
       ],
     },
     links: [
@@ -852,14 +852,14 @@ export const experience: {
     },
     bullets: {
       ko: [
-        "42경산·42서울 교육생 30명 중 경쟁을 뚫고 선발 — 과기정통부 지원 실전형 AI·SW 창업 교육 프로그램",
+        "수 많은 경쟁을 뚫고 최종 42경산·42서울 교육생 30명으로 선발 — 과기정통부 지원 실전형 AI·SW 창업 교육 프로그램",
         "AI 맞춤형 정보 탐색 실습에서 우수한 성과로 전자신문에 소개",
-        "맞춤형 피트니스 코칭 스타트업 'Poma AI' 기획·주도",
+        "로펌에게 잠재 수임 신호를 잡아 파트너 변호사에게 알려주는 구독형 SaaS 스타트업 'Poma AI' 기획·주도",
       ],
       en: [
-        "Selected through competition among 30 trainees from École 42 Gyeongsan and Seoul — a hands-on AI/SW startup education program backed by Korea's Ministry of Science and ICT",
+        "Selected as one of the final 30 trainees from École 42 Gyeongsan and Seoul out of intense competition — a hands-on AI/SW startup education program backed by Korea's Ministry of Science and ICT",
         "Featured in etnews (전자신문) for excellent results in an AI personalized-information-search exercise",
-        "Planning and leading 'Poma AI', a personalized fitness-coaching startup",
+        "Planning and leading 'Poma AI', a subscription SaaS that catches early signals of potential legal cases and alerts partner attorneys at law firms",
       ],
     },
   },
