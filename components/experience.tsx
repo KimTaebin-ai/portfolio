@@ -1,6 +1,7 @@
 "use client";
 
 import { Section } from "@/components/section";
+import { RichText } from "@/components/rich-text";
 import { education, experience } from "@/lib/data";
 import { useLang } from "@/lib/lang";
 
@@ -20,11 +21,22 @@ export function Experience() {
             <p className="mt-1 font-mono text-xs text-foreground-muted md:text-[13px]">
               {item.period[lang]}
             </p>
-            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-foreground-muted md:text-base">
+            <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-foreground-muted marker:text-accent/60 md:text-base">
               {item.bullets[lang].map((bullet, i) => (
-                <li key={i}>{bullet}</li>
+                <li key={i}>
+                  <RichText>{bullet}</RichText>
+                </li>
               ))}
             </ul>
+            {item.links ? (
+              <div className="mt-3 flex flex-wrap gap-4 text-sm font-medium">
+                {item.links.map((link) => (
+                  <a key={link.href} href={link.href} target="_blank" rel="noreferrer noopener">
+                    {link.label[lang]} ↗
+                  </a>
+                ))}
+              </div>
+            ) : null}
           </div>
         ))}
       </div>
@@ -43,9 +55,11 @@ export function Experience() {
               {item.period[lang]}
             </p>
             {item.body[lang].length ? (
-              <div className="mt-3 space-y-1 text-sm text-foreground-muted md:text-base">
+              <div className="mt-3 space-y-2 text-sm leading-relaxed text-foreground-muted md:text-base">
                 {item.body[lang].map((line, i) => (
-                  <p key={i}>{line}</p>
+                  <p key={i}>
+                    <RichText>{line}</RichText>
+                  </p>
                 ))}
               </div>
             ) : null}

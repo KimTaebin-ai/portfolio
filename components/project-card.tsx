@@ -4,6 +4,7 @@ import type { Project } from "@/lib/data";
 import { useLang } from "@/lib/lang";
 import { StatusPill } from "@/components/chip";
 import { StepFlow } from "@/components/step-flow";
+import { RichText } from "@/components/rich-text";
 
 const HEADINGS = {
   why: { ko: "왜 만들었나", en: "Why I built this" },
@@ -44,12 +45,16 @@ export function ProjectCard({ project }: { project: Project }) {
 
       <div className="mt-4">
         <CardHeading lang={lang}>{HEADINGS.why[lang]}</CardHeading>
-        <p className="mt-2 text-sm text-foreground-muted md:text-base">{project.why[lang]}</p>
-        <p className="mt-3 flex gap-2 text-sm font-medium md:text-base">
+        <p className="mt-2 text-sm leading-relaxed text-foreground-muted md:text-base">
+          <RichText>{project.why[lang]}</RichText>
+        </p>
+        <p className="mt-3 flex gap-2 rounded-lg bg-accent-soft px-3 py-2.5 text-sm leading-relaxed font-medium md:text-base">
           <span className="shrink-0 text-accent" aria-hidden>
             →
           </span>
-          <span>{project.solution[lang]}</span>
+          <span>
+            <RichText>{project.solution[lang]}</RichText>
+          </span>
         </p>
       </div>
 
@@ -65,8 +70,8 @@ export function ProjectCard({ project }: { project: Project }) {
           <p className="text-xs font-semibold text-accent md:text-sm">
             {project.challenge.label[lang]}
           </p>
-          <p className="mt-1.5 text-sm text-foreground-muted md:text-base">
-            {project.challenge.body[lang]}
+          <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted md:text-base">
+            <RichText>{project.challenge.body[lang]}</RichText>
           </p>
         </div>
       ) : null}
@@ -74,9 +79,11 @@ export function ProjectCard({ project }: { project: Project }) {
       {project.keyResults ? (
         <div className="mt-5">
           <CardHeading lang={lang}>{HEADINGS.results[lang]}</CardHeading>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground-muted md:text-base">
+          <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-foreground-muted marker:text-accent md:text-base">
             {project.keyResults[lang].map((line, i) => (
-              <li key={i}>{line}</li>
+              <li key={i}>
+                <RichText>{line}</RichText>
+              </li>
             ))}
           </ul>
         </div>
@@ -84,9 +91,11 @@ export function ProjectCard({ project }: { project: Project }) {
 
       <div className="mt-5">
         <CardHeading lang={lang}>{HEADINGS.learned[lang]}</CardHeading>
-        <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-foreground-muted md:text-base">
+        <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-foreground-muted marker:text-accent/60 md:text-base">
           {project.whatILearned[lang].map((line, i) => (
-            <li key={i}>{line}</li>
+            <li key={i}>
+              <RichText>{line}</RichText>
+            </li>
           ))}
         </ul>
       </div>

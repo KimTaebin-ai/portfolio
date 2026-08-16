@@ -3,6 +3,7 @@
 import { profile } from "@/lib/data";
 import { useLang } from "@/lib/lang";
 import { Chip } from "@/components/chip";
+import { RichText } from "@/components/rich-text";
 
 export function Hero() {
   const lang = useLang();
@@ -18,8 +19,8 @@ export function Hero() {
           &ldquo;{profile.tagline}&rdquo;
         </p>
 
-        <p className="mt-7 max-w-[600px] text-sm leading-relaxed text-foreground-muted md:text-base">
-          {profile.intro[lang]}
+        <p className="mt-7 max-w-[640px] text-sm leading-[1.75] text-foreground-muted md:text-base">
+          <RichText>{profile.intro[lang]}</RichText>
         </p>
 
         <div className="mt-7 flex flex-wrap gap-2">
