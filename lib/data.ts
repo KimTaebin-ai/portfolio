@@ -37,6 +37,18 @@ export const profile = {
     ko: "École 42에서 RNCP7 취득을 위해 DS/AI 트랙 진행 중 · 인턴십과 스타트업에 함께할 기회를 찾고 있습니다",
     en: "on the DS/AI track at École 42 toward an RNCP Level 7 qualification · open to internships and joining a startup",
   } satisfies L<string>,
+  /* The one paragraph that says what the rest of the page is evidence for.
+     `lead` carries the accent weight; `body` stays body-colored. */
+  callout: {
+    lead: {
+      ko: "라이브러리를 부르면 한 줄인 것들.",
+      en: "Some things are one line when you call a library.",
+    },
+    body: {
+      ko: "그 한 줄 밑에서 무슨 일이 벌어지는지 모른 채 만들고 싶지 않았습니다. 그래서 대부분을 프레임워크 없이 바닥부터 짰고 — 감이 아니라 데이터로 검증합니다. 그게 제 시간이 가는 곳입니다.",
+      en: "I didn't want to build without knowing what happens underneath that line. So I wrote most of it from scratch, with no framework — and I check it against data, not intuition. That is where my time goes.",
+    },
+  } satisfies { lead: L<string>; body: L<string> },
   socials: {
     github: "https://github.com/KimTaebin-ai",
     linkedin: "https://www.linkedin.com/in/tbkim02/",
