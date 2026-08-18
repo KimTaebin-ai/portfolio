@@ -100,39 +100,43 @@ export const current: {
 ];
 
 /* The "making of" section: a summary table, then two small flows — where the
-   habit came from, and the loop it turned into. Content lives here so the
-   component stays layout-only, like every other section. */
+   habit came from, and the loop it turned into. Section labels are English in
+   both languages; the row and node copy still switches. */
 export const making = {
-  title: { ko: "김태빈이 만들어진 과정", en: "The making of Taebin Kim" },
+  title: "How I got here",
   summary: [
     {
-      label: { ko: "운영", en: "Ran" },
+      label: "Ran",
       what: { ko: "사업 — 고객과 매출", en: "a business — customers and revenue" },
       when: { ko: "2019–2024", en: "2019–2024" },
     },
     {
-      label: { ko: "학습", en: "Studied" },
+      label: "Studied",
       what: { ko: "École 42 · CS 바닥부터", en: "École 42 · CS from the bottom" },
       when: { ko: "2024–", en: "2024–" },
     },
     {
-      label: { ko: "반복", en: "Repeat" },
+      label: "Repeat",
       what: { ko: "만들고 검증하기", en: "build it, then verify it" },
       when: { ko: "진행 중", en: "ongoing" },
     },
     {
-      label: { ko: "지금", en: "Now" },
+      label: "Now",
       what: {
         ko: "스타트업 합류 · 인턴십 기회를 찾는 중",
         en: "open to startup roles and internships",
       },
       when: { ko: "2026–", en: "2026–" },
     },
-  ] satisfies { label: L<string>; what: L<string>; when: L<string> }[],
+  ] satisfies { label: string; what: L<string>; when: L<string> }[],
   origin: {
-    label: { ko: "어디서 왔나", en: "Where it came from" },
+    label: "Where it came from",
     steps: [
       { title: { ko: "사업", en: "A business" }, sub: { ko: "고객 · 운영", en: "customers · operations" } },
+      {
+        title: { ko: "실무 경험", en: "Industry" },
+        sub: { ko: "병원 데이터 플랫폼 · 팀 리드", en: "hospital data platform · team lead" },
+      },
       {
         title: { ko: "École 42", en: "École 42" },
         sub: { ko: "바닥부터 CS — C, UNIX, 네트워크", en: "CS from the bottom — C, UNIX, networks" },
@@ -140,7 +144,7 @@ export const making = {
     ] satisfies { title: L<string>; sub: L<string> }[],
   },
   loop: {
-    label: { ko: "무엇을 반복하나", en: "What I repeat" },
+    label: "What I repeat",
     steps: [
       {
         title: { ko: "아무도 안 보는 문제를 발견", en: "Find the problem nobody is looking at" },

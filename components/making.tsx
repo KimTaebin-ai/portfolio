@@ -81,14 +81,14 @@ export function Making() {
   const lang = useLang();
   return (
     <>
-      <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">{making.title[lang]}</h2>
+      <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">{making.title}</h2>
 
       {/* summary table — label right-aligned against the description */}
       <dl className="mt-6 grid max-w-[620px] grid-cols-[auto_1fr] gap-x-4 gap-y-2 sm:grid-cols-[auto_1fr_auto] sm:gap-x-5">
         {making.summary.map((row) => (
-          <div key={row.label.ko} className="contents">
+          <div key={row.label} className="contents">
             <dt className="text-right text-sm font-semibold text-foreground md:text-base">
-              {row.label[lang]}
+              {row.label}
             </dt>
             <dd className="text-sm text-foreground-muted md:text-base">{row.what[lang]}</dd>
             <dd className="col-start-2 font-mono text-[11px] text-foreground-muted sm:col-start-3 sm:text-right md:text-xs">
@@ -99,12 +99,12 @@ export function Making() {
       </dl>
 
       <div className="mt-10">
-        <FlowLabel>{making.origin.label[lang]}</FlowLabel>
+        <FlowLabel>{making.origin.label}</FlowLabel>
         <Flow steps={making.origin.steps} lang={lang} />
       </div>
 
       <div className="mt-9">
-        <FlowLabel>{making.loop.label[lang]}</FlowLabel>
+        <FlowLabel>{making.loop.label}</FlowLabel>
         <Flow steps={making.loop.steps} lang={lang} />
         <FeedbackEdge caption={making.loop.feedback[lang]} />
       </div>

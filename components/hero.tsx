@@ -5,6 +5,7 @@ import { useLang } from "@/lib/lang";
 import { Chip } from "@/components/chip";
 import { RichText } from "@/components/rich-text";
 import { RotatingRole } from "@/components/rotating-role";
+import { Callout } from "@/components/callout";
 
 export function Hero() {
   const lang = useLang();
@@ -36,6 +37,8 @@ export function Hero() {
             <Chip key={chip}>{chip}</Chip>
           ))}
         </div>
+
+        <Callout />
 
         <p className="mt-6 flex items-center gap-2 text-sm text-foreground-muted md:text-base">
           <span className="h-2 w-2 animate-pulse rounded-full bg-success" aria-hidden />
