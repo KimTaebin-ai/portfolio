@@ -289,15 +289,15 @@ export const projects: Project[] = [
     },
     whatILearned: {
       ko: [
-        "RAG 성능 차이는 **대부분 검색 단계에서 갈린다** — 모델 교체보다 청크 크기·`top-k` 조정이 점수를 훨씬 크게 움직였다",
+        "**검색이 성능을 가른다 —** 모델 교체보다 청크 크기·`top-k` 조정이 점수를 훨씬 크게 움직였다",
         "프롬프트 캐싱은 **컨텍스트가 매 턴 자라는 구조에서만 값어치가 있다** — forced-answer를 캐시된 대화 이어가기로 바꾸자 한 호출이 `12,157 → 46` uncached 토큰으로 줄었다",
-        "**비용도 성능이다** — 같은 품질이면 싼 구성이 이긴 구성이다",
+        "**비용도 성능이다 —** 같은 품질이면 싼 구성이 이긴 구성이다",
         "한계도 하나 남았다: 채점 정답셋을 제가 직접 만들며 테스트했다 — **문제를 낸 사람이 채점까지 하면 점수는 관대해지기 쉽다**. 다음엔 정답셋 제작과 평가를 분리하려 한다",
       ],
       en: [
-        "Most of the RAG performance gap comes from **retrieval, not generation** — tuning chunk size and `top-k` moved the score far more than swapping models",
+        "**Retrieval, not generation —** tuning chunk size and `top-k` moved the score far more than swapping models",
         "Prompt caching only pays off **when the context grows turn over turn** — switching forced-answer to continue the already-cached conversation dropped one call from `12,157 → 46` uncached tokens",
-        "**Cost is a performance metric too** — at equal quality, the cheaper configuration wins",
+        "**Cost is a performance metric too —** at equal quality, the cheaper configuration wins",
         "One limitation remains: I built and ran the answer key myself — **when the person who writes the questions also grades them, scores tend to run generous**. Next time I'd separate answer-key creation from evaluation.",
       ],
     },
@@ -367,13 +367,13 @@ export const projects: Project[] = [
     whatILearned: {
       ko: [
         "실시간 시스템에서 **프론트엔드-백엔드 상태 동기화**가 가장 까다로운 지점이었다",
-        "**팀 리딩은 코드보다 작업을 쪼개고 순서를 정하는 일**이 더 컸다",
-        "인증(`OAuth 2.0` · `2FA`)을 처음부터 설계해보니 **보안은 나중에 붙이는 기능이 아니라는 걸** 체감했다",
+        "**팀 리딩은 코드가 아니었다 —** 작업을 쪼개고 순서를 정하는 일이 더 컸다",
+        "**보안은 나중에 붙이는 기능이 아니다 —** 인증(`OAuth 2.0` · `2FA`)을 처음부터 설계해보고 체감했다",
       ],
       en: [
-        "**Frontend–backend state sync** was the hardest part of the real-time system",
-        "Leading a team was **less about code and more about breaking work into the right pieces and sequence**",
-        "Designing auth (`OAuth 2.0`, `2FA`) from scratch made it clear **security isn't a feature you bolt on later**",
+        "Keeping **frontend–backend state in sync** was the hardest part of the real-time system",
+        "**Leading wasn't about code —** it was breaking the work into the right pieces and sequence",
+        "**Security isn't a feature you bolt on later —** designing auth (`OAuth 2.0`, `2FA`) from scratch made that concrete",
       ],
     },
     links: [
@@ -429,11 +429,11 @@ export const projects: Project[] = [
     },
     whatILearned: {
       ko: [
-        "HTTP는 텍스트 프로토콜이지만, **이를 안정적으로 파싱하는 일은 전혀 다른 난이도**였다",
+        "**파싱은 전혀 다른 난이도 —** HTTP는 텍스트 프로토콜이지만, 이를 안정적으로 파싱하는 일은 달랐다",
         "`non-blocking I/O`로 다중 연결을 처리하며 **이벤트 루프의 설계를 몸으로 이해**했다",
       ],
       en: [
-        "HTTP is a text protocol, but **parsing it reliably is a completely different level of difficulty**",
+        "**Parsing is a different problem —** HTTP is a text protocol, but parsing it reliably is another level entirely",
         "Handling concurrent connections with `non-blocking I/O` made **the design of an event loop click**, hands-on",
       ],
     },
@@ -490,16 +490,16 @@ export const projects: Project[] = [
     },
     whatILearned: {
       ko: [
-        "**가장 큰 변수는 알고리즘이 아니라 햇빛이었다** — 직사광 노이즈에 객체 인식이 흔들려, 조명 조건에서의 인식 안정화에 가장 많은 시간을 썼다",
+        "**가장 큰 변수는 알고리즘이 아니라 햇빛이었다 —** 직사광 노이즈에 객체 인식이 흔들려, 조명 조건에서의 인식 안정화에 가장 많은 시간을 썼다",
         "센서 융합의 어려움은 **`sync` · `latency` · `confidence` 관리**에 있었다",
         "`ROS2` topic/service 구조 덕에 **비전·깊이·제어를 독립 모듈로 갈아끼울 수** 있었다",
-        "실시간 시스템에선 **정확도를 조금 내주는 결정이 전체 반응성을 살린다**",
+        "**실시간에선 정확도를 조금 내준다 —** 그 결정이 전체 반응성을 살린다",
       ],
       en: [
-        "**The biggest variable wasn't the algorithm — it was sunlight.** Direct-light noise threw off object detection, so most of my time went into stabilizing recognition across lighting conditions",
+        "**The biggest variable was sunlight, not the algorithm —** direct-light noise threw off object detection, so most of my time went into stabilizing recognition across lighting conditions",
         "The hard part of sensor fusion was managing **`sync`, `latency`, and `confidence`**",
         "`ROS2`'s topic/service architecture let me **swap vision, depth, and control in and out as independent modules**",
-        "In real-time systems, **trading a little accuracy is often what keeps the whole thing responsive**",
+        "**Real-time trades accuracy —** giving a little of it up is what keeps the whole system responsive",
       ],
     },
     links: [
@@ -561,13 +561,13 @@ export const projects: Project[] = [
     },
     whatILearned: {
       ko: [
-        "행렬 연산을 **공식이 아니라 기하학적 그림으로** 이해하게 됐다",
-        "`SVD`를 직접 짜보니 **`PCA`와 데이터 압축이 같은 원리의 응용**임이 보였다",
+        "**행렬은 공식이 아니라 그림이다 —** 연산을 기하학적으로 이해하게 됐다",
+        "**`PCA`와 데이터 압축은 같은 원리다 —** `SVD`를 직접 짜보고서야 보였다",
         "`Rust`의 ownership/borrowing이 수치 연산 코드에서 **버그를 컴파일 타임에 먼저 잡아준다는 걸** 체감했다",
       ],
       en: [
-        "Started seeing **matrix operations as geometry, not just formulas**",
-        "Writing `SVD` by hand made it obvious that **`PCA` and data compression are the same idea** applied twice",
+        "**Matrices are geometry, not formulas —** that is how I started seeing the operations",
+        "**`PCA` and compression are one idea —** writing `SVD` by hand is what made it obvious",
         "Felt firsthand how `Rust`'s ownership/borrowing **catches numerical bugs at compile time** before they become runtime bugs",
       ],
     },
@@ -630,11 +630,11 @@ export const projects: Project[] = [
     },
     whatILearned: {
       ko: [
-        "**리더보드는 감을 배신한다** — 교차검증 없이 낸 제출은 대부분 순위가 떨어졌다",
-        "**모델보다 피처가 점수를 더 많이 움직인** 대회가 많았다",
+        "**리더보드는 감을 배신한다 —** 교차검증 없이 낸 제출은 대부분 순위가 떨어졌다",
+        "대회 대부분에서 **모델보다 피처가 점수를 더 많이 움직였다**",
       ],
       en: [
-        "**The leaderboard betrays intuition** — submissions without cross-validation mostly dropped in rank",
+        "**The leaderboard betrays intuition —** submissions without cross-validation mostly dropped in rank",
         "In most competitions, **features moved the score more than the model choice did**",
       ],
     },
@@ -690,11 +690,11 @@ export const projects: Project[] = [
     whatILearned: {
       ko: [
         "벡터 내적·외적이 **3D 공간에서 실제로 무엇을 뜻하는지** 손으로 확인했다",
-        "광선-물체 교점은 결국 방정식 풀이 — **그래픽스는 수학을 픽셀로 번역하는 일**이었다",
+        "**그래픽스는 수학을 픽셀로 번역하는 일 —** 광선-물체 교점은 결국 방정식 풀이였다",
       ],
       en: [
         "Confirmed by hand **what dot and cross products actually mean in 3D space**",
-        "Ray-object intersection is just solving an equation — **graphics turned out to be math translated into pixels**",
+        "**Graphics is math translated into pixels —** ray-object intersection is just solving an equation",
       ],
     },
     links: [
@@ -756,11 +756,11 @@ export const projects: Project[] = [
     whatILearned: {
       ko: [
         "네트워크 프로토콜을 명세 그대로 구현하며 **`RFC` 읽는 법을 익히는 중**",
-        "조각 상태를 `비트마스크`로 관리하는 설계 — **상태 관리가 프로토콜 구현의 절반**이다",
+        "**상태 관리가 프로토콜 구현의 절반 —** 조각 상태를 `비트마스크`로 관리하는 설계가 그랬다",
       ],
       en: [
         "Learning to **read `RFC`s properly** by implementing a network protocol straight from spec",
-        "Managing piece state with `bitmasks` — **state management turns out to be half of implementing a protocol**",
+        "**State management is half the protocol —** managing piece state with `bitmasks` made that plain",
       ],
     },
     links: [
@@ -809,11 +809,11 @@ export const projects: Project[] = [
     whatILearned: {
       ko: [
         "`Docker` 레이어 캐시를 이해하니 **빌드 시간과 이미지 크기가 함께 줄었다**",
-        "환경변수·시크릿 분리는 귀찮음이 아니라 **프로덕션의 최소 조건**이다",
+        "**시크릿 분리는 프로덕션의 최소 조건 —** 귀찮음의 문제가 아니다",
       ],
       en: [
         "Understanding `Docker`'s layer cache **cut both build time and image size**",
-        "Separating env vars and secrets isn't busywork — **it's the minimum bar for production**",
+        "**Separating secrets is the minimum bar —** it is not busywork",
       ],
     },
     links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai" }],
@@ -863,13 +863,13 @@ export const projects: Project[] = [
     whatILearned: {
       ko: [
         "UNIX 프로세스 모델 — **`fork`가 왜 그렇게 설계됐는지** 몸으로 이해했다",
-        "**파일 디스크립터가 보이기 시작하면** 셸의 거의 모든 동작이 설명된다",
-        "**시그널은 예외 처리가 아니라 설계의 일부**여야 한다",
+        "**셸은 파일 디스크립터로 설명된다 —** 그게 보이기 시작하면 거의 모든 동작이 풀린다",
+        "**시그널은 설계의 일부다 —** 예외 처리로 미룰 게 아니었다",
       ],
       en: [
         "The UNIX process model — understood hands-on **why `fork` is designed the way it is**",
-        "Once file descriptors become visible, **almost everything a shell does explains itself**",
-        "**Signals need to be part of the design**, not an exception handler bolted on after",
+        "**A shell explains itself through file descriptors —** once they are visible, almost everything it does follows",
+        "**Signals belong in the design —** not in an exception handler bolted on after",
       ],
     },
     links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai" }],

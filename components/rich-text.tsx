@@ -10,7 +10,10 @@ import { Fragment } from "react";
    reads exactly like one where nothing is.
 
    The two nest one way only: metrics inside a claim (**recall `0.909`**), which
-   is why strong is split first and its contents run through Metrics again. */
+   is why strong is split first and its contents run through Metrics again.
+
+   `leadAccent` recolors a strong that opens the string — the retrospective
+   bullets use it to hang a short accent label off the front of the line. */
 const STRONG = /(\*\*[^*]+\*\*)/g;
 const METRIC = /(`[^`]+`)/g;
 
@@ -35,12 +38,26 @@ function Metrics({ text, inStrong = false }: { text: string; inStrong?: boolean 
   );
 }
 
-export function RichText({ children }: { children: string }) {
+export function RichText({
+  children,
+  leadAccent = false,
+}: {
+  children: string;
+  leadAccent?: boolean;
+}) {
+  const parts = children.split(STRONG);
   return (
     <>
-      {children.split(STRONG).map((part, i) =>
+      {parts.map((part, i) =>
         part.startsWith("**") && part.endsWith("**") ? (
-          <strong key={i} className="font-semibold text-foreground">
+          <strong
+            key={i}
+            className={
+              "font-semibold " +
+              // index 1 with an empty part 0 means the string opens with it
+              (leadAccent && i === 1 && parts[0] === "" ? "text-accent" : "text-foreground")
+            }
+          >
             <Metrics text={part.slice(2, -2)} inStrong />
           </strong>
         ) : (

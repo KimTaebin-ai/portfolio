@@ -95,7 +95,7 @@ export function ProjectCard({ project }: { project: Project }) {
         <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-foreground-muted marker:text-accent/60 md:text-base">
           {project.whatILearned[lang].map((line, i) => (
             <li key={i}>
-              <RichText>{line}</RichText>
+              <RichText leadAccent>{line}</RichText>
             </li>
           ))}
         </ul>
