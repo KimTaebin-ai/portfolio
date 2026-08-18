@@ -4,6 +4,7 @@ import { profile } from "@/lib/data";
 import { useLang } from "@/lib/lang";
 import { Chip } from "@/components/chip";
 import { RichText } from "@/components/rich-text";
+import { RotatingRole } from "@/components/rotating-role";
 
 export function Hero() {
   const lang = useLang();
@@ -14,14 +15,21 @@ export function Hero() {
           {profile.nameEn}{" "}
           <span className="font-normal text-foreground-muted">· {profile.nameKr}</span>
         </h1>
-        <p className="mt-5 text-base text-foreground-muted md:text-lg">{profile.roles}</p>
+        <p className="mt-5 text-base text-foreground-muted md:text-lg">
+          <RotatingRole />
+          <span className="text-foreground-muted"> · {profile.roleSuffix}</span>
+        </p>
         <p className="mt-3 font-mono text-sm text-accent md:text-base">
           &ldquo;{profile.tagline}&rdquo;
         </p>
 
-        <p className="mt-7 max-w-[640px] text-sm leading-[1.75] text-foreground-muted md:text-base">
-          <RichText>{profile.intro[lang]}</RichText>
-        </p>
+        <div className="mt-7 max-w-[640px] space-y-2.5 text-sm leading-[1.7] text-foreground-muted md:text-base">
+          {profile.intro[lang].map((line, i) => (
+            <p key={i}>
+              <RichText>{line}</RichText>
+            </p>
+          ))}
+        </div>
 
         <div className="mt-7 flex flex-wrap gap-2">
           {profile.techChips.map((chip) => (
