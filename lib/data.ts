@@ -18,8 +18,8 @@ export const profile = {
     "ML Infrastructure",
   ],
   currentLine: {
-    ko: "École 42에서 RNCP7 취득을 위해 DS/AI 트랙 진행 중",
-    en: "currently on the DS/AI track at École 42, working toward an RNCP Level 7 qualification",
+    ko: "École 42에서 RNCP7 취득을 위해 DS/AI 트랙 진행 중 · 인턴십과 스타트업에 함께할 기회를 찾고 있습니다",
+    en: "on the DS/AI track at École 42 toward an RNCP Level 7 qualification · open to internships and joining a startup",
   } satisfies L<string>,
   socials: {
     github: "https://github.com/KimTaebin-ai",
@@ -40,6 +40,7 @@ export const current: {
   period: L<string>;
   body: L<string[]>;
   ongoing?: boolean;
+  media?: Media[];
   links?: { label: L<string>; href: string }[];
 }[] = [
   {
@@ -72,6 +73,18 @@ export const current: {
 
 export type FlowStep = { label: L<string>; sub?: L<string> };
 
+/* An image in public/images. `src` omits the basePath ("/images/foo.png") —
+   next/image prefixes it. width/height are the file's true pixel dimensions;
+   this build exports statically with images.unoptimized, so they are the only
+   thing reserving layout space before the file loads. */
+export type Media = {
+  src: string;
+  alt: L<string>;
+  width: number;
+  height: number;
+  caption?: L<string>;
+};
+
 export type Project = {
   id: string;
   name: string;
@@ -87,6 +100,7 @@ export type Project = {
   challenge?: { label: L<string>; body: L<string> };
   keyResults?: L<string[]>;
   whatILearned: L<string[]>;
+  media?: Media[];
   links: { label: string; href: string }[];
 };
 
@@ -818,6 +832,7 @@ export const experience: {
   org: L<string>;
   period: L<string>;
   bullets: L<string[]>;
+  media?: Media[];
   links?: { label: L<string>; href: string }[];
 }[] = [
   {
@@ -831,13 +846,15 @@ export const experience: {
     },
     bullets: {
       ko: [
-        "수 많은 경쟁을 뚫고 최종 **42경산·42서울 교육생 `30명`으로 선발** — 과기정통부 지원 실전형 AI·SW 창업 교육 프로그램",
+        "수 많은 경쟁을 뚫고 최종 **42경산·42서울 교육생 `30명`으로 선발** — 과기정통부·IITP 지원 실전형 AI·SW 창업 교육 프로그램",
+        "`8주간` 시애틀 현지 과정 — Microsoft · Amazon · Boeing 등 현지 기업과 Voyager Capital · Trilogy Equity Partners 등 VC 연계, AI2(Allen Institute for AI) 방문, Seattle Tech Week 참가, **투자자 대상 최종 Pitch Day**로 마무리",
         "AI 맞춤형 정보 탐색 실습에서 우수한 성과로 **전자신문에 소개**",
         "로펌에게 잠재 수임 신호를 잡아 파트너 변호사에게 알려주는 구독형 SaaS 스타트업 **'Poma AI' 기획·주도**",
         "`2026.8.14` 전 일정 수료 후 한국 복귀",
       ],
       en: [
-        "Selected as one of the **final `30` trainees** from École 42 Gyeongsan and Seoul out of intense competition — a hands-on AI/SW startup education program backed by Korea's Ministry of Science and ICT",
+        "Selected as one of the **final `30` trainees** from École 42 Gyeongsan and Seoul out of intense competition — a hands-on AI/SW startup education program backed by Korea's Ministry of Science and ICT and IITP",
+        "An `8-week` on-site program in Seattle — access to local companies (Microsoft, Amazon, Boeing) and VCs (Voyager Capital, Trilogy Equity Partners), a visit to AI2 (Allen Institute for AI), Seattle Tech Week, closing with a **Pitch Day in front of investors**",
         "**Featured in etnews (전자신문)** for excellent results in an AI personalized-information-search exercise",
         "**Planned and led 'Poma AI'**, a subscription SaaS that catches early signals of potential legal cases and alerts partner attorneys at law firms",
         "Completed the full program on `Aug 14, 2026` and returned to Korea",
@@ -845,7 +862,11 @@ export const experience: {
     },
     links: [
       {
-        label: { ko: "전자신문 기사", en: "etnews coverage" },
+        label: { ko: "전자신문 — 프로그램 출항 (2026.6)", en: "etnews — program launch (Jun 2026)" },
+        href: "https://www.etnews.com/20260622000084",
+      },
+      {
+        label: { ko: "전자신문 — 성과 보도 (2026.7)", en: "etnews — results coverage (Jul 2026)" },
         href: "https://www.etnews.com/20260724000305",
       },
     ],

@@ -5,6 +5,7 @@ import { useLang } from "@/lib/lang";
 import { StatusPill } from "@/components/chip";
 import { StepFlow } from "@/components/step-flow";
 import { RichText } from "@/components/rich-text";
+import { FigureGrid } from "@/components/figure";
 
 const HEADINGS = {
   why: { ko: "왜 만들었나", en: "Why I built this" },
@@ -99,6 +100,12 @@ export function ProjectCard({ project }: { project: Project }) {
           ))}
         </ul>
       </div>
+
+      {project.media ? (
+        <div className="mt-5">
+          <FigureGrid media={project.media} />
+        </div>
+      ) : null}
 
       <div className="mt-5 flex flex-wrap gap-4 text-sm font-medium">
         {project.links.map((link) => (

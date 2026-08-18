@@ -2,6 +2,7 @@
 
 import { Section } from "@/components/section";
 import { RichText } from "@/components/rich-text";
+import { FigureGrid } from "@/components/figure";
 import { current } from "@/lib/data";
 import { useLang } from "@/lib/lang";
 
@@ -30,6 +31,11 @@ export function Current() {
                 </p>
               ))}
             </div>
+            {item.media ? (
+              <div className="mt-4">
+                <FigureGrid media={item.media} />
+              </div>
+            ) : null}
             {item.links ? (
               <div className="mt-3 flex flex-wrap gap-4 text-sm font-medium">
                 {item.links.map((link) => (
