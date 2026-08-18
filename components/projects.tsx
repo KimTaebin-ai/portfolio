@@ -2,6 +2,7 @@
 
 import { Section } from "@/components/section";
 import { ProjectCard } from "@/components/project-card";
+import { BuildOverview } from "@/components/build-overview";
 import { projects } from "@/lib/data";
 import { useLang } from "@/lib/lang";
 
@@ -11,6 +12,7 @@ export function Projects() {
   const lang = useLang();
   return (
     <Section id="build" kicker="02 · Build" title={TITLE[lang]}>
+      <BuildOverview />
       <div className="space-y-6">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />

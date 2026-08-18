@@ -184,6 +184,9 @@ export type Project = {
   status: "complete" | "in-progress";
   statusLabel: L<string>;
   badge?: L<string>;
+  /* One-line problem and one-line result, for the overview grid above the
+     detail cards. Deliberately shorter and blunter than why/solution. */
+  overview: { problem: L<string>; result: L<string> };
   why: L<string>;
   solution: L<string>;
   flow: FlowStep[];
@@ -206,6 +209,10 @@ export const projects: Project[] = [
     badge: {
       ko: "🏆 1위 — WTIA LLM Competition",
       en: "🏆 1st Place — WTIA LLM Competition",
+    },
+    overview: {
+      problem: { ko: "1,297쪽 항공법에서 정확한 §를 찾는 건 사람에게도 어렵다.", en: "Finding the exact § in 1,297 pages of aviation law is hard even for a person." },
+      result: { ko: "45개 검색 설정을 밤새 자동 채점 — recall `0.909`, WTIA LLM 대회 `1위`.", en: "Graded 45 retrieval configs overnight — recall `0.909`, `1st` at the WTIA LLM competition." },
     },
     why: {
       ko: "`1,297쪽` 미국 연방 항공법(14 CFR)에서 정확한 조항(§)을 찾아 인용하는 일은 사람에게도 어렵습니다. **'그럴듯한 답'과 '검증 가능한 답'의 간격을 감이 아니라 데이터로** 메우고 싶었습니다.",
@@ -310,6 +317,10 @@ export const projects: Project[] = [
       ko: "École 42 Inner Circle · 팀장, 4인 팀",
       en: "École 42 Inner Circle · Team Lead, team of 4",
     },
+    overview: {
+      problem: { ko: "실시간 대전은 프론트와 백이 같은 상태를 동시에 믿어야 한다.", en: "Real-time play means the front and back end have to trust the same state at the same moment." },
+      result: { ko: "`Socket.io` 이벤트로만 상태를 동기화하고 `OAuth 2.0` + `2FA`를 직접 설계 — `4`명 팀 리드.", en: "Synced state exclusively through `Socket.io` events and designed `OAuth 2.0` + `2FA` from scratch — led a team of `4`." },
+    },
     why: {
       ko: "École 42 Inner Circle 후반부에 처음 마주하는 대형 팀 프로젝트입니다. 실시간 통신과 인증을, **프레임워크 뒤에 숨지 않고 `4`명이 함께 설계·구현**해야 했습니다.",
       en: "The first large team project in the latter half of École 42's Inner Circle. Real-time communication and authentication had to be **designed and built by the four of us directly** — no framework to hide behind.",
@@ -380,6 +391,10 @@ export const projects: Project[] = [
     status: "complete",
     statusLabel: { ko: "완료", en: "Complete" },
     badge: { ko: "École 42 Inner Circle", en: "École 42 Inner Circle" },
+    overview: {
+      problem: { ko: "브라우저가 요청을 보내면 nginx 뒤에서 무슨 일이 벌어지는가.", en: "What actually happens behind nginx when a browser sends a request?" },
+      result: { ko: "설정 파일로 가상 서버를 구성하고 `non-blocking I/O`로 다중 연결을 처리하는 `HTTP/1.1` 서버를 `C++`로.", en: "An `HTTP/1.1` server in `C++` — virtual hosts from a config file, concurrent connections on `non-blocking I/O`." },
+    },
     why: {
       ko: "**브라우저가 서버에 요청을 보내면 무슨 일이 일어나는가** — `nginx` 뒤에 숨겨진 HTTP 서버를 `C++`로 직접 구현해 확인하고 싶었습니다.",
       en: "**What actually happens when a browser sends a request to a server?** I wanted to implement the HTTP server hiding behind `nginx` myself, in `C++`, to find out.",
@@ -431,6 +446,10 @@ export const projects: Project[] = [
     period: "2026",
     status: "complete",
     statusLabel: { ko: "완료", en: "Complete" },
+    overview: {
+      problem: { ko: "카메라와 LiDAR, 각각은 불완전한 센서다.", en: "A camera and a LiDAR are each an incomplete sensor on their own." },
+      result: { ko: "비전 + 깊이 융합으로 사람을 추적·회피 — 진짜 변수는 알고리즘이 아니라 햇빛이었다.", en: "Fused vision and depth to track a person and avoid obstacles — the real variable turned out to be sunlight, not the algorithm." },
+    },
     why: {
       ko: "카메라와 `LiDAR`, 각각은 불완전한 센서입니다. **둘을 합치면 로봇이 사람을 알아보고 스스로 따라다닐 수 있을까** — 직접 확인하고 싶었습니다.",
       en: "Camera and `LiDAR` are each an imperfect sensor on their own. I wanted to find out, hands-on, **whether fusing them could let a robot recognize a person and follow them on its own**.",
@@ -495,6 +514,10 @@ export const projects: Project[] = [
     period: "2026",
     status: "complete",
     statusLabel: { ko: "완료", en: "Complete" },
+    overview: {
+      problem: { ko: "라이브러리 한 줄 밑에서 무슨 일이 벌어지는지 모른 채 ML하고 싶지 않았다.", en: "I didn't want to do ML without knowing what happens under that one library call." },
+      result: { ko: "최소제곱부터 `SVD`까지 외부 라이브러리 없이 순수 `Rust`로, 손계산과 대조 검증.", en: "Least squares through `SVD` in pure `Rust` with no external libraries, checked against hand calculations." },
+    },
     why: {
       ko: "라이브러리를 부르면 한 줄인 것들 — **그 한 줄 밑에서 무슨 일이 벌어지는지 모른 채 ML을 하고 싶지 않았습니다**. 프레임워크 없이, `Rust`로 다시 짜기로 했습니다. 책으로 쌓아온 수학이 코드로 검증되는 프로젝트이기도 합니다.",
       en: "Things that are one line when you call a library — **I didn't want to do ML without knowing what happens underneath that line**. So I rewrote it in `Rust`, with no framework. It's also where the math I've been building from books gets checked against code.",
@@ -563,6 +586,10 @@ export const projects: Project[] = [
     period: "2025 – 2026",
     status: "in-progress",
     statusLabel: { ko: "진행중 · 상위 10%", en: "Ongoing · Top 10%" },
+    overview: {
+      problem: { ko: "배운 것이 실제로 통하는지는 리더보드만 답해준다.", en: "Only a leaderboard tells you whether what you learned actually holds." },
+      result: { ko: "정형·시계열 대회에 개인으로 참가해 꾸준히 **상위 `10%`** — `K-fold`를 기본값으로 넣고서야 로컬 점수가 맞기 시작했다.", en: "Solo entries in tabular and time-series competitions, consistently **top `10%`** — local scores only tracked the board once `K-fold` became the default." },
+    },
     why: {
       ko: "정형 데이터와 시계열 문제에 개인으로 참가해, **배운 것을 실제 리더보드로 검증**하고 있습니다.",
       en: "Competing solo on tabular and time-series problems, **checking what I've learned against a real leaderboard**.",
@@ -620,6 +647,10 @@ export const projects: Project[] = [
     period: "2026",
     status: "complete",
     statusLabel: { ko: "완료", en: "Complete" },
+    overview: {
+      problem: { ko: "화면의 픽셀 하나가 색을 갖기까지 무슨 일이 일어나는가.", en: "What happens before a single pixel on screen gets its color?" },
+      result: { ko: "GPU도 라이브러리도 없이 `C`와 수학만으로 광선을 쏘고 교점을 풀어 3D 장면을 렌더링.", en: "Rendered 3D scenes with no GPU and no library — just `C` and math, firing rays and solving intersections." },
+    },
     why: {
       ko: "**화면의 픽셀 하나가 색을 갖기까지 무슨 일이 일어나는가** — 그래픽스를 GPU도 라이브러리도 없이, `C`와 수학만으로 재현해보고 싶었습니다.",
       en: "**What happens before a single pixel on screen gets its color?** I wanted to reproduce graphics with no GPU and no library — just `C` and math.",
@@ -677,6 +708,10 @@ export const projects: Project[] = [
     period: "2026",
     status: "in-progress",
     statusLabel: { ko: "진행중", en: "In Progress" },
+    overview: {
+      problem: { ko: "서버 없이 파일이 오간다는 건 어떻게 가능한가.", en: "How can files move between people with no server at all?" },
+      result: { ko: "프로토콜 명세만 들고 `C++`로 P2P 구현 중 — 피어가 죽어도 모든 piece가 **정확히 한 번** 완료되도록.", en: "Building a P2P client in `C++` from the spec alone — every piece completes **exactly once**, even as peers drop." },
+    },
     why: {
       ko: "42 과제가 아니라, 궁금해서 시작한 개인 프로젝트입니다. **서버 없이 파일이 오간다는 건 어떻게 가능한가** — 프로토콜 명세만 들고 `P2P` 네트워크를 바닥부터 구현하고 있습니다.",
       en: "Not a 42 assignment — a personal project I started out of curiosity. **How can files move between people with no server at all?** I'm implementing a `P2P` network from just the protocol spec, from scratch.",
@@ -739,6 +774,10 @@ export const projects: Project[] = [
     period: "2024",
     status: "complete",
     statusLabel: { ko: "완료", en: "Complete" },
+    overview: {
+      problem: { ko: "`docker run` 한 줄이 이미지 레이어·네트워크·볼륨을 전부 감춘다.", en: "A single `docker run` hides image layers, networking, and volumes." },
+      result: { ko: "`.env`와 `docker-compose up` 한 번으로 NGINX + WordPress + MariaDB가 `TLS`까지 걸고 올라오도록 직접 조립.", en: "Assembled it by hand — one `.env` and one `docker-compose up` brings up NGINX + WordPress + MariaDB, `TLS` included." },
+    },
     why: {
       ko: "`docker run` 한 줄이 감추고 있는 것들 — 이미지 레이어, 네트워크, 볼륨 — 을 **직접 조립해봐야 컨테이너를 이해했다고** 말할 수 있다고 생각했습니다.",
       en: "The things a single `docker run` hides — image layers, networking, volumes — **I don't think you can say you understand containers until you've assembled them yourself**.",
@@ -786,6 +825,10 @@ export const projects: Project[] = [
     period: "2024",
     status: "complete",
     statusLabel: { ko: "완료", en: "Complete" },
+    overview: {
+      problem: { ko: "매일 쓰는 셸에서, 터미널에 친 한 줄이 프로세스가 되기까지.", en: "From a line typed into the shell I use every day to it becoming a process." },
+      result: { ko: "파싱 → `fork`/`execve` → 파이프·리다이렉션 → 시그널 처리까지 bash의 핵심 동작을 `C`로 재구현.", en: "Reimplemented bash's core in `C` — parsing, `fork`/`execve`, pipes and redirection, signal handling." },
+    },
     why: {
       ko: "매일 쓰는 셸 — **터미널에 친 한 줄이 프로세스가 되기까지의 전 과정**을 직접 만들어 확인하고 싶었습니다.",
       en: "The shell I use every day — I wanted to **build the whole path myself, from a line typed into a terminal to it becoming a process**, to actually see it.",
