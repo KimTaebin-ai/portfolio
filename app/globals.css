@@ -48,33 +48,41 @@
   --font-mono: var(--font-geist-mono);
 }
 
-* {
-  border-color: var(--border);
-}
+/* These are defaults, so they belong in the base layer — unlayered CSS beats
+   every layered utility no matter the specificity, which silently killed
+   `border-accent`, `border-transparent` and `text-foreground`-on-a everywhere
+   they were used. In `base` they do what they are meant to: apply until a
+   utility says otherwise. */
+@layer base {
+  /* Tailwind v4 dropped the default border color from preflight. */
+  * {
+    border-color: var(--border);
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-}
+  body {
+    background: var(--background);
+    color: var(--foreground);
+  }
 
-a {
-  color: var(--link);
-}
+  a {
+    color: var(--link);
+  }
 
-::selection {
-  background: var(--accent);
-  color: var(--background);
-}
+  ::selection {
+    background: var(--accent);
+    color: var(--background);
+  }
 
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: 2px;
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
 }
 
 .flow-dash {
@@ -91,5 +99,103 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .flow-dash {
     animation: none;
+  }
+}
+
+/* ---------------------------------------------------------------- print
+
+   The page doubles as the PDF a hiring process asks for, so printing is a
+   supported output rather than a fallback. Everything here is either about
+   paper not having a viewport (no sticky, no scroll, no anchors) or about
+   paper not having a theme (dark mode would burn a cartridge and read worse).
+
+   Element-level hiding lives with the elements as Tailwind `print:` variants;
+   what's left is the part no utility can express. */
+@media print {
+  /* One theme on paper. `.dark` is re-declared, not just :root, so a visitor
+     printing from dark mode still gets ink on white. Muted text darkens and
+     borders lighten — screen contrast ratios are wrong for print. */
+  :root,
+  .dark {
+    --background: #ffffff;
+    --foreground: #000000;
+    --foreground-muted: #333333;
+    --accent: #14506a;
+    --link: #14506a;
+    --border: #bbbbbb;
+    --card-hover: #ffffff;
+    --chip: #f4f4f4;
+    --accent-soft: #f2f7fa;
+    --success: #1a7f37;
+    --warning: #8a6d00;
+    --accent-muted: #99b6c4;
+  }
+
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  /* Section rhythm is tuned for a scrolling viewport; on A4 it wastes pages. */
+  main > section {
+    padding-block: 0.75rem !important;
+    break-inside: auto;
+  }
+
+  /* Never split a card, a figure, or a troubleshooting block across a page. */
+  article,
+  figure,
+  .break-inside-avoid {
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  /* A link on paper has to say where it goes. Internal anchors are excluded —
+     they'd print "(#rag-chatbot)" next to every quick-nav entry. */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    font-weight: 400;
+    color: #555;
+    word-break: break-all;
+  }
+
+  /* The step flow scrolls sideways on screen. Paper has no sideways, so it
+     wraps instead — the row is a sequence either way. */
+  [data-stepflow] {
+    overflow: visible !important;
+  }
+
+  [data-stepflow] > div {
+    width: auto !important;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  /* Compact cards keep their evidence closed on screen and print takes all of
+     it — but a closed <details> is hidden by the UA, not by a rule we can
+     override, so the `beforeprint` handler in app/layout.tsx opens them. The
+     disclosure triangle itself has no job on paper. */
+  summary {
+    display: none;
+  }
+
+  /* The sticky meta rail must not pin itself to a printed page. */
+  aside {
+    position: static !important;
   }
 }

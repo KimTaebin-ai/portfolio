@@ -10,7 +10,7 @@ const TITLE = { ko: "기술 스택", en: "Tech Stack" };
 export function TechStack() {
   const lang = useLang();
   return (
-    <Section id="stack" kicker="03 · Stack" title={TITLE[lang]}>
+    <Section id="stack" kicker="04 · Stack" title={TITLE[lang]}>
       <div className="grid gap-8 sm:grid-cols-2">
         {techStack.map((group) => (
           <div key={group.title}>

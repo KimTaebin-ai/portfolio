@@ -40,6 +40,24 @@ const langInitScript = `
 })();
 `;
 
+/* Compact project cards hide their evidence behind <details>. A closed one is
+   collapsed by the user agent, which no print rule can reach — so open them
+   all for the duration of the print and put them back afterwards. Runs for
+   Ctrl+P as much as for the header's own button. */
+const printInitScript = `
+(function () {
+  var opened = [];
+  addEventListener("beforeprint", function () {
+    opened = Array.prototype.slice.call(document.querySelectorAll("details:not([open])"));
+    opened.forEach(function (d) { d.open = true; });
+  });
+  addEventListener("afterprint", function () {
+    opened.forEach(function (d) { d.open = false; });
+    opened = [];
+  });
+})();
+`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -50,6 +68,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script dangerouslySetInnerHTML={{ __html: langInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: printInitScript }} />
       </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         {children}

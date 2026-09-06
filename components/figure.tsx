@@ -35,14 +35,20 @@ export function Figure({ media, priority = false }: { media: Media; priority?: b
   );
 }
 
-/* One image runs full width; several share a row and wrap on narrow screens. */
+/* One image runs full width; several share a row once the container is wide
+   enough to hold them — a container query rather than a viewport one, since
+   this grid renders both in a wide narrative column and inside a compact card.
+   Matches WireframeGrid so swapping a placeholder for the real file doesn't
+   move the layout. */
 export function FigureGrid({ media }: { media: Media[] }) {
   if (!media.length) return null;
   return (
-    <div className={"grid gap-4 " + (media.length > 1 ? "sm:grid-cols-2" : "")}>
-      {media.map((m, i) => (
-        <Figure key={m.src} media={m} priority={i === 0} />
-      ))}
+    <div className="@container">
+      <div className={"grid gap-4 " + (media.length > 1 ? "@3xl:grid-cols-2" : "")}>
+        {media.map((m, i) => (
+          <Figure key={m.src} media={m} priority={i === 0} />
+        ))}
+      </div>
     </div>
   );
 }

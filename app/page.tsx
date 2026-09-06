@@ -1,8 +1,10 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Making } from "@/components/making";
+import { QuickNav } from "@/components/quick-nav";
 import { Current } from "@/components/current";
 import { Projects } from "@/components/projects";
+import { Awards } from "@/components/awards";
 import { TechStack } from "@/components/tech-stack";
 import { Experience } from "@/components/experience";
 import { Footer } from "@/components/footer";
@@ -18,8 +20,10 @@ export default function Home() {
             <Making />
           </div>
         </section>
+        <QuickNav />
         <Current />
         <Projects />
+        <Awards />
         <TechStack />
         <Experience />
       </main>

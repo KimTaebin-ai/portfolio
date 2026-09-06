@@ -14,7 +14,7 @@ const TITLES = {
 export function Experience() {
   const lang = useLang();
   return (
-    <Section id="experience" kicker="04 · Experience" title={TITLES.experience[lang]}>
+    <Section id="experience" kicker="05 · Experience" title={TITLES.experience[lang]}>
       <div className="grid gap-4 sm:grid-cols-2">
         {experience.map((item) => (
           <div key={item.org.ko} className="rounded-xl border border-border p-5 md:p-6">
@@ -48,7 +48,7 @@ export function Experience() {
       </div>
 
       <p className="mt-16 mb-3 font-mono text-xs font-medium tracking-[0.2em] text-accent uppercase">
-        05 · Education
+        06 · Education
       </p>
       <h2 className="mb-6 text-2xl font-semibold tracking-tight md:text-3xl">
         {TITLES.education[lang]}

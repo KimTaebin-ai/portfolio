@@ -50,7 +50,9 @@ export function StepFlow({ steps, lang }: { steps: FlowStep[]; lang: Lang }) {
 
   return (
     <div className="relative">
-      <div ref={scrollRef} className="overflow-x-auto">
+      {/* data-stepflow is the print stylesheet's handle: on paper the row has
+          to wrap instead of scroll, since there is nothing to scroll with. */}
+      <div ref={scrollRef} data-stepflow className="overflow-x-auto">
         <div ref={contentRef} role="list" className="flex w-max items-center py-0.5">
           {steps.map((step, i) => (
             <div key={i} className="flex items-center">
@@ -71,7 +73,7 @@ export function StepFlow({ steps, lang }: { steps: FlowStep[]; lang: Lang }) {
       {hasMore ? (
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 flex w-10 items-center justify-end bg-gradient-to-l from-background to-transparent"
+          className="pointer-events-none absolute inset-y-0 right-0 flex w-10 items-center justify-end bg-gradient-to-l from-background to-transparent print:hidden"
         >
           <span className="mr-0.5 text-xs text-foreground-muted">›</span>
         </div>

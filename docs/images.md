@@ -23,3 +23,21 @@ reflows as images load.
 
 Keep the long edge under ~1600px; there is no optimizer in this pipeline, so
 whatever you commit is what visitors download.
+
+## Before the screenshot exists
+
+No project captures have been taken yet, so projects carry a `wireframes` field
+instead of `media` — see the `Wireframe` type in `lib/data.ts` and
+`components/wireframe.tsx`. It draws the *structure* of the screen the missing
+screenshot would show: rows of labeled regions sized against each other, in
+chrome that says `browser` / `terminal` / `screen`.
+
+    rows: [{ h: 6, cells: [{ w: 2, label: … }, { w: 1, tone: "muted", label: … }] }]
+
+`h` is a row's share of the height, `w` a cell's share of its row (both default
+to 1); `tone: "muted"` marks a secondary region.
+
+To replace one with a real capture: drop the file in `public/images/`, add a
+`media` entry with its true `width`/`height`, and delete the corresponding
+`wireframes` entry. `ProjectFeatured` already renders `media` through
+`FigureGrid` directly under the wireframe block, so nothing else changes.
