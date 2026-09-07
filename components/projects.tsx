@@ -9,8 +9,8 @@ import { useLang } from "@/lib/lang";
 const T = {
   featured: { ko: "대표 프로젝트", en: "Featured Projects" },
   featuredNote: {
-    ko: "증거가 가장 많이 남은 네 개 — 수치, 트러블슈팅, 실행 결과까지 따라갈 수 있는 것들입니다.",
-    en: "The four with the most evidence behind them — numbers, troubleshooting, and results you can follow all the way down.",
+    ko: "웹 풀스택 · AI · MLOps · SLAM 네 갈래를 각각 대표하는 프로젝트들입니다. 수치와 트러블슈팅, 실행 결과까지 따라갈 수 있습니다.",
+    en: "One project for each of the four areas I work in — web full-stack, AI, MLOps, and SLAM — with the numbers, the troubleshooting, and the results you can follow all the way down.",
   },
   additional: { ko: "그 밖의 프로젝트", en: "Additional Projects" },
   additionalNote: {

@@ -6,33 +6,25 @@ export const profile = {
   nameKr: "김태빈",
   /* Cycled in the hero — one title at a time rather than a slash-separated pile.
      "École 42" is rendered next to it, fixed. */
-  roleRotation: ["ML Systems Engineer", "Full-Stack Developer", "Systems Programmer"],
+  roleRotation: [
+    "Web Full-Stack Developer",
+    "AI Engineer",
+    "MLOps Engineer",
+    "SLAM Engineer",
+  ],
   roleSuffix: "École 42",
   tagline: "Systems from first principles",
-  /* Four beats, not one block: the shift, the realization, the response, the
-     claim. Bold lands only on beats 2 and 4 — the two propositions the rest of
-     the page has to earn. */
+  /* One sentence, no emphasis. Everything below the hero is the evidence for
+     it, so this line does not need to argue. */
   intro: {
     ko: [
-      "코드를 빠르게 짜는 일은 점점 도구의 몫이 되고 있습니다.",
-      "**정작 중요한 건 그 밑에서 무슨 일이 일어나는지 아는 것.**",
-      "그래서 CS와 수학을 밑바닥부터 다시 시작했습니다 — 셸과 레이트레이서를 `C`로, 선형대수를 `Rust`로, 프레임워크 없이 직접.",
-      "근본을 이해하는 사람이 도구를 다룰 때, **속도는 깊이를 배신하지 않습니다.**",
+      "복잡한 문제를 단순한 구조로 시각화하고, 로직의 처음부터 끝까지 직접 구축하는 것에 보람을 느낍니다.",
     ],
     en: [
-      "Writing code fast is increasingly the tool's job.",
-      "**What matters is understanding what happens underneath.**",
-      "So I restarted CS and math from the bottom — a shell and a ray tracer in `C`, linear algebra in `Rust`, no framework to hide behind.",
-      "When someone who understands the fundamentals picks up the tools, **speed stops betraying depth.**",
+      "What I get the most out of is turning a complicated problem into a structure I can see, and building the logic from one end to the other myself.",
     ],
   } satisfies L<string[]>,
-  techChips: [
-    "C/C++",
-    "Python",
-    "Mathematics",
-    "Systems Programming",
-    "ML Infrastructure",
-  ],
+  techChips: ["C/C++", "Python", "Mathematics", "SLAM", "Kubernetes"],
   currentLine: {
     ko: "École 42에서 RNCP7 취득을 위해 DS/AI 트랙 진행 중 · 인턴십과 스타트업에 함께할 기회를 찾고 있습니다",
     en: "on the DS/AI track at École 42 toward an RNCP Level 7 qualification · open to internships and joining a startup",
@@ -45,21 +37,30 @@ export const profile = {
   /* Four chips under the hero cards. Every one of these is an entry in
      `awards` below — this is the 3-second version of that section. */
   highlights: [
-    { ko: "WTIA × UW CoMotion 선발 · 30인", en: "WTIA × UW CoMotion · 1 of 30" },
-    { ko: "14 CFR RAG 콘테스트 1위", en: "1st — 14 CFR RAG contest" },
-    { ko: "UC Berkeley SCET 최종 1위", en: "1st — UC Berkeley SCET capstone" },
+    {
+      ko: "WTIA (기업가 정신 및 AI 몰입 프로그램)",
+      en: "WTIA — entrepreneurship & AI immersion program",
+    },
+    {
+      ko: "WTIA 내 AI lecture LLM Competition 1위",
+      en: "1st — LLM competition, WTIA AI lecture",
+    },
+    {
+      ko: "UC Berkeley SCET final project 1위",
+      en: "1st — UC Berkeley SCET final project",
+    },
     { ko: "Kaggle / Dacon 상위 10%", en: "Kaggle / Dacon top 10%" },
   ] satisfies L<string>[],
   /* The one paragraph that says what the rest of the page is evidence for.
      `lead` carries the accent weight; `body` stays body-colored. */
   callout: {
     lead: {
-      ko: "라이브러리를 부르면 한 줄인 것들.",
-      en: "Some things are one line when you call a library.",
+      ko: "만들어봐야 아는 것들이 있습니다.",
+      en: "Some things you only learn by building them.",
     },
     body: {
-      ko: "그 한 줄 밑에서 무슨 일이 벌어지는지 모른 채 만들고 싶지 않았습니다. 그래서 대부분을 프레임워크 없이 바닥부터 짰고 — 감이 아니라 데이터로 검증합니다. 그게 제 시간이 가는 곳입니다.",
-      en: "I didn't want to build without knowing what happens underneath that line. So I wrote most of it from scratch, with no framework — and I check it against data, not intuition. That is where my time goes.",
+      ko: "셸과 레이트레이서는 `C`로, HTTP 서버는 `C++`로, 회귀와 행렬 연산은 `Rust`로 직접 짰습니다. 결과가 맞는지는 손계산이나 정답셋으로 확인합니다. 그렇게 해온 것들이 웹 풀스택 · AI · MLOps · SLAM 네 갈래로 모였고, 아래 프로젝트가 그 기록입니다.",
+      en: "I wrote the shell and the ray tracer in `C`, the HTTP server in `C++`, and regression and matrix operations in `Rust`. To know whether the output is right, I check it against hand calculations or an answer key. That work has settled into four areas — web full-stack, AI, MLOps, and SLAM — and the projects below are the record.",
     },
   } satisfies { lead: L<string>; body: L<string> },
   socials: {
@@ -122,10 +123,10 @@ export const current: {
     ongoing: true,
     body: {
       ko: [
-        "**교수도 강의도 없이, 프로젝트와 동료 평가만으로** 컴퓨터 사이언스를 쌓고 있습니다. `Transcendence` · `WebServ`를 포함한 Inner Circle을 마치고 지금은 **Outer Circle**에 있습니다. `C`로 셸을 재구현하고, 레이트레이서로 선형대수를 확인하고, 회귀와 행렬 연산을 `Rust`로 바닥부터 다시 구현했습니다.",
+        "교수도 강의도 없이 **프로젝트를 만들어 동료 앞에서 방어해야 통과**하는 학교입니다. `Transcendence` · `WebServ`를 포함한 Inner Circle을 마치고 지금은 Outer Circle에 있습니다. 셸을 `C`로 다시 만들고, 레이트레이서로 선형대수를 확인하고, 회귀와 행렬 연산을 `Rust`로 다시 구현했습니다.",
       ],
       en: [
-        "**No professors, no lectures** — just projects and peer evaluation, building computer science from scratch. Finished the Inner Circle, including `Transcendence` and `WebServ`, and I'm now in the **Outer Circle**. Reimplemented a shell in `C`, verified linear algebra with a ray tracer, and rebuilt regression and matrix operations from scratch in `Rust`.",
+        "A school with no professors and no lectures: **you pass by building projects and defending them in front of peers**. I finished the Inner Circle, `Transcendence` and `WebServ` included, and I'm in the Outer Circle now. Along the way I rebuilt a shell in `C`, checked my linear algebra against a ray tracer, and reimplemented regression and matrix operations in `Rust`.",
       ],
     },
   },
@@ -135,10 +136,10 @@ export const current: {
     ongoing: true,
     body: {
       ko: [
-        "École 42에서 **CS의 바닥에 수학이 있다는 걸** 깨닫고, 수학의정석 `2권`을 `두 번`씩 풀어 기초를 다시 세웠습니다. 지금은 미적분·선형대수·확률론·최적화이론·해석학, 리군과 강체변환, 이산수학·조합론, 그리고 `TAOCP`를 — **강의 없이 책으로, 어려운 문제를 직접 풀며** 올라가는 중입니다.",
+        "42에서 공부하다가 **CS의 밑에 수학이 있다는 걸** 알게 됐습니다. 수학의정석 `2권`을 `두 번`씩 풀어 기초를 다시 세웠고, 지금은 미적분 · 선형대수 · 확률론 · 최적화이론 · 해석학, 리군과 강체변환, 이산수학 · 조합론, 그리고 `TAOCP`를 책으로 풀어가며 올라가는 중입니다. 리군과 강체변환은 `SLAM` 쪽을 제대로 보려고 따로 시작했습니다.",
       ],
       en: [
-        "Realized at 42 that **math sits underneath all of CS**, so I rebuilt my foundations — working through `two volumes` of a classic Korean problem book `twice` each. Now I'm climbing through calculus, linear algebra, probability, optimization theory, real analysis, Lie groups and rigid-body transforms, discrete math and combinatorics, and `TAOCP` — **no lectures, just books and hard problems**, solved by hand.",
+        "Studying at 42 is where I found that **math sits underneath CS**. I rebuilt my foundations by working through `two volumes` of a classic Korean problem book `twice` each, and I'm now climbing through calculus, linear algebra, probability, optimization theory, real analysis, Lie groups and rigid-body transforms, discrete math and combinatorics, and `TAOCP` — books and hard problems, worked by hand. Lie groups and rigid-body transforms I picked up specifically to go further into `SLAM`.",
       ],
     },
   },
@@ -152,12 +153,18 @@ export const making = {
   summary: [
     {
       label: "Ran",
-      what: { ko: "사업 — 고객과 매출", en: "a business — customers and revenue" },
+      what: {
+        ko: "사업 — 고객과 매출",
+        en: "a business — customers and revenue",
+      },
       when: { ko: "2019–2024", en: "2019–2024" },
     },
     {
       label: "Studied",
-      what: { ko: "École 42 · CS 바닥부터", en: "École 42 · CS from the bottom" },
+      what: {
+        ko: "École 42 · CS 바닥부터",
+        en: "École 42 · CS from the bottom",
+      },
       when: { ko: "2024–", en: "2024–" },
     },
     {
@@ -177,14 +184,23 @@ export const making = {
   origin: {
     label: "Where it came from",
     steps: [
-      { title: { ko: "사업", en: "A business" }, sub: { ko: "고객 · 운영", en: "customers · operations" } },
+      {
+        title: { ko: "사업", en: "A business" },
+        sub: { ko: "고객 · 운영", en: "customers · operations" },
+      },
       {
         title: { ko: "실무 경험", en: "Industry" },
-        sub: { ko: "병원 데이터 플랫폼 · 팀 리드", en: "hospital data platform · team lead" },
+        sub: {
+          ko: "병원 데이터 플랫폼 · 팀 리드",
+          en: "hospital data platform · team lead",
+        },
       },
       {
         title: { ko: "École 42", en: "École 42" },
-        sub: { ko: "바닥부터 CS — C, UNIX, 네트워크", en: "CS from the bottom — C, UNIX, networks" },
+        sub: {
+          ko: "바닥부터 CS — C, UNIX, 네트워크",
+          en: "CS from the bottom — C, UNIX, networks",
+        },
       },
     ] satisfies { title: L<string>; sub: L<string> }[],
   },
@@ -192,21 +208,27 @@ export const making = {
     label: "What I repeat",
     steps: [
       {
-        title: { ko: "아무도 안 보는 문제를 발견", en: "Find the problem nobody is looking at" },
-        sub: { ko: "왜 이렇게 동작하는가", en: "why does it work this way" },
+        title: {
+          ko: "왜 이렇게 동작하는지 파본다",
+          en: "Dig into why it works this way",
+        },
+        sub: { ko: "문서보다 구현을 먼저", en: "implementation before docs" },
       },
       {
-        title: { ko: "무엇을 만들지 결정", en: "Decide what to build" },
-        sub: { ko: "무엇을 안 만들지도", en: "and what not to build" },
+        title: { ko: "무엇을 만들지 정한다", en: "Decide what to build" },
+        sub: { ko: "무엇을 안 만들지도", en: "and what not to" },
       },
       {
-        title: { ko: "만들고 · 검증하고 · 다시 본다", en: "Build it · verify it · look again" },
-        sub: { ko: "감이 아니라 데이터로", en: "against data, not intuition" },
+        title: {
+          ko: "만들고 확인하고 다시 본다",
+          en: "Build it, check it, look again",
+        },
+        sub: { ko: "숫자로 확인", en: "checked with numbers" },
       },
     ] satisfies { title: L<string>; sub: L<string> }[],
     feedback: {
-      ko: "만들어보면 다음 빈틈이 보인다",
-      en: "building it shows the next gap",
+      ko: "만들다 보면 다음에 볼 게 생긴다",
+      en: "building it turns up the next thing to look at",
     } satisfies L<string>,
   },
 };
@@ -265,18 +287,18 @@ export const projects: Project[] = [
     tier: "featured",
     name: { ko: "14 CFR RAG Chatbot", en: "14 CFR RAG Chatbot" },
     headline: {
-      ko: "1,297쪽 항공법에서 검증 가능한 답만 — 45개 검색 설정을 자동 채점해 recall `0.909`",
-      en: "Only verifiable answers over 1,297 pages of aviation law — 45 retrieval configs auto-graded to recall `0.909`",
+      ko: "`1,297`쪽 항공법에서 근거 조항까지 같이 내주는 RAG 챗봇. 검색 설정 `45`개를 자동 채점해 recall `0.909`",
+      en: "A RAG chatbot over `1,297` pages of aviation law that hands back the clause it used. `45` retrieval configs auto-graded, recall `0.909`",
     },
     period: { ko: "2026.6", en: "Jun 2026" },
     org: {
-      ko: "WTIA × UW CoMotion 프로그램 과정",
-      en: "WTIA × UW CoMotion program",
+      ko: "WTIA × UW CoMotion 프로그램 · AI 수업 competition 과제",
+      en: "WTIA × UW CoMotion program · AI lecture competition",
     },
     awards: [
       {
-        ko: "🏆 콘테스트 1위 — 강사 채점 9/10",
-        en: "🏆 1st place — instructor score 9/10",
+        ko: "🏆 AI 수업 LLM Competition 1위 · 강사 채점 9/10",
+        en: "🏆 1st — AI lecture LLM competition · instructor score 9/10",
       },
     ],
     coreSkills: {
@@ -318,7 +340,12 @@ export const projects: Project[] = [
           {
             h: 1,
             cells: [
-              { label: { ko: "상단 바 — 대화 제목 · 모델 · one-shot / agentic 토글", en: "Top bar — thread title · model · one-shot / agentic toggle" } },
+              {
+                label: {
+                  ko: "상단 바 — 대화 제목 · 모델 · one-shot / agentic 토글",
+                  en: "Top bar — thread title · model · one-shot / agentic toggle",
+                },
+              },
             ],
           },
           {
@@ -357,7 +384,12 @@ export const projects: Project[] = [
           {
             h: 1,
             cells: [
-              { label: { ko: "요약 — 최고 설정, recall 0.909, 쿼리당 토큰", en: "Summary — best config, recall 0.909, tokens per query" } },
+              {
+                label: {
+                  ko: "요약 — 최고 설정, recall 0.909, 쿼리당 토큰",
+                  en: "Summary — best config, recall 0.909, tokens per query",
+                },
+              },
             ],
           },
           {
@@ -375,7 +407,13 @@ export const projects: Project[] = [
             h: 3,
             cells: [
               { label: { ko: "recall 막대 그래프", en: "Recall bar chart" } },
-              { tone: "muted", label: { ko: "입력 토큰 비용 그래프", en: "Input-token cost chart" } },
+              {
+                tone: "muted",
+                label: {
+                  ko: "입력 토큰 비용 그래프",
+                  en: "Input-token cost chart",
+                },
+              },
             ],
           },
         ],
@@ -383,12 +421,12 @@ export const projects: Project[] = [
     ],
     intro: {
       ko: [
-        "`1,297쪽` 미국 연방 항공법(14 CFR)에서 정확한 조항(§)을 찾아 인용하는 일은 사람에게도 어렵습니다. **'그럴듯한 답'과 '검증 가능한 답'의 간격을 감이 아니라 데이터로** 메우고 싶었습니다.",
-        "`45`개 검색 설정을 밤새 자동 그리드서치로 채점 — blind holdout에서 **recall `0.909`**, 강사 평가 `9/10`, **참가자 중 `1등`**.",
+        "WTIA 프로그램의 AI 수업에서 진행한 competition 과제입니다. 주제는 `1,297쪽`짜리 미국 연방 항공법(14 CFR)에서 질문에 맞는 조항(§)을 찾아 답하는 것이었습니다. 그럴듯하게 답하는 것과 근거를 대고 답하는 것은 다른 문제라, 둘을 어떻게 구분해서 측정할지부터 정하고 시작했습니다.",
+        "검색 설정 `45`개를 만들어 밤새 자동으로 채점했고, blind holdout에서 **recall `0.909`**가 나온 설정을 골랐습니다. 강사 채점 `9/10`으로 **수강생 중 1위**를 했습니다.",
       ],
       en: [
-        "Finding and citing the exact clause (§) in `1,297 pages` of U.S. federal aviation law (14 CFR) is hard even for a person. I wanted to **close the gap between a ‘plausible answer’ and a ‘verifiable answer’ with data, not intuition**.",
-        "Graded `45` retrieval configurations in an overnight automated grid search — **recall `0.909`** on a blind holdout, instructor score `9/10`, **`1st` place** among participants.",
+        "The competition assignment in the AI lecture of the WTIA program. The task was to answer questions about `1,297 pages` of U.S. federal aviation law (14 CFR) by finding the right clause (§). Answering plausibly and answering with evidence are two different problems, so I started by deciding how to measure the difference.",
+        "I built `45` retrieval configurations, graded them automatically overnight, and picked the one that scored **recall `0.909`** on a blind holdout. The instructor scored it `9/10` — **first among the participants**.",
       ],
     },
     flow: [
@@ -435,8 +473,8 @@ export const projects: Project[] = [
     troubleshooting: [
       {
         title: {
-          ko: "유사도 ≠ 관련성 — 정답 조항이 2600위 밖으로 묻혔다",
-          en: "Similarity ≠ relevance — the answering clause buried past rank 2600",
+          ko: "정답이 들어 있는 조항이 검색 2,600위 밖에 있었다",
+          en: "The clause holding the answer came back past rank 2,600",
         },
         problem: {
           ko: "고정 페이지 청킹에서는 `§61.109` 조항(비행시간 요건에 대한 정확한 답)이 유사도 `0.39`, 순위 `2600위` 밖으로 묻혔습니다.",
@@ -464,8 +502,8 @@ export const projects: Project[] = [
       },
       {
         title: {
-          ko: "agentic 루프의 입력 토큰 비용",
-          en: "Input-token cost of the agentic loop",
+          ko: "agentic 루프가 입력 토큰을 너무 많이 썼다",
+          en: "The agentic loop was burning too many input tokens",
         },
         problem: {
           ko: "넓은 열거형 질문에서는 agentic 루프가 입력 토큰을 `15k~55k`까지 썼습니다. 최악은 검색만 하다 답을 못 찾아 강제로 답하는 경로가 증거 pool 전체를 캐시 없이 재전송하는 경우였습니다 — 한 호출에 `12,157` 토큰.",
@@ -504,21 +542,36 @@ export const projects: Project[] = [
     },
     learned: {
       ko: [
-        "**검색이 성능을 가른다 —** 모델 교체보다 청크 크기·`top-k` 조정이 점수를 훨씬 크게 움직였다",
-        "프롬프트 캐싱은 **컨텍스트가 매 턴 자라는 구조에서만 값어치가 있다** — forced-answer를 캐시된 대화 이어가기로 바꾸자 한 호출이 `12,157 → 46` uncached 토큰으로 줄었다",
-        "**비용도 성능이다 —** 같은 품질이면 싼 구성이 이긴 구성이다",
-        "한계도 하나 남았다: 채점 정답셋을 제가 직접 만들며 테스트했다 — **문제를 낸 사람이 채점까지 하면 점수는 관대해지기 쉽다**. 다음엔 정답셋 제작과 평가를 분리하려 한다",
+        "**병목은 생성이 아니라 검색이었습니다.** 모델을 바꾸는 것보다 청크 크기와 `top-k`를 조정하는 쪽이 점수를 훨씬 크게 움직였습니다.",
+        "**프롬프트 캐싱은 컨텍스트가 턴마다 자라는 구조에서만 값어치가 있었습니다.** forced-answer를 캐시된 대화 이어가기로 바꾸자 한 호출이 `12,157 → 46` uncached 토큰이 됐습니다.",
+        "**비용을 그래프로 보고 나서야 설정 선택 기준이 생겼습니다.** 같은 품질이면 싼 쪽을 고르면 된다는 걸 그전까지는 숫자로 확인해본 적이 없었습니다.",
+        "**한계도 있습니다. 정답셋을 제가 만들고 채점도 제가 했습니다.** 문제를 낸 사람이 채점까지 하면 점수가 관대해지기 쉬워서, 다음에는 정답셋 제작과 평가를 분리하려고 합니다.",
       ],
       en: [
-        "**Retrieval, not generation —** tuning chunk size and `top-k` moved the score far more than swapping models",
-        "Prompt caching only pays off **when the context grows turn over turn** — switching forced-answer to continue the already-cached conversation dropped one call from `12,157 → 46` uncached tokens",
-        "**Cost is a performance metric too —** at equal quality, the cheaper configuration wins",
-        "One limitation remains: I built and ran the answer key myself — **when the person who writes the questions also grades them, scores tend to run generous**. Next time I'd separate answer-key creation from evaluation.",
+        "**The bottleneck was retrieval, not generation.** Tuning chunk size and `top-k` moved the score far more than swapping models did.",
+        "**Prompt caching only pays off where the context grows turn over turn.** Switching forced-answer to continue the already-cached conversation took one call from `12,157` to `46` uncached tokens.",
+        "**Seeing the cost on a chart is what gave me a rule for picking a config.** Until then I had never actually checked in numbers that at equal quality you just take the cheaper one.",
+        "**It has a limitation: I wrote the answer key and I also did the grading.** When the person setting the questions grades them too, scores tend to run generous, so next time I want to separate writing the key from running the evaluation.",
       ],
     },
+    media: [
+      {
+        src: "/images/rag-chatbot-demo.png",
+        alt: {
+          ko: "RAG 챗봇 UI — 질문과 답변, 우측 패널에 인용 근거",
+          en: "RAG chatbot UI — question and answer, with cited sources in the right panel",
+        },
+        width: 2532,
+        height: 1986,
+      },
+    ],
     links: [
       { label: "GitHub", href: "https://github.com/KimTaebin-ai/rag-starter" },
-      { label: "etnews (전자신문)", href: "https://www.etnews.com/20260724000305" },
+      { label: "Demo", href: "https://youtu.be/jrPw8bBo-Dk" },
+      {
+        label: "etnews (전자신문)",
+        href: "https://www.etnews.com/20260724000305",
+      },
     ],
   },
   {
@@ -529,14 +582,17 @@ export const projects: Project[] = [
       en: "Transcendence — Real-time PvP Pong",
     },
     headline: {
-      ko: "`4`인 팀을 이끌고 만든 실시간 대전 Pong — `Socket.io` 상태 동기화, `OAuth 2.0` + `2FA`",
-      en: "Real-time competitive Pong, leading a team of `4` — `Socket.io` state sync, `OAuth 2.0` + `2FA`",
+      ko: "`4`인 팀에서 팀장을 맡은 실시간 대전 Pong. 프론트 · 백 · 인증 · 배포를 한 팀이 전부 만들었습니다",
+      en: "Real-time PvP Pong as lead of a team of `4` — one team building the frontend, backend, auth, and deployment",
     },
     period: { ko: "2026", en: "2026" },
     org: { ko: "École 42 — Inner Circle", en: "École 42 — Inner Circle" },
     team: {
       members: { ko: "4인 팀", en: "Team of 4" },
-      myRole: { ko: "팀장 — 아키텍처 · 스프린트 · 작업 분배", en: "Team lead — architecture, sprints, task allocation" },
+      myRole: {
+        ko: "팀장 — 아키텍처 · 스프린트 · 작업 분배",
+        en: "Team lead — architecture, sprints, task allocation",
+      },
     },
     coreSkills: {
       ko: [
@@ -576,7 +632,14 @@ export const projects: Project[] = [
         rows: [
           {
             h: 1,
-            cells: [{ label: { ko: "스코어보드 — 플레이어 A : B · 라운드", en: "Scoreboard — Player A : B · round" } }],
+            cells: [
+              {
+                label: {
+                  ko: "스코어보드 — 플레이어 A : B · 라운드",
+                  en: "Scoreboard — Player A : B · round",
+                },
+              },
+            ],
           },
           {
             h: 5,
@@ -594,7 +657,14 @@ export const projects: Project[] = [
           },
           {
             h: 1,
-            cells: [{ label: { ko: "연결 상태 · 지연 · 재접속 표시", en: "Connection state · latency · reconnect indicator" } }],
+            cells: [
+              {
+                label: {
+                  ko: "연결 상태 · 지연 · 재접속 표시",
+                  en: "Connection state · latency · reconnect indicator",
+                },
+              },
+            ],
           },
         ],
       },
@@ -605,24 +675,52 @@ export const projects: Project[] = [
         },
         frame: "browser",
         rows: [
-          { h: 1, cells: [{ label: { ko: "로고 · Sign in", en: "Logo · Sign in" } }] },
-          { h: 2, cells: [{ label: { ko: "OAuth 2.0 제공자 버튼 → 콜백", en: "OAuth 2.0 provider button → callback" } }] },
+          {
+            h: 1,
+            cells: [{ label: { ko: "로고 · Sign in", en: "Logo · Sign in" } }],
+          },
           {
             h: 2,
-            cells: [{ label: { ko: "2FA — 6자리 코드 입력 · 확인 · 재발송", en: "2FA — 6-digit code entry · verify · resend" } }],
+            cells: [
+              {
+                label: {
+                  ko: "OAuth 2.0 제공자 버튼 → 콜백",
+                  en: "OAuth 2.0 provider button → callback",
+                },
+              },
+            ],
           },
-          { h: 1, cells: [{ tone: "muted", label: { ko: "오류 / 잠금 안내", en: "Error / lockout notice" } }] },
+          {
+            h: 2,
+            cells: [
+              {
+                label: {
+                  ko: "2FA — 6자리 코드 입력 · 확인 · 재발송",
+                  en: "2FA — 6-digit code entry · verify · resend",
+                },
+              },
+            ],
+          },
+          {
+            h: 1,
+            cells: [
+              {
+                tone: "muted",
+                label: { ko: "오류 / 잠금 안내", en: "Error / lockout notice" },
+              },
+            ],
+          },
         ],
       },
     ],
     intro: {
       ko: [
-        "École 42 Inner Circle 후반부에 처음 마주하는 대형 팀 프로젝트입니다. 실시간 통신과 인증을, **프레임워크 뒤에 숨지 않고 `4`명이 함께 설계·구현**해야 했습니다.",
-        "**`WebSocket` 기반 실시간 대전 Pong**을 만들고, 커스텀 매치메이킹과 `OAuth 2.0` + `2FA` 인증까지 **팀을 이끌며** 구현했습니다.",
+        "42 Inner Circle 후반의 큰 팀 과제입니다. 프론트엔드, 백엔드, 인증, 배포를 한 팀이 전부 만들어야 해서 **웹 풀스택을 처음부터 끝까지 직접 다뤄본 프로젝트**이기도 합니다.",
+        "`Socket.io`로 실시간 대전 Pong을 만들고 커스텀 매치메이킹과 `OAuth 2.0` + `2FA` 인증을 붙였습니다. `4`명 팀의 팀장으로 아키텍처와 스프린트, 작업 분배를 맡았습니다.",
       ],
       en: [
-        "The first large team project in the latter half of École 42's Inner Circle. Real-time communication and authentication had to be **designed and built by the four of us directly** — no framework to hide behind.",
-        "Built **real-time competitive Pong over `WebSockets`**, **leading the team** through custom matchmaking and `OAuth 2.0` + `2FA` authentication.",
+        "The big team project late in École 42's Inner Circle. One team has to build the frontend, the backend, authentication, and deployment, which makes it **the project where I handled web full-stack end to end myself**.",
+        "We built real-time PvP Pong on `Socket.io` and added custom matchmaking and `OAuth 2.0` + `2FA` authentication. I led the team of `4` and owned the architecture, the sprints, and how the work was split.",
       ],
     },
     flow: [
@@ -653,8 +751,8 @@ export const projects: Project[] = [
     troubleshooting: [
       {
         title: {
-          ko: "프론트·백·배포를 3개 레포로 — 그리고 상태는 어디에 두는가",
-          en: "Three repos for front, back, and deploy — and where the state lives",
+          ko: "레포를 셋으로 나누고, 게임 상태는 서버 한 곳에 뒀다",
+          en: "Split into three repos, and kept the game state in one place",
         },
         problem: {
           ko: "팀 `4`명이 동시에 작업하려면 프론트(`React/Vite`), 백엔드, 배포 설정을 분리해야 했습니다. 동시에 실시간 게임 상태는 프론트-백 양쪽에서 같은 값을 믿을 수 있어야 했습니다.",
@@ -679,14 +777,14 @@ export const projects: Project[] = [
     ],
     learned: {
       ko: [
-        "실시간 시스템에서 **프론트엔드-백엔드 상태 동기화**가 가장 까다로운 지점이었다",
-        "**팀 리딩은 코드가 아니었다 —** 작업을 쪼개고 순서를 정하는 일이 더 컸다",
-        "**보안은 나중에 붙이는 기능이 아니다 —** 인증(`OAuth 2.0` · `2FA`)을 처음부터 설계해보고 체감했다",
+        "**실시간에서 제일 어려운 건 상태였습니다.** 프론트와 백이 같은 순간에 같은 값을 믿게 만드는 데 시간을 가장 많이 썼습니다.",
+        "**팀 리딩은 코드 밖의 일이었습니다.** 작업을 어떻게 쪼개고 어떤 순서로 놓느냐가 진행 속도를 결정했습니다.",
+        "**인증은 나중에 붙일 수 있는 게 아니었습니다.** `OAuth 2.0`과 `2FA`를 직접 설계해보니 세션과 라우팅 전체가 그 위에 얹히는 구조였습니다.",
       ],
       en: [
-        "Keeping **frontend–backend state in sync** was the hardest part of the real-time system",
-        "**Leading wasn't about code —** it was breaking the work into the right pieces and sequence",
-        "**Security isn't a feature you bolt on later —** designing auth (`OAuth 2.0`, `2FA`) from scratch made that concrete",
+        "**In a real-time system the hard part was state.** Most of my time went into making the frontend and the backend trust the same value at the same moment.",
+        "**Leading turned out to be the work outside the code.** How the work got split and sequenced decided how fast we moved.",
+        "**Auth is not something you add later.** Designing `OAuth 2.0` and `2FA` myself showed me that sessions and routing all sit on top of it.",
       ],
     },
     links: [
@@ -704,8 +802,8 @@ export const projects: Project[] = [
       en: "Linear Regression & Matrix — in Rust",
     },
     headline: {
-      ko: "최소제곱부터 `SVD`까지 외부 수치 라이브러리 없이 순수 `Rust`로, 손계산과 대조 검증",
-      en: "Least squares through `SVD` in pure `Rust` with no numerical libraries, checked against hand calculations",
+      ko: "정규방정식부터 `SVD`까지 수치 라이브러리 없이 `Rust`로 짜고, 손계산과 맞춰봤습니다",
+      en: "Normal equations through `SVD` in `Rust` with no numerical libraries, checked against hand calculations",
     },
     period: { ko: "2026", en: "2026" },
     org: { ko: "École 42 — Outer Circle", en: "École 42 — Outer Circle" },
@@ -745,7 +843,17 @@ export const projects: Project[] = [
         },
         frame: "terminal",
         rows: [
-          { h: 1, cells: [{ label: { ko: "$ cargo run --release", en: "$ cargo run --release" } }] },
+          {
+            h: 1,
+            cells: [
+              {
+                label: {
+                  ko: "$ cargo run --release",
+                  en: "$ cargo run --release",
+                },
+              },
+            ],
+          },
           {
             h: 3,
             cells: [
@@ -771,7 +879,13 @@ export const projects: Project[] = [
           {
             h: 1,
             cells: [
-              { tone: "muted", label: { ko: "assert |θ_code − θ_hand| < ε", en: "assert |θ_code − θ_hand| < ε" } },
+              {
+                tone: "muted",
+                label: {
+                  ko: "assert |θ_code − θ_hand| < ε",
+                  en: "assert |θ_code − θ_hand| < ε",
+                },
+              },
             ],
           },
         ],
@@ -779,12 +893,12 @@ export const projects: Project[] = [
     ],
     intro: {
       ko: [
-        "라이브러리를 부르면 한 줄인 것들 — **그 한 줄 밑에서 무슨 일이 벌어지는지 모른 채 ML을 하고 싶지 않았습니다**. 프레임워크 없이, `Rust`로 다시 짜기로 했습니다. 책으로 쌓아온 수학이 코드로 검증되는 프로젝트이기도 합니다.",
-        "최소제곱법부터 `SVD`까지, **외부 수치 라이브러리 없이 순수 `Rust`로** 구현하고 손계산과 대조해 검증했습니다.",
+        "`numpy`에서 한 줄로 끝나는 계산들이 밑에서 어떻게 도는지 모른 채로 ML을 하고 싶지 않았습니다. 그래서 **수치 라이브러리 없이 `Rust`로 다시 짰습니다.** 책으로 공부한 수학을 코드로 확인하는 자리이기도 합니다.",
+        "정규방정식과 최소제곱, Ridge/Lasso 정규화, 그리고 고유분해와 `SVD`까지 구현하고 결과를 손계산과 대조했습니다.",
       ],
       en: [
-        "Things that are one line when you call a library — **I didn't want to do ML without knowing what happens underneath that line**. So I rewrote it in `Rust`, with no framework. It's also where the math I've been building from books gets checked against code.",
-        "Implemented everything from least squares to `SVD` **in pure `Rust` with no external numerical libraries**, and checked it against hand calculations.",
+        "I didn't want to do ML without knowing what runs underneath the calculations that take one line in `numpy`. So I **rewrote them in `Rust` with no numerical libraries.** It's also where the math I've been studying from books gets checked against code.",
+        "Implemented normal equations and least squares, Ridge/Lasso regularization, and eigendecomposition through `SVD`, then compared the output against hand calculations.",
       ],
     },
     flow: [
@@ -813,8 +927,8 @@ export const projects: Project[] = [
     troubleshooting: [
       {
         title: {
-          ko: "정규화 없인 수렴하지 않는다 — Hessian 조건수 `1.3×10¹⁰`",
-          en: "Nothing converges without normalization — a Hessian eigenvalue of `1.3×10¹⁰`",
+          ko: "정규화 없이는 수렴하지 않았다 (Hessian 최대 고유값 `1.3×10¹⁰`)",
+          en: "It wouldn't converge without normalization (max Hessian eigenvalue `1.3×10¹⁰`)",
         },
         problem: {
           ko: "원본 스케일(주행거리 km, 가격)로 그대로 경사하강을 돌리면 발산했습니다. 발산을 피하려면 학습률을 `1e-10`까지 낮춰야 하고, 그래도 수렴이 느렸습니다.",
@@ -842,8 +956,8 @@ export const projects: Project[] = [
       },
       {
         title: {
-          ko: "네 연산, 두 스칼라 타입 — 소거 엔진 하나로",
-          en: "Four operations, two scalar types — one elimination engine",
+          ko: "네 연산과 두 스칼라 타입을 소거 엔진 하나로 합쳤다",
+          en: "Folded four operations and two scalar types into one elimination engine",
         },
         problem: {
           ko: "Matrix 과제는 row-echelon · determinant · inverse · rank 네 연산과, `f32`·`Complex` 두 스칼라 타입을 모두 요구했습니다.",
@@ -868,14 +982,14 @@ export const projects: Project[] = [
     ],
     learned: {
       ko: [
-        "**행렬은 공식이 아니라 그림이다 —** 연산을 기하학적으로 이해하게 됐다",
-        "**`PCA`와 데이터 압축은 같은 원리다 —** `SVD`를 직접 짜보고서야 보였다",
-        "`Rust`의 ownership/borrowing이 수치 연산 코드에서 **버그를 컴파일 타임에 먼저 잡아준다는 걸** 체감했다",
+        "**`SVD`를 직접 짜고 나서야 `PCA`가 이해됐습니다.** 주성분 분석과 데이터 압축이 결국 같은 분해라는 게 그제야 보였습니다.",
+        "**스케일이 안 맞으면 학습률로 덮을 수 없었습니다.** 손실 표면의 조건수를 먼저 손봐야 학습률을 정상 범위에서 쓸 수 있었습니다.",
+        "**`Rust`의 ownership이 수치 코드에서 도움이 됐습니다.** 행렬 버퍼를 잘못 공유하는 실수가 실행 전에 컴파일 단계에서 걸렸습니다.",
       ],
       en: [
-        "**Matrices are geometry, not formulas —** that is how I started seeing the operations",
-        "**`PCA` and compression are one idea —** writing `SVD` by hand is what made it obvious",
-        "Felt firsthand how `Rust`'s ownership/borrowing **catches numerical bugs at compile time** before they become runtime bugs",
+        "**`PCA` only made sense to me after I wrote `SVD` myself.** That's when I saw that principal components and data compression are the same decomposition.",
+        "**A scale mismatch is not something the learning rate can cover.** I had to fix the conditioning of the loss surface before the learning rate could sit in a normal range.",
+        "**`Rust`'s ownership helped in numerical code.** Sharing a matrix buffer wrongly got caught at compile time instead of at runtime.",
       ],
     },
     links: [
@@ -894,8 +1008,8 @@ export const projects: Project[] = [
       en: "TurtleBot3 Person-Following Robot",
     },
     headline: {
-      ko: "`YOLOv8` 비전과 `LiDAR` 깊이를 융합해 사람을 추적·회피 — 진짜 변수는 알고리즘이 아니라 햇빛이었다",
-      en: "Fused `YOLOv8` vision with `LiDAR` depth to follow a person and avoid obstacles — the real variable was sunlight, not the algorithm",
+      ko: "`YOLOv8`과 `LiDAR`를 묶어 사람을 따라다니는 `ROS2` 로봇. 주행하면서 `SLAM`으로 지도를 만듭니다",
+      en: "A `ROS2` robot that follows a person by fusing `YOLOv8` with `LiDAR`, building a `SLAM` map as it drives",
     },
     period: { ko: "2026", en: "2026" },
     // TODO(user): 이 프로젝트의 소속(강의 과정 / 개인 / 팀)을 org에 채워주세요
@@ -949,7 +1063,12 @@ export const projects: Project[] = [
           {
             h: 2,
             cells: [
-              { label: { ko: "LiDAR 거리 · 충돌 영역", en: "LiDAR distance · collision zone" } },
+              {
+                label: {
+                  ko: "LiDAR 거리 · 충돌 영역",
+                  en: "LiDAR distance · collision zone",
+                },
+              },
               {
                 tone: "muted",
                 label: {
@@ -968,11 +1087,27 @@ export const projects: Project[] = [
         },
         frame: "screen",
         rows: [
-          { h: 1, cells: [{ tone: "muted", label: { ko: "툴바 — 지도 저장 / 리셋", en: "Toolbar — save map / reset" } }] },
+          {
+            h: 1,
+            cells: [
+              {
+                tone: "muted",
+                label: {
+                  ko: "툴바 — 지도 저장 / 리셋",
+                  en: "Toolbar — save map / reset",
+                },
+              },
+            ],
+          },
           {
             h: 5,
             cells: [
-              { label: { ko: "점유 격자 지도 + 로봇 pose · 주행 경로", en: "Occupancy-grid map + robot pose and path" } },
+              {
+                label: {
+                  ko: "점유 격자 지도 + 로봇 pose · 주행 경로",
+                  en: "Occupancy-grid map + robot pose and path",
+                },
+              },
             ],
           },
         ],
@@ -980,12 +1115,12 @@ export const projects: Project[] = [
     ],
     intro: {
       ko: [
-        "카메라와 `LiDAR`, 각각은 불완전한 센서입니다. **둘을 합치면 로봇이 사람을 알아보고 스스로 따라다닐 수 있을까** — 직접 확인하고 싶었습니다.",
-        "`YOLOv8` 비전과 `LiDAR` 깊이 정보를 융합해, **로봇이 사람을 추적하며 장애물을 피해 따라갑니다** — 발표·시연 영상으로 기록.",
+        "카메라는 무엇인지는 알지만 얼마나 먼지는 모르고, `LiDAR`는 그 반대입니다. **두 센서를 합치면 로봇이 사람을 알아보고 따라갈 수 있는지** 직접 해보고 싶었습니다.",
+        "`YOLOv8`으로 사람을 찾고 `LiDAR` 깊이로 거리를 재서 조향 명령 하나로 합쳤습니다. 주행 중에는 `SLAM`으로 주변 지도를 만듭니다. **제가 `SLAM` 쪽을 계속 보게 된 것도 이 프로젝트 이후입니다.**",
       ],
       en: [
-        "Camera and `LiDAR` are each an imperfect sensor on their own. I wanted to find out, hands-on, **whether fusing them could let a robot recognize a person and follow them on its own**.",
-        "Fused `YOLOv8` vision with `LiDAR` depth so the **robot tracks a person and avoids obstacles while following** — captured on video in a talk and a demo.",
+        "A camera knows what something is but not how far away it is; `LiDAR` is the other way round. I wanted to try fusing them and see **whether a robot could recognize a person and follow them**.",
+        "`YOLOv8` finds the person, `LiDAR` depth gives the distance, and the two combine into a single steering command. While driving, `SLAM` builds a map of the surroundings. **This project is why I kept going in the `SLAM` direction.**",
       ],
     },
     flow: [
@@ -1011,45 +1146,298 @@ export const projects: Project[] = [
     troubleshooting: [
       {
         title: {
-          ko: "진짜 변수는 알고리즘이 아니었다 — 직사광",
-          en: "The real variable wasn't the algorithm — it was direct sunlight",
+          ko: "직사광이 들어오면 추적이 끊겼다",
+          en: "Tracking dropped whenever direct sunlight came in",
         },
         problem: {
           ko: "직사광이 들어오면 `YOLOv8` 인식이 흔들리고 사람 추적이 끊겼습니다.",
           en: "Direct sunlight threw off `YOLOv8` detection and broke person tracking.",
         },
         cause: {
-          ko: "**센서 융합 로직보다 조명이 더 큰 문제였습니다** — 융합 알고리즘은 입력이 안정적일 때만 의미가 있었습니다.",
-          en: "**Lighting turned out to be a bigger problem than the fusion logic itself** — fusion only means anything when its inputs are stable.",
+          ko: "**융합 로직보다 조명이 더 큰 문제였습니다.** 융합은 들어오는 입력이 안정적일 때만 제 역할을 하는데, 인식 자체가 흔들리니 뒤쪽을 아무리 고쳐도 소용이 없었습니다.",
+          en: "**Lighting was a bigger problem than the fusion logic.** Fusion only does its job when the inputs coming in are stable, so with detection itself wobbling, fixing anything downstream made no difference.",
         },
         solution: {
-          ko: ["다양한 조명 조건에서 인식이 안정적으로 유지되도록 인식 단계를 다듬음"],
-          en: ["Tuned the detection stage until recognition held up across lighting conditions"],
+          ko: [
+            "다양한 조명 조건에서 인식이 안정적으로 유지되도록 인식 단계를 다듬음",
+          ],
+          en: [
+            "Tuned the detection stage until recognition held up across lighting conditions",
+          ],
         },
         result: {
-          ko: "가장 많은 엔지니어링 시간이 **융합 알고리즘이 아니라 조명 대응**에 들어갔고, 그쪽을 잡고 나서야 추적이 끊기지 않았습니다.",
-          en: "Most of the engineering time went into **lighting robustness rather than the fusion algorithm** — and only once that held did tracking stop dropping.",
+          ko: "결과적으로 가장 많은 시간이 **융합 알고리즘이 아니라 조명 대응**에 들어갔고, 그쪽을 잡고 나서야 추적이 끊기지 않았습니다.",
+          en: "In the end most of the time went into **handling lighting rather than the fusion algorithm**, and tracking only stopped dropping once that was solid.",
         },
         // TODO(user): 인식 안정화 커밋 링크를 refs에 추가
       },
     ],
     learned: {
       ko: [
-        "**가장 큰 변수는 알고리즘이 아니라 햇빛이었다 —** 직사광 노이즈에 객체 인식이 흔들려, 조명 조건에서의 인식 안정화에 가장 많은 시간을 썼다",
-        "센서 융합의 어려움은 **`sync` · `latency` · `confidence` 관리**에 있었다",
-        "`ROS2` topic/service 구조 덕에 **비전·깊이·제어를 독립 모듈로 갈아끼울 수** 있었다",
-        "**실시간에선 정확도를 조금 내준다 —** 그 결정이 전체 반응성을 살린다",
+        "**가장 큰 변수는 햇빛이었습니다.** 융합 알고리즘을 고치는 것보다 조명 조건에서 인식을 안정시키는 데 시간을 훨씬 많이 썼습니다.",
+        "**센서 융합의 어려움은 `sync`와 `latency`, `confidence` 관리에 있었습니다.** 두 신호를 어떻게 섞느냐보다 각각이 언제 찍힌 값인지가 문제였습니다.",
+        "**`ROS2`의 topic/service 구조 덕에 모듈을 갈아끼울 수 있었습니다.** 비전과 깊이, 제어를 따로 고쳐도 나머지가 그대로 돌아갔습니다.",
+        "**실시간에서는 정확도를 조금 내주는 편이 낫습니다.** 프레임을 못 맞추면 정확한 값도 늦은 값이 됩니다.",
       ],
       en: [
-        "**The biggest variable was sunlight, not the algorithm —** direct-light noise threw off object detection, so most of my time went into stabilizing recognition across lighting conditions",
-        "The hard part of sensor fusion was managing **`sync`, `latency`, and `confidence`**",
-        "`ROS2`'s topic/service architecture let me **swap vision, depth, and control in and out as independent modules**",
-        "**Real-time trades accuracy —** giving a little of it up is what keeps the whole system responsive",
+        "**The biggest variable was sunlight.** Far more of my time went into stabilizing detection across lighting conditions than into the fusion algorithm.",
+        "**The hard part of sensor fusion was managing `sync`, `latency`, and `confidence`.** When each reading was taken mattered more than how the two got combined.",
+        "**`ROS2`'s topic/service structure let me swap modules in and out.** I could change vision, depth, or control on its own and the rest kept running.",
+        "**In real time you're better off giving up a little accuracy.** Miss the frame and an accurate value is just a late one.",
       ],
     },
     links: [
       { label: "YouTube: Presentation", href: "https://youtu.be/2eOp8Bp0UdI" },
       { label: "YouTube: Demo", href: "https://youtu.be/oBLanfJ3GZw" },
+    ],
+  },
+  {
+    id: "minirt",
+    tier: "featured",
+    name: { ko: "miniRT — C 레이트레이서", en: "miniRT — Ray Tracer in C" },
+    headline: {
+      ko: "GPU도 라이브러리도 없이 `C`로 만든 레이트레이서. 강체변환과 로드리게스 회전을 직접 짜서 씬을 움직입니다",
+      en: "A ray tracer in `C` with no GPU and no library — rigid-body transforms and Rodrigues rotation written by hand to move the scene",
+    },
+    period: { ko: "2025.1 – 2025.2", en: "Jan – Feb 2025" },
+    org: { ko: "École 42", en: "École 42" },
+    coreSkills: {
+      ko: [
+        "3D 기하 — 광선-물체 교차, 표면 법선",
+        "강체변환 — `4×4` 동차 행렬, 로드리게스 회전",
+        "부분 피벗팅 `Gauss-Jordan` 역행렬",
+        "핫루프 최적화 — 함수 포인터 디스패치",
+      ],
+      en: [
+        "3D geometry — ray-object intersection, surface normals",
+        "Rigid-body transforms — `4×4` homogeneous matrices, Rodrigues rotation",
+        "`Gauss-Jordan` inversion with partial pivoting",
+        "Hot-loop optimization — function-pointer dispatch",
+      ],
+    },
+    contributions: {
+      ko: [
+        "구 · 평면 · 원기둥 · 원뿔 교차를 기하식과 이차방정식으로 각각 구현",
+        "평행이동 · `Rx` · `Ry` · `Rz`를 `4×4` 행렬 하나로 합치고, 역행렬은 부분 피벗팅 `Gauss-Jordan`으로 계산",
+        "함수 포인터 테이블 · 제곱거리 조기 종료 · 그림자 레이 오프셋으로 렌더 루프 정리",
+        "보너스로 Phong 스페큘러, 다중 광원, 역제곱 감쇠, 절차적 UV 텍스처, 씬 편집 후 `.rt` 저장",
+      ],
+      en: [
+        "Implemented sphere, plane, cylinder, and cone intersection — geometric form and quadratic solves",
+        "Composed translation, `Rx`, `Ry`, `Rz` into a single `4×4` matrix, inverted with `Gauss-Jordan` and partial pivoting",
+        "Tightened the render loop with a function-pointer table, squared-distance early-outs, and a shadow-ray offset",
+        "Bonus: Phong specular, multiple lights, inverse-square falloff, procedural UV textures, and saving an edited scene back to `.rt`",
+      ],
+    },
+    stack: [
+      "C",
+      "minilibx",
+      "Ray Tracing",
+      "Linear Algebra",
+      "Rigid-Body Transforms",
+    ],
+    status: "complete",
+    wireframes: [
+      {
+        caption: {
+          ko: "렌더 창 — .rt 씬의 물체가 조명과 그림자를 받은 결과",
+          en: "Render window — the objects from the .rt scene, lit and shadowed",
+        },
+        frame: "screen",
+        rows: [
+          {
+            h: 1,
+            cells: [
+              {
+                tone: "muted",
+                label: {
+                  ko: "창 제목 · 해상도 · 렌더 시간",
+                  en: "Window title · resolution · render time",
+                },
+              },
+            ],
+          },
+          {
+            h: 6,
+            cells: [
+              {
+                label: {
+                  ko: "렌더된 3D 장면 — 픽셀당 광선 → 교점 → 법선 → 셰이딩",
+                  en: "Rendered 3D scene — one ray per pixel → intersection → normal → shading",
+                },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        caption: {
+          ko: "보너스 — 창 안에서 물체와 카메라를 옮기고, 편집한 씬을 .rt로 저장",
+          en: "Bonus — move objects and the camera inside the window, save the edited scene as .rt",
+        },
+        frame: "screen",
+        rows: [
+          {
+            h: 5,
+            cells: [
+              {
+                w: 3,
+                label: {
+                  ko: "장면 — 클릭으로 물체 선택, WASD로 이동, 방향키로 회전",
+                  en: "Scene — click to select an object, WASD to move, arrows to rotate",
+                },
+              },
+              {
+                w: 1,
+                tone: "muted",
+                label: {
+                  ko: "선택된 물체 — 위치 · 방향 · 크기",
+                  en: "Selected object — position · orientation · size",
+                },
+              },
+            ],
+          },
+          {
+            h: 1,
+            cells: [
+              {
+                tone: "muted",
+                label: {
+                  ko: "복사 · 붙여넣기 · .rt로 저장",
+                  en: "Copy · paste · save to .rt",
+                },
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    intro: {
+      ko: [
+        "42에서 배운 **선형대수를 처음으로 눈으로 확인한 과제**입니다. 내적과 외적, 회전 행렬이 화면에 그대로 나타나기 때문에 식이 틀리면 그림이 틀립니다.",
+        "`.rt` 씬 파일을 읽어 픽셀마다 광선을 쏘고, 구 · 평면 · 원기둥 · 원뿔과의 교점을 풀어 조명과 그림자를 계산합니다. 보너스 빌드에서는 창 안에서 물체와 카메라를 움직이고 편집한 씬을 다시 `.rt`로 저장할 수 있습니다.",
+      ],
+      en: [
+        "This is **where the linear algebra I'd been studying first became something I could see.** Dot products, cross products, and rotation matrices land straight on the screen, so a wrong equation means a wrong picture.",
+        "It reads an `.rt` scene file, fires a ray per pixel, solves intersections against spheres, planes, cylinders, and cones, and computes lighting and shadows. In the bonus build you can move objects and the camera inside the window and save the edited scene back out to `.rt`.",
+      ],
+    },
+    flow: [
+      { label: { ko: ".rt 씬 파싱", en: "Parse .rt scene" } },
+      {
+        label: { ko: "카메라 → 광선 생성", en: "Camera → build ray" },
+        sub: { ko: "raster → NDC → camera", en: "raster → NDC → camera" },
+      },
+      { label: { ko: "교점 · 표면 법선", en: "Intersection · normal" } },
+      {
+        label: { ko: "조명 · 그림자 셰이딩", en: "Lighting · shadow shading" },
+      },
+    ],
+    howItWorks: {
+      ko: [
+        "핀홀 카메라 모델로 픽셀 좌표를 raster → NDC → screen → camera 공간으로 옮기고, 종횡비와 tan(fov/2)로 각 픽셀의 1차 광선을 만든다",
+        "구는 중심을 광선에 투영해 제곱거리로 풀고, 원기둥과 원뿔은 a·t² + b·t + c = 0의 판별식을 푼 뒤 축 방향으로 잘라내고 뚜껑을 따로 검사한다",
+        "물체의 이동과 회전은 평행이동 · Rx · Ry · Rz를 곱한 4×4 동차 행렬로 처리하고, 역행렬은 부분 피벗팅 Gauss-Jordan으로 구한다",
+        "임의 축 회전은 로드리게스 공식으로, 두 방향 벡터를 맞추는 회전은 cross로 축을, acos(dot)로 각을 구해 만든다",
+        "셰이딩은 Lambert 확산 max(0, N·L)에 반사 벡터 R = I − 2(I·N)N로 계산한 Phong 스페큘러와 역제곱 감쇠 brightness/(4πr²)를 더한다",
+      ],
+      en: [
+        "A pinhole camera model moves pixel coordinates through raster → NDC → screen → camera space, using the aspect ratio and tan(fov/2) to build each primary ray",
+        "Spheres project the center onto the ray and compare squared distances; cylinders and cones solve the discriminant of a·t² + b·t + c = 0, clamp the hit along the axis, and test the end caps separately",
+        "Object translation and rotation go through one 4×4 homogeneous matrix composed of translation · Rx · Ry · Rz, inverted with Gauss-Jordan and partial pivoting",
+        "Rotation about an arbitrary axis uses Rodrigues' formula; aligning one direction vector onto another takes the axis from cross and the angle from acos(dot)",
+        "Shading is Lambert diffuse max(0, N·L) plus Phong specular off the reflection vector R = I − 2(I·N)N and inverse-square falloff brightness/(4πr²)",
+      ],
+    },
+    troubleshooting: [
+      {
+        title: {
+          ko: "핫루프의 타입 분기와 shadow acne를 같이 걷어냈다",
+          en: "Cleared out both the hot-loop type branching and the shadow acne",
+        },
+        problem: {
+          ko: "물체 타입마다 분기하는 코드는 초당 수백만 번 도는 렌더링 루프에서 부담이 됩니다. 그리고 그림자 레이가 자기 표면과 다시 교차해 `shadow acne`가 생겼습니다.",
+          en: "Branching on object type costs real time in a render loop that runs millions of times a second — and shadow rays kept re-intersecting their own surface, producing `shadow acne`.",
+        },
+        solution: {
+          ko: [
+            "교차 계산 함수를 **타입으로 인덱싱하는 함수 포인터 테이블**(`t_func`)로 바꿔, 분기 대신 인덱싱 호출 하나로 처리",
+            "`sqrt`를 부르기 전에 제곱거리(`d² > r²`)로 먼저 걸러내고, 뒤를 향한 광선(`tca < 0`)과 판별식 음수는 즉시 반환",
+            "그림자 레이 시작점을 법선 방향으로 `0.01` 띄움",
+          ],
+          en: [
+            "Moved intersection routines into a **function-pointer table indexed by type** (`t_func`) — one indexed call instead of a chain of ifs",
+            "Rejected rays on squared distance (`d² > r²`) before any `sqrt`, and bailed out immediately on back-facing rays (`tca < 0`) and negative discriminants",
+            "Offset the shadow-ray origin by `0.01` along the normal",
+          ],
+        },
+        result: {
+          ko: "핫루프에서 타입 분기가 사라졌고, 제곱거리 비교만으로 걸러내기 때문에 **정밀도를 잃지 않은 채** 그림자 아티팩트도 함께 없어졌습니다.",
+          en: "Type branching left the hot loop, and because the rejection happens on squared distances alone, the shadow artifact went with it **without giving up precision**.",
+        },
+        // TODO(user): 함수 포인터 디스패치 커밋 링크를 refs에 추가
+      },
+      {
+        title: {
+          ko: "두 벡터가 정반대일 때 회전축이 정의되지 않았다",
+          en: "The rotation axis was undefined when two vectors pointed opposite ways",
+        },
+        problem: {
+          ko: "물체의 방향 벡터를 다른 방향으로 맞출 때 `cross`로 회전축을, `acos(dot)`으로 각을 구합니다. 그런데 두 벡터가 나란하거나 정반대면 외적이 영벡터가 되어 회전축을 정규화할 수 없습니다.",
+          en: "To align an object's orientation onto another direction, the axis comes from `cross` and the angle from `acos(dot)`. But when the two vectors are parallel or antiparallel the cross product is the zero vector, so there is no axis to normalize.",
+        },
+        cause: {
+          ko: "같은 방향이면 회전이 필요 없지만, 정반대면 회전은 필요한데 축이 하나로 정해지지 않습니다 — 수직인 축 어느 것으로든 `π`만큼 돌리면 되기 때문입니다.",
+          en: "If they point the same way no rotation is needed, but if they point opposite ways a rotation is needed and the axis is not unique — any perpendicular axis turned by `π` gets there.",
+        },
+        solution: {
+          ko: [
+            "두 벡터가 같으면 입력을 그대로 반환해 불필요한 계산을 건너뜀",
+            "외적의 길이가 `0`이면 일반 회전 경로 대신 **정반대 방향 전용 처리로 분기**",
+          ],
+          en: [
+            "Return the input unchanged when the two vectors match, skipping the computation entirely",
+            "When the cross product has length `0`, **branch to a dedicated opposite-direction path** instead of the general rotation",
+          ],
+        },
+        result: {
+          ko: "카메라나 물체를 정반대로 돌려도 `NaN` 없이 방향이 잡힙니다. 같은 문제가 강체변환을 다루는 곳마다 반복된다는 것도 여기서 알게 됐습니다.",
+          en: "Flipping a camera or an object to face the opposite way now resolves without `NaN` — and this is where I learned the same edge case shows up anywhere rigid-body transforms are handled.",
+        },
+      },
+    ],
+    keyResults: {
+      ko: [
+        "구 · 평면 · 원기둥 · 원뿔 `4`종 프리미티브와 하드 섀도우",
+        "핫루프에서 타입 분기 제거 — 함수 포인터 테이블 인덱싱 호출 하나로",
+        "`sqrt` 호출 전 제곱거리 비교로 조기 종료",
+        "보너스: 다중 광원 · Phong 스페큘러 · 역제곱 감쇠 · 절차적 UV 텍스처 · 씬 편집 후 `.rt` 저장",
+        "`Makefile`이 `uname`으로 OS를 판별해 Linux는 X11, macOS는 OpenGL minilibx로 링크",
+      ],
+      en: [
+        "`4` primitives — sphere, plane, cylinder, cone — with hard shadows",
+        "No type branching in the hot loop: one indexed call through a function-pointer table",
+        "Early-out on squared distance before any `sqrt` call",
+        "Bonus: multiple lights, Phong specular, inverse-square falloff, procedural UV textures, and saving an edited scene to `.rt`",
+        "The `Makefile` detects the OS with `uname` and links X11 minilibx on Linux, OpenGL on macOS",
+      ],
+    },
+    learned: {
+      ko: [
+        "**`SLAM`에서 쓰는 수학을 여기서 먼저 만났습니다.** `4×4` 동차 변환과 로드리게스 회전은 카메라 포즈를 다루는 것과 같은 도구였고, 이 과제 이후에 리군과 강체변환을 따로 공부하기 시작했습니다.",
+        "**행렬은 공식이 아니라 그림이었습니다.** 회전 행렬을 잘못 쓰면 물체가 어떻게 틀어지는지 화면에 바로 나와서, 식보다 기하로 먼저 생각하게 됐습니다.",
+        "**정밀도와 속도를 같이 챙길 수 있는 자리가 있었습니다.** 제곱거리로 먼저 걸러내면 `sqrt`를 부르지 않고도 결과가 같습니다.",
+        "**부동소수점 오차는 눈에 보입니다.** 그림자 레이가 자기 표면과 다시 만나 생기는 `shadow acne`가 그 예였습니다.",
+      ],
+      en: [
+        "**This is where I first met the math `SLAM` runs on.** `4×4` homogeneous transforms and Rodrigues rotation are the same tools used for camera pose, and this project is what sent me off to study Lie groups and rigid-body transforms.",
+        "**Matrices turned out to be pictures, not formulas.** Misuse a rotation matrix and you see exactly how the object skews, so I started reasoning geometrically before algebraically.",
+        "**There are places where precision and speed aren't a trade.** Filtering on squared distance gives the same answer without ever calling `sqrt`.",
+        "**Floating-point error is something you can look at.** `shadow acne`, where a shadow ray meets its own surface again, was the visible version of it.",
+      ],
+    },
+    links: [
+      { label: "GitHub", href: "https://github.com/KimTaebin-ai/miniRT" },
     ],
   },
 
@@ -1068,12 +1456,12 @@ export const projects: Project[] = [
     status: "complete",
     intro: {
       ko: [
-        "**브라우저가 서버에 요청을 보내면 무슨 일이 일어나는가** — `nginx` 뒤에 숨겨진 HTTP 서버를 `C++`로 직접 구현해 확인하고 싶었습니다.",
-        "`nginx`와 유사한 설정 파일로 여러 가상 서버를 구성하고, **`non-blocking I/O`로 다중 연결을 처리**하는 `HTTP/1.1` 서버를 구현했습니다.",
+        "브라우저가 요청을 보내면 `nginx` 안에서 무슨 일이 일어나는지 확인하고 싶어서 **`C++`로 직접 만들었습니다.**",
+        "`nginx`와 비슷한 설정 파일로 가상 서버와 라우트를 구성하고, `non-blocking I/O`로 여러 연결을 동시에 처리하는 `HTTP/1.1` 서버입니다. `GET` · `POST` · `DELETE`와 CGI 실행을 지원합니다.",
       ],
       en: [
-        "**What actually happens when a browser sends a request to a server?** I wanted to implement the HTTP server hiding behind `nginx` myself, in `C++`, to find out.",
-        "Built an **`HTTP/1.1` server** that configures multiple virtual servers from an `nginx`-style config file and **handles concurrent connections with `non-blocking I/O`**.",
+        "I wanted to see what happens inside `nginx` when a browser sends a request, so I **wrote the server myself in `C++`.**",
+        "It builds virtual servers and routes from an `nginx`-style config file and handles many connections at once on `non-blocking I/O`. `GET`, `POST`, `DELETE`, and CGI execution are supported.",
       ],
     },
     flow: [
@@ -1102,127 +1490,23 @@ export const projects: Project[] = [
     },
     learned: {
       ko: [
-        "**파싱은 전혀 다른 난이도 —** HTTP는 텍스트 프로토콜이지만, 이를 안정적으로 파싱하는 일은 달랐다",
-        "`non-blocking I/O`로 다중 연결을 처리하며 **이벤트 루프의 설계를 몸으로 이해**했다",
+        "**HTTP는 읽기 쉬운데 파싱은 어려웠습니다.** 텍스트 프로토콜이라는 것과 깨진 요청까지 안정적으로 파싱한다는 것은 다른 문제였습니다.",
+        "**이벤트 루프를 직접 짜보고 나서 서버 프레임워크가 뭘 대신 해주는지 알게 됐습니다.** 그 뒤로 백엔드 성능 이야기가 다르게 들립니다.",
       ],
       en: [
-        "**Parsing is a different problem —** HTTP is a text protocol, but parsing it reliably is another level entirely",
-        "Handling concurrent connections with `non-blocking I/O` made **the design of an event loop click**, hands-on",
+        "**HTTP is easy to read and hard to parse.** Being a text protocol and parsing it reliably, malformed requests included, are two different things.",
+        "**Writing the event loop myself showed me what a server framework is actually doing for me.** Conversations about backend performance have sounded different since.",
       ],
     },
     links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai" }],
-  },
-  {
-    id: "minirt",
-    tier: "additional",
-    name: { ko: "miniRT — C 레이트레이서", en: "miniRT — 3D Ray Tracer in C" },
-    headline: {
-      ko: "GPU도 라이브러리도 없이 `C`와 수학만으로 광선을 쏘고 교점을 풀어 3D 장면을 렌더링",
-      en: "3D scenes with no GPU and no library — just `C` and math, firing rays and solving intersections",
-    },
-    period: { ko: "2026", en: "2026" },
-    org: { ko: "École 42", en: "École 42" },
-    stack: ["C", "Raytracing", "Linear Algebra", "Graphics"],
-    status: "complete",
-    wireframes: [
-      {
-        caption: {
-          ko: "렌더 창 — .rt 씬의 구·평면이 조명과 그림자를 받은 결과",
-          en: "Render window — spheres and planes from the .rt scene, lit and shadowed",
-        },
-        frame: "screen",
-        rows: [
-          { h: 1, cells: [{ tone: "muted", label: { ko: "창 제목 · 해상도 · 렌더 시간", en: "Window title · resolution · render time" } }] },
-          {
-            h: 6,
-            cells: [
-              {
-                label: {
-                  ko: "렌더된 3D 장면 — 픽셀당 광선 → 교점 → 셰이딩",
-                  en: "Rendered 3D scene — one ray per pixel → intersection → shading",
-                },
-              },
-            ],
-          },
-        ],
-      },
-    ],
-    intro: {
-      ko: [
-        "**화면의 픽셀 하나가 색을 갖기까지 무슨 일이 일어나는가** — 그래픽스를 GPU도 라이브러리도 없이, `C`와 수학만으로 재현해보고 싶었습니다.",
-        "`.rt` 씬 파일을 파싱해 광선을 쏘고, 교점을 풀고, 조명과 그림자를 계산해 **3D 장면을 렌더링**합니다.",
-      ],
-      en: [
-        "**What happens before a single pixel on screen gets its color?** I wanted to reproduce graphics with no GPU and no library — just `C` and math.",
-        "Parse an `.rt` scene file, fire rays, solve intersections, and compute lighting and shadows to **render a 3D scene**.",
-      ],
-    },
-    flow: [
-      { label: { ko: ".rt 씬 파싱", en: "Parse .rt scene" } },
-      { label: { ko: "광선-물체 교점", en: "Ray-object intersection" } },
-      { label: { ko: "조명 · 그림자", en: "Lighting & shadows" } },
-      { label: { ko: "픽셀 렌더링", en: "Render pixel" } },
-    ],
-    howItWorks: {
-      ko: [
-        ".rt 파서로 카메라·조명·물체를 씬으로 구성",
-        "픽셀마다 광선을 쏘아 구·평면과의 교점을 방정식으로 계산",
-        "조명 모델과 그림자 처리",
-      ],
-      en: [
-        "An .rt parser assembles the camera, lights, and objects into a scene",
-        "Fire a ray per pixel and solve its intersection with spheres and planes algebraically",
-        "Lighting model and shadow handling",
-      ],
-    },
-    troubleshooting: [
-      {
-        title: {
-          ko: "정밀도를 잃지 않고 빠르게 — 핫루프의 분기와 shadow acne",
-          en: "Speed without losing precision — branches in the hot loop, and shadow acne",
-        },
-        problem: {
-          ko: "물체 타입마다 분기하는 코드는 초당 수백만 번 도는 렌더링 핫루프에서 느립니다. 게다가 그림자 레이가 자기 표면과 다시 교차해 `shadow acne`가 생겼습니다.",
-          en: "Branching per object type is slow in a rendering hot loop that runs millions of times a second — and shadow rays re-intersecting their own surface produced `shadow acne`.",
-        },
-        solution: {
-          ko: [
-            "**교차 계산 함수를 타입별 함수 포인터 배열로 전환** — 분기 대신 인덱싱 호출 하나",
-            "모든 광선을 `sqrt` 호출 전에 제곱거리로 먼저 걸러냄",
-            "그림자 레이 시작점을 법선 방향으로 `0.01` 띄워 `shadow acne` 제거",
-          ],
-          en: [
-            "**Dispatched intersection routines through a function-pointer table** indexed by type — one indexed call instead of a chain of ifs",
-            "Rejected every ray on squared distance before calling `sqrt`",
-            "Offset the shadow-ray origin `0.01` along the normal to kill `shadow acne`",
-          ],
-        },
-        result: {
-          ko: "핫루프에서 타입 분기가 사라지고, **정밀도를 잃지 않은 채** 그림자 아티팩트도 함께 없어졌습니다.",
-          en: "Type branching left the hot loop and the shadow artifact went with it — **without giving up precision**.",
-        },
-        // TODO(user): 함수 포인터 디스패치 커밋 링크를 refs에 추가
-      },
-    ],
-    learned: {
-      ko: [
-        "벡터 내적·외적이 **3D 공간에서 실제로 무엇을 뜻하는지** 손으로 확인했다",
-        "**그래픽스는 수학을 픽셀로 번역하는 일 —** 광선-물체 교점은 결국 방정식 풀이였다",
-      ],
-      en: [
-        "Confirmed by hand **what dot and cross products actually mean in 3D space**",
-        "**Graphics is math translated into pixels —** ray-object intersection is just solving an equation",
-      ],
-    },
-    links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai/miniRT" }],
   },
   {
     id: "bittorrent",
     tier: "additional",
     name: { ko: "BitTorrent 클라이언트 (C++)", en: "BitTorrent Client in C++" },
     headline: {
-      ko: "프로토콜 명세만 들고 `C++`로 P2P 구현 — 피어가 죽어도 모든 piece가 **정확히 한 번**",
-      en: "A P2P client in `C++` from the spec alone — every piece completes **exactly once**, even as peers drop",
+      ko: "프로토콜 명세만 보고 `C++`로 만드는 P2P 클라이언트. 피어가 중간에 사라져도 piece는 **정확히 한 번** 받습니다",
+      en: "A P2P client written in `C++` from the spec alone. Peers drop mid-transfer and every piece still completes **exactly once**",
     },
     period: { ko: "2026", en: "2026" },
     org: { ko: "개인 프로젝트", en: "Personal project" },
@@ -1230,12 +1514,12 @@ export const projects: Project[] = [
     status: "ongoing",
     intro: {
       ko: [
-        "42 과제가 아니라, 궁금해서 시작한 개인 프로젝트입니다. **서버 없이 파일이 오간다는 건 어떻게 가능한가** — 프로토콜 명세만 들고 `P2P` 네트워크를 바닥부터 구현하고 있습니다.",
-        "`.torrent` 메타파일 파싱부터 tracker 통신, peer 발견, **블록 병렬 다운로드**까지 `C++`로 구현 중입니다.",
+        "42 과제가 아니라 궁금해서 시작한 개인 프로젝트입니다. **중앙 서버 없이 파일이 오가는 구조**가 어떻게 되어 있는지 명세만 보고 만들어보는 중입니다.",
+        "`.torrent` 메타파일 파싱, tracker 통신, DHT peer 탐색, 블록 단위 병렬 다운로드까지 `C++`로 구현하고 있습니다.",
       ],
       en: [
-        "Not a 42 assignment — a personal project I started out of curiosity. **How can files move between people with no server at all?** I'm implementing a `P2P` network from just the protocol spec, from scratch.",
-        "Building parsing for `.torrent` metafiles, tracker communication, peer discovery, and **parallel block downloads** in `C++`.",
+        "Not a 42 assignment — a personal project I started because I was curious. I'm working from the spec alone to see how **files move between people with no central server.**",
+        "So far: parsing `.torrent` metafiles, talking to the tracker, DHT peer discovery, and parallel block downloads, all in `C++`.",
       ],
     },
     flow: [
@@ -1264,8 +1548,8 @@ export const projects: Project[] = [
     troubleshooting: [
       {
         title: {
-          ko: "정확히 한 번, 크래시 없이 — 피어는 언제든 사라진다",
-          en: "Exactly once, never a crash — peers vanish whenever they like",
+          ko: "피어는 언제든 사라지는데 piece는 정확히 한 번만 받아야 한다",
+          en: "Peers vanish whenever they like, but each piece must arrive exactly once",
         },
         problem: {
           ko: "피어마다 워커 스레드 하나로 병렬 다운로드하다 보니 작업 큐·완료 수·파일 쓰기 같은 공유 상태가 노출되고, 연결 끊김·타임아웃·해시 불일치는 언제든 일어납니다.",
@@ -1292,12 +1576,12 @@ export const projects: Project[] = [
     ],
     learned: {
       ko: [
-        "네트워크 프로토콜을 명세 그대로 구현하며 **`RFC` 읽는 법을 익히는 중**",
-        "**상태 관리가 프로토콜 구현의 절반 —** 조각 상태를 `비트마스크`로 관리하는 설계가 그랬다",
+        "**`RFC` 읽는 법을 여기서 익히고 있습니다.** 예제 코드 없이 명세만 보고 맞춰가는 건 처음이었습니다.",
+        "**프로토콜 구현의 절반은 상태 관리였습니다.** 조각 상태를 `비트마스크`로 들고 다니는 설계를 잡고 나서 나머지가 정리됐습니다.",
       ],
       en: [
-        "Learning to **read `RFC`s properly** by implementing a network protocol straight from spec",
-        "**State management is half the protocol —** managing piece state with `bitmasks` made that plain",
+        "**This is where I'm learning to read an `RFC`.** Working from a spec with no sample code to lean on was new to me.",
+        "**Half of implementing a protocol was state management.** Everything else fell into place once I settled on carrying piece state in a `bitmask`.",
       ],
     },
     links: [
@@ -1318,12 +1602,12 @@ export const projects: Project[] = [
     status: "complete",
     intro: {
       ko: [
-        "매일 쓰는 셸 — **터미널에 친 한 줄이 프로세스가 되기까지의 전 과정**을 직접 만들어 확인하고 싶었습니다.",
-        "파싱 → `fork`/`execve` → 파이프·리다이렉션 → 시그널 처리까지, **bash의 핵심 동작을 `C`로 재구현**했습니다.",
+        "매일 쓰는 셸이 **터미널에 친 한 줄을 어떻게 프로세스로 만드는지** 직접 만들어 확인했습니다.",
+        "파싱부터 `fork`/`execve`, 파이프와 리다이렉션, 시그널 처리까지 bash의 핵심 동작을 `C`로 다시 구현했습니다.",
       ],
       en: [
-        "The shell I use every day — I wanted to **build the whole path myself, from a line typed into a terminal to it becoming a process**, to actually see it.",
-        "**Reimplemented bash's core behavior in `C`** — parsing, `fork`/`execve`, pipes and redirection, and signal handling.",
+        "I built it myself to see **how the shell I use every day turns a line typed into a terminal into a process.**",
+        "Reimplemented bash's core behavior in `C`: parsing, `fork`/`execve`, pipes and redirection, and signal handling.",
       ],
     },
     flow: [
@@ -1351,14 +1635,14 @@ export const projects: Project[] = [
     },
     learned: {
       ko: [
-        "UNIX 프로세스 모델 — **`fork`가 왜 그렇게 설계됐는지** 몸으로 이해했다",
-        "**셸은 파일 디스크립터로 설명된다 —** 그게 보이기 시작하면 거의 모든 동작이 풀린다",
-        "**시그널은 설계의 일부다 —** 예외 처리로 미룰 게 아니었다",
+        "**`fork`와 `execve`가 왜 나뉘어 있는지 알게 됐습니다.** 파이프를 직접 짜보면 그 사이에 무엇을 해야 하는지가 바로 보입니다.",
+        "**셸은 파일 디스크립터로 설명됩니다.** 그게 보이기 시작하면 리다이렉션과 파이프라인이 대부분 따라옵니다.",
+        "**시그널은 나중에 처리할 예외가 아니었습니다.** 설계에 넣지 않으면 뒤에 끼워넣을 자리가 없습니다.",
       ],
       en: [
-        "The UNIX process model — understood hands-on **why `fork` is designed the way it is**",
-        "**A shell explains itself through file descriptors —** once they are visible, almost everything it does follows",
-        "**Signals belong in the design —** not in an exception handler bolted on after",
+        "**I found out why `fork` and `execve` are two separate calls.** Write the pipe handling yourself and what belongs in between becomes obvious.",
+        "**A shell explains itself through file descriptors.** Once you see them, redirection and pipelines mostly follow.",
+        "**Signals aren't an exception case to handle later.** If they aren't in the design, there's no place left to put them afterwards.",
       ],
     },
     links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai" }],
@@ -1366,7 +1650,10 @@ export const projects: Project[] = [
   {
     id: "inception",
     tier: "additional",
-    name: { ko: "Inception — Docker 인프라", en: "Inception — Docker Infrastructure" },
+    name: {
+      ko: "Inception — Docker 인프라",
+      en: "Inception — Docker Infrastructure",
+    },
     headline: {
       ko: "`.env` 하나와 `docker-compose up` 한 번으로 NGINX + WordPress + MariaDB가 `TLS`까지 걸고 기동",
       en: "One `.env` and one `docker-compose up` brings up NGINX + WordPress + MariaDB, `TLS` included",
@@ -1377,12 +1664,12 @@ export const projects: Project[] = [
     status: "complete",
     intro: {
       ko: [
-        "`docker run` 한 줄이 감추고 있는 것들 — 이미지 레이어, 네트워크, 볼륨 — 을 **직접 조립해봐야 컨테이너를 이해했다고** 말할 수 있다고 생각했습니다.",
-        "`.env` 설정과 `docker-compose up` 한 번으로 **NGINX + WordPress + MariaDB 스택이 `TLS`까지 걸고** 올라옵니다.",
+        "`docker run` 한 줄이 감추고 있는 이미지 레이어, 네트워크, 볼륨을 직접 조립해봤습니다. **배포 환경을 손으로 만들어본 첫 과제**이고, 지금 MLOps 쪽을 보게 된 출발점이기도 합니다.",
+        "`.env` 설정과 `docker-compose up` 한 번으로 NGINX + WordPress + MariaDB 스택이 `TLS`까지 걸고 올라옵니다.",
       ],
       en: [
-        "The things a single `docker run` hides — image layers, networking, volumes — **I don't think you can say you understand containers until you've assembled them yourself**.",
-        "One `.env` config and a single `docker-compose up` bring up **NGINX + WordPress + MariaDB, `TLS` included**.",
+        "I assembled the image layers, networking, and volumes that a single `docker run` hides. **It was the first time I built a deployment environment by hand**, and it's where my interest in MLOps started.",
+        "One `.env` and a single `docker-compose up` bring up NGINX + WordPress + MariaDB with `TLS` terminated.",
       ],
     },
     flow: [
@@ -1407,12 +1694,12 @@ export const projects: Project[] = [
     },
     learned: {
       ko: [
-        "`Docker` 레이어 캐시를 이해하니 **빌드 시간과 이미지 크기가 함께 줄었다**",
-        "**시크릿 분리는 프로덕션의 최소 조건 —** 귀찮음의 문제가 아니다",
+        "**레이어 캐시를 이해하니 빌드 시간과 이미지 크기가 같이 줄었습니다.** `Dockerfile`에서 명령 순서를 바꾸는 것만으로도 차이가 났습니다.",
+        "**시크릿을 코드에서 분리하는 건 편의 문제가 아니었습니다.** 이미지에 한 번 들어가면 레이어에 그대로 남습니다.",
       ],
       en: [
-        "Understanding `Docker`'s layer cache **cut both build time and image size**",
-        "**Separating secrets is the minimum bar —** it is not busywork",
+        "**Understanding the layer cache cut build time and image size together.** Just reordering commands in the `Dockerfile` made a difference.",
+        "**Keeping secrets out of the code isn't about tidiness.** Once one goes into an image, it stays in the layer.",
       ],
     },
     links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai" }],
@@ -1422,8 +1709,8 @@ export const projects: Project[] = [
     tier: "additional",
     name: { ko: "Kaggle & Dacon 대회", en: "Kaggle & Dacon Competitions" },
     headline: {
-      ko: "정형·시계열 대회에 개인으로 참가해 꾸준히 **상위 `10%`** — `K-fold`를 기본값으로 넣고서야 로컬 점수가 맞기 시작했다",
-      en: "Solo in tabular and time-series competitions, consistently **top `10%`** — local scores only tracked the board once `K-fold` became the default",
+      ko: "정형 · 시계열 대회에 개인으로 참가해 꾸준히 **상위 `10%`**. `K-fold`를 기본값으로 넣고서야 로컬 점수가 맞기 시작했습니다",
+      en: "Solo entries in tabular and time-series competitions, consistently **top `10%`**. Local scores only started tracking the board once `K-fold` became the default",
     },
     period: { ko: "2025 – 2026", en: "2025 – 2026" },
     org: { ko: "개인 참가", en: "Solo entries" },
@@ -1432,12 +1719,12 @@ export const projects: Project[] = [
     status: "ongoing",
     intro: {
       ko: [
-        "정형 데이터와 시계열 문제에 개인으로 참가해, **배운 것을 실제 리더보드로 검증**하고 있습니다.",
-        "정형 분류·회귀, 시계열 예측 대회에 참가해 꾸준히 **상위 `10%`** 안에 들었습니다.",
+        "책과 과제로 배운 걸 **리더보드에서 확인해보려고** 개인으로 참가하고 있습니다.",
+        "정형 데이터 분류·회귀와 시계열 예측 대회에 나가 꾸준히 **상위 `10%`**에 들었습니다.",
       ],
       en: [
-        "Competing solo on tabular and time-series problems, **checking what I've learned against a real leaderboard**.",
-        "Entered tabular classification/regression and time-series forecasting competitions, consistently finishing in the **top `10%`**.",
+        "I enter solo to **check what I've learned from books and coursework against a leaderboard.**",
+        "Across tabular classification/regression and time-series forecasting competitions, I've consistently placed in the **top `10%`**.",
       ],
     },
     flow: [
@@ -1463,8 +1750,8 @@ export const projects: Project[] = [
     troubleshooting: [
       {
         title: {
-          ko: "리더보드는 지름길을 봐준 적이 없다",
-          en: "The leaderboard has never let a shortcut through",
+          ko: "로컬 점수는 좋은데 리더보드에서 순위가 떨어졌다",
+          en: "Good local scores, worse rank once the leaderboard settled",
         },
         problem: {
           ko: "교차검증 없이 낸 제출은 로컬 점수가 좋아 보여도 실제 리더보드에서는 대부분 순위가 떨어졌습니다.",
@@ -1476,7 +1763,9 @@ export const projects: Project[] = [
         },
         solution: {
           ko: ["이후 **모든 대회에 `K-fold` 교차검증을 기본값으로** 적용"],
-          en: ["Made **`K-fold` cross-validation the default for every competition** from then on"],
+          en: [
+            "Made **`K-fold` cross-validation the default for every competition** from then on",
+          ],
         },
         result: {
           ko: "**로컬 점수와 리더보드 점수가 맞아떨어지기 시작**했습니다.",
@@ -1486,12 +1775,12 @@ export const projects: Project[] = [
     ],
     learned: {
       ko: [
-        "**리더보드는 감을 배신한다 —** 교차검증 없이 낸 제출은 대부분 순위가 떨어졌다",
-        "대회 대부분에서 **모델보다 피처가 점수를 더 많이 움직였다**",
+        "**교차검증 없이 낸 제출은 대부분 순위가 떨어졌습니다.** 단일 split에서 나온 점수를 믿을 수 없다는 걸 몇 번 겪고 나서야 알았습니다.",
+        "**대부분의 대회에서 모델보다 피처가 점수를 더 움직였습니다.** 모델을 바꿔보는 건 마지막에 하는 일이었습니다.",
       ],
       en: [
-        "**The leaderboard betrays intuition —** submissions without cross-validation mostly dropped in rank",
-        "In most competitions, **features moved the score more than the model choice did**",
+        "**Submissions made without cross-validation mostly dropped in rank.** It took a few rounds of that before I stopped trusting a score from a single split.",
+        "**In most competitions features moved the score more than the model did.** Swapping models turned out to be the last thing to try, not the first.",
       ],
     },
     links: [{ label: "GitHub", href: "https://github.com/KimTaebin-ai" }],
@@ -1524,10 +1813,13 @@ export const awards: Award[] = [
   {
     year: "2026",
     title: {
-      ko: "14 CFR RAG 콘테스트 — 수강생 중 1위",
-      en: "14 CFR RAG contest — 1st among participants",
+      ko: "WTIA AI 수업 LLM Competition — 수강생 중 1위",
+      en: "WTIA AI lecture LLM competition — 1st among participants",
     },
-    detail: { ko: "강사 채점 9/10", en: "Instructor score 9/10" },
+    detail: {
+      ko: "14 CFR RAG 챗봇 · 강사 채점 9/10",
+      en: "14 CFR RAG chatbot · instructor score 9/10",
+    },
   },
   {
     year: "2024.12",
@@ -1629,9 +1921,12 @@ export const techStack: { title: string; items: L<string>[] }[] = [
     ],
   },
   {
-    title: "DevOps & Cloud",
+    title: "DevOps & MLOps",
     items: [
       { ko: "Docker", en: "Docker" },
+      { ko: "Docker Compose", en: "Docker Compose" },
+      { ko: "Kubernetes (탐색 중)", en: "Kubernetes (exploring)" },
+      { ko: "NGINX", en: "NGINX" },
       { ko: "Git", en: "Git" },
       { ko: "AWS/GCP (탐색 중)", en: "AWS/GCP (exploring)" },
     ],
@@ -1670,25 +1965,31 @@ export const experience: {
       ko: [
         "수 많은 경쟁을 뚫고 최종 **42경산·42서울 교육생 `30명`으로 선발** — 과기정통부·IITP 지원 실전형 AI·SW 창업 교육 프로그램",
         "`8주간` 시애틀 현지 과정 — Microsoft · Amazon · Boeing 등 현지 기업과 Voyager Capital · Trilogy Equity Partners 등 VC 연계, AI2(Allen Institute for AI) 방문, Seattle Tech Week 참가, **투자자 대상 최종 Pitch Day**로 마무리",
-        "AI 맞춤형 정보 탐색 실습에서 우수한 성과로 **전자신문에 소개**",
+        "AI 수업의 **LLM Competition에서 1위** (14 CFR RAG 챗봇, 강사 채점 `9/10`) · AI 맞춤형 정보 탐색 실습 성과로 **전자신문에 소개**",
         "로펌에게 잠재 수임 신호를 잡아 파트너 변호사에게 알려주는 구독형 SaaS 스타트업 **'Poma AI' 기획·주도**",
         "`2026.8.14` 전 일정 수료 후 한국 복귀",
       ],
       en: [
         "Selected as one of the **final `30` trainees** from École 42 Gyeongsan and Seoul out of intense competition — a hands-on AI/SW startup education program backed by Korea's Ministry of Science and ICT and IITP",
         "An `8-week` on-site program in Seattle — access to local companies (Microsoft, Amazon, Boeing) and VCs (Voyager Capital, Trilogy Equity Partners), a visit to AI2 (Allen Institute for AI), Seattle Tech Week, closing with a **Pitch Day in front of investors**",
-        "**Featured in etnews (전자신문)** for excellent results in an AI personalized-information-search exercise",
+        "**Won the LLM competition** in the AI lecture (a 14 CFR RAG chatbot, instructor score `9/10`), and was **featured in etnews (전자신문)** for the results of an AI personalized-information-search exercise",
         "**Planned and led 'Poma AI'**, a subscription SaaS that catches early signals of potential legal cases and alerts partner attorneys at law firms",
         "Completed the full program on `Aug 14, 2026` and returned to Korea",
       ],
     },
     links: [
       {
-        label: { ko: "전자신문 — 프로그램 출항 (2026.6)", en: "etnews — program launch (Jun 2026)" },
+        label: {
+          ko: "전자신문 — 프로그램 출항 (2026.6)",
+          en: "etnews — program launch (Jun 2026)",
+        },
         href: "https://www.etnews.com/20260622000084",
       },
       {
-        label: { ko: "전자신문 — 성과 보도 (2026.7)", en: "etnews — results coverage (Jul 2026)" },
+        label: {
+          ko: "전자신문 — 성과 보도 (2026.7)",
+          en: "etnews — results coverage (Jul 2026)",
+        },
         href: "https://www.etnews.com/20260724000305",
       },
     ],
