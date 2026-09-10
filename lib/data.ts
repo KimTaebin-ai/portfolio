@@ -118,15 +118,18 @@ export const current: {
   links?: { label: L<string>; href: string }[];
 }[] = [
   {
-    org: { ko: "École 42 — Outer Circle", en: "École 42 — Outer Circle" },
+    org: {
+      ko: "École 42 — 심화 과정 진행 중",
+      en: "École 42 — advanced curriculum, in progress",
+    },
     period: { ko: "2024 – 현재", en: "2024 – present" },
     ongoing: true,
     body: {
       ko: [
-        "교수도 강의도 없이 **프로젝트를 만들어 동료 앞에서 방어해야 통과**하는 학교입니다. `Transcendence` · `WebServ`를 포함한 Inner Circle을 마치고 지금은 Outer Circle에 있습니다. 셸을 `C`로 다시 만들고, 레이트레이서로 선형대수를 확인하고, 회귀와 행렬 연산을 `Rust`로 다시 구현했습니다.",
+        "교수도 강의도 없이 **프로젝트를 만들어 동료 앞에서 방어해야 통과**하는 학교입니다. `Transcendence` · `WebServ`를 포함한 **공통 과정을 모두 마치고, 지금은 심화 과정을 진행 중**입니다. 셸을 `C`로 다시 만들고, 레이트레이서로 선형대수를 확인하고, 회귀와 행렬 연산을 `Rust`로 다시 구현했습니다.",
       ],
       en: [
-        "A school with no professors and no lectures: **you pass by building projects and defending them in front of peers**. I finished the Inner Circle, `Transcendence` and `WebServ` included, and I'm in the Outer Circle now. Along the way I rebuilt a shell in `C`, checked my linear algebra against a ray tracer, and reimplemented regression and matrix operations in `Rust`.",
+        "A school with no professors and no lectures: **you pass by building projects and defending them in front of peers**. I've **completed the core curriculum**, `Transcendence` and `WebServ` included, and am **now working through the advanced one**. Along the way I rebuilt a shell in `C`, checked my linear algebra against a ray tracer, and reimplemented regression and matrix operations in `Rust`.",
       ],
     },
   },
@@ -586,7 +589,10 @@ export const projects: Project[] = [
       en: "Real-time PvP Pong as lead of a team of `4` — one team building the frontend, backend, auth, and deployment",
     },
     period: { ko: "2026", en: "2026" },
-    org: { ko: "École 42 — Inner Circle", en: "École 42 — Inner Circle" },
+    org: {
+      ko: "École 42 — 공통 과정",
+      en: "École 42 — core curriculum",
+    },
     team: {
       members: { ko: "4인 팀", en: "Team of 4" },
       myRole: {
@@ -715,11 +721,11 @@ export const projects: Project[] = [
     ],
     intro: {
       ko: [
-        "42 Inner Circle 후반의 큰 팀 과제입니다. 프론트엔드, 백엔드, 인증, 배포를 한 팀이 전부 만들어야 해서 **웹 풀스택을 처음부터 끝까지 직접 다뤄본 프로젝트**이기도 합니다.",
+        "42 공통 과정 후반의 큰 팀 과제입니다. 프론트엔드, 백엔드, 인증, 배포를 한 팀이 전부 만들어야 해서 **웹 풀스택을 처음부터 끝까지 직접 다뤄본 프로젝트**이기도 합니다.",
         "`Socket.io`로 실시간 대전 Pong을 만들고 커스텀 매치메이킹과 `OAuth 2.0` + `2FA` 인증을 붙였습니다. `4`명 팀의 팀장으로 아키텍처와 스프린트, 작업 분배를 맡았습니다.",
       ],
       en: [
-        "The big team project late in École 42's Inner Circle. One team has to build the frontend, the backend, authentication, and deployment, which makes it **the project where I handled web full-stack end to end myself**.",
+        "The big team project late in École 42's core curriculum. One team has to build the frontend, the backend, authentication, and deployment, which makes it **the project where I handled web full-stack end to end myself**.",
         "We built real-time PvP Pong on `Socket.io` and added custom matchmaking and `OAuth 2.0` + `2FA` authentication. I led the team of `4` and owned the architecture, the sprints, and how the work was split.",
       ],
     },
@@ -806,7 +812,10 @@ export const projects: Project[] = [
       en: "Normal equations through `SVD` in `Rust` with no numerical libraries, checked against hand calculations",
     },
     period: { ko: "2026", en: "2026" },
-    org: { ko: "École 42 — Outer Circle", en: "École 42 — Outer Circle" },
+    org: {
+      ko: "École 42 — 심화 과정",
+      en: "École 42 — advanced curriculum",
+    },
     coreSkills: {
       ko: [
         "수치 최적화 — 경사하강 · 정규화 · 조건수",
@@ -1451,7 +1460,10 @@ export const projects: Project[] = [
       en: "An `HTTP/1.1` server — virtual hosts from a config file, concurrent connections on `non-blocking I/O`",
     },
     period: { ko: "2026", en: "2026" },
-    org: { ko: "École 42 — Inner Circle", en: "École 42 — Inner Circle" },
+    org: {
+      ko: "École 42 — 공통 과정",
+      en: "École 42 — core curriculum",
+    },
     stack: ["C++", "HTTP/1.1", "Non-blocking I/O", "CGI"],
     status: "complete",
     intro: {
@@ -1836,15 +1848,15 @@ export const awards: Award[] = [
   {
     year: "2020",
     title: {
-      ko: "대구 기능경기대회 웹디자인·개발 2위",
-      en: "Daegu Skills Competition — 2nd, Web Design & Development",
+      ko: "지방기능경기대회 웹디자인·개발 2위",
+      en: "Regional Skills Competition — 2nd, Web Design & Development",
     },
   },
   {
     year: "2019",
     title: {
-      ko: "대구 기능경기대회 웹디자인·개발 3위",
-      en: "Daegu Skills Competition — 3rd, Web Design & Development",
+      ko: "지방기능경기대회 웹디자인·개발 3위",
+      en: "Regional Skills Competition — 3rd, Web Design & Development",
     },
   },
   {
@@ -2103,39 +2115,39 @@ export const education: {
       ko: [
         "École 42는 `2013년` 파리에서 Xavier Niel이 설립한 무상 컴퓨터공학 교육기관으로, 현재 `30여 개국` `50개 이상` 캠퍼스를 가진 **세계 최대의 무료 개발자 교육 네트워크**입니다. 교수도 강의도 교재도 없이, **프로젝트를 만들어 동료 앞에서 방어해야 통과**하며, 캠퍼스는 `24시간` 열려 있고 정해진 시간표가 없습니다.",
         "입학은 한 달간 `C`로만 진행되는 전일제 몰입 과정 **'라피신(La Piscine)'**을 통과해야 하고, 초반 과제부터 **'노름(the Norm)'**이라는 코딩 규칙(함수 `25줄` 제한, `for`·`switch` 금지)을 지켜야 자동 검증을 통과해 비로소 사람이 리뷰합니다. 프랑스 국가직업자격체계 **`RNCP 7단계` — 석사(bac+5)에 준하는 등급**으로 등록되어 있습니다.",
-        "`Transcendence` · `WebServ`를 포함한 Inner Circle을 마치고 지금은 **Outer Circle**에 있습니다.",
-        "**정규 수업보다 실전으로 배우는 방식은 처음이 아닙니다** — 고등학교 때도 기능반 훈련으로 같은 방식을 거쳤습니다. 수학도 같은 길이었습니다: 수학의정석 `2권`을 `두 번`씩 풀어 기초를 세우고, 지금은 해석학과 리군, `TAOCP`까지 책으로 직접 올라가고 있습니다.",
+        "`Transcendence` · `WebServ`를 포함한 공통 과정을 모두 마치고, 지금은 **심화 과정(Outer Circle)을 진행 중**입니다.",
+        "**정규 수업보다 실전으로 배우는 방식은 처음이 아니었습니다.** 고등학교 때도 기능반 훈련으로 같은 방식을 거쳤습니다. 수학도 같은 길이었습니다. 수학의정석 `2권`을 `두 번`씩 풀어 기초를 세우고, 지금은 해석학과 리군, `TAOCP`까지 책으로 직접 올라가고 있습니다.",
         "`C`로 셸을 재구현하고(`minishell`), Docker 스택을 바닥부터 조립하고(`Inception`), 레이트레이서로 선형대수를 확인하고(`miniRT`) — **커리큘럼 전체가 직접 만들어 통과하는 방식**입니다.",
       ],
       en: [
         "École 42 is a tuition-free computer science school founded in Paris in `2013` by Xavier Niel — now the **world's largest free developer-education network**, with `50+` campuses across `30+` countries. No professors, lectures, or textbooks: **you build projects and defend them in front of peers to pass**, and campuses are open `24/7` with no fixed schedule.",
         "Admission requires passing **La Piscine**, a month-long full-time immersion in `C`, and even the earliest projects must follow **the Norm** — a coding style (`25-line` function limit, no `for`-loops or `switch` statements) checked automatically before any human reviews it. The credential is registered at **`RNCP level 7`** in the French national qualifications framework, **roughly equivalent to a Master's (bac+5)**.",
-        "Finished the Inner Circle, including `Transcendence` and `WebServ`, and I'm now in the **Outer Circle**.",
-        "**Learning by building rather than by lecture isn't new to me** — high school ran the same way through skills-competition training. Math followed the same path: I rebuilt my foundations working through `two volumes` of a classic Korean problem book `twice` each, and I'm now climbing through analysis, Lie groups, and `TAOCP` straight from the books.",
+        "Completed the core curriculum, including `Transcendence` and `WebServ`, and I'm **now working through the advanced curriculum (the Outer Circle)**.",
+        "**Learning by building rather than by lecture wasn't new to me.** High school ran the same way through skills-competition training. Math followed the same path: I rebuilt my foundations working through `two volumes` of a classic Korean problem book `twice` each, and I'm now climbing through analysis, Lie groups, and `TAOCP` straight from the books.",
         "Reimplementing a shell in `C` (`minishell`), assembling a Docker stack from scratch (`Inception`), verifying linear algebra with a ray tracer (`miniRT`) — **the whole curriculum is pass-by-building**.",
       ],
     },
   },
   {
     org: {
-      ko: "고려사이버대학교 — 경영학과",
-      en: "The Cyber University of Korea — B.B.A., Business Administration",
+      ko: "경영학과 학사 과정",
+      en: "B.B.A., Business Administration",
     },
     period: { ko: "2021 – 현재 · 4학년", en: "2021 – present · Senior" },
     body: { ko: [], en: [] },
   },
   {
     org: {
-      ko: "대구소프트웨어마이스터고등학교 — 소프트웨어개발과",
-      en: "Daegu Software Meister High School — Software Development",
+      ko: "소프트웨어 특성화 고등학교 — 소프트웨어개발과",
+      en: "Software-focused high school — Software Development",
     },
     period: { ko: "2018.3 – 2021.2", en: "Mar 2018 – Feb 2021" },
     body: {
       ko: [
-        "1학년 2학기부터 기능반 훈련에 집중하며 정규 수업보다 실전 대회 준비에 시간을 썼습니다.",
+        "1학년 2학기부터 기능반 훈련에 들어가, 정규 수업보다 실전 대회 준비에 시간을 썼습니다. 기능경기대회 웹디자인·개발 부문에 나가 `2019`년 3위, `2020`년 2위를 했고, `2019`년부터 `2021`년까지 WorldSkills 국가대표 후보로 훈련했습니다.",
       ],
       en: [
-        "From the second semester of freshman year, I focused on skills-competition training, spending more time preparing for contests than attending regular classes.",
+        "From the second semester of freshman year I moved into the skills-training track, spending more time on competition preparation than on regular classes. I placed 3rd in `2019` and 2nd in `2020` in Web Design & Development at the regional skills competition, and trained as a WorldSkills national-team candidate from `2019` to `2021`.",
       ],
     },
   },
