@@ -85,7 +85,9 @@ export function Hero() {
                 </span>
               </ContactRow>
               <ContactRow label={CONTACT.affiliation[lang]}>
-                <span className="text-foreground-muted">{profile.affiliation[lang]}</span>
+                <span className="text-foreground-muted">
+                  <RichText>{profile.affiliation[lang]}</RichText>
+                </span>
               </ContactRow>
               <ContactRow label={CONTACT.email[lang]}>
                 <a href={`mailto:${profile.socials.email}`}>{profile.socials.email}</a>
@@ -116,10 +118,21 @@ export function Hero() {
           ))}
         </div>
 
-        <p className="mt-6 flex items-center gap-2 text-sm text-foreground-muted md:text-base">
-          <span className="h-2 w-2 animate-pulse rounded-full bg-success" aria-hidden />
-          {profile.currentLine[lang]}
-        </p>
+        {/* The dot marks the block, not the first line, so it sits on the first
+            line's text and the rest align under it rather than under the dot. */}
+        <div className="mt-6 flex gap-2 text-sm text-foreground-muted md:text-base">
+          <span
+            className="mt-[0.45em] h-2 w-2 shrink-0 animate-pulse rounded-full bg-success"
+            aria-hidden
+          />
+          <div className="space-y-1">
+            {profile.currentLines[lang].map((line, i) => (
+              <p key={i}>
+                <RichText>{line}</RichText>
+              </p>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

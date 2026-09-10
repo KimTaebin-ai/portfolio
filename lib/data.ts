@@ -1,6 +1,18 @@
 export type Lang = "ko" | "en";
 export type L<T> = { ko: T; en: T };
 
+/* Two credentials a reader may want to check rather than take on trust: what
+   42's curriculum actually is, and what RNCP level 7 certifies. Written as
+   [text](url) in body copy — see components/rich-text.tsx.
+
+   Linked on the mentions that carry weight (hero affiliation, the Now section,
+   the Education explainer), not on every repeat: the project cards below say
+   "École 42" a dozen times and linking each one would just be noise. */
+export const LINKS = {
+  ecole42: "https://42.fr/en/what-is-42/42-program-explained/",
+  rncp7: "https://www.francecompetences.fr/recherche/rncp/39774/",
+} as const;
+
 export const profile = {
   nameEn: "Taebin Kim",
   nameKr: "김태빈",
@@ -25,21 +37,30 @@ export const profile = {
     ],
   } satisfies L<string[]>,
   techChips: ["C/C++", "Python", "Mathematics", "SLAM", "Kubernetes"],
-  currentLine: {
-    ko: "École 42에서 RNCP7 취득을 위해 DS/AI 트랙 진행 중 · 인턴십과 스타트업에 함께할 기회를 찾고 있습니다",
-    en: "on the DS/AI track at École 42 toward an RNCP Level 7 qualification · open to internships and joining a startup",
-  } satisfies L<string>,
+  /* Two separate facts, so two lines: what I'm doing now, and what I'm looking
+     for. Joined with a "·" they read as one long clause and the second half —
+     the one a recruiter is scanning for — gets lost behind the first. */
+  currentLines: {
+    ko: [
+      `[École 42](${LINKS.ecole42})에서 [RNCP7](${LINKS.rncp7}) 취득을 위해 DS/AI 트랙 진행 중입니다.`,
+      "인턴십과 스타트업에 함께할 기회를 찾고 있습니다.",
+    ],
+    en: [
+      `On the DS/AI track at [École 42](${LINKS.ecole42}), working toward an [RNCP Level 7](${LINKS.rncp7}) qualification.`,
+      "Open to internships and to joining a startup.",
+    ],
+  } satisfies L<string[]>,
   /* Shown in the hero contact card, under the name. */
   affiliation: {
-    ko: "École 42 (Gyeongsan) · DS/AI 트랙 (RNCP 7)",
-    en: "École 42 (Gyeongsan) · DS/AI track (RNCP level 7)",
+    ko: `[École 42](${LINKS.ecole42}) (Gyeongsan) · DS/AI 트랙 ([RNCP 7](${LINKS.rncp7}))`,
+    en: `[École 42](${LINKS.ecole42}) (Gyeongsan) · DS/AI track ([RNCP level 7](${LINKS.rncp7}))`,
   } satisfies L<string>,
   /* Four chips under the hero cards. Every one of these is an entry in
      `awards` below — this is the 3-second version of that section. */
   highlights: [
     {
-      ko: "WTIA (기업가 정신 및 AI 몰입 프로그램)",
-      en: "WTIA — entrepreneurship & AI immersion program",
+      ko: "WTIA (워싱턴 기술 산업 협회) 기업가 정신 · AI 몰입 프로그램",
+      en: "WTIA (Washington Technology Industry Association) — entrepreneurship & AI immersion program",
     },
     {
       ko: "WTIA 내 AI lecture LLM Competition 1위",
@@ -126,10 +147,10 @@ export const current: {
     ongoing: true,
     body: {
       ko: [
-        "교수도 강의도 없이 **프로젝트를 만들어 동료 앞에서 방어해야 통과**하는 학교입니다. `Transcendence` · `WebServ`를 포함한 **공통 과정을 모두 마치고, 지금은 심화 과정을 진행 중**입니다. 셸을 `C`로 다시 만들고, 레이트레이서로 선형대수를 확인하고, 회귀와 행렬 연산을 `Rust`로 다시 구현했습니다.",
+        `교수도 강의도 없이 **프로젝트를 만들어 동료 앞에서 방어해야 통과**하는 [학교](${LINKS.ecole42})입니다. \`Transcendence\` · \`WebServ\`를 포함한 **공통 과정을 모두 마치고, 지금은 심화 과정을 진행 중**입니다. 셸을 \`C\`로 다시 만들고, 레이트레이서로 선형대수를 확인하고, 회귀와 행렬 연산을 \`Rust\`로 다시 구현했습니다.`,
       ],
       en: [
-        "A school with no professors and no lectures: **you pass by building projects and defending them in front of peers**. I've **completed the core curriculum**, `Transcendence` and `WebServ` included, and am **now working through the advanced one**. Along the way I rebuilt a shell in `C`, checked my linear algebra against a ray tracer, and reimplemented regression and matrix operations in `Rust`.",
+        `A [school](${LINKS.ecole42}) with no professors and no lectures: **you pass by building projects and defending them in front of peers**. I've **completed the core curriculum**, \`Transcendence\` and \`WebServ\` included, and am **now working through the advanced one**. Along the way I rebuilt a shell in \`C\`, checked my linear algebra against a ray tracer, and reimplemented regression and matrix operations in \`Rust\`.`,
       ],
     },
   },
@@ -295,8 +316,8 @@ export const projects: Project[] = [
     },
     period: { ko: "2026.6", en: "Jun 2026" },
     org: {
-      ko: "WTIA × UW CoMotion 프로그램 · AI 수업 competition 과제",
-      en: "WTIA × UW CoMotion program · AI lecture competition",
+      ko: "WTIA (워싱턴 기술 산업 협회) 프로그램 · AI 수업 competition 과제",
+      en: "WTIA (Washington Technology Industry Association) program · AI lecture competition",
     },
     awards: [
       {
@@ -424,11 +445,11 @@ export const projects: Project[] = [
     ],
     intro: {
       ko: [
-        "WTIA 프로그램의 AI 수업에서 진행한 competition 과제입니다. 주제는 `1,297쪽`짜리 미국 연방 항공법(14 CFR)에서 질문에 맞는 조항(§)을 찾아 답하는 것이었습니다. 그럴듯하게 답하는 것과 근거를 대고 답하는 것은 다른 문제라, 둘을 어떻게 구분해서 측정할지부터 정하고 시작했습니다.",
+        "WTIA(워싱턴 기술 산업 협회) 프로그램의 AI 수업에서 진행한 competition 과제입니다. 주제는 `1,297쪽`짜리 미국 연방 항공법(14 CFR)에서 질문에 맞는 조항(§)을 찾아 답하는 것이었습니다. 그럴듯하게 답하는 것과 근거를 대고 답하는 것은 다른 문제라, 둘을 어떻게 구분해서 측정할지부터 정하고 시작했습니다.",
         "검색 설정 `45`개를 만들어 밤새 자동으로 채점했고, blind holdout에서 **recall `0.909`**가 나온 설정을 골랐습니다. 강사 채점 `9/10`으로 **수강생 중 1위**를 했습니다.",
       ],
       en: [
-        "The competition assignment in the AI lecture of the WTIA program. The task was to answer questions about `1,297 pages` of U.S. federal aviation law (14 CFR) by finding the right clause (§). Answering plausibly and answering with evidence are two different problems, so I started by deciding how to measure the difference.",
+        "The competition assignment in the AI lecture of the WTIA (Washington Technology Industry Association) program. The task was to answer questions about `1,297 pages` of U.S. federal aviation law (14 CFR) by finding the right clause (§). Answering plausibly and answering with evidence are two different problems, so I started by deciding how to measure the difference.",
         "I built `45` retrieval configurations, graded them automatically overnight, and picked the one that scored **recall `0.909`** on a blind holdout. The instructor scored it `9/10` — **first among the participants**.",
       ],
     },
@@ -1813,12 +1834,12 @@ export const awards: Award[] = [
   {
     year: "2026",
     title: {
-      ko: "WTIA × UW CoMotion 글로벌 창업 프로그램 선발",
-      en: "Selected — WTIA × UW CoMotion Global Startup Program",
+      ko: "WTIA 글로벌 창업 프로그램 선발",
+      en: "Selected — WTIA Global Startup Program",
     },
     detail: {
-      ko: "42경산·42서울 교육생 30명 · 전자신문 보도",
-      en: "One of 30 trainees from École 42 Gyeongsan and Seoul · covered by etnews",
+      ko: "워싱턴 기술 산업 협회 · 워싱턴 대학교 창업 교육 · 42경산·42서울 교육생 30명 · 전자신문 보도",
+      en: "Washington Technology Industry Association · entrepreneurship program at the University of Washington · one of 30 trainees from École 42 Gyeongsan and Seoul · covered by etnews",
     },
     href: "https://www.etnews.com/20260724000305",
   },
@@ -1966,8 +1987,8 @@ export const experience: {
 }[] = [
   {
     org: {
-      ko: "WTIA × UW CoMotion Global Startup Program",
-      en: "WTIA × UW CoMotion Global Startup Program",
+      ko: "WTIA Global Startup Program",
+      en: "WTIA Global Startup Program",
     },
     period: {
       ko: "2026.6 – 8.14 (수료) · Seattle",
@@ -1975,14 +1996,14 @@ export const experience: {
     },
     bullets: {
       ko: [
-        "수 많은 경쟁을 뚫고 최종 **42경산·42서울 교육생 `30명`으로 선발** — 과기정통부·IITP 지원 실전형 AI·SW 창업 교육 프로그램",
+        "**WTIA(워싱턴 기술 산업 협회)**가 운영하고 **워싱턴 대학교에서 진행하는 창업·기업가 정신 교육** 프로그램으로, 과기정통부·IITP가 지원하는 실전형 AI·SW 창업 과정입니다. 수 많은 경쟁을 뚫고 최종 **42경산·42서울 교육생 `30명`으로 선발**됐습니다.",
         "`8주간` 시애틀 현지 과정 — Microsoft · Amazon · Boeing 등 현지 기업과 Voyager Capital · Trilogy Equity Partners 등 VC 연계, AI2(Allen Institute for AI) 방문, Seattle Tech Week 참가, **투자자 대상 최종 Pitch Day**로 마무리",
         "AI 수업의 **LLM Competition에서 1위** (14 CFR RAG 챗봇, 강사 채점 `9/10`) · AI 맞춤형 정보 탐색 실습 성과로 **전자신문에 소개**",
         "로펌에게 잠재 수임 신호를 잡아 파트너 변호사에게 알려주는 구독형 SaaS 스타트업 **'Poma AI' 기획·주도**",
         "`2026.8.14` 전 일정 수료 후 한국 복귀",
       ],
       en: [
-        "Selected as one of the **final `30` trainees** from École 42 Gyeongsan and Seoul out of intense competition — a hands-on AI/SW startup education program backed by Korea's Ministry of Science and ICT and IITP",
+        "Run by the **WTIA (Washington Technology Industry Association)** as an **entrepreneurship program held at the University of Washington**, and a hands-on AI/SW startup course backed by Korea's Ministry of Science and ICT and IITP. I was selected as one of the **final `30` trainees** from École 42 Gyeongsan and Seoul out of intense competition.",
         "An `8-week` on-site program in Seattle — access to local companies (Microsoft, Amazon, Boeing) and VCs (Voyager Capital, Trilogy Equity Partners), a visit to AI2 (Allen Institute for AI), Seattle Tech Week, closing with a **Pitch Day in front of investors**",
         "**Won the LLM competition** in the AI lecture (a 14 CFR RAG chatbot, instructor score `9/10`), and was **featured in etnews (전자신문)** for the results of an AI personalized-information-search exercise",
         "**Planned and led 'Poma AI'**, a subscription SaaS that catches early signals of potential legal cases and alerts partner attorneys at law firms",
@@ -2113,15 +2134,15 @@ export const education: {
     period: { ko: "2024 – 현재", en: "2024 – present" },
     body: {
       ko: [
-        "École 42는 `2013년` 파리에서 Xavier Niel이 설립한 무상 컴퓨터공학 교육기관으로, 현재 `30여 개국` `50개 이상` 캠퍼스를 가진 **세계 최대의 무료 개발자 교육 네트워크**입니다. 교수도 강의도 교재도 없이, **프로젝트를 만들어 동료 앞에서 방어해야 통과**하며, 캠퍼스는 `24시간` 열려 있고 정해진 시간표가 없습니다.",
-        "입학은 한 달간 `C`로만 진행되는 전일제 몰입 과정 **'라피신(La Piscine)'**을 통과해야 하고, 초반 과제부터 **'노름(the Norm)'**이라는 코딩 규칙(함수 `25줄` 제한, `for`·`switch` 금지)을 지켜야 자동 검증을 통과해 비로소 사람이 리뷰합니다. 프랑스 국가직업자격체계 **`RNCP 7단계` — 석사(bac+5)에 준하는 등급**으로 등록되어 있습니다.",
+        `[École 42](${LINKS.ecole42})는 \`2013년\` 파리에서 Xavier Niel이 설립한 무상 컴퓨터공학 교육기관으로, 현재 \`30여 개국\` \`50개 이상\` 캠퍼스를 가진 **세계 최대의 무료 개발자 교육 네트워크**입니다. 교수도 강의도 교재도 없이, **프로젝트를 만들어 동료 앞에서 방어해야 통과**하며, 캠퍼스는 \`24시간\` 열려 있고 정해진 시간표가 없습니다.`,
+        `입학은 한 달간 \`C\`로만 진행되는 전일제 몰입 과정 **'라피신(La Piscine)'**을 통과해야 하고, 초반 과제부터 **'노름(the Norm)'**이라는 코딩 규칙(함수 \`25줄\` 제한, \`for\`·\`switch\` 금지)을 지켜야 자동 검증을 통과해 비로소 사람이 리뷰합니다. 프랑스 국가직업자격체계 [**\`RNCP 7단계\` — 석사(bac+5)에 준하는 등급**](${LINKS.rncp7})으로 등록되어 있습니다.`,
         "`Transcendence` · `WebServ`를 포함한 공통 과정을 모두 마치고, 지금은 **심화 과정(Outer Circle)을 진행 중**입니다.",
         "**정규 수업보다 실전으로 배우는 방식은 처음이 아니었습니다.** 고등학교 때도 기능반 훈련으로 같은 방식을 거쳤습니다. 수학도 같은 길이었습니다. 수학의정석 `2권`을 `두 번`씩 풀어 기초를 세우고, 지금은 해석학과 리군, `TAOCP`까지 책으로 직접 올라가고 있습니다.",
         "`C`로 셸을 재구현하고(`minishell`), Docker 스택을 바닥부터 조립하고(`Inception`), 레이트레이서로 선형대수를 확인하고(`miniRT`) — **커리큘럼 전체가 직접 만들어 통과하는 방식**입니다.",
       ],
       en: [
-        "École 42 is a tuition-free computer science school founded in Paris in `2013` by Xavier Niel — now the **world's largest free developer-education network**, with `50+` campuses across `30+` countries. No professors, lectures, or textbooks: **you build projects and defend them in front of peers to pass**, and campuses are open `24/7` with no fixed schedule.",
-        "Admission requires passing **La Piscine**, a month-long full-time immersion in `C`, and even the earliest projects must follow **the Norm** — a coding style (`25-line` function limit, no `for`-loops or `switch` statements) checked automatically before any human reviews it. The credential is registered at **`RNCP level 7`** in the French national qualifications framework, **roughly equivalent to a Master's (bac+5)**.",
+        `[École 42](${LINKS.ecole42}) is a tuition-free computer science school founded in Paris in \`2013\` by Xavier Niel — now the **world's largest free developer-education network**, with \`50+\` campuses across \`30+\` countries. No professors, lectures, or textbooks: **you build projects and defend them in front of peers to pass**, and campuses are open \`24/7\` with no fixed schedule.`,
+        `Admission requires passing **La Piscine**, a month-long full-time immersion in \`C\`, and even the earliest projects must follow **the Norm** — a coding style (\`25-line\` function limit, no \`for\`-loops or \`switch\` statements) checked automatically before any human reviews it. The credential is registered at [**\`RNCP level 7\`**](${LINKS.rncp7}) in the French national qualifications framework, **roughly equivalent to a Master's (bac+5)**.`,
         "Completed the core curriculum, including `Transcendence` and `WebServ`, and I'm **now working through the advanced curriculum (the Outer Circle)**.",
         "**Learning by building rather than by lecture wasn't new to me.** High school ran the same way through skills-competition training. Math followed the same path: I rebuilt my foundations working through `two volumes` of a classic Korean problem book `twice` each, and I'm now climbing through analysis, Lie groups, and `TAOCP` straight from the books.",
         "Reimplementing a shell in `C` (`minishell`), assembling a Docker stack from scratch (`Inception`), verifying linear algebra with a ray tracer (`miniRT`) — **the whole curriculum is pass-by-building**.",
@@ -2138,8 +2159,8 @@ export const education: {
   },
   {
     org: {
-      ko: "소프트웨어 특성화 고등학교 — 소프트웨어개발과",
-      en: "Software-focused high school — Software Development",
+      ko: "고등학교 — 소프트웨어개발 전공",
+      en: "High school — Software Development",
     },
     period: { ko: "2018.3 – 2021.2", en: "Mar 2018 – Feb 2021" },
     body: {
