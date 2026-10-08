@@ -9,13 +9,13 @@ import { useLang } from "@/lib/lang";
 const T = {
   featured: { ko: "대표 프로젝트", en: "Featured Projects" },
   featuredNote: {
-    ko: "웹 풀스택 · AI · MLOps · SLAM 네 갈래를 각각 대표하는 프로젝트들입니다. 수치와 트러블슈팅, 실행 결과까지 따라갈 수 있습니다.",
-    en: "One project for each of the four areas I work in — web full-stack, AI, MLOps, and SLAM — with the numbers, the troubleshooting, and the results you can follow all the way down.",
+    ko: "창업 · AI · 헬스케어 · 실시간 웹 — 문제를 확인하고, 직접 만들고, 결과로 증명한 프로젝트들입니다. 수치와 트러블슈팅, 외부 평가까지 따라갈 수 있습니다.",
+    en: "A startup, AI, healthcare, real-time web — projects where I confirmed the problem, built the thing myself, and proved it with results. The numbers, the troubleshooting, and the outside evaluation are all there to follow.",
   },
   additional: { ko: "그 밖의 프로젝트", en: "Additional Projects" },
   additionalNote: {
-    ko: "짧게 — 무엇을 만들었고 무엇이 어려웠는지. 펼치면 같은 구조로 이어집니다.",
-    en: "The short form — what it is and what was hard. Open one and it unfolds the same way.",
+    ko: "inPHRPILL과 École 42 · 개인 프로젝트들. 짧게 — 무엇을 만들었고 무엇이 어려웠는지. 펼치면 같은 구조로 이어집니다.",
+    en: "inPHRPILL, plus École 42 and personal projects. The short form — what it is and what was hard. Open one and it unfolds the same way.",
   },
 };
 

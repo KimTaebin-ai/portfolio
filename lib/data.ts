@@ -19,69 +19,72 @@ export const profile = {
   /* Cycled in the hero — one title at a time rather than a slash-separated pile.
      "École 42" is rendered next to it, fixed. */
   roleRotation: [
-    "Web Full-Stack Developer",
+    "Problem Solver",
+    "Full-Stack Engineer",
     "AI Engineer",
-    "MLOps Engineer",
-    "SLAM Engineer",
+    "Solo Founder",
   ],
   roleSuffix: "École 42",
-  tagline: "Systems from first principles",
+  tagline: "Find a problem worth paying for. Build it. Prove it.",
   /* One sentence, no emphasis. Everything below the hero is the evidence for
      it, so this line does not need to argue. */
   intro: {
     ko: [
-      "복잡한 문제를 단순한 구조로 시각화하고, 로직의 처음부터 끝까지 직접 구축하는 것에 보람을 느낍니다.",
+      "돈이 되는 문제를 찾아 직접 만들고, 트랙션으로 증명하는 엔지니어입니다.",
     ],
     en: [
-      "What I get the most out of is turning a complicated problem into a structure I can see, and building the logic from one end to the other myself.",
+      "I'm an engineer who finds problems people will pay to have solved, builds the solution myself, and proves it with traction.",
     ],
   } satisfies L<string[]>,
-  techChips: ["C/C++", "Python", "Mathematics", "SLAM", "Kubernetes"],
+  techChips: ["Claude API · RAG", "Next.js", "Spring Boot", "Python", "TAM/SAM/SOM"],
   /* Two separate facts, so two lines: what I'm doing now, and what I'm looking
      for. Joined with a "·" they read as one long clause and the second half —
      the one a recruiter is scanning for — gets lost behind the first. */
   currentLines: {
     ko: [
-      `[École 42](${LINKS.ecole42})에서 [RNCP7](${LINKS.rncp7}) 취득을 위해 DS/AI 트랙 진행 중입니다.`,
+      `[École 42](${LINKS.ecole42})에서 [RNCP7](${LINKS.rncp7}) 과정 중 DS · AI 과정을 진행하고 있습니다.`,
       "인턴십과 스타트업에 함께할 기회를 찾고 있습니다.",
     ],
     en: [
-      `On the DS/AI track at [École 42](${LINKS.ecole42}), working toward an [RNCP Level 7](${LINKS.rncp7}) qualification.`,
+      `Working through the DS · AI track at [École 42](${LINKS.ecole42}), toward an [RNCP Level 7](${LINKS.rncp7}) qualification.`,
       "Open to internships and to joining a startup.",
     ],
   } satisfies L<string[]>,
   /* Shown in the hero contact card, under the name. */
   affiliation: {
-    ko: `[École 42](${LINKS.ecole42}) (Gyeongsan) · DS/AI 트랙 ([RNCP 7](${LINKS.rncp7}))`,
-    en: `[École 42](${LINKS.ecole42}) (Gyeongsan) · DS/AI track ([RNCP level 7](${LINKS.rncp7}))`,
+    ko: `[École 42](${LINKS.ecole42}) (경산) · DS · AI 과정 ([RNCP 7](${LINKS.rncp7}))`,
+    en: `[École 42](${LINKS.ecole42}) (Gyeongsan) · DS · AI track ([RNCP level 7](${LINKS.rncp7}))`,
   } satisfies L<string>,
-  /* Four chips under the hero cards. Every one of these is an entry in
-     `awards` below — this is the 3-second version of that section. */
+  /* Four chips under the hero cards — the 3-second version of the page. Each
+     one is backed by a project, an award, or an experience entry below. */
   highlights: [
     {
-      ko: "WTIA (워싱턴 기술 산업 협회) 기업가 정신 · AI 몰입 프로그램",
-      en: "WTIA (Washington Technology Industry Association) — entrepreneurship & AI immersion program",
+      ko: "Poma AI — 글로벌 로펌 2곳 파일럿 계약",
+      en: "Poma AI — pilot contracts with 2 global law firms",
     },
     {
-      ko: "WTIA 내 AI lecture LLM Competition 1위",
-      en: "1st — LLM competition, WTIA AI lecture",
+      ko: "WTIA AI Course LLM 경진대회 1위",
+      en: "1st — WTIA AI Course LLM competition",
     },
     {
-      ko: "UC Berkeley SCET final project 1위",
-      en: "1st — UC Berkeley SCET final project",
+      ko: "UC Berkeley SCET 파이널 팀 프로젝트 1위",
+      en: "1st — UC Berkeley SCET final team project",
     },
-    { ko: "Kaggle / Dacon 상위 10%", en: "Kaggle / Dacon top 10%" },
+    {
+      ko: "수입 · 판매 사업 월 매출 1,000만 원+",
+      en: "Import & retail business — ₩10M+ monthly revenue",
+    },
   ] satisfies L<string>[],
   /* The one paragraph that says what the rest of the page is evidence for.
      `lead` carries the accent weight; `body` stays body-colored. */
   callout: {
     lead: {
-      ko: "만들어봐야 아는 것들이 있습니다.",
-      en: "Some things you only learn by building them.",
+      ko: "판매, 병원, 로펌 — 매번 같은 순서로 일했습니다.",
+      en: "Retail, hospitals, law firms — the same order every time.",
     },
     body: {
-      ko: "셸과 레이트레이서는 `C`로, HTTP 서버는 `C++`로, 회귀와 행렬 연산은 `Rust`로 직접 짰습니다. 결과가 맞는지는 손계산이나 정답셋으로 확인합니다. 그렇게 해온 것들이 웹 풀스택 · AI · MLOps · SLAM 네 갈래로 모였고, 아래 프로젝트가 그 기록입니다.",
-      en: "I wrote the shell and the ray tracer in `C`, the HTTP server in `C++`, and regression and matrix operations in `Rust`. To know whether the output is right, I check it against hand calculations or an answer key. That work has settled into four areas — web full-stack, AI, MLOps, and SLAM — and the projects below are the record.",
+      ko: "중국 잡화와 의류를 직접 수입 · 판매할 때는 키워드 검색량으로 수요를 보고 소싱 원가와 경쟁 가격으로 마진을 설계해 **월 매출 `1,000만 원` 이상**을 만들었습니다. Softnet에서는 의료진이 실제로 보고 싶어 하는 지표를 끝까지 확인해 **대학병원 `3`곳**에 모니터링 대시보드를 배포했고, WTIA에서는 1주 만에 만든 MVP로 글로벌 로펌 `3`곳을 인터뷰해 **`2`곳과 파일럿 계약**을 맺었습니다. 문제를 먼저 확인하고, 직접 만들고, 숫자로 증명합니다.",
+      en: "Importing and selling Chinese goods and clothing, I read demand from keyword search volume and set margins from sourcing cost and competitor prices — **₩`10M`+ in monthly revenue**. At Softnet I kept checking which metrics clinicians actually wanted to see and shipped monitoring dashboards to **`3` university hospitals**. At WTIA, an MVP built in one week got me interviews with `3` global law firms and **pilot contracts with `2`**. Confirm the problem first, build it myself, prove it with numbers.",
     },
   } satisfies { lead: L<string>; body: L<string> },
   socials: {
@@ -140,30 +143,33 @@ export const current: {
 }[] = [
   {
     org: {
-      ko: "École 42 — 심화 과정 진행 중",
-      en: "École 42 — advanced curriculum, in progress",
+      ko: "École 42 — DS · AI 과정 진행 중",
+      en: "École 42 — DS · AI track, in progress",
     },
-    period: { ko: "2024 – 현재", en: "2024 – present" },
+    period: { ko: "2024.10 – 현재", en: "Oct 2024 – present" },
     ongoing: true,
     body: {
       ko: [
-        `교수도 강의도 없이 **프로젝트를 만들어 동료 앞에서 방어해야 통과**하는 [학교](${LINKS.ecole42})입니다. \`Transcendence\` · \`WebServ\`를 포함한 **공통 과정을 모두 마치고, 지금은 심화 과정을 진행 중**입니다. 셸을 \`C\`로 다시 만들고, 레이트레이서로 선형대수를 확인하고, 회귀와 행렬 연산을 \`Rust\`로 다시 구현했습니다.`,
+        `강의 없이 **프로젝트를 만들어 동료 평가로 통과**하는 [학교](${LINKS.ecole42})입니다. \`Transcendence\` · \`WebServ\`를 포함한 공통 과정을 마치고, 지금은 [RNCP7](${LINKS.rncp7}) 과정 중 **DS · AI 과정**을 진행하고 있습니다. WTIA에서 만든 \`14 CFR\` RAG 챗봇과 Poma AI MVP도 이 과정과 병행했습니다.`,
       ],
       en: [
-        `A [school](${LINKS.ecole42}) with no professors and no lectures: **you pass by building projects and defending them in front of peers**. I've **completed the core curriculum**, \`Transcendence\` and \`WebServ\` included, and am **now working through the advanced one**. Along the way I rebuilt a shell in \`C\`, checked my linear algebra against a ray tracer, and reimplemented regression and matrix operations in \`Rust\`.`,
+        `A [school](${LINKS.ecole42}) with no lectures: **you pass by building projects and defending them through peer evaluation**. I've completed the core curriculum, \`Transcendence\` and \`WebServ\` included, and am now on the **DS · AI track** toward [RNCP level 7](${LINKS.rncp7}). The \`14 CFR\` RAG chatbot and the Poma AI MVP from WTIA were built alongside it.`,
       ],
     },
   },
   {
-    org: { ko: "Mathematics — 독학", en: "Mathematics — Self-Taught" },
-    period: { ko: "2024 – 현재", en: "2024 – present" },
+    org: {
+      ko: "고려사이버대학교 — 경영학과 재학",
+      en: "Korea Cyber University — Business Administration",
+    },
+    period: { ko: "2021.03 – 현재", en: "Mar 2021 – present" },
     ongoing: true,
     body: {
       ko: [
-        "42에서 공부하다가 **CS의 밑에 수학이 있다는 걸** 알게 됐습니다. 수학의정석 `2권`을 `두 번`씩 풀어 기초를 다시 세웠고, 지금은 미적분 · 선형대수 · 확률론 · 최적화이론 · 해석학, 리군과 강체변환, 이산수학 · 조합론, 그리고 `TAOCP`를 책으로 풀어가며 올라가는 중입니다. 리군과 강체변환은 `SLAM` 쪽을 제대로 보려고 따로 시작했습니다.",
+        "재직과 개인 사업을 병행하면서 경영학을 전공하고 있습니다. 직접 물건을 팔며 배운 수요 · 마진 감각을 **시장 규모 산정(TAM/SAM/SOM), 경쟁 분석, 가격 설계**로 정리해, Poma AI에서 그대로 썼습니다.",
       ],
       en: [
-        "Studying at 42 is where I found that **math sits underneath CS**. I rebuilt my foundations by working through `two volumes` of a classic Korean problem book `twice` each, and I'm now climbing through calculus, linear algebra, probability, optimization theory, real analysis, Lie groups and rigid-body transforms, discrete math and combinatorics, and `TAOCP` — books and hard problems, worked by hand. Lie groups and rigid-body transforms I picked up specifically to go further into `SLAM`.",
+        "Studying business administration alongside work and running my own business. It turned the feel for demand and margin I got from selling things myself into **market sizing (TAM/SAM/SOM), competitive analysis, and pricing** — which I used directly on Poma AI.",
       ],
     },
   },
@@ -176,31 +182,42 @@ export const making = {
   title: "How I got here",
   summary: [
     {
-      label: "Ran",
+      label: "Sold",
       what: {
-        ko: "사업 — 고객과 매출",
-        en: "a business — customers and revenue",
+        ko: "수입 · 판매 사업 — 월 매출 1,000만 원+",
+        en: "import & retail business — ₩10M+ a month",
       },
-      when: { ko: "2019–2024", en: "2019–2024" },
+      when: { ko: "2019–2023", en: "2019–2023" },
     },
     {
-      label: "Studied",
+      label: "Built",
       what: {
-        ko: "École 42 · CS 바닥부터",
-        en: "École 42 · CS from the bottom",
+        ko: "Softnet — 대학병원 3곳 inPHR 플랫폼",
+        en: "Softnet — inPHR platform for 3 university hospitals",
       },
-      when: { ko: "2024–", en: "2024–" },
+      when: { ko: "2021–2022", en: "2021–2022" },
     },
     {
-      label: "Repeat",
-      what: { ko: "만들고 검증하기", en: "build it, then verify it" },
-      when: { ko: "진행 중", en: "ongoing" },
+      label: "Led",
+      what: {
+        ko: "Ubase — 상담사 15명 팀 리더, QA 10%↑",
+        en: "Ubase — team lead for 15 agents, QA +10%",
+      },
+      when: { ko: "2023–2024", en: "2023–2024" },
+    },
+    {
+      label: "Founded",
+      what: {
+        ko: "Poma AI — 로펌 2곳 파일럿 계약",
+        en: "Poma AI — 2 law-firm pilot contracts",
+      },
+      when: { ko: "2026", en: "2026" },
     },
     {
       label: "Now",
       what: {
-        ko: "스타트업 합류 · 인턴십 기회를 찾는 중",
-        en: "open to startup roles and internships",
+        ko: "École 42 DS · AI 과정 · 인턴십 · 스타트업 기회를 찾는 중",
+        en: "École 42 DS · AI track · open to internships and startups",
       },
       when: { ko: "2026–", en: "2026–" },
     },
@@ -209,21 +226,28 @@ export const making = {
     label: "Where it came from",
     steps: [
       {
-        title: { ko: "사업", en: "A business" },
-        sub: { ko: "고객 · 운영", en: "customers · operations" },
+        title: { ko: "직접 판매", en: "Selling it myself" },
+        sub: { ko: "수요 · 마진 · 상세페이지", en: "demand · margin · listings" },
       },
       {
         title: { ko: "실무 경험", en: "Industry" },
         sub: {
-          ko: "병원 데이터 플랫폼 · 팀 리드",
-          en: "hospital data platform · team lead",
+          ko: "병원 대시보드 · 팀 리드",
+          en: "hospital dashboards · team lead",
         },
       },
       {
         title: { ko: "École 42", en: "École 42" },
         sub: {
-          ko: "바닥부터 CS — C, UNIX, 네트워크",
-          en: "CS from the bottom — C, UNIX, networks",
+          ko: "동료 평가로 배우는 CS",
+          en: "CS through peer evaluation",
+        },
+      },
+      {
+        title: { ko: "WTIA · Poma AI", en: "WTIA · Poma AI" },
+        sub: {
+          ko: "시애틀 · Solo Founder",
+          en: "Seattle · solo founder",
         },
       },
     ] satisfies { title: L<string>; sub: L<string> }[],
@@ -233,26 +257,29 @@ export const making = {
     steps: [
       {
         title: {
-          ko: "왜 이렇게 동작하는지 파본다",
-          en: "Dig into why it works this way",
+          ko: "돈이 되는 문제인지 확인한다",
+          en: "Check the problem is worth paying for",
         },
-        sub: { ko: "문서보다 구현을 먼저", en: "implementation before docs" },
+        sub: {
+          ko: "수요 · 지불 주체 · 경쟁",
+          en: "demand · who pays · competition",
+        },
       },
       {
-        title: { ko: "무엇을 만들지 정한다", en: "Decide what to build" },
-        sub: { ko: "무엇을 안 만들지도", en: "and what not to" },
+        title: { ko: "가장 빨리 직접 만든다", en: "Build it myself, fast" },
+        sub: { ko: "1주 MVP · 12시간 프로토타입", en: "1-week MVP · 12-hour prototype" },
       },
       {
         title: {
-          ko: "만들고 확인하고 다시 본다",
-          en: "Build it, check it, look again",
+          ko: "트랙션으로 증명한다",
+          en: "Prove it with traction",
         },
-        sub: { ko: "숫자로 확인", en: "checked with numbers" },
+        sub: { ko: "매출 · 배포 · 파일럿", en: "revenue · deployments · pilots" },
       },
     ] satisfies { title: L<string>; sub: L<string> }[],
     feedback: {
-      ko: "만들다 보면 다음에 볼 게 생긴다",
-      en: "building it turns up the next thing to look at",
+      ko: "고객의 반응이 다음에 풀 문제를 알려준다",
+      en: "what customers say points to the next problem",
     } satisfies L<string>,
   },
 };
@@ -300,31 +327,249 @@ export type Project = {
   howItWorks?: L<string[]>;
   troubleshooting?: Troubleshoot[];
   keyResults?: L<string[]>;
+  /* Outside evaluation of the project — what judges scored and said, kept
+     apart from `learned` so the reader can tell their words from mine. */
+  pitchFeedback?: PitchFeedback;
   learned: L<string[]>;
   links: { label: string; href: string }[];
+};
+
+export type PitchFeedback = {
+  source: L<string>;
+  scores: { label: L<string>; value: string }[];
+  strengths: L<string[]>;
+  improvements: L<string[]>;
 };
 
 export const projects: Project[] = [
   /* ---------------------------------------------------------------- featured */
   {
-    id: "rag-chatbot",
+    id: "poma-ai",
     tier: "featured",
-    name: { ko: "14 CFR RAG Chatbot", en: "14 CFR RAG Chatbot" },
+    name: { ko: "Poma AI — 로펌 사업개발 SaaS", en: "Poma AI — BD SaaS for Law Firms" },
     headline: {
-      ko: "`1,297`쪽 항공법에서 근거 조항까지 같이 내주는 RAG 챗봇. 검색 설정 `45`개를 자동 채점해 recall `0.909`",
-      en: "A RAG chatbot over `1,297` pages of aviation law that hands back the clause it used. `45` retrieval configs auto-graded, recall `0.909`",
+      ko: "로펌 사업개발용 구독형 SaaS. `1주` 만에 만든 MVP로 글로벌 로펌 `3`곳을 반복 인터뷰해 `2`곳과 파일럿 계약",
+      en: "A subscription SaaS for law-firm business development. An MVP built in `1 week` took me through repeat meetings with `3` global law firms and pilot contracts with `2`",
     },
-    period: { ko: "2026.6", en: "Jun 2026" },
+    period: { ko: "2026.06 – 2026.08", en: "Jun – Aug 2026" },
     org: {
-      ko: "WTIA (워싱턴 기술 산업 협회) 프로그램 · AI 수업 competition 과제",
-      en: "WTIA (Washington Technology Industry Association) program · AI lecture competition",
+      ko: "WTIA Entrepreneurship & Technology Immersion Course · 시애틀",
+      en: "WTIA Entrepreneurship & Technology Immersion Course · Seattle",
     },
     awards: [
       {
-        ko: "🏆 AI 수업 LLM Competition 1위 · 강사 채점 9/10",
-        en: "🏆 1st — AI lecture LLM competition · instructor score 9/10",
+        ko: "🤝 글로벌 로펌 2곳 파일럿 계약",
+        en: "🤝 Pilot contracts with 2 global law firms",
+      },
+      {
+        ko: "🎤 투자자 Pitch Day 평균 7.78 / 10",
+        en: "🎤 Investor Pitch Day — 7.78 / 10 average",
       },
     ],
+    team: {
+      members: { ko: "Solo Founder", en: "Solo founder" },
+      myRole: {
+        ko: "기획 · 시장조사 · 피치덱 · MVP 개발 · 고객 미팅 전 과정",
+        en: "planning, market research, pitch deck, MVP, and every customer meeting",
+      },
+    },
+    coreSkills: {
+      ko: [
+        "시장 규모 산정 (`TAM/SAM/SOM`) · 경쟁사 분석",
+        "구독 가격 모델 설계",
+        "고객 인터뷰 기반 피벗",
+        "`Claude API` 기반 MVP 개발",
+      ],
+      en: [
+        "Market sizing (`TAM/SAM/SOM`) and competitor analysis",
+        "Subscription pricing design",
+        "Pivoting on customer-interview evidence",
+        "MVP development on the `Claude API`",
+      ],
+    },
+    contributions: {
+      ko: [
+        "시장 규모와 경쟁사를 분석해 차별점을 정하고 구독 가격 모델 설계",
+        "인터뷰로 사용자와 지불 주체가 다르다는 걸 확인하고 타겟을 로펌 사업개발로 피벗",
+        "`Claude API` · `Next.js`로 리드 발굴 + 백테스트 MVP를 `1주` 만에 개발",
+        "글로벌 로펌 `3`곳 반복 미팅 → `2`곳 파일럿 계약 → 투자자 Pitch Day 발표",
+      ],
+      en: [
+        "Sized the market and mapped competitors to set the differentiation, then designed the subscription pricing",
+        "Confirmed through interviews that the user and the payer were different people, and pivoted to law-firm business development",
+        "Built a lead-discovery + backtest MVP on the `Claude API` and `Next.js` in `1 week`",
+        "Repeat meetings with `3` global law firms → `2` pilot contracts → investor Pitch Day",
+      ],
+    },
+    stack: ["Claude API", "Next.js", "React", "TAM/SAM/SOM", "Customer Interviews"],
+    status: "complete",
+    intro: {
+      ko: [
+        "WTIA 8주 창업 프로그램에서 혼자 시작한 스타트업입니다. 로펌이 새 의뢰를 따오는 **사업개발(BD) 과정**을 돕는 구독형 SaaS로, 잠재 고객 리드를 발굴하고 그 신호가 과거 데이터에서 실제로 맞았는지 백테스트 결과로 보여줍니다.",
+        "처음 아이디어는 다른 산업이었습니다. 개발 중 고객 인터뷰에서 **문제를 겪는 사용자와 비용을 지불하는 고객이 다르다**는 걸 확인하고, 지불 주체인 로펌으로 타겟을 옮겼습니다. 이후 `1주` 만에 MVP를 만들어 글로벌 로펌 `3`곳과 반복 미팅했고, **`2`곳과 파일럿 계약**을 맺은 뒤 투자자 Pitch Day에서 발표했습니다.",
+      ],
+      en: [
+        "A startup I started alone during WTIA's 8-week program. It's a subscription SaaS for **law-firm business development** — how firms win new matters: it surfaces prospective-client leads and backtests them against historical data to show whether the signal would actually have been right.",
+        "The first idea was in a different industry. Mid-build, customer interviews showed me that **the people who had the problem were not the people who would pay for it**, so I moved the target to law firms, the ones holding the budget. I then built an MVP in `1 week`, held repeat meetings with `3` global law firms, **signed pilot contracts with `2`**, and presented at the investor Pitch Day.",
+      ],
+    },
+    flow: [
+      {
+        label: { ko: "시장 · 경쟁 분석", en: "Market & competitors" },
+        sub: { ko: "TAM/SAM/SOM", en: "TAM/SAM/SOM" },
+      },
+      {
+        label: { ko: "고객 인터뷰", en: "Customer interviews" },
+        sub: { ko: "사용자 ≠ 지불 주체", en: "user ≠ payer" },
+      },
+      { label: { ko: "로펌 BD로 피벗", en: "Pivot to law-firm BD" } },
+      {
+        label: { ko: "1주 MVP", en: "1-week MVP" },
+        sub: { ko: "리드 발굴 · 백테스트", en: "leads · backtest" },
+      },
+      {
+        label: { ko: "로펌 3곳 미팅", en: "Meet 3 law firms" },
+        sub: { ko: "파일럿 2곳", en: "2 pilots" },
+      },
+    ],
+    howItWorks: {
+      ko: [
+        "시장 규모를 `TAM/SAM/SOM`으로 나눠 산정하고 경쟁사를 정리해 차별점을 정한 뒤, 연 단위 구독 가격 모델을 설계",
+        "인터뷰에서 '문제를 겪는 사용자'와 '비용을 내는 고객'을 따로 확인하고, 지불 주체인 로펌으로 타겟과 문제를 다시 정의",
+        "`Claude API`와 `Next.js`로 잠재 고객 리드를 발굴하고, 과거 데이터 기반 백테스트로 그 리드가 실제 의뢰로 이어졌을지를 보여주는 MVP 개발",
+        "MVP를 들고 글로벌 로펌 `3`곳과 반복 미팅 → `2`곳 파일럿 계약 → 투자자 Pitch Day 발표",
+      ],
+      en: [
+        "Sized the market as `TAM/SAM/SOM`, mapped competitors to settle the differentiation, then designed an annual subscription price",
+        "Checked separately in interviews who had the problem and who would pay, and redefined the target and the problem around law firms, the payer",
+        "Built an MVP on the `Claude API` and `Next.js` that surfaces prospective-client leads and backtests them on historical data to show whether they'd have turned into matters",
+        "Took the MVP into repeat meetings with `3` global law firms → `2` pilot contracts → investor Pitch Day",
+      ],
+    },
+    troubleshooting: [
+      {
+        title: {
+          ko: "문제를 겪는 사람과 돈을 내는 사람이 달랐다",
+          en: "The people with the problem weren't the people who would pay",
+        },
+        problem: {
+          ko: "처음 아이디어로 개발을 진행하던 중 고객 인터뷰를 해보니, 그 문제를 실제로 겪는 사용자와 비용을 지불할 고객이 서로 달랐습니다. 사용자만 보고 만들면 쓰는 사람은 있어도 살 사람이 없는 제품이 됩니다.",
+          en: "Partway into building the first idea, customer interviews showed that the users who actually had the problem and the customers who would pay for a fix were different people. Build only for the user and you get a product with people who use it and nobody who buys it.",
+        },
+        solution: {
+          ko: [
+            "인터뷰 결과를 근거로 **타겟 산업과 해결할 문제를 로펌 사업개발로 피벗**",
+            "바뀐 문제에 맞춰 `1주` 만에 MVP를 새로 만들고, 같은 로펌들과 반복 미팅하며 확인",
+          ],
+          en: [
+            "On the strength of the interviews, **pivoted the target industry and the problem to law-firm business development**",
+            "Rebuilt the MVP for the new problem in `1 week` and kept checking it in repeat meetings with the same firms",
+          ],
+        },
+        result: {
+          ko: "글로벌 로펌 `3`곳 중 **`2`곳과 파일럿 계약**을 맺었습니다.",
+          en: "**Pilot contracts with `2`** of the `3` global law firms.",
+        },
+      },
+    ],
+    keyResults: {
+      ko: [
+        "MVP **`1주`** 만에 개발 (`Claude API` · `Next.js`)",
+        "글로벌 로펌 `3`곳 반복 미팅 → **`2`곳 파일럿 계약**",
+        "투자자 Pitch Day **평균 `7.78 / 10`** — Vision `8.67` · Market Potential `8.33` · Traction `8`",
+      ],
+      en: [
+        "MVP built in **`1 week`** (`Claude API` · `Next.js`)",
+        "Repeat meetings with `3` global law firms → **`2` pilot contracts**",
+        "Investor Pitch Day **average `7.78 / 10`** — Vision `8.67` · Market Potential `8.33` · Traction `8`",
+      ],
+    },
+    pitchFeedback: {
+      source: {
+        ko: "WTIA 투자자 Pitch Day (Day 2) · 평가자 3인의 점수와 코멘트 요약",
+        en: "WTIA investor Pitch Day (Day 2) · scores and comments from 3 evaluators, summarized",
+      },
+      scores: [
+        { label: { ko: "종합", en: "Overall" }, value: "7.78 / 10" },
+        { label: { ko: "피치덱", en: "Pitch deck" }, value: "7.82 / 10" },
+        { label: { ko: "핵심 내러티브", en: "Core narrative" }, value: "7.75 / 10" },
+        { label: { ko: "전달력", en: "Delivery" }, value: "19.33 / 25" },
+        { label: { ko: "Vision", en: "Vision" }, value: "8.67" },
+        { label: { ko: "Traction", en: "Traction" }, value: "8.00" },
+        { label: { ko: "Solution", en: "Solution" }, value: "7.00" },
+        { label: { ko: "Business Model", en: "Business model" }, value: "7.00" },
+      ],
+      strengths: {
+        ko: [
+          "**트랙션이 가장 강한 근거였습니다.** 인터뷰와 후속 미팅을 이미 잡아뒀고 약 `10%` 전환율로 파일럿에 관심을 보인 로펌이 나왔다는 점을, 한 평가자는 \"excellent outcome\"이라고 평가했습니다.",
+          "**로펌을 비치헤드로 좁힌 뒤 회계로 넓히는 순서**가 한계가 아니라 절제된 시퀀싱으로 읽혔습니다 (Vision `8.67`, Company Purpose `8.33`).",
+          "시장 규모가 충실하게 조사됐고 시장 정의가 명확하다는 평가 (Market Potential `8.33`).",
+          "이전 판매 경험으로 증명된 영업 능력, 질의응답에서의 자신감과 명확성이 좋게 언급됐습니다.",
+        ],
+        en: [
+          "**Traction was the strongest evidence.** Interviews done, follow-ups already booked, and a firm interested in a pilot at roughly a `10%` conversion rate — one evaluator called it \"an excellent outcome.\"",
+          "**Narrowing to law firms as a beachhead before expanding to accounting** read as disciplined sequencing rather than a limitation (Vision `8.67`, Company Purpose `8.33`).",
+          "Market sizing was called well researched, with a clearly defined market (Market Potential `8.33`).",
+          "Prior sales experience as proven selling ability, and confident, clear answers in Q&A, were both noted.",
+        ],
+      },
+      improvements: {
+        ko: [
+          "**가장 낮은 Solution · Business Model(`7.0`)은 둘 다 명확성 문제였습니다.** 큰 그림은 이해되지만 고객이 정확히 무엇을 받는지는 모르겠다는 지적이 여러 번 나왔고, Intapp을 기존 솔루션이자 경쟁사로 동시에 설명해 혼동을 줬습니다.",
+          "여러 입력 요소를 어떤 우선순위로 제품에 반영할지, 연 `$28K` 가격이 왜 seat · 사용량 기반이 아닌지에 대한 질문을 받았습니다.",
+          "**공개 데이터에 의존하면 방어력이 약하다**는 지적이 반복됐습니다. 진짜 해자는 '법률 리스크 판단'이고, 독자 알고리즘과 시간이 갈수록 쌓이는 데이터로 그걸 말해야 한다는 조언을 받았습니다.",
+          "신뢰도(Credibility `7.67`)를 높이려면 법률 자문가가 필요하다는 의견. 타겟이 전체 로펌인지 미국에 진출하는 한국 로펌인지 모호했고, 이중언어를 강점으로 내세우고도 Q&A를 한국어로 진행해 그걸 보여줄 기회를 놓쳤습니다.",
+        ],
+        en: [
+          "**The lowest scores, Solution and Business Model (`7.0`), both came down to clarity.** Several judges understood Poma at a high level but not what the customer actually gets, and Intapp was presented so that it read as both an existing solution and a competitor.",
+          "Questions on how the various inputs would be prioritized in the product, and why the `$28K` annual price isn't seat- or usage-based.",
+          "**Defensibility on public data** came up repeatedly. The sharpest advice: the real moat is legal-risk judgment, built on proprietary algorithms and data that accumulates over time — and the pitch should say so.",
+          "A legal advisor on the team would lift credibility (Credibility `7.67`). The market framing was ambiguous between all law firms and Korean firms expanding into the US, and after claiming bilingualism as an advantage, running the Q&A in Korean missed the chance to show it.",
+        ],
+      },
+    },
+    learned: {
+      ko: [
+        "**만들기 전에 누가 돈을 내는지부터 확인해야 했습니다.** 사용자와 지불 주체가 다르다는 걸 인터뷰로 확인하고 타겟을 바꾼 결정이 파일럿 계약까지 이어졌습니다.",
+        "**트랙션이 있어도 설명이 흐리면 점수가 깎입니다.** Solution과 Business Model이 가장 낮았던 이유는 둘 다 '고객이 정확히 무엇을 받는가'가 한 문장으로 보이지 않았기 때문이었습니다.",
+        "**해자는 데이터 출처가 아니라 판단에서 나온다는 걸 배웠습니다.** 공개 데이터라는 약점은 법률 리스크 판단 알고리즘과 쌓여가는 데이터로 다시 설명해야 합니다.",
+        "**다음에 고칠 것:** 가격을 seat · 사용량 기준으로 다시 검토하고, 법률 자문가를 확보하고, 타겟 시장을 한 문장으로 정의하기.",
+      ],
+      en: [
+        "**Before building, I needed to know who pays.** Confirming in interviews that the user and the payer were different, and moving the target accordingly, is what led to the pilot contracts.",
+        "**Traction doesn't save a blurry explanation.** Solution and Business Model scored lowest because neither made 'what exactly does the customer get' visible in one sentence.",
+        "**A moat comes from judgment, not from where the data comes from.** The public-data weakness has to be re-explained as legal-risk judgment plus data that accumulates.",
+        "**Next to fix:** revisit pricing on a seat or usage basis, bring a legal advisor on board, and define the target market in one sentence.",
+      ],
+    },
+    links: [],
+  },
+  {
+    id: "rag-chatbot",
+    tier: "featured",
+    name: { ko: "14 CFR 규정 RAG 챗봇", en: "14 CFR RAG Chatbot" },
+    headline: {
+      ko: "`2`인 팀 팀장으로 `12`시간 만에 만든 항공법 RAG 챗봇. 경진대회 전체 `1`위, 처음 보는 질문 기준 recall `0.909`",
+      en: "An aviation-law RAG chatbot built in `12` hours as lead of a team of `2`. 1st overall, recall `0.909` on unseen questions",
+    },
+    period: { ko: "2026.06", en: "Jun 2026" },
+    org: {
+      ko: "WTIA AI Course · CMU · UW LLM 커리큘럼 기반 경진대회",
+      en: "WTIA AI Course · competition on a CMU / UW LLM curriculum",
+    },
+    awards: [
+      {
+        ko: "🏆 LLM 경진대회 전체 1위 · 강사 평가 9/10",
+        en: "🏆 1st overall — LLM competition · instructor score 9/10",
+      },
+    ],
+    team: {
+      members: { ko: "2인 팀", en: "Team of 2" },
+      myRole: {
+        ko: "팀장 — 검색 파이프라인 · 평가 체계",
+        en: "Team lead — retrieval pipeline, evaluation harness",
+      },
+    },
     coreSkills: {
       ko: [
         "검색 파이프라인 설계 — 게이트 · rerank · 확장",
@@ -445,12 +690,12 @@ export const projects: Project[] = [
     ],
     intro: {
       ko: [
-        "WTIA(워싱턴 기술 산업 협회) 프로그램의 AI 수업에서 진행한 competition 과제입니다. 주제는 `1,297쪽`짜리 미국 연방 항공법(14 CFR)에서 질문에 맞는 조항(§)을 찾아 답하는 것이었습니다. 그럴듯하게 답하는 것과 근거를 대고 답하는 것은 다른 문제라, 둘을 어떻게 구분해서 측정할지부터 정하고 시작했습니다.",
-        "검색 설정 `45`개를 만들어 밤새 자동으로 채점했고, blind holdout에서 **recall `0.909`**가 나온 설정을 골랐습니다. 강사 채점 `9/10`으로 **수강생 중 1위**를 했습니다.",
+        "WTIA AI Course에서 CMU · UW의 LLM 커리큘럼을 바탕으로 열린 경진대회입니다. `1,297쪽`짜리 미국 연방 항공법(14 CFR)에서 질문에 맞는 조항(§)을 찾아 답하는 챗봇을 **`12`시간 안에** 만들어야 했고, 정확도 · 속도 · UI 등으로 채점했습니다. `2`인 팀의 팀장을 맡았습니다.",
+        "법령을 페이지가 아니라 **조항 단위로 나눠** 질문에 맞는 조항이 1순위로 나오게 했고, 관련 없는 질문은 AI 호출 없이 걸러내고 검색 결과를 압축해 **재정렬 토큰을 약 `60%`** 줄였습니다. 검색 설정 `45`가지를 자동으로 채점하는 평가 체계를 만들어 처음 보는 질문 기준 **recall `0.909`** 설정을 골랐고, 강사 평가 `9/10`으로 **전체 1위**를 했습니다.",
       ],
       en: [
-        "The competition assignment in the AI lecture of the WTIA (Washington Technology Industry Association) program. The task was to answer questions about `1,297 pages` of U.S. federal aviation law (14 CFR) by finding the right clause (§). Answering plausibly and answering with evidence are two different problems, so I started by deciding how to measure the difference.",
-        "I built `45` retrieval configurations, graded them automatically overnight, and picked the one that scored **recall `0.909`** on a blind holdout. The instructor scored it `9/10` — **first among the participants**.",
+        "A competition in the WTIA AI Course built on CMU and UW's LLM curriculum. The task: in **`12` hours**, build a chatbot that answers questions about `1,297 pages` of U.S. federal aviation law (14 CFR) by finding the right clause (§), graded on accuracy, speed, UI, and more. I led a team of `2`.",
+        "Splitting the law **by clause instead of by page** put the right clause at rank 1; filtering off-topic questions before any AI call and compressing search results cut **rerank tokens by about `60%`**. An evaluation harness that auto-graded `45` retrieval configurations picked the setting with **recall `0.909`** on unseen questions. Instructor score `9/10` — **1st overall**.",
       ],
     },
     flow: [
@@ -552,13 +797,17 @@ export const projects: Project[] = [
     ],
     keyResults: {
       ko: [
-        "**Recall `0.909`** (blind holdout)",
+        "**Recall `0.909`** (처음 보는 질문, blind holdout)",
+        "`12`시간 개발로 경진대회 **전체 `1`위** · 강사 평가 `9/10`",
+        "관련 없는 질문 사전 차단 + 검색 결과 압축으로 **재정렬 토큰 약 `60%` 감소**",
         "Agentic 검색 루프 입력 토큰 **최대 `86%` 절감** — 'drugs and alcohol' 질문 `14,019 → 1,908`",
         "무관한 질문은 answer gate가 **`0`토큰으로 거절**",
         "모든 답변에 `§` citation — **검증 가능한 답만 출력**",
       ],
       en: [
-        "**Recall `0.909`** (blind holdout)",
+        "**Recall `0.909`** (unseen questions, blind holdout)",
+        "**1st overall** after `12` hours of development · instructor score `9/10`",
+        "**About `60%` fewer rerank tokens** by filtering off-topic questions up front and compressing search results",
         "**Up to `86%` fewer input tokens** on the agentic search loop — e.g. the 'drugs and alcohol' question: `14,019 → 1,908`",
         "Answer gate rejects off-corpus questions for **`0` tokens**",
         "Every answer cites its `§` source — **only verifiable answers ship**",
@@ -599,6 +848,143 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "inphrdoc",
+    tier: "featured",
+    name: {
+      ko: "inPHRDOC — 의료진용 PHR 모니터링",
+      en: "inPHRDOC — PHR Monitoring for Clinicians",
+    },
+    headline: {
+      ko: "환자의 PHR과 의무기록을 의료진이 실시간으로 보는 대시보드. 의료진이 실제로 보고 싶어 하는 지표를 끝까지 확인해 대학병원 `3`곳에 배포",
+      en: "A dashboard where clinicians see patients' PHR and medical records in real time — built around the metrics they actually wanted, and shipped to `3` university hospitals",
+    },
+    period: { ko: "2021.01 – 2022.01", en: "Jan 2021 – Jan 2022" },
+    org: {
+      ko: "Softnet · 헬스케어 IoT사업본부 · Full-Stack Engineer",
+      en: "Softnet · Healthcare IoT division · Full-stack engineer",
+    },
+    coreSkills: {
+      ko: [
+        "`Spring Boot` REST API 설계",
+        "`Angular.js` SPA 대시보드 · 차트",
+        "시계열 데이터 서버 단 집계 · 페이지네이션",
+        "민감 의료 정보 `RBAC`",
+      ],
+      en: [
+        "`Spring Boot` REST API design",
+        "`Angular.js` SPA dashboard and charts",
+        "Server-side aggregation and pagination of time-series data",
+        "`RBAC` for sensitive medical data",
+      ],
+    },
+    contributions: {
+      ko: [
+        "`Spring Boot` REST API와 `Angular.js` SPA로 의료진 전용 모니터링 대시보드 구축",
+        "의료진이 실제로 보고 싶어 하는 지표 형태를 끝까지 확인해 차트로 구현 · 배포",
+        "시계열 데이터에 서버 단 집계 · 필터링 · 페이지네이션 적용, 민감 정보에 `RBAC` 적용",
+      ],
+      en: [
+        "Built the clinician-only monitoring dashboard on a `Spring Boot` REST API and an `Angular.js` SPA",
+        "Kept checking which metrics clinicians actually wanted, and shipped them as charts",
+        "Server-side aggregation, filtering, and pagination for time-series data; `RBAC` on sensitive fields",
+      ],
+    },
+    stack: ["Java", "Spring Boot", "Angular.js", "MySQL", "RBAC"],
+    status: "complete",
+    intro: {
+      ko: [
+        "대학병원 `3`곳을 대상으로 한 inPHR 플랫폼(복약 · 정서 관리 · 의료진 모니터링) 중 **의료진이 쓰는 쪽**입니다. 환자가 쌓은 개인건강기록(PHR)과 병원의 의무기록을 의료진이 한 화면에서 실시간으로 조회합니다.",
+        "데이터를 보여주는 것 자체보다 **의료진이 실제로 어떤 지표를 어떤 형태로 보고 싶어 하는지** 확인하는 데 시간을 많이 썼고, 그걸 차트로 구현해 배포했습니다.",
+      ],
+      en: [
+        "The **clinician-facing side** of the inPHR platform (medication, emotional-health management, clinician monitoring) built for `3` university hospitals. Clinicians see patients' personal health records (PHR) and the hospital's medical records on one screen, in real time.",
+        "More of the time went into confirming **which metrics clinicians actually wanted, and in what form**, than into displaying data as such — and that's what got built into charts and shipped.",
+      ],
+    },
+    flow: [
+      { label: { ko: "PHR · 의무기록 수집", en: "Collect PHR + records" } },
+      {
+        label: { ko: "서버 단 집계", en: "Server-side aggregation" },
+        sub: { ko: "필터 · 페이지네이션", en: "filter · paginate" },
+      },
+      { label: { ko: "RBAC 권한 확인", en: "RBAC check" } },
+      { label: { ko: "의료진 대시보드 차트", en: "Clinician dashboard charts" } },
+    ],
+    howItWorks: {
+      ko: [
+        "`Spring Boot` REST API가 환자 PHR과 의무기록을 제공하고, `Angular.js` SPA가 의료진 전용 대시보드로 보여줌",
+        "계속 쌓이는 시계열 데이터는 서버에서 집계 · 필터링 · 페이지네이션한 뒤 내려보내 화면 속도를 유지",
+        "민감한 건강 정보는 역할 기반 접근 제어(`RBAC`)로 열람 범위를 제한",
+      ],
+      en: [
+        "A `Spring Boot` REST API serves patient PHR and medical records; an `Angular.js` SPA presents them as a clinician-only dashboard",
+        "Ever-growing time-series data is aggregated, filtered, and paginated on the server before it's sent, keeping the screen fast",
+        "Sensitive health data is scoped with role-based access control (`RBAC`)",
+      ],
+    },
+    troubleshooting: [
+      {
+        title: {
+          ko: "데이터는 다 있는데, 의료진이 보고 싶은 형태가 아니었다",
+          en: "All the data was there — just not in the form clinicians wanted",
+        },
+        problem: {
+          ko: "PHR과 의무기록을 그대로 보여주는 것만으로는 의료진이 실제 진료에서 쓰기 어려웠습니다.",
+          en: "Showing PHR and medical records as-is wasn't something clinicians could actually use in practice.",
+        },
+        solution: {
+          ko: [
+            "의료진이 **실제로 보고 싶어 하는 지표와 형태를 끝까지 확인**",
+            "확인한 지표를 기준으로 차트를 다시 구성해 구현",
+          ],
+          en: [
+            "**Kept going back to confirm which metrics, in which form,** clinicians actually wanted",
+            "Rebuilt the charts around those metrics",
+          ],
+        },
+        result: {
+          ko: "**대학병원 `3`곳**에 의료진 모니터링 대시보드를 배포했습니다.",
+          en: "Shipped the clinician monitoring dashboard to **`3` university hospitals**.",
+        },
+      },
+      {
+        title: {
+          ko: "시계열 데이터가 계속 쌓이면서 대시보드가 무거워졌다",
+          en: "The dashboard got heavier as time-series data kept piling up",
+        },
+        problem: {
+          ko: "측정값이 시간에 따라 계속 쌓이는 구조라, 원본을 그대로 내려보내면 데이터가 늘수록 대시보드가 느려집니다.",
+          en: "Measurements accumulate over time, so sending raw data down means the dashboard slows as the data grows.",
+        },
+        solution: {
+          ko: [
+            "**집계 · 필터링 · 페이지네이션을 서버 단으로** 옮겨 필요한 만큼만 전송",
+          ],
+          en: [
+            "**Moved aggregation, filtering, and pagination to the server**, sending only what's needed",
+          ],
+        },
+        result: {
+          ko: "데이터가 늘어도 **대시보드 속도를 유지**했습니다.",
+          en: "**Dashboard speed held** as the data grew.",
+        },
+      },
+    ],
+    learned: {
+      ko: [
+        "**사용자가 원하는 건 데이터가 아니라 판단에 쓸 지표였습니다.** 무엇을 보여줄지를 사용자에게 끝까지 확인하는 습관이 여기서 생겼습니다.",
+        "**데이터가 계속 쌓이는 서비스는 처음부터 서버에서 줄여 보내야 했습니다.** 화면 속도는 프론트보다 API 설계에서 정해졌습니다.",
+        "**의료 데이터에서 권한은 기능이 아니라 전제였습니다.** `RBAC`를 먼저 정해야 화면과 API를 설계할 수 있었습니다.",
+      ],
+      en: [
+        "**Users didn't want data — they wanted metrics they could make decisions with.** The habit of confirming with users what to show started here.",
+        "**A service where data keeps piling up has to trim it on the server from the start.** Screen speed was decided by the API design more than by the frontend.",
+        "**With medical data, permissions are a premise, not a feature.** `RBAC` had to be settled before the screens and APIs could be designed.",
+      ],
+    },
+    links: [],
+  },
+  {
     id: "transcendence",
     tier: "featured",
     name: {
@@ -609,7 +995,7 @@ export const projects: Project[] = [
       ko: "`4`인 팀에서 팀장을 맡은 실시간 대전 Pong. 프론트 · 백 · 인증 · 배포를 한 팀이 전부 만들었습니다",
       en: "Real-time PvP Pong as lead of a team of `4` — one team building the frontend, backend, auth, and deployment",
     },
-    period: { ko: "2026", en: "2026" },
+    period: { ko: "2026.01 – 2026.02", en: "Jan – Feb 2026" },
     org: {
       ko: "École 42 — 공통 과정",
       en: "École 42 — core curriculum",
@@ -821,9 +1207,69 @@ export const projects: Project[] = [
       },
     ],
   },
+
+  /* -------------------------------------------------------------- additional */
+  {
+    id: "inphrpill",
+    tier: "additional",
+    name: {
+      ko: "inPHRPILL — IoT 복약 순응도 개선",
+      en: "inPHRPILL — IoT Medication Adherence",
+    },
+    headline: {
+      ko: "스마트 약통 센서와 연동해 처방부터 복용까지의 이력을 관리하고, 의료진 대시보드에서 실시간으로 확인",
+      en: "Tracks medication from prescription to dose through a smart pill-box sensor, visible in real time on the clinician dashboard",
+    },
+    period: { ko: "2021.01 – 2022.01", en: "Jan 2021 – Jan 2022" },
+    org: { ko: "Softnet · 헬스케어 IoT사업본부", en: "Softnet · Healthcare IoT division" },
+    stack: ["Java", "Spring Boot", "IoT Sensors", "MySQL"],
+    status: "complete",
+    intro: {
+      ko: [
+        "inPHR 플랫폼의 복약 관리 쪽입니다. 스마트 약통 센서에서 들어오는 복약 행위 데이터를 수집해, **처방부터 실제 복용까지의 이력**을 남깁니다.",
+        "복약 기록, 증상 설문, 시계열 측정값처럼 **형태가 서로 다른 데이터를 하나의 데이터 모델로 통합**해 의료진 대시보드(inPHRDOC)에서 실시간으로 볼 수 있게 연결했습니다.",
+      ],
+      en: [
+        "The medication side of the inPHR platform. It collects dose events from a smart pill-box sensor and keeps **the history from prescription to the actual dose**.",
+        "Medication logs, symptom surveys, and time-series measurements — **data of very different shapes — were unified into one data model** and wired through to the clinician dashboard (inPHRDOC) in real time.",
+      ],
+    },
+    flow: [
+      { label: { ko: "스마트 약통 센서", en: "Smart pill-box sensor" } },
+      {
+        label: { ko: "수집 · 정규화", en: "Collect · normalize" },
+      },
+      {
+        label: { ko: "통합 데이터 모델", en: "Unified data model" },
+        sub: { ko: "복약 · 설문 · 측정값", en: "doses · surveys · measurements" },
+      },
+      { label: { ko: "의료진 대시보드", en: "Clinician dashboard" } },
+    ],
+    howItWorks: {
+      ko: [
+        "스마트 약통 센서에서 들어오는 복약 행위 데이터를 수집 · 정규화",
+        "복약 기록 · 증상 설문 · 시계열 측정값을 하나의 데이터 모델로 통합",
+        "수집한 복약 이력을 의료진 대시보드에서 실시간으로 확인할 수 있게 연결",
+      ],
+      en: [
+        "Collect and normalize dose events coming from the smart pill-box sensor",
+        "Unify medication logs, symptom surveys, and time-series measurements into one data model",
+        "Wire the collected dose history through to the clinician dashboard in real time",
+      ],
+    },
+    learned: {
+      ko: [
+        "**센서 데이터는 받는 것보다 정리하는 게 일이었습니다.** 형태가 다른 데이터를 한 모델에 담을 기준을 먼저 정해야 대시보드가 단순해졌습니다.",
+      ],
+      en: [
+        "**With sensor data, the work was in shaping it, not receiving it.** Settling how differently shaped data fits one model first is what kept the dashboard simple.",
+      ],
+    },
+    links: [],
+  },
   {
     id: "linear-regression-matrix",
-    tier: "featured",
+    tier: "additional",
     name: {
       ko: "Linear Regression & Matrix — Rust",
       en: "Linear Regression & Matrix — in Rust",
@@ -1032,7 +1478,7 @@ export const projects: Project[] = [
   },
   {
     id: "turtlebot3",
-    tier: "featured",
+    tier: "additional",
     name: {
       ko: "TurtleBot3 사람 추종 자율주행",
       en: "TurtleBot3 Person-Following Robot",
@@ -1223,7 +1669,7 @@ export const projects: Project[] = [
   },
   {
     id: "minirt",
-    tier: "featured",
+    tier: "additional",
     name: { ko: "miniRT — C 레이트레이서", en: "miniRT — Ray Tracer in C" },
     headline: {
       ko: "GPU도 라이브러리도 없이 `C`로 만든 레이트레이서. 강체변환과 로드리게스 회전을 직접 짜서 씬을 움직입니다",
@@ -1470,8 +1916,6 @@ export const projects: Project[] = [
       { label: "GitHub", href: "https://github.com/KimTaebin-ai/miniRT" },
     ],
   },
-
-  /* -------------------------------------------------------------- additional */
   {
     id: "webserv",
     tier: "additional",
@@ -1834,146 +2278,119 @@ export const awards: Award[] = [
   {
     year: "2026",
     title: {
-      ko: "WTIA 글로벌 창업 프로그램 선발",
-      en: "Selected — WTIA Global Startup Program",
+      ko: "WTIA AI Course LLM 경진대회 1위",
+      en: "1st — WTIA AI Course LLM competition",
     },
     detail: {
-      ko: "워싱턴 기술 산업 협회 · 워싱턴 대학교 창업 교육 · 42경산·42서울 교육생 30명 · 전자신문 보도",
-      en: "Washington Technology Industry Association · entrepreneurship program at the University of Washington · one of 30 trainees from École 42 Gyeongsan and Seoul · covered by etnews",
+      ko: "WTIA Entrepreneurship & Technology Immersion Course · 14 CFR RAG 챗봇 구현 경진대회 · 강사 평가 9/10 · 전자신문 보도",
+      en: "WTIA Entrepreneurship & Technology Immersion Course · 14 CFR RAG chatbot competition · instructor score 9/10 · covered by etnews",
     },
     href: "https://www.etnews.com/20260724000305",
   },
   {
     year: "2026",
     title: {
-      ko: "WTIA AI 수업 LLM Competition — 수강생 중 1위",
-      en: "WTIA AI lecture LLM competition — 1st among participants",
+      ko: "WTIA 투자자 Pitch Day — Poma AI 발표",
+      en: "WTIA investor Pitch Day — presented Poma AI",
     },
     detail: {
-      ko: "14 CFR RAG 챗봇 · 강사 채점 9/10",
-      en: "14 CFR RAG chatbot · instructor score 9/10",
+      ko: "평가자 3인 평균 7.78 / 10 · Vision 8.67 · Traction 8 · 이후 참가 교육생 중 유일하게 현지 VC 후속 미팅 및 인턴십 면접",
+      en: "7.78 / 10 average from 3 evaluators · Vision 8.67 · Traction 8 · afterwards the only participant to get a follow-up meeting with a local VC and an internship interview",
     },
+  },
+  {
+    year: "2026",
+    title: {
+      ko: "WTIA Entrepreneurship & Technology Immersion Course 선발",
+      en: "Selected — WTIA Entrepreneurship & Technology Immersion Course",
+    },
+    detail: {
+      ko: "42경산 · 42서울 전체 교육생 중 30명 · 과학기술정보통신부 · IITP 지원 8주 창업 프로그램 · 워싱턴대(UW) 연계",
+      en: "30 chosen from all École 42 Gyeongsan and Seoul students · 8-week startup program backed by Korea's Ministry of Science and ICT and IITP · run with the University of Washington",
+    },
+    href: "https://www.etnews.com/20260622000084",
   },
   {
     year: "2024.12",
     title: {
-      ko: "UC Berkeley SCET Intensive Program — 최종 팀 프로젝트 1위",
-      en: "UC Berkeley SCET Intensive Program — 1st, final team project",
+      ko: "UC Berkeley SCET 파이널 팀 프로젝트 1위",
+      en: "1st — UC Berkeley SCET final team project",
     },
-    detail: { ko: "비디오 제작 캡스톤", en: "Video-production capstone" },
-  },
-  {
-    year: "2025 – 2026",
-    title: { ko: "Kaggle / Dacon 상위 10%", en: "Kaggle / Dacon — top 10%" },
-  },
-  {
-    year: "2020",
-    title: {
-      ko: "지방기능경기대회 웹디자인·개발 2위",
-      en: "Regional Skills Competition — 2nd, Web Design & Development",
+    detail: {
+      ko: "UC Berkeley SCET Intensive Program",
+      en: "UC Berkeley SCET Intensive Program",
     },
   },
   {
-    year: "2019",
+    year: "2020 · 2019",
     title: {
-      ko: "지방기능경기대회 웹디자인·개발 3위",
-      en: "Regional Skills Competition — 3rd, Web Design & Development",
+      ko: "기능경기대회 웹 디자인 및 개발 직종 2위 · 3위",
+      en: "2nd & 3rd — Regional Skills Competition, Web Design & Development",
     },
-  },
-  {
-    year: "2019 – 2021",
-    title: {
-      ko: "WorldSkills 국가대표 후보 훈련",
-      en: "WorldSkills national-team candidate training",
+    detail: {
+      ko: "대구 지방기능경기대회 · 2년 연속 입상",
+      en: "Daegu Regional Skills Competition · placed two years running",
     },
   },
 ];
 
 export const techStack: { title: string; items: L<string>[] }[] = [
   {
-    title: "Mathematics",
-    items: [
-      { ko: "Linear Algebra", en: "Linear Algebra" },
-      { ko: "Calculus · Analysis", en: "Calculus · Analysis" },
-      { ko: "Probability", en: "Probability" },
-      { ko: "Optimization", en: "Optimization" },
-      {
-        ko: "Lie Groups · Rigid-Body Transforms",
-        en: "Lie Groups · Rigid-Body Transforms",
-      },
-      {
-        ko: "Discrete Math · Combinatorics",
-        en: "Discrete Math · Combinatorics",
-      },
-    ],
-  },
-  {
-    title: "Languages & Systems",
+    title: "Language",
     items: [
       { ko: "Python", en: "Python" },
-      { ko: "C", en: "C" },
-      { ko: "C++", en: "C++" },
-      { ko: "Rust (탐색 중)", en: "Rust (exploring)" },
-      { ko: "JavaScript/TypeScript", en: "JavaScript/TypeScript" },
-      { ko: "SQL", en: "SQL" },
+      { ko: "JavaScript", en: "JavaScript" },
+      { ko: "TypeScript", en: "TypeScript" },
+      { ko: "Java", en: "Java" },
+      { ko: "C / C++", en: "C / C++" },
+      { ko: "Rust", en: "Rust" },
     ],
   },
   {
-    title: "ML & AI",
+    title: "Backend · Web",
     items: [
-      { ko: "PyTorch", en: "PyTorch" },
-      { ko: "FastAPI", en: "FastAPI" },
-      { ko: "Claude API", en: "Claude API" },
-      { ko: "RAG", en: "RAG" },
-      { ko: "LangChain (탐색 중)", en: "LangChain (exploring)" },
-      { ko: "XGBoost", en: "XGBoost" },
-      { ko: "LightGBM", en: "LightGBM" },
-      { ko: "pandas", en: "pandas" },
-    ],
-  },
-  {
-    title: "Web & Backend",
-    items: [
+      { ko: "Spring Boot", en: "Spring Boot" },
       { ko: "Node.js", en: "Node.js" },
       { ko: "Socket.io", en: "Socket.io" },
-      { ko: "Spring Boot", en: "Spring Boot" },
+      { ko: "React", en: "React" },
+      { ko: "Next.js", en: "Next.js" },
       { ko: "Angular.js", en: "Angular.js" },
-      { ko: "REST APIs", en: "REST APIs" },
-      { ko: "OAuth 2.0", en: "OAuth 2.0" },
+      { ko: "React Native", en: "React Native" },
       { ko: "MySQL", en: "MySQL" },
     ],
   },
   {
-    title: "Robotics & Systems",
+    title: "AI · Data",
     items: [
-      { ko: "ROS2", en: "ROS2" },
-      { ko: "YOLOv8", en: "YOLOv8" },
-      { ko: "LiDAR/Vision", en: "LiDAR/Vision" },
-      { ko: "SLAM", en: "SLAM" },
-      { ko: "Kalman Filters", en: "Kalman Filters" },
+      { ko: "Claude API", en: "Claude API" },
+      { ko: "RAG", en: "RAG" },
+      { ko: "LangChain", en: "LangChain" },
+      { ko: "PyTorch", en: "PyTorch" },
+      { ko: "pandas", en: "pandas" },
+      { ko: "scikit-learn", en: "scikit-learn" },
+      { ko: "XGBoost", en: "XGBoost" },
+      { ko: "LightGBM", en: "LightGBM" },
     ],
   },
   {
-    title: "DevOps & MLOps",
+    title: "DevOps",
     items: [
       { ko: "Docker", en: "Docker" },
-      { ko: "Docker Compose", en: "Docker Compose" },
-      { ko: "Kubernetes (탐색 중)", en: "Kubernetes (exploring)" },
       { ko: "NGINX", en: "NGINX" },
+      { ko: "AWS", en: "AWS" },
       { ko: "Git", en: "Git" },
-      { ko: "AWS/GCP (탐색 중)", en: "AWS/GCP (exploring)" },
+      { ko: "Linux", en: "Linux" },
     ],
   },
   {
-    title: "Tools & Frameworks",
+    title: "Business",
     items: [
-      { ko: "Linux", en: "Linux" },
-      { ko: "Git", en: "Git" },
-      { ko: "VS Code", en: "VS Code" },
-      {
-        ko: "42 cursus projects (peer evaluation)",
-        en: "42 cursus projects (peer evaluation)",
-      },
+      { ko: "시장 규모 산정 (TAM/SAM/SOM)", en: "Market sizing (TAM/SAM/SOM)" },
+      { ko: "경쟁사 분석", en: "Competitor analysis" },
+      { ko: "구독 가격 설계", en: "Subscription pricing" },
+      { ko: "고객 인터뷰", en: "Customer interviews" },
+      { ko: "피치덱", en: "Pitch decks" },
+      { ko: "소싱 · 마진 설계", en: "Sourcing & margin design" },
     ],
   },
 ];
@@ -1987,27 +2404,27 @@ export const experience: {
 }[] = [
   {
     org: {
-      ko: "WTIA Global Startup Program",
-      en: "WTIA Global Startup Program",
+      ko: "WTIA Entrepreneurship & Technology Immersion Course",
+      en: "WTIA Entrepreneurship & Technology Immersion Course",
     },
     period: {
-      ko: "2026.6 – 8.14 (수료) · Seattle",
-      en: "Jun – Aug 14, 2026 (completed) · Seattle",
+      ko: "2026.06 – 2026.08 · 미국 시애틀 · 워싱턴대(UW) 연계",
+      en: "Jun – Aug 2026 · Seattle, USA · with the University of Washington",
     },
     bullets: {
       ko: [
-        "**WTIA(워싱턴 기술 산업 협회)**가 운영하고 **워싱턴 대학교에서 진행하는 창업·기업가 정신 교육** 프로그램으로, 과기정통부·IITP가 지원하는 실전형 AI·SW 창업 과정입니다. 수 많은 경쟁을 뚫고 최종 **42경산·42서울 교육생 `30명`으로 선발**됐습니다.",
-        "`8주간` 시애틀 현지 과정 — Microsoft · Amazon · Boeing 등 현지 기업과 Voyager Capital · Trilogy Equity Partners 등 VC 연계, AI2(Allen Institute for AI) 방문, Seattle Tech Week 참가, **투자자 대상 최종 Pitch Day**로 마무리",
-        "AI 수업의 **LLM Competition에서 1위** (14 CFR RAG 챗봇, 강사 채점 `9/10`) · AI 맞춤형 정보 탐색 실습 성과로 **전자신문에 소개**",
-        "로펌에게 잠재 수임 신호를 잡아 파트너 변호사에게 알려주는 구독형 SaaS 스타트업 **'Poma AI' 기획·주도**",
-        "`2026.8.14` 전 일정 수료 후 한국 복귀",
+        "42경산 · 42서울 전체 교육생 중 **`30`명 선발**, 과학기술정보통신부 · IITP 지원 `8주` 창업 프로그램",
+        "Microsoft · Amazon 등 현지 기업 및 VC와 교류, **투자자 Pitch Day** 참여",
+        "로펌 사업개발용 구독형 SaaS **'Poma AI' Solo Founder** — `1주` 만에 만든 MVP로 글로벌 로펌 `3`곳을 반복 인터뷰해 **`2`곳과 파일럿 계약**",
+        "AI Course **LLM 경진대회 전체 `1`위** (14 CFR RAG 챗봇, 강사 평가 `9/10`), 전자신문 보도",
+        "참가 교육생 중 **유일하게 현지 VC와의 후속 미팅 및 인턴십 면접** 진행",
       ],
       en: [
-        "Run by the **WTIA (Washington Technology Industry Association)** as an **entrepreneurship program held at the University of Washington**, and a hands-on AI/SW startup course backed by Korea's Ministry of Science and ICT and IITP. I was selected as one of the **final `30` trainees** from École 42 Gyeongsan and Seoul out of intense competition.",
-        "An `8-week` on-site program in Seattle — access to local companies (Microsoft, Amazon, Boeing) and VCs (Voyager Capital, Trilogy Equity Partners), a visit to AI2 (Allen Institute for AI), Seattle Tech Week, closing with a **Pitch Day in front of investors**",
-        "**Won the LLM competition** in the AI lecture (a 14 CFR RAG chatbot, instructor score `9/10`), and was **featured in etnews (전자신문)** for the results of an AI personalized-information-search exercise",
-        "**Planned and led 'Poma AI'**, a subscription SaaS that catches early signals of potential legal cases and alerts partner attorneys at law firms",
-        "Completed the full program on `Aug 14, 2026` and returned to Korea",
+        "**One of `30` selected** from all École 42 Gyeongsan and Seoul students for an `8-week` startup program backed by Korea's Ministry of Science and ICT and IITP",
+        "Met local companies such as Microsoft and Amazon and local VCs; took part in the **investor Pitch Day**",
+        "**Solo founder of 'Poma AI'**, a subscription SaaS for law-firm business development — an MVP built in `1 week` led to repeat interviews with `3` global law firms and **pilot contracts with `2`**",
+        "**1st overall in the AI Course LLM competition** (14 CFR RAG chatbot, instructor score `9/10`), covered by etnews",
+        "**The only participant to get a follow-up meeting with a local VC and an internship interview**",
       ],
     },
     links: [
@@ -2028,92 +2445,86 @@ export const experience: {
     ],
   },
   {
-    org: { ko: "École 42", en: "École 42" },
-    period: { ko: "2024 – 현재", en: "2024 – present" },
-    bullets: {
-      ko: [
-        "시스템 프로그래밍부터 풀스택까지 — `C/C++/Rust`",
-        "**강의 없이** 프로젝트와 동료 평가(peer evaluation)로만 진행되는 커리큘럼",
-      ],
-      en: [
-        "Systems programming through full-stack — `C/C++/Rust`",
-        "**No lectures** — a curriculum run entirely on projects and peer evaluation",
-      ],
-    },
-  },
-  {
-    org: { ko: "Ubase — 프로젝트 팀장", en: "Ubase — Project Team Leader" },
-    period: {
-      ko: "2023.8 – 2024.8 · Seoul",
-      en: "Aug 2023 – Aug 2024 · Seoul",
-    },
-    bullets: {
-      ko: [
-        "입사 `3개월` 만에 **프로젝트 리더로 승진**, 팀 관리 체계를 새로 구축",
-        "운영 개선으로 센터 전체 **QA 점수 `10%` 향상**",
-        "42 École의 기초 기술 교육에 끌려 팀을 떠나 심화 기술 학습으로 전환",
-      ],
-      en: [
-        "**Promoted to project leader within `3 months`**; built a new team management framework",
-        "Improved center-wide **QA scores by `10%`** through operational improvements",
-        "Left to pursue deep technical foundations at École 42",
-      ],
-    },
-  },
-  {
     org: {
-      ko: "Softnet — 풀스택 엔지니어",
-      en: "Softnet — Full Stack Engineer",
+      ko: "Ubase — 프로젝트 팀 리더 · 쿠팡 고객센터",
+      en: "Ubase — Project Team Leader · Coupang customer center",
     },
     period: {
-      ko: "2021.1 – 2022.1 · Seoul",
-      en: "Jan 2021 – Jan 2022 · Seoul",
+      ko: "2023.08 – 2024.08",
+      en: "Aug 2023 – Aug 2024",
     },
     bullets: {
       ko: [
-        "서울대병원·고려대안암병원·충남대병원 **`3`개 대학병원의 이종 환자 데이터를 통합**하는 관계형 스키마·`ETL` 파이프라인 설계",
-        "`Spring Boot` REST API + `Angular.js` SPA로 **통합 개인건강기록(PHR) 플랫폼** 구축",
-        "시계열 임상 데이터의 서버 사이드 집계·필터링·페이지네이션 구현",
-        "민감한 건강 데이터를 위한 **역할 기반 접근 제어(`RBAC`)**와 반응형 대시보드",
+        "쿠팡 고객센터 **상담사 `15`명**의 응대 품질과 운영 관리",
+        "입사 **`3개월` 만에 팀 리더로 승진**",
+        "업무 분배 · 매뉴얼 · 피드백 주기를 다시 짜서 센터 전체 **QA 점수 `10%` 향상**",
       ],
       en: [
-        "Designed relational schemas and `ETL` pipelines **unifying heterogeneous patient data from `3` university hospitals** (SNUH, KU Anam, CNUH)",
-        "Built an **integrated Personal Health Record (PHR) platform**: `Spring Boot` REST APIs + `Angular.js` SPA",
-        "Implemented server-side aggregation, filtering, and pagination for time-series clinical data",
-        "**Role-based access control (`RBAC`)** for sensitive health data, with responsive dashboards",
+        "Managed response quality and operations for **`15` agents** at Coupang's customer center",
+        "**Promoted to team leader within `3 months`** of joining",
+        "Redesigned task allocation, manuals, and the feedback cycle — **center-wide QA score up `10%`**",
       ],
     },
   },
   {
     org: {
-      ko: "HiikTalk — 소프트웨어 엔지니어 (인턴)",
-      en: "HiikTalk — Software Engineer (Intern)",
+      ko: "Softnet — Full-Stack Engineer",
+      en: "Softnet — Full-Stack Engineer",
     },
-    period: { ko: "2020.1 · Sejong", en: "Jan 2020 · Sejong" },
+    period: {
+      ko: "2021.01 – 2022.01 · 헬스케어 IoT사업본부",
+      en: "Jan 2021 – Jan 2022 · Healthcare IoT division",
+    },
     bullets: {
       ko: [
-        "**암호화폐 거래 시스템 백엔드** 구축 — 주문·시세·계정 관리",
-        "`React Native` 기반 거래 인터페이스 구현",
-        "`Selenium` 기반 실시간 시세 크롤러 구축, 재시도 처리 포함",
+        "**대학병원 `3`곳** 대상 inPHR 플랫폼(복약 · 정서 관리 · 의료진 모니터링) 설계 · 개발",
+        "`Spring Boot` REST API + `Angular.js` SPA로 의료진 모니터링 대시보드(inPHRDOC) 구축 · 배포",
+        "스마트 약통 센서 기반 복약 이력 수집과 이종 데이터 통합 모델(inPHRPILL)",
+        "시계열 데이터 서버 단 집계 · 필터링 · 페이지네이션, 민감 정보 `RBAC`",
       ],
       en: [
-        "Built the **backend for a cryptocurrency trading system** — order flow, market data, account management",
-        "Implemented a `React Native` trading interface",
-        "Built a `Selenium`-based real-time market-data crawler with retry handling",
+        "Designed and built the inPHR platform (medication, emotional-health management, clinician monitoring) for **`3` university hospitals**",
+        "Built and shipped the clinician monitoring dashboard (inPHRDOC) on a `Spring Boot` REST API + `Angular.js` SPA",
+        "Smart pill-box dose collection and a unified model for heterogeneous data (inPHRPILL)",
+        "Server-side aggregation, filtering, and pagination of time-series data; `RBAC` on sensitive fields",
       ],
     },
   },
   {
     org: {
-      ko: "개인 사업 — 상해 화장품 판매 · 네이버 스마트스토어",
-      en: "Personal Business — Shanghai Cosmetics Sales · Naver Smart Store",
+      ko: "개인 사업 — 동대문 의류 · 중국 잡화 수입 · 판매",
+      en: "Own business — Dongdaemun apparel & Chinese goods import/retail",
     },
-    period: { ko: "2019 – 2021", en: "2019 – 2021" },
+    period: { ko: "2019 – 2023", en: "2019 – 2023" },
     bullets: {
-      ko: ["중국 상해에서 화장품을 수입·판매", "네이버 스마트스토어 운영"],
+      ko: [
+        "중국 잡화와 의류를 직접 수입 · 판매해 **월 매출 `1,000만 원` 이상**",
+        "키워드 검색량으로 수요를 판단하고, 경쟁 셀러 가격과 소싱 원가를 비교해 마진 설계",
+        "차별화된 상세페이지 기획, 네이버 스마트스토어 운영 · 수입 소싱과 공급망 관리",
+      ],
       en: [
-        "Imported and sold cosmetics in Shanghai, China",
-        "Operated a Naver Smart Store",
+        "Imported and sold Chinese goods and apparel myself — **₩`10M`+ in monthly revenue**",
+        "Judged demand from keyword search volume; set margins by comparing competing sellers' prices with sourcing cost",
+        "Planned differentiated product pages; ran a Naver Smart Store, import sourcing, and the supply chain",
+      ],
+    },
+  },
+  {
+    org: {
+      ko: "HiikTalk — Development Intern",
+      en: "HiikTalk — Development Intern",
+    },
+    period: { ko: "2020.01", en: "Jan 2020" },
+    bullets: {
+      ko: [
+        "**암호화폐 거래 시스템 백엔드** 개발",
+        "`React Native` 거래 화면 구현",
+        "`Selenium` 기반 실시간 시세 크롤러 구축",
+      ],
+      en: [
+        "Built the **backend for a cryptocurrency trading system**",
+        "Implemented the trading screens in `React Native`",
+        "Built a real-time market-price crawler on `Selenium`",
       ],
     },
   },
@@ -2128,47 +2539,44 @@ export const education: {
 }[] = [
   {
     org: {
-      ko: "École 42 (Gyeongsan) — 컴퓨터 사이언스 기초",
-      en: "École 42 (Gyeongsan) — Computer Science Fundamentals",
+      ko: "École 42 (경산캠퍼스) — 컴퓨터과학 · RNCP7",
+      en: "École 42 (Gyeongsan) — Computer Science · RNCP 7",
     },
-    period: { ko: "2024 – 현재", en: "2024 – present" },
+    period: { ko: "2024.10 – 현재", en: "Oct 2024 – present" },
     body: {
       ko: [
-        `[École 42](${LINKS.ecole42})는 \`2013년\` 파리에서 Xavier Niel이 설립한 무상 컴퓨터공학 교육기관으로, 현재 \`30여 개국\` \`50개 이상\` 캠퍼스를 가진 **세계 최대의 무료 개발자 교육 네트워크**입니다. 교수도 강의도 교재도 없이, **프로젝트를 만들어 동료 앞에서 방어해야 통과**하며, 캠퍼스는 \`24시간\` 열려 있고 정해진 시간표가 없습니다.`,
-        `입학은 한 달간 \`C\`로만 진행되는 전일제 몰입 과정 **'라피신(La Piscine)'**을 통과해야 하고, 초반 과제부터 **'노름(the Norm)'**이라는 코딩 규칙(함수 \`25줄\` 제한, \`for\`·\`switch\` 금지)을 지켜야 자동 검증을 통과해 비로소 사람이 리뷰합니다. 프랑스 국가직업자격체계 [**\`RNCP 7단계\` — 석사(bac+5)에 준하는 등급**](${LINKS.rncp7})으로 등록되어 있습니다.`,
-        "`Transcendence` · `WebServ`를 포함한 공통 과정을 모두 마치고, 지금은 **심화 과정(Outer Circle)을 진행 중**입니다.",
-        "**정규 수업보다 실전으로 배우는 방식은 처음이 아니었습니다.** 고등학교 때도 기능반 훈련으로 같은 방식을 거쳤습니다. 수학도 같은 길이었습니다. 수학의정석 `2권`을 `두 번`씩 풀어 기초를 세우고, 지금은 해석학과 리군, `TAOCP`까지 책으로 직접 올라가고 있습니다.",
-        "`C`로 셸을 재구현하고(`minishell`), Docker 스택을 바닥부터 조립하고(`Inception`), 레이트레이서로 선형대수를 확인하고(`miniRT`) — **커리큘럼 전체가 직접 만들어 통과하는 방식**입니다.",
+        `[École 42](${LINKS.ecole42})는 교수도 강의도 없이 **프로젝트를 만들어 동료 평가로 통과**하는 컴퓨터과학 교육기관입니다. 프랑스 국가직업자격체계 [**\`RNCP 7단계\` — 석사(Bac+5)에 준하는 등급**](${LINKS.rncp7}) 과정입니다.`,
+        "`Transcendence` · `WebServ`를 포함한 공통 과정을 마치고, 현재 **DS · AI 과정**을 진행 중입니다.",
       ],
       en: [
-        `[École 42](${LINKS.ecole42}) is a tuition-free computer science school founded in Paris in \`2013\` by Xavier Niel — now the **world's largest free developer-education network**, with \`50+\` campuses across \`30+\` countries. No professors, lectures, or textbooks: **you build projects and defend them in front of peers to pass**, and campuses are open \`24/7\` with no fixed schedule.`,
-        `Admission requires passing **La Piscine**, a month-long full-time immersion in \`C\`, and even the earliest projects must follow **the Norm** — a coding style (\`25-line\` function limit, no \`for\`-loops or \`switch\` statements) checked automatically before any human reviews it. The credential is registered at [**\`RNCP level 7\`**](${LINKS.rncp7}) in the French national qualifications framework, **roughly equivalent to a Master's (bac+5)**.`,
-        "Completed the core curriculum, including `Transcendence` and `WebServ`, and I'm **now working through the advanced curriculum (the Outer Circle)**.",
-        "**Learning by building rather than by lecture wasn't new to me.** High school ran the same way through skills-competition training. Math followed the same path: I rebuilt my foundations working through `two volumes` of a classic Korean problem book `twice` each, and I'm now climbing through analysis, Lie groups, and `TAOCP` straight from the books.",
-        "Reimplementing a shell in `C` (`minishell`), assembling a Docker stack from scratch (`Inception`), verifying linear algebra with a ray tracer (`miniRT`) — **the whole curriculum is pass-by-building**.",
+        `[École 42](${LINKS.ecole42}) is a computer science school with no professors and no lectures — **you build projects and pass through peer evaluation**. The program is registered at [**\`RNCP level 7\`**](${LINKS.rncp7}) in the French national qualifications framework, **equivalent to a Master's (Bac+5)**.`,
+        "Completed the core curriculum, including `Transcendence` and `WebServ`; **now on the DS · AI track**.",
       ],
     },
   },
   {
     org: {
-      ko: "경영학과 학사 과정",
-      en: "B.B.A., Business Administration",
+      ko: "고려사이버대학교 — 경영학과",
+      en: "Korea Cyber University — Business Administration",
     },
-    period: { ko: "2021 – 현재 · 4학년", en: "2021 – present · Senior" },
-    body: { ko: [], en: [] },
+    period: { ko: "2021.03 – 현재 · 재학 중", en: "Mar 2021 – present · enrolled" },
+    body: {
+      ko: ["재직 · 개인 사업과 병행하며 경영학 전공"],
+      en: ["Studying business administration alongside work and running my own business"],
+    },
   },
   {
     org: {
-      ko: "고등학교 — 소프트웨어개발 전공",
-      en: "High school — Software Development",
+      ko: "대구소프트웨어마이스터고 — 소프트웨어개발과",
+      en: "Daegu Software Meister High School — Software Development",
     },
-    period: { ko: "2018.3 – 2021.2", en: "Mar 2018 – Feb 2021" },
+    period: { ko: "2018.03 – 2021.02 · 졸업", en: "Mar 2018 – Feb 2021 · graduated" },
     body: {
       ko: [
-        "1학년 2학기부터 기능반 훈련에 들어가, 정규 수업보다 실전 대회 준비에 시간을 썼습니다. 기능경기대회 웹디자인·개발 부문에 나가 `2019`년 3위, `2020`년 2위를 했고, `2019`년부터 `2021`년까지 WorldSkills 국가대표 후보로 훈련했습니다.",
+        "기능경기대회 웹디자인 및 개발 직종 입상(`2019` 3위, `2020` 2위), 국가대표 후보 훈련",
       ],
       en: [
-        "From the second semester of freshman year I moved into the skills-training track, spending more time on competition preparation than on regular classes. I placed 3rd in `2019` and 2nd in `2020` in Web Design & Development at the regional skills competition, and trained as a WorldSkills national-team candidate from `2019` to `2021`.",
+        "Placed at the skills competition in Web Design & Development (3rd in `2019`, 2nd in `2020`); trained as a national-team candidate",
       ],
     },
   },

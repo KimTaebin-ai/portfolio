@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import type { Project } from "@/lib/data";
+import type { PitchFeedback, Project } from "@/lib/data";
 import { useLang } from "@/lib/lang";
 import type { Lang } from "@/lib/lang";
 import { Chip, StatusPill } from "@/components/chip";
@@ -26,8 +26,53 @@ const HEADING = {
   screens: { ko: "화면 구조", en: "Screen structure" },
   trouble: { ko: "트러블슈팅", en: "Trouble shooting" },
   results: { ko: "핵심 결과", en: "Key results" },
+  feedback: { ko: "Pitch Day 피드백", en: "Pitch Day feedback" },
   learned: { ko: "배운 것", en: "What I learned" },
 };
+
+const FEEDBACK = {
+  strengths: { ko: "좋은 평가", en: "What landed" },
+  improvements: { ko: "보완할 점", en: "What to fix" },
+};
+
+/* The judges' view, kept visually apart from my own "learned" list: scores
+   first as a strip of tiles, then what landed and what didn't, side by side
+   once there's room. */
+function PitchFeedbackBlock({ feedback, lang }: { feedback: PitchFeedback; lang: Lang }) {
+  return (
+    <div className="space-y-5">
+      <p className={`${PROSE} text-[13px] text-foreground-muted`}>{feedback.source[lang]}</p>
+
+      <dl className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+        {feedback.scores.map((score) => (
+          <div key={score.label.en} className="rounded-lg border border-border px-3 py-2">
+            <dt className="font-mono text-[10px] font-semibold tracking-[0.12em] text-foreground-muted uppercase">
+              {score.label[lang]}
+            </dt>
+            <dd className="mt-0.5 font-mono text-sm font-semibold text-foreground">{score.value}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <div className="grid gap-6 xl:grid-cols-2">
+        {(["strengths", "improvements"] as const).map((key) => (
+          <div key={key}>
+            <p className="font-mono text-[10px] font-semibold tracking-[0.16em] text-accent uppercase">
+              {FEEDBACK[key][lang]}
+            </p>
+            <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-foreground-muted marker:text-accent/60 md:text-[15px]">
+              {feedback[key][lang].map((line, i) => (
+                <li key={i}>
+                  <RichText>{line}</RichText>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 /* The narrative column is wide enough for the diagrams, which makes it too
    wide for prose — ~95 characters a line in English. Text blocks cap out here
@@ -171,15 +216,17 @@ export function ProjectFeatured({ project }: { project: Project }) {
               </div>
             </MetaBlock>
 
-            <MetaBlock label={META.links[lang]} lang={lang}>
-              <div className="flex flex-col items-start gap-1.5 text-[13px] font-medium">
-                {project.links.map((link) => (
-                  <a key={link.href} href={link.href} target="_blank" rel="noreferrer noopener">
-                    {link.label} ↗
-                  </a>
-                ))}
-              </div>
-            </MetaBlock>
+            {project.links.length ? (
+              <MetaBlock label={META.links[lang]} lang={lang}>
+                <div className="flex flex-col items-start gap-1.5 text-[13px] font-medium">
+                  {project.links.map((link) => (
+                    <a key={link.href} href={link.href} target="_blank" rel="noreferrer noopener">
+                      {link.label} ↗
+                    </a>
+                  ))}
+                </div>
+              </MetaBlock>
+            ) : null}
           </div>
         </aside>
 
@@ -233,6 +280,12 @@ export function ProjectFeatured({ project }: { project: Project }) {
                   </li>
                 ))}
               </ul>
+            </Block>
+          ) : null}
+
+          {project.pitchFeedback ? (
+            <Block heading={HEADING.feedback[lang]} lang={lang}>
+              <PitchFeedbackBlock feedback={project.pitchFeedback} lang={lang} />
             </Block>
           ) : null}
 

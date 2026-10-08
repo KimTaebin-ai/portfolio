@@ -107,13 +107,15 @@ export function ProjectCompact({ project }: { project: Project }) {
         </div>
       </details>
 
-      <div className="mt-4 flex flex-wrap gap-4 text-sm font-medium">
-        {project.links.map((link) => (
-          <a key={link.href} href={link.href} target="_blank" rel="noreferrer noopener">
-            {link.label} ↗
-          </a>
-        ))}
-      </div>
+      {project.links.length ? (
+        <div className="mt-4 flex flex-wrap gap-4 text-sm font-medium">
+          {project.links.map((link) => (
+            <a key={link.href} href={link.href} target="_blank" rel="noreferrer noopener">
+              {link.label} ↗
+            </a>
+          ))}
+        </div>
+      ) : null}
     </article>
   );
 }

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Taebin Kim · 김태빈",
   description:
-    "ML Systems Engineer · Full-Stack Developer · École 42. Systems from first principles.",
+    "Problem Solver · Full-Stack & AI Engineer · École 42. Find a problem worth paying for, build it, prove it with traction.",
 };
 
 const themeInitScript = `
