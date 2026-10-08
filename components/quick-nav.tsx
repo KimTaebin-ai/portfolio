@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { Project } from "@/lib/data";
 import { projects } from "@/lib/data";
 import { useLang } from "@/lib/lang";
@@ -23,10 +24,13 @@ function NavColumn({
   title,
   items,
   lang,
+  basePath = "",
 }: {
   title: string;
   items: Project[];
   lang: Lang;
+  /* Additional projects live on /projects, so their anchors need the route. */
+  basePath?: string;
 }) {
   return (
     <div>
@@ -36,8 +40,8 @@ function NavColumn({
       <ul className="mt-3 space-y-2.5">
         {items.map((project) => (
           <li key={project.id}>
-            <a
-              href={`#${project.id}`}
+            <Link
+              href={`${basePath}#${project.id}`}
               className="group block rounded-lg border border-transparent px-3 py-2 text-foreground no-underline transition-colors hover:border-border hover:bg-card-hover"
             >
               <span className="text-sm font-medium group-hover:text-accent">
@@ -46,7 +50,7 @@ function NavColumn({
               <span className="mt-0.5 block text-[13px] leading-snug text-foreground-muted">
                 <RichText>{project.headline[lang]}</RichText>
               </span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -70,7 +74,12 @@ export function QuickNav() {
         </p>
         <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
           <NavColumn title={T.featured[lang]} items={featured} lang={lang} />
-          <NavColumn title={T.additional[lang]} items={additional} lang={lang} />
+          <NavColumn
+            title={T.additional[lang]}
+            items={additional}
+            lang={lang}
+            basePath="/projects"
+          />
         </div>
       </div>
     </section>

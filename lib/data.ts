@@ -117,6 +117,9 @@ export type Media = {
   width: number;
   height: number;
   caption?: L<string>;
+  /* Text-heavy captures (evaluation comments, logs) — keep at full column
+     width instead of sharing a row, or the text shrinks past reading size. */
+  wide?: boolean;
 };
 
 /* A screenshot that does not exist yet, drawn as the layout it would show.
@@ -1468,6 +1471,50 @@ export const projects: Project[] = [
         "**`Rust`'s ownership helped in numerical code.** Sharing a matrix buffer wrongly got caught at compile time instead of at runtime.",
       ],
     },
+    media: [
+      {
+        src: "/images/ftlr-eval-1.png",
+        alt: {
+          ko: "ft_linear_regression 동료 평가 코멘트 — 125%, Outstanding",
+          en: "ft_linear_regression peer-evaluation comment — 125%, Outstanding",
+        },
+        width: 2040,
+        height: 552,
+        caption: {
+          ko: "ft_linear_regression 동료 평가 ① — 125% · Outstanding. 경사하강법과 최소제곱 정규방정식, 정규화를 하지 않으면 값이 폭발하는 이유까지 설명한 점을 평가",
+          en: "ft_linear_regression peer evaluation ① — 125% · Outstanding. Credited the walkthrough of gradient descent, the least-squares normal equation, and why values blow up without normalization",
+        },
+        wide: true,
+      },
+      {
+        src: "/images/ftlr-eval-2.png",
+        alt: {
+          ko: "ft_linear_regression 동료 평가 코멘트 — 125%, Outstanding",
+          en: "ft_linear_regression peer-evaluation comment — 125%, Outstanding",
+        },
+        width: 2046,
+        height: 428,
+        caption: {
+          ko: "ft_linear_regression 동료 평가 ② — 125% · Outstanding. 이전보다 idiomatic한 Rust 코드와 이미지로 렌더링한 결과를 평가",
+          en: "ft_linear_regression peer evaluation ② — 125% · Outstanding. Noted more idiomatic Rust than before and results rendered as images",
+        },
+        wide: true,
+      },
+      {
+        src: "/images/matrix-eval.png",
+        alt: {
+          ko: "Enter-the-Matrix 동료 평가 코멘트 — 125%",
+          en: "Enter-the-Matrix peer-evaluation comment — 125%",
+        },
+        width: 2034,
+        height: 1032,
+        caption: {
+          ko: "Enter-the-Matrix 동료 평가 — 125%. 복소수 벡터공간 보너스, 실수 · 복소수를 하나의 제네릭 함수로 처리한 설계, 엣지 케이스 테스트와 펜으로 풀어 보인 설명을 평가",
+          en: "Enter-the-Matrix peer evaluation — 125%. Credited the complex-vector-space bonus, handling real and complex scalars with one generic function, edge-case tests, and explaining the logic worked out by pen",
+        },
+        wide: true,
+      },
+    ],
     links: [
       { label: "GitHub: ftlr", href: "https://github.com/KimTaebin-ai/ftlr" },
       {

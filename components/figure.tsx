@@ -23,7 +23,7 @@ export function Figure({ media, priority = false }: { media: Media; priority?: b
         width={media.width}
         height={media.height}
         priority={priority}
-        sizes="(min-width: 768px) 640px, 100vw"
+        sizes={media.wide ? "(min-width: 1024px) 960px, 100vw" : "(min-width: 768px) 640px, 100vw"}
         className="h-auto w-full rounded-lg border border-border bg-chip"
       />
       {media.caption ? (
@@ -42,9 +42,10 @@ export function Figure({ media, priority = false }: { media: Media; priority?: b
    move the layout. */
 export function FigureGrid({ media }: { media: Media[] }) {
   if (!media.length) return null;
+  const twoUp = media.length > 1 && !media.some((m) => m.wide);
   return (
     <div className="@container">
-      <div className={"grid gap-4 " + (media.length > 1 ? "@3xl:grid-cols-2" : "")}>
+      <div className={"grid gap-6 " + (twoUp ? "@3xl:grid-cols-2" : "")}>
         {media.map((m, i) => (
           <Figure key={m.src} media={m} priority={i === 0} />
         ))}

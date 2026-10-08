@@ -2,7 +2,8 @@
 
 import { Section } from "@/components/section";
 import { ProjectFeatured } from "@/components/project-featured";
-import { ProjectCompact } from "@/components/project-compact";
+import Link from "next/link";
+import { RichText } from "@/components/rich-text";
 import { projects } from "@/lib/data";
 import { useLang } from "@/lib/lang";
 
@@ -14,9 +15,10 @@ const T = {
   },
   additional: { ko: "그 밖의 프로젝트", en: "Additional Projects" },
   additionalNote: {
-    ko: "inPHRPILL과 École 42 · 개인 프로젝트들. 짧게 — 무엇을 만들었고 무엇이 어려웠는지. 펼치면 같은 구조로 이어집니다.",
-    en: "inPHRPILL, plus École 42 and personal projects. The short form — what it is and what was hard. Open one and it unfolds the same way.",
+    ko: "inPHRPILL과 École 42 · 개인 프로젝트들입니다. 각 프로젝트는 별도 페이지에서 대표 프로젝트와 같은 구조로 볼 수 있습니다.",
+    en: "inPHRPILL, plus École 42 and personal projects. Each opens on its own page in the same layout as the featured ones.",
   },
+  viewAll: { ko: "전체 보기 →", en: "View all →" },
 };
 
 export function Projects() {
@@ -41,11 +43,29 @@ export function Projects() {
         <p className="-mt-4 mb-8 max-w-[640px] text-sm leading-relaxed text-foreground-muted md:text-base">
           {T.additionalNote[lang]}
         </p>
-        <div className="grid items-start gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <ul className="grid gap-x-10 gap-y-1 md:grid-cols-2">
           {additional.map((project) => (
-            <ProjectCompact key={project.id} project={project} />
+            <li key={project.id}>
+              <Link
+                href={`/projects#${project.id}`}
+                className="group block rounded-lg border border-transparent px-3 py-2.5 text-foreground no-underline transition-colors hover:border-border hover:bg-card-hover"
+              >
+                <span className="text-sm font-medium group-hover:text-accent md:text-base">
+                  {project.name[lang]}
+                </span>
+                <span className="mt-0.5 block text-[13px] leading-snug text-foreground-muted">
+                  <RichText>{project.headline[lang]}</RichText>
+                </span>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
+        <Link
+          href="/projects"
+          className="mt-8 inline-flex items-center rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground no-underline transition-colors hover:border-foreground"
+        >
+          {T.viewAll[lang]}
+        </Link>
       </Section>
     </>
   );

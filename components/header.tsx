@@ -18,7 +18,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur print:static print:bg-transparent">
       <div className="mx-auto flex max-w-[1080px] items-center justify-between px-6 py-4 md:px-16">
         <Link
-          href="#top"
+          href="/#top"
           className="text-sm font-semibold tracking-tight text-foreground no-underline"
         >
           {profile.nameEn} <span className="text-foreground-muted">· {profile.nameKr}</span>
@@ -27,12 +27,13 @@ export function Header() {
           <ul className="hidden items-center gap-5 sm:flex print:hidden">
             {nav.map((item) => (
               <li key={item.href}>
-                <a
-                  href={item.href}
+                {/* Rooted at "/" so the anchors also work from /projects. */}
+                <Link
+                  href={`/${item.href}`}
                   className="text-sm text-foreground-muted transition-colors hover:text-foreground"
                 >
                   {item.label[lang]}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
